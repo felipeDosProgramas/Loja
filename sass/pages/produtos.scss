@@ -8,14 +8,15 @@
     justify-content: center;
 }
 
+#aBtnLanca {
+    margin: 25%;
+}
+
 #btnPreLanca {
     @include buttons(1.3em, 2px solid $cor-branca, 10px, transparent, 1%,  $cor-branca);
     text-transform: uppercase;
-    margin: 30%;
     &:hover {
         background-color: $cor-branca;
-    }
-    &:hover a {
         color: $cor-preta;
     }
 }

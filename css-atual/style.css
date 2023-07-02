@@ -234,6 +234,10 @@ a {
   justify-content: center;
 }
 
+#aBtnLanca {
+  margin: 25%;
+}
+
 #btnPreLanca {
   font-size: 1.3em;
   border: 2px solid rgb(255, 255, 255);
@@ -245,12 +249,9 @@ a {
   outline: 0;
   transition: 0.5s;
   text-transform: uppercase;
-  margin: 30%;
 }
 #btnPreLanca:hover {
   background-color: rgb(255, 255, 255);
-}
-#btnPreLanca:hover a {
   color: rgb(0, 0, 0);
 }
 
