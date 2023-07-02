@@ -337,17 +337,17 @@ a {
   .nomeProdutoCards {
     margin-top: 10px;
   }
-  #btnPreLanca {
+  #aBtnLanca {
     margin: 32vh;
   }
 }
 @media screen and (max-width: 400px) {
-  #btnPreLanca {
+  #aBtnLanca {
     margin: 26vh;
   }
 }
 @media screen and (max-width: 320px) {
-  #btnPreLanca {
+  #aBtnLanca {
     margin: 24vh;
   }
   #containerCard {
