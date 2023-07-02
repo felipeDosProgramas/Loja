@@ -1,0 +1,155 @@
+#home{
+    margin-bottom: 0.5vh;
+ a {
+    color: $cor-preta;
+    text-transform: none;
+}
+}
+
+#caixaAnuncio {
+    display: grid;
+    justify-content: center;
+    grid-template-areas: 'fotosAnuncio infoAnuncio';
+    gap: 1vw;
+    margin: 10vh 5vw;
+}
+
+#caixaFotoAnuncio{
+    width: 500px;
+}
+
+.imgsAnuncio{
+    width: 100%;
+    height: 700px;
+}
+
+#infoAnuncio {
+    margin-top: 5%;
+    width: 600px;
+}
+
+#nameAnun {
+    font-size: 2em;
+}
+
+#divPreco {
+    margin: 5% 0px;
+    font-size: 1.5em;
+}
+
+.riscoQuebra {
+    width: 100%;
+    height: 1px;
+    background-color: $cor-cinzaClaro;
+    margin-top: 5%;
+}
+
+#size {
+    font-weight: bold;
+    margin: 3% 0px;
+}
+
+.sizeBtn {
+    width: 70px;
+    @include buttons(1.2em, none, 5px, $cor-preta, 6px,  $cor-branca);
+}
+
+#sobrePeca {
+    font-weight: bold;
+    margin: 6% 0px;
+}
+
+#divSaco {
+    margin: 6% 0%;
+}
+
+#btnSaco {
+    @include buttons(1.1em, none, 5px, $cor-preta, 2%,  $cor-branca);
+    text-transform: uppercase;
+    width: 100%;
+    &:hover {
+    box-shadow: 0px 1px 10px 3px $cor-cinza;
+    transition: .5s;
+    }
+}
+
+.btnDireEsquer {
+    visibility: hidden;
+    width: 40px;
+    background-color: $cor-preta;
+    border-radius: 100%;
+    border: none;
+    height: 40px;
+    transition: .5s;
+    position: relative;
+}
+
+#btnEsquerda {
+    background-image: url('../imgs/seta-esquerda.png');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#btnDireita {
+    background-image: url('../imgs/seta-direita.png');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#fotosAnuncio {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#dateLancamento{
+    margin: 2vh 0px;
+    font-size: 1.4em;
+}
+
+@media screen and (max-width: 1115px) {
+    #caixaAnuncio {
+        display: grid;
+        grid-template-areas: 'fotosAnuncio' 
+                             'infoAnuncio';
+    }
+}
+
+@media screen and (max-width:610px){
+    #caixaFotoAnuncio{
+    width: 300px;
+    }
+    .imgsAnuncio{
+        width: 100%;
+        height: auto;
+    }
+    #infoAnuncio {
+        width: 400px;
+    }
+    #description {
+        font-size: 0.9em;
+    }
+}
+
+@media screen and (max-width:407px){
+    #caixaFotoAnuncio{
+    width: 200px;
+    }
+    .imgsAnuncio{
+        width: 100%;
+        height: auto;
+    }
+    #infoAnuncio {
+        width: 300px;
+    }
+    #description {
+        font-size: 0.9em;
+    }
+    #btnSaco {
+        font-size: 1em;
+    }
+    .btnDireEsquer {
+        width: 25px;
+        height: 25px;
+    }
+}

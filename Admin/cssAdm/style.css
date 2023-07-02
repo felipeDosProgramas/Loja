@@ -1,0 +1,220 @@
+/*logoAdm*/
+#logoAdm {
+  width: 180px;
+  height: auto;
+}
+
+/*TELA DE ADM*/
+#caixaCadasters {
+  display: grid;
+  justify-content: center;
+  grid-template-areas: "boxCadaster boxCadaster boxCadaster";
+  margin-top: 5vh;
+  gap: 2vw;
+}
+
+.boxCadaster {
+  border-radius: 5px;
+  padding: 20px;
+  background-color: rgb(0, 0, 0);
+  font-weight: bold;
+}
+
+.nameBoxCadaster {
+  text-align: center;
+  margin-bottom: 2vh;
+  color: rgb(255, 255, 255);
+}
+
+.btnCadaster {
+  font-size: 1em;
+  border: none;
+  border-radius: 2px;
+  background-color: rgb(68, 68, 68);
+  padding: 1vh;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  outline: 0;
+  transition: 0.5s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1vh;
+}
+
+.caixaDadosUser {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2vh;
+  color: rgb(255, 255, 255);
+}
+
+.boxAdm {
+  display: flex;
+  width: 500px;
+  padding: 2vh;
+  border-radius: 5px;
+  background-color: rgb(0, 0, 0);
+}
+
+.nameAdm {
+  margin: 0px;
+  font-size: 1.1em;
+}
+
+.boxDados {
+  margin-left: 15px;
+}
+
+.emailAdm {
+  text-transform: none;
+  font-size: 1em;
+  color: rgb(211, 211, 211);
+}
+
+.btnEditarAdm {
+  display: flex;
+  justify-content: flex-end;
+}
+
+@media screen and (max-width: 466px) {
+  #caixaCadasters {
+    display: grid;
+    justify-content: center;
+    grid-template-areas: "boxCadaster";
+  }
+  .boxAdm {
+    width: 300px;
+  }
+}
+@media screen and (max-width: 312px) {
+  .nameAdm {
+    font-size: 1em;
+  }
+  .emailAdm {
+    font-size: 0.6em;
+  }
+}
+.divBusca {
+  border-radius: 5px;
+  margin: 3%;
+  background-color: rgb(0, 0, 0);
+}
+
+.inputBusca {
+  margin: 1%;
+  height: 20px;
+  border: none;
+  outline: 0;
+  border-radius: 5px;
+  width: 97%;
+  font-size: 1.1em;
+  padding: 3px;
+}
+
+#them {
+  display: grid;
+  grid-template-areas: "cardsConsul cardsConsul cardsConsul ";
+  justify-content: center;
+  gap: 20px;
+}
+
+.cardsConsul {
+  background-color: rgb(0, 0, 0);
+  width: 360px;
+  border-radius: 8px;
+}
+
+.nameConsul {
+  margin: 10px;
+  text-align: center;
+  text-transform: uppercase;
+  color: rgb(255, 255, 255);
+}
+
+.divImgConsul {
+  display: grid;
+  justify-content: center;
+  grid-template-areas: "imgsConsul imgsConsul";
+}
+.divImgConsul img {
+  width: 160px;
+  margin: 10px;
+  border-radius: 5px;
+}
+
+.btnDivConsul {
+  display: grid;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.btns, .btnExclu, .btnConsul {
+  font-size: 1em;
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(68, 68, 68);
+  padding: 6px;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  outline: 0;
+  transition: 0.5s;
+  width: 330px;
+  margin: 5px;
+  text-transform: capitalize;
+}
+
+@media screen and (max-width: 1115px) {
+  .inputBusca {
+    width: 96%;
+    font-size: 1em;
+  }
+  #them {
+    grid-template-areas: "cardsConsul";
+  }
+}
+@media screen and (max-width: 409px) {
+  .inputBusca {
+    width: 96%;
+    font-size: 1em;
+  }
+  #them {
+    grid-template-areas: "cardsConsul";
+  }
+  .cardsConsul {
+    width: 280px;
+  }
+  .btns, .btnConsul, .btnExclu {
+    width: 250px;
+  }
+  .divImgConsul {
+    grid-template-areas: "imgsConsul";
+  }
+}
+#formPrevia {
+  display: grid;
+  justify-content: center;
+}
+
+#serverResponse {
+  margin: 2vh;
+  color: rgb(255, 0, 0);
+  text-align: center;
+}
+
+#inputHi {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4px;
+  background-color: rgb(68, 68, 68);
+}
+
+#dateLanca {
+  margin-top: 1%;
+  text-align: center;
+  font-size: 0.6em;
+}
+
+/*# sourceMappingURL=style.css.map */

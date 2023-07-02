@@ -1,0 +1,24 @@
+#formPrevia {
+    display: grid;
+    justify-content: center;
+}
+
+#serverResponse {
+    margin: 2vh;
+    color: rgb(255, 0, 0);
+    text-align: center;
+}
+
+#inputHi{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4px;
+    background-color: $cor-cinza;
+}
+
+#dateLanca {
+    margin-top: 1%;
+    text-align: center;
+    font-size: 0.6em;
+}

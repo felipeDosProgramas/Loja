@@ -1,0 +1,149 @@
+/*Section*/
+#anuncioPrevias{
+    background-image: url('../imgs/usdrip.jpg');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-color: $cor-preta;
+    display: flex;
+    justify-content: center;
+}
+
+#btnPreLanca {
+    @include buttons(1.3em, 2px solid $cor-branca, 10px, transparent, 1%,  $cor-branca);
+    text-transform: uppercase;
+    margin: 30%;
+    &:hover {
+        background-color: $cor-branca;
+    }
+    &:hover a {
+        color: $cor-preta;
+    }
+}
+
+#containerCard {
+    margin-top: 6vh;
+    display: grid;
+    justify-content: center;
+    flex-wrap: wrap;
+    grid-template-areas: 'cards cards cards cards cards';
+    gap: 3vh;
+}
+
+.cards {
+    padding: 5%;
+    background-color: $cor-branca;
+    text-align: center;
+    width: 230px;
+    font-size: 1em;
+    color: rgb(0, 0, 0);
+}
+
+.imgsCards {
+    width: 230px;
+    margin: auto;
+}
+
+.imgsProduto {
+    width: 230px;
+}
+
+.nomeProdutoCards {
+    margin-top: 15px; 
+}
+
+@media screen and (max-width: 1115px){
+    #containerCard {
+        grid-template-areas: 'cards cards cards cards';
+    }
+}
+
+@media screen and (max-width: 1050px) {
+    #containerCard {
+        grid-template-areas: 'cards cards cards';
+    }
+}
+
+@media screen and (max-width: 775px){
+    #containerCard {
+        grid-template-areas: 'cards cards';
+    }
+    #btnPreLanca {
+    font-size: 1.2em;
+}
+}
+
+@media screen and (max-width: 523px){
+    .cards {
+        width: 200px;
+    }
+    
+    .imgsCards {
+        width: 200px;
+    }
+    
+    .imgsProduto {
+        width: 190px;
+    }
+    
+    .nomeProdutoCards {
+        margin-top: 10px; 
+    }
+    .reSociMenu {
+        width: 98px;
+    }
+}
+
+@media screen and (max-width: 466px){
+    #containerCard {
+        grid-template-areas: 'cards';
+    }
+    .cards {
+        width: 260px;
+    }
+    
+    .imgsCards {
+        width: 260px;
+    }
+    
+    .imgsProduto {
+        width: 250px;
+    }
+    
+    .nomeProdutoCards {
+        margin-top: 10px; 
+    }
+    
+    #btnPreLanca {
+        margin: 32vh;
+    }
+}
+
+@media screen and (max-width: 400px){
+    #btnPreLanca {
+        margin: 26vh;
+    }
+}
+
+@media screen and (max-width: 320px){
+    #btnPreLanca {
+        margin: 24vh;
+    }
+    #containerCard {
+        grid-template-areas: 'cards';
+    }
+    .cards {
+        width: 230px;
+    }
+    
+    .imgsCards {
+        width: 230px;
+    }
+    
+    .imgsProduto {
+        width: 220px;
+    }
+    
+    .nomeProdutoCards {
+        margin-top: 10px; 
+    }
+}

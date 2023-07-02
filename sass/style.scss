@@ -1,0 +1,20 @@
+//cores
+@import "./colors/colors.scss";
+//fim-cores
+
+//Funções
+@import "./mixins/mixins.scss";
+
+//Priemira página do site
+@import "./pages/video.scss";
+
+// Componentes usado em tudo
+@import "./pages/usadoEmTodasAsPgns.scss";
+
+@import "./pages/produtos.scss";
+@import "./pages/galeriaProduct.scss";
+
+@import "./pages/entre.scss";
+@import "./pages/pagePrevia.scss";
+
+@import "./pages/telaCarrinho.scss";

@@ -1,0 +1,69 @@
+
+#containerCardLancamento {
+    margin-top: 6vh;
+    display: grid;
+    justify-content: center;
+    grid-template-areas: 'cardsLanca cardsLanca cardsLanca cardsLanca cardsLanca';
+    gap: 3vh;
+}
+
+.cardsLanca {
+    padding: 5%;
+    background-color: $cor-branca;
+    text-align: center;
+    width: 230px;
+    font-size: 1em;
+    color: $cor-preta;
+}
+
+.divImgsLanca {
+    width: 230px;
+    margin: auto;
+}
+
+.imgsCardsLanca {
+    width: 230px;
+}
+
+.nomeCardsLanca {
+    margin-top: 15px; 
+}
+
+@media screen and (max-width: 1115px){
+    #containerCardLancamento {
+        grid-template-areas: 'cardsLanca cardsLanca cardsLanca cardsLanca';
+    }
+}
+
+@media screen and (max-width: 1050px) {
+    #containerCardLancamento {
+        grid-template-areas: 'cardsLanca cardsLanca cardsLanca';
+    }
+}
+
+@media screen and (max-width: 775px){
+    #containerCardLancamento {
+        grid-template-areas: 'cardsLanca cardsLanca';
+    }
+}
+
+@media screen and (max-width: 523px){
+    .cardsLanca {
+        width: 200px;
+    }
+    
+    .divImgsLanca {
+        width: 200px;
+        margin: auto;
+    }
+    
+    .imgsCardsLanca {
+        width: 190px;
+    }
+}
+
+@media screen and (max-width: 466px){
+    #containerCardLancamento {
+        grid-template-areas: 'cardsLanca';
+    }
+}

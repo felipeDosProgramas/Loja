@@ -1,0 +1,127 @@
+#sectionCar {
+    display: grid;
+    grid-template-areas: 'contentCar divTotal';
+    margin: 4%;
+    gap: 25px;
+}
+
+#contentCar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.contents {
+    box-shadow: 0px 1px 10px 3px $cor-cinzaClaro;
+    border-radius: 6px;
+    display: flex;
+    margin-bottom: 28px;
+}
+
+.imgCar {
+    margin: 7px;
+    width: 130px;
+}
+
+.divInfoContent {
+    margin: 10px;
+}
+
+.nameContent {
+    font-size: 1.5em;
+}
+
+#texts {
+    font-size: 0.8em;
+    text-transform: capitalize;
+    color: rgb(139, 139, 139);
+    font-weight: bold;
+}
+
+.infoCor {
+    @extend #texts;
+    margin-right: 5px;
+}
+
+.infoTam {
+    @extend #texts;
+}
+
+.divExcluAdd {
+    margin-top: 45%;
+    display: flex;
+}
+
+.divAdd {
+    margin-left: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+#btnExcluAdd {
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    background-color: $cor-preta;
+    color: $cor-branca;
+    border: none;
+}
+
+.removeQtd {
+    @extend #btnExcluAdd;
+}
+
+.addQtd {
+    @extend #btnExcluAdd;
+}
+
+.qtd {
+    margin: 0px 10px;
+}
+
+.btnExcluCar {
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    color: $cor-branca;
+    background-color: $vermelho;
+    cursor: pointer;
+    &:hover {
+        background-color: red;
+    }
+}
+
+.divPreco {
+    width: 100px;
+    display: flex;
+    justify-content: flex-end;
+    background-color: rgb(0, 255, 255);
+}
+
+#divTotalCar {
+    height: 110px;
+    box-shadow: 0px 1px 10px 3px $cor-cinzaClaro;
+    border-radius: 6px;
+    padding: 15px;
+}
+
+#titleTotal {
+    font-size: 1.4em;
+    text-transform: capitalize;
+    font-weight: bold;
+}
+
+#textTotal {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    text-transform: capitalize;
+    color: $cor-cinza;
+    font-weight: bold;
+}
+
+#btnContCompra {
+    @include buttons(1.2em, none, 5px, $cor-preta, 6px,  $cor-branca);
+    width: 100%;
+    margin: 15px 0px;
+}

@@ -1,0 +1,785 @@
+#video {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+}
+
+#entre {
+  font-size: xx-large;
+  font-weight: bold;
+  margin-top: 300px;
+  position: relative;
+  text-align: center;
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+  font-family: Arial, Helvetica, sans-serif;
+  text-transform: uppercase;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+}
+
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(0, 0, 0);
+  border-radius: 10px;
+}
+
+/*HEADER*/
+#header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2vh 3vw;
+}
+
+#faixa {
+  font-size: 0.9em;
+  color: rgb(255, 255, 255);
+  background-color: rgb(0, 0, 0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5vh;
+  height: 20px;
+}
+
+#logo {
+  margin-left: 33px;
+  width: 180px;
+  height: auto;
+}
+
+#redes {
+  padding: 0vh 3vw;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+  border-bottom: 1px solid rgb(211, 211, 211);
+  height: 30px;
+}
+
+#buscaCar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* MENU INTERATIVO */
+.btnsMenu {
+  border: none;
+  background-color: rgb(255, 255, 255);
+}
+
+#navegacao {
+  display: block;
+  visibility: hidden;
+  overflow-y: hidden;
+  height: 0%;
+  position: absolute;
+  width: 350px;
+  top: 0px;
+  left: 0;
+  background-color: rgb(0, 0, 0);
+  color: rgb(0, 0, 0);
+  transition: 0.5s;
+  z-index: 1000;
+}
+
+#divUl {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.quebra {
+  width: 100%;
+  height: 1px;
+  background-color: rgb(255, 255, 255);
+}
+
+#ulMenu li {
+  list-style: none;
+  margin: 10px;
+  font-size: 1.2em;
+}
+
+#navegacao.active {
+  visibility: visible;
+  overflow-y: auto;
+  display: block;
+  height: 100vh;
+  position: fixed;
+}
+
+#navegacao.desative {
+  display: block;
+  visibility: hidden;
+  overflow-y: hidden;
+}
+
+#btnNav {
+  margin: 15px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+#btnMenu2 {
+  background-color: rgb(0, 0, 0);
+}
+
+/*Buscas*/
+.btnBusca {
+  cursor: pointer;
+  border: none;
+  background-color: rgb(255, 255, 255);
+  margin: 5px;
+}
+
+/*FIM HEADER*/
+/*FOOTER*/
+#footer {
+  border-top: 1px solid rgb(211, 211, 211);
+  display: grid;
+  justify-content: center;
+  margin-top: 10%;
+  padding: 3%;
+  color: rgb(0, 0, 0);
+}
+
+#pix {
+  height: 25px;
+}
+
+#copright {
+  display: grid;
+  justify-content: center;
+  color: rgb(211, 211, 211);
+}
+
+#pag {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+#adm1 {
+  margin-top: 0.5vh;
+  color: rgb(0, 0, 0);
+  text-align: center;
+}
+
+/*FIM FOOTER*/
+/*GRID REDES SOCIAIS MENU*/
+#redesSociaisMenu {
+  display: grid;
+  justify-content: center;
+  grid-template-areas: "reSociMenu reSociMenu reSociMenu";
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 6%;
+}
+
+.reSociMenu {
+  width: 116px;
+  cursor: pointer;
+  border: 1px solid rgb(255, 255, 255);
+  background-color: rgb(0, 0, 0);
+  padding: 5px;
+}
+
+.imgsPagamentos {
+  width: 70px;
+}
+
+@media screen and (max-width: 523px) {
+  #logo {
+    width: 130px;
+  }
+  #navegacao {
+    width: 300px;
+  }
+  .reSociMenu {
+    width: 100px;
+    cursor: pointer;
+    border: 1px solid rgb(255, 255, 255);
+    background-color: black;
+    padding: 5px;
+  }
+}
+@media screen and (max-width: 312px) {
+  #logo {
+    width: 100px;
+  }
+}
+/*Section*/
+#anuncioPrevias {
+  background-image: url("../imgs/usdrip.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-color: rgb(0, 0, 0);
+  display: flex;
+  justify-content: center;
+}
+
+#btnPreLanca {
+  font-size: 1.3em;
+  border: 2px solid rgb(255, 255, 255);
+  border-radius: 10px;
+  background-color: transparent;
+  padding: 1%;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  outline: 0;
+  transition: 0.5s;
+  text-transform: uppercase;
+  margin: 30%;
+}
+#btnPreLanca:hover {
+  background-color: rgb(255, 255, 255);
+}
+#btnPreLanca:hover a {
+  color: rgb(0, 0, 0);
+}
+
+#containerCard {
+  margin-top: 6vh;
+  display: grid;
+  justify-content: center;
+  flex-wrap: wrap;
+  grid-template-areas: "cards cards cards cards cards";
+  gap: 3vh;
+}
+
+.cards {
+  padding: 5%;
+  background-color: rgb(255, 255, 255);
+  text-align: center;
+  width: 230px;
+  font-size: 1em;
+  color: rgb(0, 0, 0);
+}
+
+.imgsCards {
+  width: 230px;
+  margin: auto;
+}
+
+.imgsProduto {
+  width: 230px;
+}
+
+.nomeProdutoCards {
+  margin-top: 15px;
+}
+
+@media screen and (max-width: 1115px) {
+  #containerCard {
+    grid-template-areas: "cards cards cards cards";
+  }
+}
+@media screen and (max-width: 1050px) {
+  #containerCard {
+    grid-template-areas: "cards cards cards";
+  }
+}
+@media screen and (max-width: 775px) {
+  #containerCard {
+    grid-template-areas: "cards cards";
+  }
+  #btnPreLanca {
+    font-size: 1.2em;
+  }
+}
+@media screen and (max-width: 523px) {
+  .cards {
+    width: 200px;
+  }
+  .imgsCards {
+    width: 200px;
+  }
+  .imgsProduto {
+    width: 190px;
+  }
+  .nomeProdutoCards {
+    margin-top: 10px;
+  }
+  .reSociMenu {
+    width: 98px;
+  }
+}
+@media screen and (max-width: 466px) {
+  #containerCard {
+    grid-template-areas: "cards";
+  }
+  .cards {
+    width: 260px;
+  }
+  .imgsCards {
+    width: 260px;
+  }
+  .imgsProduto {
+    width: 250px;
+  }
+  .nomeProdutoCards {
+    margin-top: 10px;
+  }
+  #btnPreLanca {
+    margin: 32vh;
+  }
+}
+@media screen and (max-width: 400px) {
+  #btnPreLanca {
+    margin: 26vh;
+  }
+}
+@media screen and (max-width: 320px) {
+  #btnPreLanca {
+    margin: 24vh;
+  }
+  #containerCard {
+    grid-template-areas: "cards";
+  }
+  .cards {
+    width: 230px;
+  }
+  .imgsCards {
+    width: 230px;
+  }
+  .imgsProduto {
+    width: 220px;
+  }
+  .nomeProdutoCards {
+    margin-top: 10px;
+  }
+}
+#home {
+  margin-bottom: 0.5vh;
+}
+#home a {
+  color: rgb(0, 0, 0);
+  text-transform: none;
+}
+
+#caixaAnuncio {
+  display: grid;
+  justify-content: center;
+  grid-template-areas: "fotosAnuncio infoAnuncio";
+  gap: 1vw;
+  margin: 10vh 5vw;
+}
+
+#caixaFotoAnuncio {
+  width: 500px;
+}
+
+.imgsAnuncio {
+  width: 100%;
+  height: 700px;
+}
+
+#infoAnuncio {
+  margin-top: 5%;
+  width: 600px;
+}
+
+#nameAnun {
+  font-size: 2em;
+}
+
+#divPreco {
+  margin: 5% 0px;
+  font-size: 1.5em;
+}
+
+.riscoQuebra {
+  width: 100%;
+  height: 1px;
+  background-color: rgb(211, 211, 211);
+  margin-top: 5%;
+}
+
+#size {
+  font-weight: bold;
+  margin: 3% 0px;
+}
+
+.sizeBtn {
+  width: 70px;
+  font-size: 1.2em;
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(0, 0, 0);
+  padding: 6px;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  outline: 0;
+  transition: 0.5s;
+}
+
+#sobrePeca {
+  font-weight: bold;
+  margin: 6% 0px;
+}
+
+#divSaco {
+  margin: 6% 0%;
+}
+
+#btnSaco {
+  font-size: 1.1em;
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(0, 0, 0);
+  padding: 2%;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  outline: 0;
+  transition: 0.5s;
+  text-transform: uppercase;
+  width: 100%;
+}
+#btnSaco:hover {
+  box-shadow: 0px 1px 10px 3px rgb(68, 68, 68);
+  transition: 0.5s;
+}
+
+.btnDireEsquer {
+  visibility: hidden;
+  width: 40px;
+  background-color: rgb(0, 0, 0);
+  border-radius: 100%;
+  border: none;
+  height: 40px;
+  transition: 0.5s;
+  position: relative;
+}
+
+#btnEsquerda {
+  background-image: url("../imgs/seta-esquerda.png");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#btnDireita {
+  background-image: url("../imgs/seta-direita.png");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#fotosAnuncio {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#dateLancamento {
+  margin: 2vh 0px;
+  font-size: 1.4em;
+}
+
+@media screen and (max-width: 1115px) {
+  #caixaAnuncio {
+    display: grid;
+    grid-template-areas: "fotosAnuncio" "infoAnuncio";
+  }
+}
+@media screen and (max-width: 610px) {
+  #caixaFotoAnuncio {
+    width: 300px;
+  }
+  .imgsAnuncio {
+    width: 100%;
+    height: auto;
+  }
+  #infoAnuncio {
+    width: 400px;
+  }
+  #description {
+    font-size: 0.9em;
+  }
+}
+@media screen and (max-width: 407px) {
+  #caixaFotoAnuncio {
+    width: 200px;
+  }
+  .imgsAnuncio {
+    width: 100%;
+    height: auto;
+  }
+  #infoAnuncio {
+    width: 300px;
+  }
+  #description {
+    font-size: 0.9em;
+  }
+  #btnSaco {
+    font-size: 1em;
+  }
+  .btnDireEsquer {
+    width: 25px;
+    height: 25px;
+  }
+}
+.boxForm {
+  color: rgb(255, 255, 255);
+  display: grid;
+  justify-content: center;
+  text-align: center;
+}
+
+#senhaEsque {
+  margin-top: 5px;
+  font-size: 0.6em;
+}
+
+.formEntre {
+  width: 513px;
+  margin: 50px 0px;
+  padding: 20px;
+  background-color: rgb(0, 0, 0);
+  border-radius: 10px;
+}
+
+.inputs {
+  height: 3.5vh;
+  border: none;
+  outline: 0;
+  border-radius: 5px;
+  font-size: 1em;
+  width: 98%;
+  margin: 6px 0px;
+}
+
+.btnSub {
+  font-size: 1.2em;
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(68, 68, 68);
+  padding: 6px;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  outline: 0;
+  transition: 0.5s;
+  width: 100%;
+  margin: 6px 0px 10px 0px;
+  text-transform: uppercase;
+}
+.btnSub:hover {
+  transition: 0.5s;
+  box-shadow: 0px 1px 10px 3px rgb(68, 68, 68);
+}
+
+@media screen and (max-width: 542px) {
+  .formEntre {
+    width: 330px;
+  }
+}
+@media screen and (max-width: 385px) {
+  .formEntre {
+    width: 280px;
+  }
+}
+@media screen and (max-width: 330px) {
+  .formEntre {
+    width: 250px;
+  }
+}
+#containerCardLancamento {
+  margin-top: 6vh;
+  display: grid;
+  justify-content: center;
+  grid-template-areas: "cardsLanca cardsLanca cardsLanca cardsLanca cardsLanca";
+  gap: 3vh;
+}
+
+.cardsLanca {
+  padding: 5%;
+  background-color: rgb(255, 255, 255);
+  text-align: center;
+  width: 230px;
+  font-size: 1em;
+  color: rgb(0, 0, 0);
+}
+
+.divImgsLanca {
+  width: 230px;
+  margin: auto;
+}
+
+.imgsCardsLanca {
+  width: 230px;
+}
+
+.nomeCardsLanca {
+  margin-top: 15px;
+}
+
+@media screen and (max-width: 1115px) {
+  #containerCardLancamento {
+    grid-template-areas: "cardsLanca cardsLanca cardsLanca cardsLanca";
+  }
+}
+@media screen and (max-width: 1050px) {
+  #containerCardLancamento {
+    grid-template-areas: "cardsLanca cardsLanca cardsLanca";
+  }
+}
+@media screen and (max-width: 775px) {
+  #containerCardLancamento {
+    grid-template-areas: "cardsLanca cardsLanca";
+  }
+}
+@media screen and (max-width: 523px) {
+  .cardsLanca {
+    width: 200px;
+  }
+  .divImgsLanca {
+    width: 200px;
+    margin: auto;
+  }
+  .imgsCardsLanca {
+    width: 190px;
+  }
+}
+@media screen and (max-width: 466px) {
+  #containerCardLancamento {
+    grid-template-areas: "cardsLanca";
+  }
+}
+#sectionCar {
+  display: grid;
+  grid-template-areas: "contentCar divTotal";
+  margin: 4%;
+  gap: 25px;
+}
+
+#contentCar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.contents {
+  box-shadow: 0px 1px 10px 3px rgb(211, 211, 211);
+  border-radius: 6px;
+  display: flex;
+  margin-bottom: 28px;
+}
+
+.imgCar {
+  margin: 7px;
+  width: 130px;
+}
+
+.divInfoContent {
+  margin: 10px;
+}
+
+.nameContent {
+  font-size: 1.5em;
+}
+
+#texts, .infoTam, .infoCor {
+  font-size: 0.8em;
+  text-transform: capitalize;
+  color: rgb(139, 139, 139);
+  font-weight: bold;
+}
+
+.infoCor {
+  margin-right: 5px;
+}
+
+.divExcluAdd {
+  margin-top: 45%;
+  display: flex;
+}
+
+.divAdd {
+  margin-left: 10px;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+#btnExcluAdd, .addQtd, .removeQtd {
+  width: 25px;
+  height: 25px;
+  text-align: center;
+  background-color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  border: none;
+}
+
+.qtd {
+  margin: 0px 10px;
+}
+
+.btnExcluCar {
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  color: rgb(255, 255, 255);
+  background-color: rgb(255, 70, 70);
+  cursor: pointer;
+}
+.btnExcluCar:hover {
+  background-color: red;
+}
+
+.divPreco {
+  width: 100px;
+  display: flex;
+  justify-content: flex-end;
+  background-color: rgb(0, 255, 255);
+}
+
+#divTotalCar {
+  height: 110px;
+  box-shadow: 0px 1px 10px 3px rgb(211, 211, 211);
+  border-radius: 6px;
+  padding: 15px;
+}
+
+#titleTotal {
+  font-size: 1.4em;
+  text-transform: capitalize;
+  font-weight: bold;
+}
+
+#textTotal {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+  text-transform: capitalize;
+  color: rgb(68, 68, 68);
+  font-weight: bold;
+}
+
+#btnContCompra {
+  font-size: 1.2em;
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(0, 0, 0);
+  padding: 6px;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  outline: 0;
+  transition: 0.5s;
+  width: 100%;
+  margin: 15px 0px;
+}
+
+/*# sourceMappingURL=style.css.map */
