@@ -680,11 +680,11 @@ a {
   display: grid;
   grid-template-areas: "caixaFoto divPreco";
   margin-bottom: 28px;
-  gap: 15px;
 }
 
 .caixaFoto {
   display: flex;
+  gap: 20px;
 }
 
 .imgCar {
