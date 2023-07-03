@@ -67,7 +67,6 @@
             <div class="nameAdm">Caio Santos</div>
             <div class="emailAdm">caiossantos4321@gmail.com</div>
             </div>
-        
             </div>
         </div>
     </section>
