@@ -12,7 +12,7 @@
 }
 
 .contents {
-    padding: 10px;
+    padding: 20px;
     box-shadow: 0px 1px 10px 3px $cor-cinzaClaro;
     border-radius: 6px;
     display: grid;
@@ -82,12 +82,8 @@
 }
 
 .btnExcluCar {
-    border: none;
-    border-radius: 5px;
+    @include buttons(1em, none, 5px, $vermelho, auto, $cor-branca);
     text-align: center;
-    color: $cor-branca;
-    background-color: $vermelho;
-    cursor: pointer;
     &:hover {
         background-color: red;
     }
