@@ -35,6 +35,21 @@
     justify-content: flex-end;
 }
 
+#contentsDados {
+    padding: 2vh;
+    width: 500px;
+    margin: auto;
+    color: $cor-branca;
+    background-color: $cor-preta;
+    border-radius: 5px;
+}
+
+.divInfos {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 3vh;
+}
 
 @media screen and (max-width: 466px){
         .boxAdm {

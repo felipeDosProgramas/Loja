@@ -828,6 +828,22 @@ a {
   justify-content: flex-end;
 }
 
+#contentsDados {
+  padding: 2vh;
+  width: 500px;
+  margin: auto;
+  color: rgb(255, 255, 255);
+  background-color: rgb(0, 0, 0);
+  border-radius: 5px;
+}
+
+.divInfos {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 3vh;
+}
+
 @media screen and (max-width: 466px) {
   .boxAdm {
     width: 300px;
