@@ -1,0 +1,55 @@
+
+.caixaDadosUser {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2vh;
+    color: $cor-branca;
+}
+
+.boxAdm {
+    display: flex;
+    width: 500px;
+    padding: 2vh;
+    border-radius: 5px;
+    background-color: $cor-preta;
+}
+
+.nameAdm {
+    margin: 0px;
+    font-size: 1.1em;
+}
+
+.boxDados {
+    margin-left: 15px;
+}
+
+.emailAdm {
+    text-transform: none;
+    font-size: 1em;
+    color: $cor-cinzaClaro;
+}
+
+.btnEditarAdm {
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+@media screen and (max-width: 466px){
+        .boxAdm {
+            
+            width: 300px;
+        }
+}
+
+
+@media screen and (max-width: 312px){
+    
+.nameAdm {
+    font-size: 1em;
+}
+.emailAdm {
+    font-size: 0.6em;
+}
+}
