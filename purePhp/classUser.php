@@ -1,6 +1,7 @@
 <?php	
+	require_once "interfaceUsers.php";
 	
-	class ClassUsuario{
+	class ClassUsuario implements usuarios{
 		
 		private $Nome;
 		private $Telefone;
@@ -29,7 +30,7 @@
 			fputcsv($logFile, $errors);
 		}
 		
-		private function connect(){
+		protected function connect(){
 			try{
 				$Connection = new PDO('mysql:dbname=loja;host=localhost;charset=UTF8','root','');
 				return $Connection;
@@ -68,9 +69,11 @@
 				if($email and $senha){
 					return "select Email, Password, codAcess, UserType from usuarios where Email = $email and Password = $senha";
 				}
-				return throw new Exception("adulterado");
+				throw new Exception("adulterado");
+				
 				}catch(Exception $c){
 				$this->saveErrorsInLogFile(["Login",$c]);
+				return false;
 			}
 		}
 		
@@ -89,35 +92,37 @@
 				$this->Email = $arg1;
 				$this->Senha = $arg2;
 				break;
-				
+
 			}
 		}
 		
 		public function ExecQuery(){
 			try{				
 				if($conn = $this->connect()){
-					switch($this->praq){
-						case "Regis":									
-						$ele = $this->praRegistra($conn);	
-						forEach($conn->query($ele) as $cada){
-							$x[] = $cada;
-						}
-						return $x;
-						break;
-						case "LogarNe":
-						$ele = $this->praLogar($conn);
-						$toRe = [];
-						forEach($conn->query($ele) as $cada){
-							$toRe[] = $cada['codAcess'];
-							$toRe[] = $cada['UserType'];
-						}						
-						return $toRe;												
-						break;
-						default:
-						
-							return false;
-						break;
-					}			
+				switch($this->praq){
+				case "Regis":									
+				$ele = $this->praRegistra($conn);	
+				forEach($conn->query($ele) as $cada){
+					$x[] = $cada;
+				}
+				return $x;
+				break;
+				case "LogarNe":
+				$ele = $this->praLogar($conn);
+				if($ele){
+					$toRe = [];
+					forEach($conn->query($ele) as $cada){
+						$toRe[] = $cada['codAcess'];
+						$toRe[] = $cada['UserType'];
+					}						
+					return $toRe;												
+				}
+				break;
+				default:
+				
+				return false;
+				break;
+				}			
 				}
 				throw new Exception("falhou na hora de roda tudao");
 			}
