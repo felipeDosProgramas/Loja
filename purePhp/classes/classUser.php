@@ -1,7 +1,8 @@
 <?php	
-	require_once "interfaceUsers.php";
+	require_once "HorizontalHierarchy.php";
 	
 	class ClassUsuario implements usuarios{
+		use connection;
 		
 		private $Nome;
 		private $Telefone;
@@ -25,22 +26,8 @@
 			return str_shuffle($this->getNome().$this->getEmail().$this->getTelefone().str_shuffle($this->getEmail()));
 		}
 		
-		private function saveErrorsInLogFile($errors){
-			$logFile = fopen("../Admin/errors.csv", "a");
-			fputcsv($logFile, $errors);
-		}
+
 		
-		protected function connect(){
-			try{
-				$Connection = new PDO('mysql:dbname=loja;host=localhost;charset=UTF8','root','');
-				return $Connection;
-			}
-			catch(PDOException $Exception){
-				$this->saveErrorsInLogFile(array("in Connection",$Exception->getCode(), $Exception->getMessage()));
-				return false;
-			}
-			
-		}
 		
 		private function praRegistra($sql){			
 			try{
@@ -92,37 +79,37 @@
 				$this->Email = $arg1;
 				$this->Senha = $arg2;
 				break;
-
+				
 			}
 		}
 		
 		public function ExecQuery(){
 			try{				
 				if($conn = $this->connect()){
-				switch($this->praq){
-				case "Regis":									
-				$ele = $this->praRegistra($conn);	
-				forEach($conn->query($ele) as $cada){
-					$x[] = $cada;
-				}
-				return $x;
-				break;
-				case "LogarNe":
-				$ele = $this->praLogar($conn);
-				if($ele){
-					$toRe = [];
-					forEach($conn->query($ele) as $cada){
-						$toRe[] = $cada['codAcess'];
-						$toRe[] = $cada['UserType'];
-					}						
-					return $toRe;												
-				}
-				break;
-				default:
-				
-				return false;
-				break;
-				}			
+					switch($this->praq){
+						case "Regis":									
+						$ele = $this->praRegistra($conn);	
+						forEach($conn->query($ele) as $cada){
+							$x[] = $cada;
+						}
+						return $x;
+						break;
+						case "LogarNe":
+						$ele = $this->praLogar($conn);
+						if($ele){
+							$toRe = [];
+							forEach($conn->query($ele) as $cada){
+								$toRe[] = $cada['codAcess'];
+								$toRe[] = $cada['UserType'];
+							}						
+							return $toRe;												
+						}
+						break;
+						default:
+						
+						return false;
+						break;
+					}			
 				}
 				throw new Exception("falhou na hora de roda tudao");
 			}
