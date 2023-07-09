@@ -1,6 +1,8 @@
 <?php	
+	require_once "HorizontalHierarchy.php";
 	
-	class ClassUsuario{
+	class ClassUsuario implements usuarios{
+		use connection;
 		
 		private $Nome;
 		private $Telefone;
@@ -24,22 +26,8 @@
 			return str_shuffle($this->getNome().$this->getEmail().$this->getTelefone().str_shuffle($this->getEmail()));
 		}
 		
-		private function saveErrorsInLogFile($errors){
-			$logFile = fopen("../Admin/errors.csv", "a");
-			fputcsv($logFile, $errors);
-		}
+
 		
-		private function connect(){
-			try{
-				$Connection = new PDO('mysql:dbname=loja;host=localhost;charset=UTF8','root','');
-				return $Connection;
-			}
-			catch(PDOException $Exception){
-				$this->saveErrorsInLogFile(array("in Connection",$Exception->getCode(), $Exception->getMessage()));
-				return false;
-			}
-			
-		}
 		
 		private function praRegistra($sql){			
 			try{
@@ -68,9 +56,11 @@
 				if($email and $senha){
 					return "select Email, Password, codAcess, UserType from usuarios where Email = $email and Password = $senha";
 				}
-				return throw new Exception("adulterado");
+				throw new Exception("adulterado");
+				
 				}catch(Exception $c){
 				$this->saveErrorsInLogFile(["Login",$c]);
+				return false;
 			}
 		}
 		
@@ -106,16 +96,18 @@
 						break;
 						case "LogarNe":
 						$ele = $this->praLogar($conn);
-						$toRe = [];
-						forEach($conn->query($ele) as $cada){
-							$toRe[] = $cada['codAcess'];
-							$toRe[] = $cada['UserType'];
-						}						
-						return $toRe;												
+						if($ele){
+							$toRe = [];
+							forEach($conn->query($ele) as $cada){
+								$toRe[] = $cada['codAcess'];
+								$toRe[] = $cada['UserType'];
+							}						
+							return $toRe;												
+						}
 						break;
 						default:
 						
-							return false;
+						return false;
 						break;
 					}			
 				}
