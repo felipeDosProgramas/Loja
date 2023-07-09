@@ -5,7 +5,7 @@
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>MYX | Produtos</title>
+		<title>MYX | Carrinho</title>
 		<link rel="icon" type="image/x-icon" href="./imgs/Oficial.gif">
 		<link rel="stylesheet" href="./css-atual/style.css">
 		<script src="./js/index.js" defer></script>
@@ -151,7 +151,8 @@
 		<section id="sectionCar">
 			<div id="contentCar">
 				<div class="contents">
-					<div class="divProductCar"><a href=""><img src="./imgs/casaco.webp" alt="" class="imgCar"></a></div>
+					<div class="caixaFoto">
+						<div class="divProductCar"><a href=""><img src="./imgs/casaco.webp" alt="" class="imgCar"></a></div>
 					<div class="divInfoContent">
 						<div class="divNameContent">
 							<span class="nameContent">Casaco Azul</span>
@@ -167,40 +168,45 @@
 							</div>
 						</div>
 					</div>
+					</div>
 					<div class="divPreco">
 						<div class="preco">R$500,00</>
 					</div>
 				</div>
 			</div>
 			<div class="contents">
-				<div class="divProductCar"><a href=""><img src="./imgs/casaco.webp" alt="" class="imgCar"></a></div>
-				<div class="divInfoContent">
-                    <div class="divNameContent">
-						<span class="nameContent">Casaco Azul</span>
-						<br>
-						<span class="infoCor">Cor: Azul</span><span class="infoTam">Tamanho: M</span>
-					</div>
-                    <div class="divExcluAdd">
-						<button class="btnExcluCar">Excluir Produto</button>
-						<div class="divAdd">
-							<button class="removeQtd">--</button>
-							<span class="qtd">1</span>
-							<button class="addQtd">+</button>
-						</div>
-					</div>
-				</div>
-				<div class="divPreco">
-                    <div class="precoProduct">R$500,00</>
-				</div>
-			</div>
+                <div class="caixaFoto">
+                    <div class="divProductCar"><a href=""><img src="./imgs/casaco.webp" alt="" class="imgCar"></a></div>
+                    <div class="divInfoContent">
+                        <div class="divNameContent">
+                            <span class="nameContent">Casaco Azul</span>
+                            <br>
+                            <span class="infoCor">Cor: Azul</span><span class="infoTam">Tamanho: M</span>
+                        </div>
+                        <div class="divExcluAdd">
+                            <button class="btnExcluCar">Excluir Produto</button>
+                            <div class="divAdd">
+                                <button class="removeQtd">--</button>
+                                <span class="qtd">1</span>
+                                <button class="addQtd">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               
+                <div class="divPreco">
+                    <div class="preco">R$500,00</>
+                    </div>
+                </div>
+            </div>
+        </div>
 		</div>
-	</div>
-	<div id="divTotalCar">
-		<span id="titleTotal">Total</span>
-		<br>
-		<div id="textTotal">total: <div id="divValu">R$<span id="precoTotal">0,00</span></div></div>
-		<button id="btnContCompra">Continuar</button>
-	</div>
+		<div id="divTotalCar">
+            <div id="titleTotal">Total</div>
+            <div class="textInfo">total: <div class="divValu">R$<span id="precoTotal">0,00</span></div></div>
+            <div class="textInfo">Frete: <div class="divValu">R$<span id="precoTotal">0,00</span></div></div>
+            <button id="btnContCompra">Continuar</button>
+        </div>
 </section>
 <footer id="footer">
 	<div id="pag">
