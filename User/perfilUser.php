@@ -1,3 +1,12 @@
+<?php
+	if(isset($_COOKIE['sessionId'])){
+		$x = require "../Admin/phpAdm/isAdm.php"	;
+		if($x[0]['UserType'] == "1"){
+			header("location: ../Admin");
+		}
+		
+	?>
+	
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -64,8 +73,8 @@
             <div class="boxAdm">
             <div class="imgAdm"><img src="../imgs/perfil.png" alt=""></div>
             <div class="boxDados">
-            <div class="nameAdm">Caio Santos</div>
-            <div class="emailAdm">caiossantos4321@gmail.com</div>
+            <div class="nameAdm"><?= $x[0]['Name'] ?></div>
+            <div class="emailAdm"><?= $x[0]['Email'] ?></div>
             </div>
             </div>
         </div>
@@ -88,3 +97,12 @@
     </footer>
 </body>
 </html>
+
+
+
+	<?php 
+		
+		}else{
+		header("location: ../entre.php");		
+	} 
+?>		
