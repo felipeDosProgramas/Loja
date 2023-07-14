@@ -97,7 +97,8 @@
 							<span id="cores">							
 								<input type="number" min="0" max="50" id="qtdCores" required>
 							</span>
-							<label for="disponivelSimNao">disponivel</label><input type="checkbox" name="disponibilidade" value="sim" id="disponivelSimNao">
+							<br>
+							<label for="disponivelSimNao">disponivel</label><input type="checkbox" name="disponibilidade" id="disponivelSimNao">
 						</div>
 						<button id="semiSubmit">definir quantidades</button>
 					</div>					
