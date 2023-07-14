@@ -1,0 +1,25 @@
+textarea {
+    resize: none;
+}
+
+#semiSubmit {
+  @include buttonsAdm(1em, none, 5px, $azulCheck, 6px, $cor-branca);
+  text-transform: uppercase;
+  width: 100%;
+}
+
+#newClass {
+    @extend #semiSubmit;
+    margin: 10px 0px;
+}
+
+#tiraClass {
+    @include buttonsAdm(1em, none, 5px, $vermelho, 6px, $cor-branca);
+    text-transform: uppercase;
+    width: 100%;
+    margin: 0px 0px 10px;
+}
+
+#description {
+    height: 10vh;
+}

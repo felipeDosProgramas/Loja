@@ -547,6 +547,19 @@ a {
   font-size: 0.6em;
 }
 
+.divCheckbox {
+  margin: 10px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.checkboxForm {
+  width: 15px;
+  height: 15px;
+  margin-bottom: 6px;
+}
+
 .formEntre {
   width: 513px;
   margin: 50px 0px;
@@ -563,6 +576,12 @@ a {
   font-size: 1em;
   width: 98%;
   margin: 6px 0px;
+}
+
+.formsSelectsAndDate {
+  margin-top: 1%;
+  text-align: center;
+  font-size: 0.8em;
 }
 
 .btnSub {
