@@ -88,7 +88,9 @@
 								<button class="btnsCria" id="newClass">criar classificação</button><br>
 								<button class="btnsCria" id="tiraClass">excluir classificacão</button>						
 							</div>
-							<span id="respostasServidor"></span>
+							<span id="respostasServidor">
+							
+							</span>
 						</div>
 						<div id="dadosSecundarios">
 							<!--<label for="qtdTamanhos">quantos tamanhos</label>-->

@@ -182,6 +182,32 @@ textarea {
   width: 100%;
 }
 
+#sendNomeClass {
+  font-size: 0.9em;
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(50, 88, 255);
+  padding: 4px;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  outline: 0;
+  transition: 0.5s;
+  text-transform: uppercase;
+}
+
+#cancelNomeClass {
+  font-size: 0.9em;
+  border: none;
+  border-radius: 5px;
+  background-color: red;
+  padding: 4px;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  outline: 0;
+  transition: 0.5s;
+  text-transform: uppercase;
+}
+
 #newClass {
   margin: 10px 0px;
 }
@@ -203,6 +229,12 @@ textarea {
 
 #description {
   height: 10vh;
+}
+
+#divInputClassi {
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
 
 /*# sourceMappingURL=style.css.map */

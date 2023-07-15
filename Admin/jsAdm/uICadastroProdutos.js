@@ -68,15 +68,15 @@ function entreComAsQtdsDeRoupas(){
 	let precoPorTamanho = document.getElementsByClassName('precoPorTamanho')
 	let aux;
 	let principal = document.createElement('div');
-	principal.setAttribute('class','defineQtds');
+	principal.classList.add('defineQtds');
 	
 	for(let x = 0;x != inputsCores.length;x++){
 		for(let y = 0;y != inputsTamanhos.length;y++){
 			aux = document.createElement('input');
-			aux.setAttribute('type','number');
-			aux.setAttribute('placeholder', "quantidade de "+inputsTamanhos[y].value+"'s da cor "+ nomesCores[x].value);
+			aux.type = 'number'
+			aux.placeholder = `quantidade de ${inputsTamanhos[y].value} s da cor ${nomesCores[x].value}`
 			aux.setAttribute('class', "inputsSettarQtds");	
-			aux.setAttribute('id',inputsTamanhos[y].value+"e_e"+inputsCores[x].value+"e_e"+precoPorTamanho[y].value )
+			aux.id = `,${inputsTamanhos[y].value}e_e${inputsCores[x].value}e_e${precoPorTamanho[y].value}`
 			aux.required = true
 			principal.append(aux)
 			aux = null;			
@@ -127,7 +127,7 @@ async function enviaOsDados(){
 }
 function criaElementOption(cmOq){
 	let elmnt = document.createElement('option')
-	elmnt.setAttribute('value',cmOq);
+	elmnt.value = cmOq
 	elmnt.innerText = cmOq;	
 	return elmnt;
 	
@@ -166,17 +166,22 @@ async function tiraClassificacao(){
 	mostraProUsuario("escolha uma classificação para excluir");
 }
 function criaOption(){
+	let divInputClassi = document.createElement('div');
+	divInputClassi.id = 'divInputClassi'
 	let inputNomeClassi = document.createElement('input');	
 	let sendNomeClass = document.createElement('button');
 	let cancelNomeClass = document.createElement('button');
 	
-	inputNomeClassi.setAttribute('type','text');
-	inputNomeClassi.setAttribute('placeholder','Nome da classificação');
-	inputNomeClassi.setAttribute('id','inputCriadorClassis');	
+	inputNomeClassi.type = 'text'
+	inputNomeClassi.placeholder = 'Nome da classificação'
+	inputNomeClassi.id = 'inputCriadorClassis'
+	inputNomeClassi.classList.add('inputs')
 	
 	sendNomeClass.innerText = "enviar";
+	sendNomeClass.id = 'sendNomeClass'
 	cancelNomeClass.innerText = "cancelar";
-	
+	cancelNomeClass.id = 'cancelNomeClass'
+
 	sendNomeClass.addEventListener('click', ()=>{
 		if(inputNomeClassi.value != ""){
 			let ele = criaElementOption(inputNomeClassi.value);
@@ -197,7 +202,8 @@ function criaOption(){
 		sendNomeClass.remove();
 		cancelNomeClass.remove();
 	});
-	criadorClassis.append(inputNomeClassi, sendNomeClass, cancelNomeClass);
+	divInputClassi.append(inputNomeClassi, sendNomeClass, cancelNomeClass)
+	criadorClassis.appendChild(divInputClassi);
 }
 /*-----------------------------------------------------------------------*/
 

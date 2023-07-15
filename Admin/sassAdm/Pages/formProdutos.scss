@@ -8,6 +8,15 @@ textarea {
   width: 100%;
 }
 
+#sendNomeClass {
+  @include buttonsAdm(0.9em, none, 5px, $azulCheck, 4px, $cor-branca);
+  text-transform: uppercase;
+}
+
+#cancelNomeClass {
+    @include buttonsAdm(0.9em, none, 5px, $vermelho, 4px, $cor-branca);
+    text-transform: uppercase;
+}
 #newClass {
     @extend #semiSubmit;
     margin: 10px 0px;
@@ -22,4 +31,10 @@ textarea {
 
 #description {
     height: 10vh;
+}
+
+#divInputClassi {
+    display: flex;
+    align-items: center;
+    gap: 4px;
 }
