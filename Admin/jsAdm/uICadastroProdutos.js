@@ -75,7 +75,7 @@ function entreComAsQtdsDeRoupas(){
 			aux = document.createElement('input');
 			aux.type = 'number'
 			aux.placeholder = `quantidade de ${inputsTamanhos[y].value} s da cor ${nomesCores[x].value}`
-			aux.setAttribute('class', "inputsSettarQtds");	
+			aux.className('class', "inputsSettarQtds");	
 			aux.id = `,${inputsTamanhos[y].value}e_e${inputsCores[x].value}e_e${precoPorTamanho[y].value}`
 			aux.required = true
 			principal.append(aux)
