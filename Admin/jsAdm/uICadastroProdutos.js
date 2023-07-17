@@ -1,3 +1,5 @@
+import {criaClassificacao, tiraClassificacao, criaElementOption, lerClassis, criaOption} from "./classisManager.js";
+
 let newClass = document.getElementById('newClass');
 let criadorClassis = document.getElementById('criadorClassis');
 let tirarClass = document.getElementById('tiraClass');
@@ -7,12 +9,13 @@ let qtdTamanhos = document.getElementById('qtdTamanhos');
 let cores = document.getElementById('cores');
 let tamanhos = document.getElementById('tamanhos');
 let semiSubmit = document.getElementById('semiSubmit');
-
+let form = document.querySelector('form');
 let dadosSecundarios = document.getElementById('dadosSecundarios');
 let nomePeca = document.getElementById('nome');
 let descricaoPeca = document.getElementById('description');
 let selectClassis = document.getElementById('classificacoes');
 let disponibilidade = document.getElementById('disponivelSimNao');
+
 /*-----------------------------------------------------------------------*/
 function getTodosOsDados(){
 	let dados = {};
@@ -32,8 +35,9 @@ function getTodosOsDados(){
 	ids.forEach((cada)=>{
 		aux.push(cada.split('e_e'))
 	});
+	
 	for(i = 0;i!= inputsSettarQtds.length;i++){
-		dados.quantidades.push([aux[i][0], aux[i][2], aux[i][3], document.getElementById(ids[i]).value])
+		dados.quantidades.push([aux[i][0], aux[i][1], aux[i][2], document.getElementById(ids[i]).value])
 	}
 	// console.log(dados.quantidades)
 	// console.log(ids)
@@ -68,14 +72,14 @@ function entreComAsQtdsDeRoupas(){
 	let precoPorTamanho = document.getElementsByClassName('precoPorTamanho')
 	let aux;
 	let principal = document.createElement('div');
-	principal.classList.add('defineQtds');
+	principal.setAttribute('class','defineQtds');
 	
 	for(let x = 0;x != inputsCores.length;x++){
 		for(let y = 0;y != inputsTamanhos.length;y++){
 			aux = document.createElement('input');
-			aux.type = 'number'
-			aux.placeholder = `quantidade de ${inputsTamanhos[y].value} s da cor ${nomesCores[x].value}`
-			aux.className('class', "inputsSettarQtds");	
+			aux.setAttribute('type','number');
+			aux.setAttribute('placeholder', "quantidade de "+inputsTamanhos[y].value+"'s da cor "+ inputsCores[x].value);
+			aux.setAttribute('class', "inputsSettarQtds");	
 			aux.id = `,${inputsTamanhos[y].value}e_e${inputsCores[x].value}e_e${precoPorTamanho[y].value}`
 			aux.required = true
 			principal.append(aux)
@@ -89,122 +93,29 @@ function entreComAsQtdsDeRoupas(){
 	semiSubmit.addEventListener('click',enviaOsDados);	
 }
 
-// function enviaOsDados(){
-	
-	// let dados = getTodosOsDados();
-	// dados = JSON.stringify(dados);	
-	// let promessa = new Promisse((resolve) => {
-
-	// let xhr = new XMLHttpRequest();
-	
-	// xhr.onreadystatechange = () =>{
-		// if(this.readyState == 4 && this.status == 200){
-			// let texto = resolve(xhr.responseText)
-		// }
-	// }					
-	// })
-	
-	// xhr.open("POST", "phpAdm/backCadastroProduto.php");
-	// xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");	
-	// xhr.send("dados="+dados);
-// }
-
 
 async function enviaOsDados(){       	
 	let dados = getTodosOsDados();
 	dados = JSON.stringify(dados);	
-
-		let promessa = new Promise((resolve) => {
-			let req = new XMLHttpRequest();
-			req.open("POST","phpAdm/backCadastroProduto.php");
-			req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");	
-			req.onload = () => {resolve(req.responseText)};
-			req.send("dados="+dados);
-		});	
-		
-		let exemp = await promessa	
-		console.log(exemp)	
-}
-function criaElementOption(cmOq){
-	let elmnt = document.createElement('option')
-	elmnt.value = cmOq
-	elmnt.innerText = cmOq;	
-	return elmnt;
 	
-	//Cria o <option> dentro do <select>
-}
-async function lerClassis(){
-	let resp = await fetch("phpAdm/setGetclassis.php?oq=soLer");
-	let resposta = await resp.text();
-	resposta = resposta.split(",");
-	// console.log(resposta)
-	selectClassis.innerHTML = "<option value='' selected disabled hidden>classificação</option>";
-	resposta.forEach((cada)=>{
-		if(cada != ""){
-			
-			selectClassis.append(
-				criaElementOption(cada)
-			)
-		}
-	})
-	//faz a leitura do arquivo e pra cada item cria uma <option>
+	let formData = new FormData(form);
 	
-}
-async function criaClassificacao(doque){	
-	let server = await fetch("phpAdm/setGetclassis.php?oq=criaOutro&cmEsse="+doque);
-	mostraProUsuario("criado com sucesso");
-	lerClassis();
-}
-async function tiraClassificacao(){
-	let qual = selectClassis.value;
-	if(qual != ""){
-		let server = await fetch("phpAdm/setGetclassis.php?oq=tiraEsse&esse="+qual);
-		lerClassis();
-		mostraProUsuario("excluido com sucesso");
+	formData.append('dados', dados);	
+	let promessa = new Promise((resolve) => {
+		let req = new XMLHttpRequest();
+		req.open("POST","phpAdm/backCadastroProduto.php");
+		req.onload = () => {resolve(req.responseText)};
+		req.send(formData);
+	});	
+	
+	let exemp = await promessa	
+	if(exemp == "foiCertin"){			
+		//mostrar que foi sem erros
 		return;
 	}
-	mostraProUsuario("escolha uma classificação para excluir");
+	//mostrar que deu algo errado
 }
-function criaOption(){
-	let divInputClassi = document.createElement('div');
-	divInputClassi.id = 'divInputClassi'
-	let inputNomeClassi = document.createElement('input');	
-	let sendNomeClass = document.createElement('button');
-	let cancelNomeClass = document.createElement('button');
-	
-	inputNomeClassi.type = 'text'
-	inputNomeClassi.placeholder = 'Nome da classificação'
-	inputNomeClassi.id = 'inputCriadorClassis'
-	inputNomeClassi.classList.add('inputs')
-	
-	sendNomeClass.innerText = "enviar";
-	sendNomeClass.id = 'sendNomeClass'
-	cancelNomeClass.innerText = "cancelar";
-	cancelNomeClass.id = 'cancelNomeClass'
 
-	sendNomeClass.addEventListener('click', ()=>{
-		if(inputNomeClassi.value != ""){
-			let ele = criaElementOption(inputNomeClassi.value);
-			selectClassis.append(ele);		
-			criaClassificacao(inputNomeClassi.value);
-			
-			inputNomeClassi.remove();
-			sendNomeClass.remove();
-			cancelNomeClass.remove();
-			return;
-		}
-		mostraProUsuario("insira um nome válido");
-	});	
-	cancelNomeClass.addEventListener('click', ()=>{
-		newClass.style.display = 'initial';
-		
-		inputNomeClassi.remove();
-		sendNomeClass.remove();
-		cancelNomeClass.remove();
-	});
-	divInputClassi.append(inputNomeClassi, sendNomeClass, cancelNomeClass)
-	criadorClassis.appendChild(divInputClassi);
-}
 /*-----------------------------------------------------------------------*/
 
 lerClassis();
@@ -216,8 +127,8 @@ newClass.addEventListener('click', ()=>{
 tirarClass.addEventListener('click', tiraClassificacao);
 
 qtdTamanhos.addEventListener('keydown', (e)=> {
-    e = e || window.event;
-    let code = e.which || e.keyCode;
+	e = e || window.event;
+	let code = e.which || e.keyCode;
 	let range = Number(qtdTamanhos.value);
 	let praPor = "";
 	let antesDosInputs = tamanhos.innerHTML;
@@ -233,8 +144,8 @@ qtdTamanhos.addEventListener('keydown', (e)=> {
 
 
 qtdCor.addEventListener('keydown', (e) =>{
-    e = e || window.event;
-    let code = e.which || e.keyCode;
+	e = e || window.event;
+	let code = e.which || e.keyCode;
 	let range = Number(qtdCor.value);
 	let praPor = "";
 	let antesDosInputs = cores.innerHTML;
@@ -248,4 +159,9 @@ qtdCor.addEventListener('keydown', (e) =>{
 	}
 });
 
-semiSubmit.addEventListener('click', entreComAsQtdsDeRoupas);	
+form.addEventListener('submit', e => {e.preventDefault()});
+
+semiSubmit.addEventListener('click', entreComAsQtdsDeRoupas);		
+
+
+export {mostraProUsuario, selectClassis};
