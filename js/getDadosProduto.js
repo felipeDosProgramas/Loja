@@ -6,7 +6,8 @@ let btnEsquerda = document.getElementById('btnEsquerda')
 let mudaImg = document.getElementById('mudaImg')
 //-------------------------------------------------
 let arrayImg = sessionStorage.getItem('imgs');
-	arrayImg = JSON.parse(arrayImg)
+	arrayImg = JSON.parse(arrayImg);
+	// console.log(arrayImg)
 
 //-------------------------------------------------
 let number = 0;

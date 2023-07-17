@@ -15,6 +15,7 @@ let nomePeca = document.getElementById('nome');
 let descricaoPeca = document.getElementById('description');
 let selectClassis = document.getElementById('classificacoes');
 let disponibilidade = document.getElementById('disponivelSimNao');
+let oInputDeSeleciona = document.getElementById('muitasFotosSimNao')
 
 /*-----------------------------------------------------------------------*/
 function getTodosOsDados(){
@@ -39,10 +40,7 @@ function getTodosOsDados(){
 	for(i = 0;i!= inputsSettarQtds.length;i++){
 		dados.quantidades.push([aux[i][0], aux[i][1], aux[i][2], document.getElementById(ids[i]).value])
 	}
-	// console.log(dados.quantidades)
-	// console.log(ids)
-	// console.log(precos)
-	// console.log(aux)
+	
 	return dados;
 }
 
@@ -72,15 +70,15 @@ function entreComAsQtdsDeRoupas(){
 	let precoPorTamanho = document.getElementsByClassName('precoPorTamanho')
 	let aux;
 	let principal = document.createElement('div');
-	principal.setAttribute('class','defineQtds');
+	principal.className = 'defineQtds';
 	
 	for(let x = 0;x != inputsCores.length;x++){
 		for(let y = 0;y != inputsTamanhos.length;y++){
 			aux = document.createElement('input');
-			aux.setAttribute('type','number');
-			aux.setAttribute('placeholder', "quantidade de "+inputsTamanhos[y].value+"'s da cor "+ inputsCores[x].value);
-			aux.setAttribute('class', "inputsSettarQtds");	
-			aux.id = `,${inputsTamanhos[y].value}e_e${inputsCores[x].value}e_e${precoPorTamanho[y].value}`
+			aux.type = 'number';
+			aux.placeholder = `quantidade de ${inputsTamanhos[y].value}'s da cor ${inputsCores[x].value}`;
+			aux.className = "inputsSettarQtds";	
+			aux.id = `${inputsTamanhos[y].value}e_e${inputsCores[x].value}e_e${precoPorTamanho[y].value}`
 			aux.required = true
 			principal.append(aux)
 			aux = null;			
@@ -115,6 +113,24 @@ async function enviaOsDados(){
 	}
 	//mostrar que deu algo errado
 }
+
+function setPicCores(){
+	if(oInputDeSeleciona.checked == 'true'){
+		let inputsCores = document.getElementsByClassName('inputCores');
+		let qntsCores = inputsCores.length;		
+		
+		if(qntsCores != 0){
+			for(let x = 0; x != qntsCores;x++){
+				let input = document.createElement('input');
+				input.type = 'file';
+				input.name = `${inputsCores[x].value}[]`;
+				input.multiple = true;
+				form.append(input);
+			}		
+		}
+	}
+}
+
 
 /*-----------------------------------------------------------------------*/
 
@@ -164,4 +180,4 @@ form.addEventListener('submit', e => {e.preventDefault()});
 semiSubmit.addEventListener('click', entreComAsQtdsDeRoupas);		
 
 
-export {mostraProUsuario, selectClassis};
+export {mostraProUsuario, selectClassis, form, oInputDeSeleciona};

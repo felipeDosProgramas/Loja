@@ -1,13 +1,15 @@
 <?php
 	require_once "classCadastro.php";
-	
-	$dados = json_decode($_POST['dados']);	
-	print_r($dados->quantidades);
-	
-	$produtos = new produtos();	
-	
-	$produtos->setPrimarios($dados->nome, $dados->classificacao, $dados->disponibilidade);
-	$produtos->setSecundarios($dados->quantidades);
-	
-	$produtos->sendThem();
+	if(isset($_POST['dados'])){
+		$dados = json_decode($_POST['dados']);		
+		// print_r($dados);
+		$produtos = new produtos();			
+		$produtos->setDescricao($dados->descricao);
+		$produtos->setPrimarios($dados->nome, $dados->classificacao, $dados->disponibilidade);
+		$produtos->setSecundarios($dados->quantidades);
+		
+		$produtos->sendThem();
+		
+		
+	}
 ?>

@@ -1,10 +1,9 @@
 
 (async ()=>{
 	let response = await fetch("purePhp/TinyCar.php?oq=tudao");
-	let texto = await response.text();
-	
-console.log(texto)
-	
+	let texto = await response.text();	
+	let carrinho = JSON.parse(texto);
+	console.log(carrinho)
 	
 })();
 

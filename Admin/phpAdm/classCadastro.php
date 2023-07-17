@@ -14,6 +14,9 @@
 			$this->generateCodProduto();
 		}
 		
+		function sendRespToFront($oq){
+			echo $oq;
+		}
 		private function generateCodProduto(){
 			$this->codProduto = bin2hex(random_bytes(5));
 		}
@@ -43,34 +46,46 @@
 			(`Name`, `Classificacao`, `Disponivel`, `codProduto`) 
 			VALUES
 			($this->nome, $this->classificacao, $this->disponibilidade, $this->codProduto)");
-			$conn->execute();
+			return $conn->execute();
 		}
 		
 		private function sendSecundarios($conn){
+			$forQuery = [];
 			foreach($this->quantidades as $cada){
-				$forQuery = [];
-				
 				$forQuery[] = $conn->quote($cada[0]);
 				$forQuery[] = $conn->quote($cada[1]);
 				$forQuery[] = $conn->quote($cada[2]);
 				$forQuery[] = intval($cada[3]);
-				
 				$query = "INSERT INTO `produtossecundario` 
-				(`Cor`, `Tamanho`, `Preco`, `Qtd`, `ParentId`) 
+				(`Tamanho`, `Cor`, `Preco`, `Qtd`, `ParentId`) 
 				VALUES 
-				($forQuery[1], $forQuery[0], $forQuery[2], $forQuery[3], $this->codProduto);";
-				$conn->query($query);
-				
-				unset($forQuery);
-			}				
+				($forQuery[0], $forQuery[1], $forQuery[2], $forQuery[3], $this->codProduto);";			
+				if(!$conn->query($query)){
+					return false;
+				}					
+				$forQuery = array_diff($forQuery, $forQuery);				
+			}
+			return true;
 		}
-		
+		private function setPictures(){
+			$caminhoDasNovasFotos = "../../imgs/Produtos/$this->codProduto";
+			if(mkdir($caminhoDasNovasFotos)){
+				for($x = 0;$x != count($_FILES['arquivos']['name']);$x++){
+					move_uploaded_file($_FILES['arquivos']['tmp_name'][$x],$caminhoDasNovasFotos."/".$_FILES['arquivos']['name'][$x]);
+				}
+				return true;
+			}
+			return false;
+		}
 		
 		function sendThem(){
 			$conn = $this->connect();
 			
-			$this->sendPrimarios($conn);
-			$this->sendSecundarios($conn);
+			if($this->setPictures() and $this->sendPrimarios($conn) and $this->sendSecundarios($conn)){
+				echo "foiCertin";
+				return;
+			}
+			echo "foiNnMan";
 		}
 	}	
 ?>

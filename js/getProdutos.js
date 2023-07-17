@@ -1,10 +1,14 @@
 let container = document.getElementById('containerCard');
 
 class toFront{
-	constructor(all){
+	constructor(all){		
 		this.all = 	JSON.parse(all);
-		console.log(this.all);
-		this.generateThem();
+		console.log(this.all)
+		if(typeof this.all === 'object'){
+			this.generateThem();
+			return;
+		}
+		this.treatIt();
 	}
 	card(nome, codProduto, preco, linkImg){
 		let cardProdA = document.createElement			('a');
@@ -19,7 +23,7 @@ class toFront{
 		imgContainerProd.setAttribute	('class', 'imgsCards');
 		nomeProd.setAttribute			('class', 'nomeProdutoCards');
 		precoProd.setAttribute			('class', 'precoCards');
-		
+		// console.log(codProduto)
 		imgProd.src = "imgs/Produtos/"+codProduto+"/"+linkImg;
 		imgContainerProd.append(imgProd);
 		
@@ -34,8 +38,20 @@ class toFront{
 	generateThem(){
 		let aux = 0;
 		this.all.nomes.forEach(() => {
-			this.card(this.all.nomes[aux], this.all.codProdutos[aux], this.all.precos[aux], this.all.linksFotos[aux]);
+			this.card(this.all.nomes[aux], this.all.codProduto[aux], this.all.precos[aux][0][0], this.all.linksFotos[aux]);
+			aux++
 		});
+	}
+	
+	treatIt(){
+		switch(this.all){
+			case "0 produtos cadastrados":
+			console.log("bah")
+			break;
+			
+			default:
+			console.log(this.all)
+		}
 	}
 }
 
@@ -43,10 +59,8 @@ class toFront{
 
 (async ()=>{
 	let response = await fetch("purePhp/produtos.php?oq=todos");
-	let produtos = await response.text();
-	
-	produtos = new toFront(produtos);
-	
+	let produtos = await response.text();	
+	produtos = new toFront(produtos);	
 })();
 /*
 	
