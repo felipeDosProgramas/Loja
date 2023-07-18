@@ -2,6 +2,7 @@ let email = document.getElementById('email');
 let senha = document.getElementById('senha');
 let entrarBotao = document.getElementById('butao');
 
+
 function getDados(){    
 	
 	let dados = {				
@@ -17,11 +18,11 @@ function verificaTipoLogin(resposta){
 		break;
 		case "true":
 		mudaCorBordaInput("green");
-		window.location.reload();
+		window.location.reload(true);
 		break;
 		case "éadm":
 		mudaCorBordaInput("olive");
-		window.location.reload();
+		window.location.reload(true);
 		break;
 		default:
 		mudaCorBordaInput("red")
@@ -52,11 +53,13 @@ async function sendDados(oque){
 	verificaTipoLogin(resposta);
 }
 
-function envio(){
+function envio(){	
 	let dados = getDados();
 	dados = JSON.stringify(dados);
 	sendDados(dados);	
 }
+
+
 function teclouEnter(e) {
 	e.preventDefault()
     e = e || window.event;
