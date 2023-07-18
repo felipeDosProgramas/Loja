@@ -14,10 +14,10 @@
 			if($resposta){						
 				setcookie("sessionId",$resposta[0],strtotime('+30 days'),"/");
 				if($resposta[1] == 0){
-					header("location: ../");
+					echo "true";
 					exit();
 				}			
-				header("location: ../Admin");
+				echo "éadm";
 				exit();		
 			}
 			echo "false";		
