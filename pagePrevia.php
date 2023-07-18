@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="./css-atual/style.css">
     <script src="./js/index.js" defer></script>
     <script src="./js/mudancaImg.js" defer></script>
-    <script src="./js/checkUserLogin.js" defer></script>
 </head>
 
 <body>
