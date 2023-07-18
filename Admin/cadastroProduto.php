@@ -16,7 +16,7 @@
 			<link rel="stylesheet" href="../css-atual/style.css">
 			<link rel="stylesheet" href="./cssAdm/style.css">
 			<script src="../js/index.js" defer></script>
-			<script src="jsAdm/uICadastroProdutos.js" defer></script>		
+			<script src="jsAdm/uICadastroProdutos.js" type="module" defer></script>		
 		</head>
 		<body>
 		<header id="header">
@@ -92,20 +92,28 @@
 							
 							</span>
 						</div>
+						<div id="boxTabelas">
+							<div id="infoTabelas">
+								<div id="qualCor">
+									<div class="boxsTh" id="divCores">Cor</div>									
+								</div>
+								<div id="divQtdCor">
+									<div class="boxsTh" id="divQtdCor">qtd de cor</div>
+								</div>
+								<div id="divTamanhos">
+									<div class="boxsTh" id="divTam">Tamanhos</div>
+								</div> 
+							</div>
+							<div id="inputsInfoTable">
+							
+								</div>
+
+							<button class="btnsCria" id="definCorTam">+</button>
+						</div>
 						<div id="dadosSecundarios">
-							<!--<label for="qtdTamanhos">quantos tamanhos</label>-->
-							<span id="tamanhos">							
-								<input class="inputs" placeholder="Quantidade de tamanhos" type="number" min="0" max="50" id="qtdTamanhos" required>
-							</span>
-							<br>
-							<!--<label for="qtdCores">quantas cores</label>-->
-							<span id="cores">							
-								<input class="inputs" placeholder="Quantidade de cores" type="number" min="0" max="50" id="qtdCores" required>
-							</span>
-							<br>
 							<div class="divCheckbox"><label for="disponivelSimNao">disponivel</label><input type="checkbox" class="checkboxForm" name="disponibilidade" id="disponivelSimNao"></div>
 						</div>
-						<button id="semiSubmit">definir quantidades</button>
+						<button class="btnsCria" id="semiSubmit">definir quantidades</button>
 					</div>
 					</div>					
 				</section>

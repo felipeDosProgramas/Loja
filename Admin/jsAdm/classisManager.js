@@ -78,4 +78,6 @@ function criaOption(){
 	});
 	criadorClassis.append(inputNomeClassi, sendNomeClass, cancelNomeClass);
 }
+
+
 export {criaClassificacao, tiraClassificacao, criaElementOption, lerClassis, criaOption};
