@@ -19,16 +19,26 @@ class queryHandler{
 		let linkEditBtn = document.createElement("a")
 		let images = [];
 		
-		ImgsRoutes.forEach(() => {			
-			images.push(document.createElement("img"))
-		})
-		
-		images.forEach((imagi) => {
-			imagi.setAttribute("class","imgsConsul")
-			imagi.setAttribute("alt", ImgsRoutes[this.y])
-			imagi.setAttribute("src", ImgsRoutes[this.y++])
+		if(Array.isArray(ImgsRoutes)){
+			ImgsRoutes.forEach(() => {			
+				images.push(document.createElement("img"))
+			})
 			
-		})
+			images.forEach((imagi) => {
+				imagi.setAttribute("class","imgsConsul")
+				imagi.setAttribute("alt", ImgsRoutes[this.y])
+				imagi.setAttribute("src", ImgsRoutes[this.y++])			
+			})
+			
+			
+			images.forEach((cada)=>{
+				imageSlot.append(cada)
+			})
+			images.forEach((cadaBtn)=>{
+				imageSlot.append(cadaBtn)
+			})
+			
+		}
 		this.y = 0;
 		
 		
@@ -47,13 +57,6 @@ class queryHandler{
 		
 		linkEditBtn.append(editBtn)
 		btnSlot.append(linkEditBtn);
-		
-		images.forEach((cada)=>{
-			imageSlot.append(cada)
-		})
-		images.forEach((cadaBtn)=>{
-			imageSlot.append(cadaBtn)
-		}),
 		
 		card.append(nameSlot, imageSlot, btnSlot);
 		this.elmnts.push(card);		
@@ -94,13 +97,21 @@ async function consulta (){
 		// console.log("o servidor retornou: \n"+exemp)
 		
 		if(Array.isArray(exemp)){		
-			console.log(exemp)
-			exemp.forEach((iten) 	=> {Dataslan.push(iten[0].split("!-!"))})			
-			console.log(Dataslan)
-			for(query.x = 0;query.x != Dataslan.length;query.x++){						
+			exemp.forEach((iten) => {
+				if(Array.isArray(iten)){
+				Dataslan.push(iten[0].split("!-!"));
+				return;
+				}
+				Dataslan.push(iten.split("!-!"));
+			})
+			// console.log(Dataslan)
+			// console.log(exemp)
+			
+			for(query.x = 0;query.x != Dataslan.length;query.x++){		
+				// console.log(Dataslan[query.x])
 				oLinkPraEdita = "!-!"+Dataslan[query.x][1]+"!-!"+Dataslan[query.x][2]+"!-!";
-				console.log(oLinkPraEdita)
-				query.setEstruPrev(exemp[query.x], Dataslan[query.x][1],oLinkPraEdita);			
+				// console.log(oLinkPraEdita)
+				query.setEstruPrev(exemp[query.x], Dataslan[query.x][1],oLinkPraEdita);								
 			}		
 			// console.groupEnd()
 			query.putInScreen()
@@ -130,4 +141,4 @@ busca.addEventListener('input', () => {
 			console.log("consultou")
 		}
 	}, 500)
-})						
+})										
