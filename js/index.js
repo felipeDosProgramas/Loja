@@ -2,13 +2,13 @@
 
 const btnMenu = document.getElementById('btnMenu');
 const btnMenu2 = document.getElementById('btnMenu2');
+const navigation = document.getElementById('navegacao')
 let coo = document.cookie;
 let temOuNaoElemento = !!document.getElementById("logouOuNao");	
 let ulMenu = document.getElementById("ulMenu");
 let elemento;
 
 btnMenu.addEventListener('click', function () {
-    const navigation = document.getElementById('navegacao')
     navigation.classList.toggle('active')
     navigation.classList.remove('desative')
     const divUl = document.getElementById('divUl');
@@ -17,7 +17,6 @@ btnMenu.addEventListener('click', function () {
 })
 
 btnMenu2.addEventListener('click', function () {
-    const navigation = document.getElementById('navegacao')
     navigation.classList.add('desative')
     navigation.classList.remove('active')
 })
