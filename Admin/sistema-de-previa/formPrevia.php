@@ -55,7 +55,7 @@
     <section>
         <div class="caixaForm">
             <div class="boxForm">
-            <form action="BackCadastro.php" method="POST" class="formEntre" enctype='multipart/form-data'>
+            <form action="phpPrevias/BackCadastro.php" method="POST" class="formEntre" enctype='multipart/form-data'>
                 <h2 class="hCadaster">cadastro de prévia</h2>
                 <input type="text" name="nome" placeholder="Nome da peça" class="inputs" required>
                 <label for=""class="formsSelectsAndDate">Data de lançamento</label>

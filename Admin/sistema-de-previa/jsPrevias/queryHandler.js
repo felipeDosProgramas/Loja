@@ -10,13 +10,13 @@ class queryHandler{
 		this.sec = container.parentNode;
 	}
 	
-	setEstruPrev(ImgsRoutes, Name){
+	setEstruPrev(ImgsRoutes, Name, linkPraEdit){
 		let card = document.createElement("div")
 		let nameSlot = document.createElement("div")
 		let imageSlot = document.createElement("div")
 		let btnSlot = document.createElement("div")
 		let editBtn = document.createElement("button")
-		let btnExclu = document.createElement("button")
+		let linkEditBtn = document.createElement("a")
 		let images = [];
 		
 		ImgsRoutes.forEach(() => {			
@@ -26,34 +26,38 @@ class queryHandler{
 		images.forEach((imagi) => {
 			imagi.setAttribute("class","imgsConsul")
 			imagi.setAttribute("alt", ImgsRoutes[this.y])
-			imagi.setAttribute("src", "../arquivos/"+ImgsRoutes[this.y++])
+			imagi.setAttribute("src", ImgsRoutes[this.y++])
 			
 		})
 		this.y = 0;
 		
 		
-		card.setAttribute("class","cardsConsul");
-		nameSlot.setAttribute("class", "nameConsul");
-		imageSlot.setAttribute("class","divImgConsul");
-		btnSlot.setAttribute("class", "btnDivConsul");
-		editBtn.setAttribute("class", "btnConsul");
-		btnExclu.setAttribute("class", "btnExclu")
+		card.className = "cardsConsul";
+		nameSlot.className = "nameConsul";
+		imageSlot.className = "divImgConsul";
+		btnSlot.className = "btnDivConsul";
+		editBtn.className = "btnConsul";		
+		
+		
+		linkEditBtn.href = "editPrev.php?qual=" + linkPraEdit;
+		
+		
 		editBtn.innerHTML = "<img src='../../imgs/edit.png'>";
-		btnExclu.innerHTML = "<img src='../../imgs/trash-can.png'>"
 		nameSlot.innerText = Name;
 		
-		btnSlot.append(editBtn);
+		linkEditBtn.append(editBtn)
+		btnSlot.append(linkEditBtn);
+		
 		images.forEach((cada)=>{
 			imageSlot.append(cada)
 		})
-		btnSlot.append(btnExclu);
 		images.forEach((cadaBtn)=>{
 			imageSlot.append(cadaBtn)
 		}),
 		
 		card.append(nameSlot, imageSlot, btnSlot);
 		this.elmnts.push(card);		
-	
+		
 	}
 	
 	putInScreen(){
@@ -74,30 +78,29 @@ class queryHandler{
 }
 
 async function consulta (){   
-    if(busca.value != ""){
+	if(busca.value != ""){
 		let promessa = new Promise((resolve) => {
 			let req = new XMLHttpRequest();
-			req.open("GET","filesHandler.php?q="+busca.value);
+			req.open("GET","phpPrevias/filesHandler.php?q="+busca.value);
 			req.onload = () => {resolve(req.responseText)};
 			req.send();
 		});	
 		
 		let exemp = await promessa	
-		let Dataslan = [];
-		
+		let Dataslan = [];		
 		query.elmnts = []
+		let oLinkPraEdita;
 		exemp = JSON.parse(exemp);			
 		// console.log("o servidor retornou: \n"+exemp)
 		
 		if(Array.isArray(exemp)){		
-			exemp.forEach((iten) 	=> {Dataslan.push(iten[0].split("!-!"))})
-			// console.group("Dataslan")
-			// console.log(Dataslan)
+			console.log(exemp)
+			exemp.forEach((iten) 	=> {Dataslan.push(iten[0].split("!-!"))})			
+			console.log(Dataslan)
 			for(query.x = 0;query.x != Dataslan.length;query.x++){						
-				// console.log("O X É "+ query.x)
-				// console.log(Dataslan[query.x][1])
-				// console.log(exemp[query.x])
-				query.setEstruPrev(exemp[query.x], Dataslan[query.x][1]);			
+				oLinkPraEdita = "!-!"+Dataslan[query.x][1]+"!-!"+Dataslan[query.x][2]+"!-!";
+				console.log(oLinkPraEdita)
+				query.setEstruPrev(exemp[query.x], Dataslan[query.x][1],oLinkPraEdita);			
 			}		
 			// console.groupEnd()
 			query.putInScreen()
@@ -127,4 +130,4 @@ busca.addEventListener('input', () => {
 			console.log("consultou")
 		}
 	}, 500)
-})
+})						
