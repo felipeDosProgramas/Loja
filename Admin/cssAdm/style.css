@@ -1,4 +1,9 @@
 /*logoAdm*/
+.boxAdm {
+  display: flex;
+  justify-content: space-between;
+}
+
 #logoAdm {
   width: 180px;
   height: auto;
@@ -36,10 +41,53 @@
   cursor: pointer;
   outline: 0;
   transition: 0.5s;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 1vh;
+  margin: 1vh 0px;
+}
+
+#divLixeira {
+  margin: 20px 0px;
+  display: flex;
+  justify-content: center;
+}
+
+#btnLixeira {
+  font-size: 1.3em;
+  border: none;
+  border-radius: 5px;
+  background-color: red;
+  padding: 1vh;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  outline: 0;
+  transition: 0.5s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+}
+
+#textLixo {
+  margin-left: 5px;
+}
+
+#btnEdiAdm {
+  font-size: 1em;
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(50, 88, 255);
+  padding: 1vh;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  outline: 0;
+  transition: 0.5s;
+}
+
+#boxInfoAdm {
+  display: flex;
 }
 
 @media screen and (max-width: 466px) {
