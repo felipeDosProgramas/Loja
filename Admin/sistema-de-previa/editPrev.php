@@ -52,12 +52,12 @@
 				<button id="buttonBusca" class="btnBusca"><svg height="42px" width="42px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 50 50" enable-background="new 0 0 50 50" xml:space="preserve" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill="#231F20" d="M20.745,32.62c2.883,0,5.606-1.022,7.773-2.881L39.052,40.3c0.195,0.196,0.452,0.294,0.708,0.294 c0.255,0,0.511-0.097,0.706-0.292c0.391-0.39,0.392-1.023,0.002-1.414L29.925,28.319c3.947-4.714,3.717-11.773-0.705-16.205 c-2.264-2.27-5.274-3.52-8.476-3.52s-6.212,1.25-8.476,3.52c-4.671,4.683-4.671,12.304,0,16.987 C14.533,31.37,17.543,32.62,20.745,32.62z M13.685,13.526c1.886-1.891,4.393-2.932,7.06-2.932s5.174,1.041,7.06,2.932 c3.895,3.905,3.895,10.258,0,14.163c-1.886,1.891-4.393,2.932-7.06,2.932s-5.174-1.041-7.06-2.932 C9.791,23.784,9.791,17.431,13.685,13.526z"></path> </g></svg></button>
 			</div>
 		</header>
-		<div id="faixa"></div>
+		<div id="faixa">Edição de Lançamentos</div>
 		<section>
 			<div class="caixaForm">
 				<div class="boxForm">
 					<form action="phpPrevias/BackCadastro.php" method="POST" class="formEntre" enctype='multipart/form-data'>
-						<h2 class="hCadaster">editar prévia</h2>
+						<h2 class="hCadaster">editar lançamento</h2>
 						<input type="text" name="nome" placeholder="Nome da peça" class="inputs" required>
 						<label for="" id="dateLanca">Data de lançamento</label>
 						<input type="date" name="date" placeholder="Data de lançamento" class="inputs" required>
@@ -66,16 +66,16 @@
 							<input type="file" name="fotos[]" multiple class="inputs" id="inputHi" required>
 						</div>
 						<div id="imgsExistentes">    					
-							<button id="marcaAtual">marcar este pra excluir<!--AQUI VC ADICIONA UMA SETA PRA BAIXO OU COISA DO TIPO--></button>
-							<button id="excluMarcados">excluir todos marcados <!--mete aqui um --></button>
+							<button id="marcaAtual">marcar para excluir<!--AQUI VC ADICIONA UMA SETA PRA BAIXO OU COISA DO TIPO--></button>
+							<button id="excluMarcados">excluir os marcados <!--mete aqui um --></button>
 							
 							<div id="botoesControle"></div>
 							<img id="carroselImgsEdit">					
 							
 						</div>   				
 						<br>
+						<button id="excluPreviaInteira">excluir prévia<!--faz um hover com uma mensagenzinha explicando que a prévia sera enviada para a lixeira podendo ser conseguida dps--></button>
 						<input type="submit" value="Envio" class="btnSub" name="submit">
-						<button class="btnSub" id="excluPreviaInteira">excluir prévia<!--faz um hover com uma mensagenzinha explicando que a prévia sera enviada para a lixeira podendo ser conseguida dps--></button>
 						<div id="serverResponse"></div>
 						<span id="textExclama">Obs: Não digitar caracteres especiais</span>
 					</form>
