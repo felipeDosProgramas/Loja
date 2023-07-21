@@ -33,8 +33,8 @@
                 <div class="quebra"></div>
                 <div id="divUl">
                     <ul id="ulMenu">
-                        <li class="li"><a href="../index.html">Início</a></li>
-                        <li class="li"><a href="../inicio.html">Produtos</a></li>
+                    <li class="li"><a href="../../index.html">Início</a></li>
+                        <li class="li"><a href="../../inicio.html">Produtos</a></li>
                         <li class="li"><a href="../index.php">Administração</a></li>
                     </ul>
                     <div id="redesSociaisMenu">
