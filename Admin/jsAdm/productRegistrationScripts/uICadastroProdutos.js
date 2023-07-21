@@ -29,6 +29,11 @@ let inputsInfoTable = document.getElementById('inputsInfoTable')
 let addInfosTable = document.getElementById('definCorTam')
 /* -------------------  */
 
+// VARIAVEIS DAS PREVIAS
+let temOuNnPrevia = document.getElementById('temPreviaCadastradaSsNn');	
+let selectDasPreviasCadastradas = document.getElementById('temPrevia');
+// ---------------------
+
 /*-----------------------------------------------------------------------*/
 function getTodosOsDados(){
 	let dados = {};
@@ -249,4 +254,4 @@ addInfosTable.addEventListener('click', () => {
 
 semiSubmit.addEventListener('click', entreComAsQtdsDeRoupas);		
 
-export {mostraProUsuario, selectClassis, form, oInputDeSeleciona};
+export {mostraProUsuario, selectClassis, form, oInputDeSeleciona, temOuNnPrevia, selectDasPreviasCadastradas};

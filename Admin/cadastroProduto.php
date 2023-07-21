@@ -16,7 +16,7 @@
 			<link rel="stylesheet" href="../css-atual/style.css">
 			<link rel="stylesheet" href="./cssAdm/style.css">
 			<script src="../js/index.js" defer></script>
-			<script src="jsAdm/uICadastroProdutos.js" type="module" defer></script>		
+			<script src="jsAdm/productRegistrationScripts/uICadastroProdutos.js" type="module" defer></script>		
 		</head>
 		<body>
 			<header id="header">
@@ -80,7 +80,10 @@
 							<div id="previasNoCadastro">
 								<label for="temPreviaCadastradaSsNn">o produto tem Prévia cadastrada?</label>
 								<input type="checkbox" id="temPreviaCadastradaSsNn"><br>
-								<select id="temPrevia"></select><!--deixe esse select "display:hidden" por padrão-->
+								<select id="temPrevia">
+									<option value="" selected hidden disabled>Escolher Previa</option>									
+									<!--deixe esse select "display:hidden ou none" por padrão, estou mexendo cm ele no js-->
+								</select>
 							</div>
 							<input class="inputs" type="text" id="nome" placeholder="Nome do produto" required><br>
 							<label for="description" class="formsSelectsAndDate">descrição:</label><br>
@@ -100,7 +103,7 @@
 						<div id="boxTabelas">
 							<div id="infoTabelas">
 								<div id="qualCor">
-								<div class="boxsTh" id="divCores">Cor</div>									
+									<div class="boxsTh" id="divCores">Cor</div>									
 								</div>
 								<div id="divQtdCor">
 									<div class="boxsTh" id="divQtdCor">qtd de cor</div>
