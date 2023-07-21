@@ -8,6 +8,7 @@ let excluMarcados = document.getElementById('excluMarcados')
 let marcaAtualPraExclu = document.getElementById('marcaAtual');
 let imgsBanco = document.getElementById("imgsExistentes");
 let mudaImg =  document.getElementById("carroselImgsEdit");
+let excluPreviaInteira = document.getElementById("excluPreviaInteira");
 
 let imgsPraEditar = [];
 let srcImagensProCarrosel = [];
@@ -73,6 +74,7 @@ async function consulta ()
 			req.send();
 		});				
 		exemp = await promessa;		
+		try{
 		exemp = JSON.parse(exemp);
 		if(Array.isArray(exemp)){
 			exemp.forEach((cada) => {Dataslan.push(cada.split("!-!"))})			
@@ -87,6 +89,12 @@ async function consulta ()
 		Dataslan = exemp.split("!-!");		
 		inpuNome[0].value = Dataslan[1]
 		inpuDate[0].value = Dataslan[2]					
+		}catch(e){
+			if(e instanceof SyntaxError){
+				console.log("sem nada")
+				location.href = "../"
+			}
+		}
 }
 
 marcaAtualPraExclu.addEventListener('click', (e)=>{
@@ -99,7 +107,7 @@ marcaAtualPraExclu.addEventListener('click', (e)=>{
 })
 
 excluMarcados.addEventListener('click', async (e)=>{
-	e.preventDefault()
+	e.preventDefault();
 	if(imgsPraEditar.length != 0){
 		let imgs = JSON.stringify(imgsPraEditar);	
 		let server = await fetch("phpPrevias/filesHandler.php?q="+get+"&sendThem="+imgs);
@@ -108,4 +116,24 @@ excluMarcados.addEventListener('click', async (e)=>{
 	}
 })
 
+excluPreviaInteira.addEventListener('click', async (e) => {
+	e.preventDefault();
+	
+	let server = await fetch("phpPrevias/filesHandler.php?q="+get+"&excluEsse=true")
+	let resposta = await server.text();
+	
+	try{
+		resposta = json.parse(resposta);
+		console.log(resposta)
+		resposta.forEach((cada)=>{
+			if(!cada){
+				throw new Error(resposta.indexOf(cada));
+			}
+		})
+		
+		}catch(e){
+		console.log(e.message)//gerar msg dizendo que deu um erro e que é pra contatar os devs
+	}
+	
+})
 consulta()
