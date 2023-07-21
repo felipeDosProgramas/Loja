@@ -1,5 +1,9 @@
-
 /*logoAdm*/
+
+.boxAdm {
+    display: flex;
+    justify-content: space-between;
+}
 
 #logoAdm{
     width: 180px;
@@ -31,12 +35,38 @@ font-weight: bold;
 
 .btnCadaster {
     @include buttonsAdm(1em, none, 2px, $cor-cinza, 1vh, $cor-branca);
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 1vh;
+    margin: 1vh 0px;
 }
 
+#divLixeira {
+    margin: 20px 0px;
+    display: flex;
+    justify-content: center;
+}
+
+#btnLixeira {
+    @include buttonsAdm(1.3em, none, 5px, $vermelho, 1vh, $cor-branca);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+}
+
+#textLixo {
+    margin-left: 5px;
+}
+
+#btnEdiAdm {
+    @include buttonsAdm(1em, none, 5px, $azulCheck, 1vh, $cor-branca);
+}
+
+#boxInfoAdm {
+    display: flex;
+}
 
 @media screen and (max-width: 466px){
     #caixaCadasters{
