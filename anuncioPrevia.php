@@ -8,7 +8,7 @@
     <link rel="icon" type="image/x-icon" href="./imgs/Oficial.gif">
     <link rel="stylesheet" href="./css-atual/style.css">
     <script src="./js/index.js" defer></script>
-    <script src="./js/anunPrevias.js" defer></script> 
+    <script src="./js/previewScripts/anunPrevias.js" defer></script> 
 </head>
 <body>
 <div id="redes">

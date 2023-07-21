@@ -18,7 +18,7 @@
         <link rel="icon" type="image/x-icon" href="./imgs/Oficial.gif">
         <link rel="stylesheet" href="./css-atual/style.css">
         <script src="./js/index.js" defer></script>
-        <script src="./js/adeeme.js" defer></script>
+        <script src="./js/userScripts/adeeme.js" defer></script>
 	</head>
     <body>
         <div id="redes">
