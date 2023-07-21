@@ -21,8 +21,11 @@ class showPrevias{
 		NameSlot.setAttribute("class","nomeCardsLanca");
 		DateSlot.setAttribute("class","cardDateLanca");
 		
+		data = data.split('-');
+		data = data.reverse();
+		
 		NameSlot.innerText = nome; 
-		DateSlot.innerText = data;
+		DateSlot.innerText = `${data[0]}/${data[1]}/${data[2]}`;
 		Image.setAttribute("src","Admin/arquivos/"+ImageLink);
 		LinkSlot.setAttribute("href", ProLink);
 		
@@ -48,7 +51,7 @@ var show = new showPrevias();
 async function consulta (){   
     let promessa = new Promise((resolve) => {
         let req = new XMLHttpRequest();
-        req.open("GET","Admin/sistema-de-previa/filesHandler.php?q=");
+        req.open("GET","Admin/sistema-de-previa/phpPrevias/filesHandler.php?q=");
         req.onload = () => {resolve(req.responseText)};
         req.send();
 	});	
