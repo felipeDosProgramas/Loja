@@ -1,26 +1,33 @@
 import {criaClassificacao, tiraClassificacao, criaElementOption, lerClassis, criaOption} from "./classisManager.js";
 
+// VARIAVEIS DAS CLASSES 
 let newClass = document.getElementById('newClass');
 let criadorClassis = document.getElementById('criadorClassis');
 let tirarClass = document.getElementById('tiraClass');
-let respostaServer = document.getElementById('respostasServidor');
-//let qtdCor = document.getElementById('qtdCores');
-/*let qtdTamanhos = document.getElementById('qtdTamanhos');*/
-let cores = document.getElementById('cores');
-let tamanhos = document.getElementById('tamanhos');
-let semiSubmit = document.getElementById('semiSubmit');
-let form = document.querySelector('form');
-let dadosSecundarios = document.getElementById('dadosSecundarios');
+// --------------------- 
+
+// INPUTS DE ENTRADA DE DADOS
+let disponibilidade = document.getElementById('disponivelSimNao');
 let nomePeca = document.getElementById('nome');
 let descricaoPeca = document.getElementById('description');
 let selectClassis = document.getElementById('classificacoes');
-let disponibilidade = document.getElementById('disponivelSimNao');
+let semiSubmit = document.getElementById('semiSubmit');
 let oInputDeSeleciona = document.getElementById('muitasFotosSimNao')
+// -------------------------
 
-/* VARIAVEL DA TABELA*/
+// Divs do DOM e SAIDA DE DADOS
+let respostaServer = document.getElementById('respostasServidor');
+let cores = document.getElementById('cores');
+let tamanhos = document.getElementById('tamanhos');
+let form = document.querySelector('form');
+let dadosSecundarios = document.getElementById('dadosSecundarios');
+// -------------------------
+
+
+/* VARIAVEIS DA TABELA */
 let inputsInfoTable = document.getElementById('inputsInfoTable')
 let addInfosTable = document.getElementById('definCorTam')
-/*---------FIM VARIAVEL----------*/
+/* -------------------  */
 
 /*-----------------------------------------------------------------------*/
 function getTodosOsDados(){
@@ -155,11 +162,11 @@ tirarClass.addEventListener('click', tiraClassificacao);
 	let antesDosInputs = tamanhos.innerHTML;
 	
 	if(code == "13"){
-		praPor += "<br>";
-		for(let x = 0;x !=range;x++){
-			praPor += "<input type='text' class='inputTamanhos' placeholder='tamanho'><input type='number' class='precoPorTamanho' placeholder='preço'><br>"
-		}
-		tamanhos.innerHTML = praPor+"<button onclick='voltaPraAntesDosInputDosTamanhos()'>cancelar</button>";
+	praPor += "<br>";
+	for(let x = 0;x !=range;x++){
+	praPor += "<input type='text' class='inputTamanhos' placeholder='tamanho'><input type='number' class='precoPorTamanho' placeholder='preço'><br>"
+	}
+	tamanhos.innerHTML = praPor+"<button onclick='voltaPraAntesDosInputDosTamanhos()'>cancelar</button>";
 	}
 });*/
 
@@ -172,11 +179,11 @@ tirarClass.addEventListener('click', tiraClassificacao);
 	let antesDosInputs = cores.innerHTML;
 	
 	if(code == "13"){
-		praPor += "<br>";
-		for(let x = 0;x !=range;x++){
-			praPor += "<input type='color' class='inputCores'><br>"			
-		}
-		cores.innerHTML = praPor+"<button onclick='voltaPraAntesDosInputDasCores()'>cancelar</button>";
+	praPor += "<br>";
+	for(let x = 0;x !=range;x++){
+	praPor += "<input type='color' class='inputCores'><br>"			
+	}
+	cores.innerHTML = praPor+"<button onclick='voltaPraAntesDosInputDasCores()'>cancelar</button>";
 	}
 });*/
 
@@ -184,17 +191,17 @@ tirarClass.addEventListener('click', tiraClassificacao);
 addInfosTable.addEventListener('click', () => {
 	let divTodoInput = document.createElement('div')
 	divTodoInput.classList.add('divTodoInput')
-
+	
 	let cardsTableInput = document.createElement('div')
 	cardsTableInput.classList.add('cardsTableInput')
-
+	
 	let divInputCor = document.createElement('div')
 	divInputCor.classList.add('divInputCor')
 	let inputCor = document.createElement('input')
 	inputCor.type = 'color'
 	inputCor.classList.add('inputColor')
 	divInputCor.appendChild(inputCor)
-
+	
 	let divInputQtdCor = document.createElement('div')
 	divInputQtdCor.classList.add('divInputQtdCor')
 	let inputQtdCor = document.createElement('input')
@@ -203,7 +210,7 @@ addInfosTable.addEventListener('click', () => {
 	inputQtdCor.placeholder = 'Digite a quantidade'
 	inputQtdCor.classList.add('inputs')
 	divInputQtdCor.appendChild(inputQtdCor)
-
+	
 	let divInputTamQtd = document.createElement('div')
 	divInputTamQtd.classList.add('divInputQtdCor')
 	let inputTamQtd = document.createElement('input')
@@ -211,7 +218,7 @@ addInfosTable.addEventListener('click', () => {
 	inputTamQtd.placeholder = 'Digite os tamanhos'
 	inputTamQtd.classList.add('inputs')
 	divInputTamQtd.appendChild(inputTamQtd)
-
+	
 	let divCancelInfo = document.createElement('divCancelInfo')
 	divCancelInfo.classList.add('divCancelInfo')
 	let cancelTableInputs = document.createElement('button')
@@ -222,23 +229,23 @@ addInfosTable.addEventListener('click', () => {
 		divTodoInput.remove()
 	}
 	divCancelInfo.appendChild(cancelTableInputs)
-
+	
 	cardsTableInput.append(divInputCor, divInputQtdCor, divInputTamQtd)
 	divTodoInput.append(cardsTableInput, divCancelInfo)
 	inputsInfoTable.appendChild(divTodoInput)
 })
 /*------------------*/
 /*<div id="inputsInfoTable">
-<div class="divTodoInput">
+	<div class="divTodoInput">
 	<div class="cardsTableInput">
-		<div class="divInputCor"><input type="text" placeholder="Digite a cor" class="inputs"></div>
-		<div class="divInputQtdCor"><input type="number" placeholder="Digite a quantidade " class="inputs"></div>
-	    <div class="divInputTamQtd"><input type="number" placeholder="Digite o tamanho" class="inputs"></div>
+	<div class="divInputCor"><input type="text" placeholder="Digite a cor" class="inputs"></div>
+	<div class="divInputQtdCor"><input type="number" placeholder="Digite a quantidade " class="inputs"></div>
+	<div class="divInputTamQtd"><input type="number" placeholder="Digite o tamanho" class="inputs"></div>
 	</div>
 	<div class="divCancelInfo"><button class="btnsCria" id="cancelTableInputs">Cancelar Cor</button></div>
 	</div>
 </div>*/
-form.addEventListener('submit', e => {e.preventDefault()});
+// form.addEventListener('submit', e => {e.preventDefault()});
 
 semiSubmit.addEventListener('click', entreComAsQtdsDeRoupas);		
 

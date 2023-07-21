@@ -26,7 +26,7 @@ async function consulta (){
     
 	let promessa = new Promise((resolve) => {
         let req = new XMLHttpRequest();
-        req.open("GET","./Admin/sistema-de-previa/filesHandler.php?q="+getLanc()+"&edt=true");
+        req.open("GET","./Admin/sistema-de-previa/phpPrevias/filesHandler.php?q="+getLanc()+"&edt=true");
         req.onload = () => {resolve(req.responseText)};
         req.send();
     });	
