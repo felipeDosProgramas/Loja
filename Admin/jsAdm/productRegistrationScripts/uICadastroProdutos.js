@@ -1,40 +1,49 @@
-import {criaClassificacao, tiraClassificacao, criaElementOption, lerClassis, criaOption} from "./classisManager.js";
+import classManager from "./classisManager.js";
 
 // VARIAVEIS DAS CLASSES 
-let newClass = document.getElementById('newClass');
+let newClass = document.getElementById		('newClass');
 let criadorClassis = document.getElementById('criadorClassis');
-let tirarClass = document.getElementById('tiraClass');
+let tirarClass = document.getElementById	('tiraClass');
 // --------------------- 
 
 // INPUTS DE ENTRADA DE DADOS
-let disponibilidade = document.getElementById('disponivelSimNao');
-let nomePeca = document.getElementById('nome');
-let descricaoPeca = document.getElementById('description');
-let selectClassis = document.getElementById('classificacoes');
-let semiSubmit = document.getElementById('semiSubmit');
-let oInputDeSeleciona = document.getElementById('muitasFotosSimNao')
+let disponibilidade = document.getElementById	('disponivelSimNao');
+let nomePeca = document.getElementById			('nome');
+let descricaoPeca = document.getElementById		('description');
+let selectClassis = document.getElementById		('classificacoes');
+let semiSubmit = document.getElementById		('semiSubmit');
+let oInputDeSeleciona = document.getElementById	('muitasFotosSimNao')
 // -------------------------
 
 // Divs do DOM e SAIDA DE DADOS
-let respostaServer = document.getElementById('respostasServidor');
-let cores = document.getElementById('cores');
-let tamanhos = document.getElementById('tamanhos');
-let form = document.querySelector('form');
-let dadosSecundarios = document.getElementById('dadosSecundarios');
+let form = document.querySelector				('form');
+let cores = document.getElementById				('cores');
+let tamanhos = document.getElementById			('tamanhos');
+let respostaServer = document.getElementById	('respostasServidor');
+let dadosSecundarios = document.getElementById	('dadosSecundarios');
 // -------------------------
 
 
 /* VARIAVEIS DA TABELA */
-let inputsInfoTable = document.getElementById('inputsInfoTable')
-let addInfosTable = document.getElementById('definCorTam')
+let inputsInfoTable = document.getElementById	('inputsInfoTable')
+let addInfosTable = document.getElementById		('definCorTam')
 /* -------------------  */
 
 // VARIAVEIS DAS PREVIAS
-let temOuNnPrevia = document.getElementById('temPreviaCadastradaSsNn');	
-let selectDasPreviasCadastradas = document.getElementById('temPrevia');
+let temOuNnPrevia = document.getElementById				('temPreviaCadastradaSsNn');	
+let selectDasPreviasCadastradas =document.getElementById('temPrevia');
 // ---------------------
 
+// INSTANCIAS DO GERENCIADOR DE CLASSIFICAÇÕES
+
+let ClManage = new classManager();
+ClManage.setSaidas(selectClassis, respostaServer);
+ClManage.setEntradas(criadorClassis, newClass, tirarClass);	
+// ----------------------------------------------
+
 /*-----------------------------------------------------------------------*/
+
+
 function getTodosOsDados(){
 	let dados = {};
 	dados.nome = nomePeca.value;
@@ -42,8 +51,8 @@ function getTodosOsDados(){
 	dados.classificacao = selectClassis.value;		
 	dados.disponibilidade = taOuNaoDisponivel();
 	dados.quantidades = [];
-	let inputsSettarQtds = document.getElementsByClassName('inputsSettarQtds');	
-	let precos = document.getElementsByClassName('precoPorTamanho');
+	let inputsSettarQtds = document.getElementsByClassName	('inputsSettarQtds');	
+	let precos = document.getElementsByClassName			('precoPorTamanho');
 	let ids = [];
 	let aux = [];
 	let i = 0;
@@ -61,19 +70,12 @@ function getTodosOsDados(){
 	return dados;
 }
 
-function mostraProUsuario(oque){
-	respostaServer.innerHTML = oque;
-	setTimeout(()=>{
-		respostaServer.innerHTML = "";
-	}, 1000)
-	
-}	
-function voltaPraAntesDosInputDasCores(){
-	cores.innerHTML = '<input type="number" min="0" max="50" id="qtdCores" required>';
-}
-function voltaPraAntesDosInputDosTamanhos(){
-	tamanhos.innerHTML = '<input type="number" min="0" max="50" id="qtdTamanhos" required>';
-}
+// function voltaPraAntesDosInputDasCores(){
+// cores.innerHTML = '<input type="number" min="0" max="50" id="qtdCores" required>';
+// }
+// function voltaPraAntesDosInputDosTamanhos(){
+// tamanhos.innerHTML = '<input type="number" min="0" max="50" id="qtdTamanhos" required>';
+// }
 function taOuNaoDisponivel(){
 	if(disponibilidade.checked == true){
 		return 1;
@@ -82,9 +84,9 @@ function taOuNaoDisponivel(){
 }
 function entreComAsQtdsDeRoupas(){
 	
-	let inputsTamanhos = document.getElementsByClassName('inputTamanhos');
-	let inputsCores = document.getElementsByClassName('inputCores');	
-	let precoPorTamanho = document.getElementsByClassName('precoPorTamanho')
+	let inputsTamanhos = document.getElementsByClassName	('inputTamanhos');
+	let inputsCores = document.getElementsByClassName		('inputCores');	
+	let precoPorTamanho = document.getElementsByClassName	('precoPorTamanho')
 	let aux;
 	let principal = document.createElement('div');
 	principal.className = 'defineQtds';
@@ -103,9 +105,10 @@ function entreComAsQtdsDeRoupas(){
 	}
 	dadosSecundarios.append(principal)
 	
-	semiSubmit.removeEventListener('click',entreComAsQtdsDeRoupas);	
 	semiSubmit.innerText = "confirmar envio";
-	semiSubmit.addEventListener('click',enviaOsDados);	
+	
+	semiSubmit.removeEventListener	('click',entreComAsQtdsDeRoupas);		
+	semiSubmit.addEventListener		('click',enviaOsDados);	
 }
 
 
@@ -151,13 +154,11 @@ function setPicCores(){
 
 /*-----------------------------------------------------------------------*/
 
-lerClassis();
 
-newClass.addEventListener('click', ()=>{	
-	criaOption();
-	newClass.style.display = "none";	
-})
-tirarClass.addEventListener('click', tiraClassificacao);
+
+
+
+
 
 /*qtdTamanhos.addEventListener('keydown', (e)=> {
 	e = e || window.event;
@@ -254,4 +255,4 @@ addInfosTable.addEventListener('click', () => {
 
 semiSubmit.addEventListener('click', entreComAsQtdsDeRoupas);		
 
-export {mostraProUsuario, selectClassis, form, oInputDeSeleciona, temOuNnPrevia, selectDasPreviasCadastradas};
+export {selectClassis, form, oInputDeSeleciona, temOuNnPrevia, selectDasPreviasCadastradas};
