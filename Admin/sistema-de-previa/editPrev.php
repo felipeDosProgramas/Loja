@@ -65,15 +65,17 @@
 						<div id="mostraInput">						
 							<input type="file" name="fotos[]" multiple class="inputs" id="inputHi" required>
 						</div>
-						<div id="imgsExistentes">    					
-							<button id="marcaAtual">marcar para excluir<!--AQUI VC ADICIONA UMA SETA PRA BAIXO OU COISA DO TIPO--></button>
-							<button id="excluMarcados">excluir os marcados <!--mete aqui um --></button>
-							
-							<div id="botoesControle"></div>
-							<img id="carroselImgsEdit">					
-							
-						</div>   				
-						<br>
+						<div id="divLista">
+						    <div class="cardsListas">
+								<div class="divImgLista">
+									<img src="../../imgs/fundo.jpg" alt="">
+								</div>
+								<div class="divBtnAndCheck">
+									<input type="checkbox" name="" id="" class="checkExclu">
+									<button id="excluirOnePrev">Excluir</button>
+								</div>
+							</div>
+						</div>
 						<button id="excluPreviaInteira">excluir prévia<!--faz um hover com uma mensagenzinha explicando que a prévia sera enviada para a lixeira podendo ser conseguida dps--></button>
 						<input type="submit" value="Envio" class="btnSub" name="submit">
 						<div id="serverResponse"></div>

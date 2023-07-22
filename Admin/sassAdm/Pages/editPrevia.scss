@@ -17,3 +17,46 @@
     @extend #marcaAtual;
     background-color: $vermelho;
 }
+
+#divLista {
+    display: grid;
+    grid-template-areas: 'cardsListas cardsListas';
+    justify-content: center;
+}
+
+.cardsListas {
+   /* display: flex;
+    justify-content: space-between;*/
+    margin: 10px;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: $cor-cinza;
+}
+
+.divImgLista {
+    img {
+        width: 150px;
+        height: 180px;
+        border-radius: 5px;
+    }
+}
+
+#excluirOnePrev {
+    @include buttonsAdm(1em, none, 5px, $vermelho, 6px, $cor-branca);
+    width: 100%;
+}
+
+.checkExclu {
+    width: 35px;
+    height: 35px;
+    margin: 0px;
+    outline: 0;
+    border: none;
+    background-color: aqua;
+}
+
+.divBtnAndCheck {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
