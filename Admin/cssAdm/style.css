@@ -141,6 +141,7 @@
 }
 .divImgConsul img {
   width: 160px;
+  height: 200px;
   margin: 10px;
   border-radius: 5px;
 }
@@ -162,12 +163,8 @@
   outline: 0;
   transition: 0.5s;
   width: 330px;
-  margin: 5px;
+  margin: 10px;
   text-transform: capitalize;
-}
-
-.btnConsul {
-  margin-bottom: 10px;
 }
 
 @media screen and (max-width: 1115px) {
