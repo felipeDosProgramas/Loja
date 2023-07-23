@@ -67,9 +67,6 @@
 						</div>
 						<div id="divLista">
 						    <div class="cardsListas">
-								<div class="divImgLista">
-									<img src="../../imgs/fundo.jpg" alt="">
-								</div>
 								<div class="divBtnAndCheck">
 									<input type="checkbox" name="" id="" class="checkExclu">
 									<button id="excluirOnePrev">Excluir</button>

@@ -22,41 +22,33 @@
     display: grid;
     grid-template-areas: 'cardsListas cardsListas';
     justify-content: center;
+    margin: 10px 0px;
 }
 
 .cardsListas {
-   /* display: flex;
-    justify-content: space-between;*/
-    margin: 10px;
+    width: 160px;
+    height: 200px;
     border-radius: 5px;
-    padding: 10px;
-    background-color: $cor-cinza;
+    background-image: url('../../imgs/fundo.jpg');
 }
 
-.divImgLista {
-    img {
-        width: 150px;
-        height: 180px;
-        border-radius: 5px;
-    }
-}
-
-#excluirOnePrev {
-    @include buttonsAdm(1em, none, 5px, $vermelho, 6px, $cor-branca);
-    width: 100%;
+.divBtnAndCheck {
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .checkExclu {
-    width: 35px;
-    height: 35px;
+    width: 20px;
+    height: 20px;
     margin: 0px;
     outline: 0;
     border: none;
     background-color: aqua;
 }
 
-.divBtnAndCheck {
-    display: flex;
-    align-items: center;
-    gap: 5px;
+#excluirOnePrev {
+    @include buttonsAdm(0.9em, none, 5px, $vermelho, 6px, $cor-branca);
 }
+
