@@ -26,8 +26,8 @@ class showPrevias{
 		
 		NameSlot.innerText = nome; 
 		DateSlot.innerText = `${data[0]}/${data[1]}/${data[2]}`;
-		Image.setAttribute("src","Admin/arquivos/"+ImageLink);
-		LinkSlot.setAttribute("href", ProLink);
+		Image.src = ImageLink
+		LinkSlot.href=  ProLink;
 		
 		ImgSlot.append(Image);
 		CardDivSlot.append(ImgSlot,NameSlot,DateSlot);		
@@ -35,15 +35,21 @@ class showPrevias{
 		this.container.append(LinkSlot);
 	}
 	
-    showHow(coisa){
-		let Dataslan = [];
+    showHow(coisa){		
 		let soDatas = [];
-		let prosLink = [];
-		coisa.forEach((cada)=>{prosLink.push(cada[0].split("/"))});
+		let nomes = [];
+		let caminhos = [];	
 		
-		
-		coisa.forEach((iten) => {Dataslan.push(iten[0].split("!-!"))});
-		Dataslan.forEach((iten) => {this.setEstruCard(coisa[this.x][0], Dataslan[this.x][1], Dataslan[this.x][2], 'pagePrevia.php?q='+prosLink[this.x][2] );this.x++;})
+		coisa.forEach((iten) => {
+			this.setEstruCard(
+				iten.rota,
+				iten.nome,
+				iten.data,
+			'pagePrevia.php?q='+iten.raw
+				);
+			this.x++;
+		});
+	
 	}
 }
 var show = new showPrevias();
@@ -51,7 +57,8 @@ var show = new showPrevias();
 async function consulta (){   
     let promessa = new Promise((resolve) => {
         let req = new XMLHttpRequest();
-        req.open("GET","Admin/sistema-de-previa/phpPrevias/filesHandler.php?q=");
+        req.open("GET","Admin/sistema-de-previa/phpPrevias/filesHandler.php");
+		req.setRequestHeader('X-AllPreviewImages', '0');
         req.onload = () => {resolve(req.responseText)};
         req.send();
 	});	
