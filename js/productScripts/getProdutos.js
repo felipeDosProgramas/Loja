@@ -35,6 +35,15 @@ class toFront{
 		cardProdDiv.append(imgContainerProd, nomeProd, precoProd);
 		cardProdA.append(cardProdDiv);
 		container.append(cardProdA);
+
+		window.addEventListener('scroll', ()=> {
+				if (cardProdA.getBoundingClientRect().top < window.innerHeight) {
+					cardProdA.setAttribute('data-scroll', 'scroll')
+				}
+				if (cardProdA.getBoundingClientRect().top > window.innerHeight) {
+					cardProdA.removeAttribute('data-scroll', 'scroll')
+				}
+		})
 	}
 	
 	generateThem(){
@@ -81,17 +90,15 @@ class toFront{
 */
 
 
-let linksAnuProduct = document.querySelectorAll('.linksAnuProduct')
+/*let linksAnuProduct = document.querySelectorAll('.linksAnuProduct')
 
 window.addEventListener('scroll', ()=> {
 	linksAnuProduct.forEach((elementAtu) => {
 		if (elementAtu.getBoundingClientRect().top < window.innerHeight) {
-			console.log('Eita')
 			elementAtu.setAttribute('data-scroll', 'scroll')
 		}
 		if (elementAtu.getBoundingClientRect().top > window.innerHeight) {
-			console.log('Apaga')
 			elementAtu.removeAttribute('data-scroll', 'scroll')
 		}
 	})
-})
+})*/
