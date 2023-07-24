@@ -18,6 +18,7 @@ class toFront{
 		let nomeProd = document.createElement			('div');
 		let precoProd = document.createElement			('div');		
 		
+		cardProdA.setAttribute          ('class','linksAnuProduct')
 		cardProdDiv.setAttribute		('class', 'cards');
 		imgProd.setAttribute			('class', 'imgsProduto');
 		imgContainerProd.setAttribute	('class', 'imgsCards');
@@ -77,3 +78,19 @@ class toFront{
 	
 	
 */
+
+
+let linksAnuProduct = document.querySelectorAll('.linksAnuProduct')
+
+window.addEventListener('scroll', ()=> {
+	linksAnuProduct.forEach((elementAtu) => {
+		if (elementAtu.getBoundingClientRect().top < window.innerHeight) {
+			console.log('Eita')
+			elementAtu.setAttribute('data-scroll', 'scroll')
+		}
+		if (elementAtu.getBoundingClientRect().top > window.innerHeight) {
+			console.log('Apaga')
+			elementAtu.removeAttribute('data-scroll', 'scroll')
+		}
+	})
+})
