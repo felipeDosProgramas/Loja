@@ -20,6 +20,7 @@ class toFront{
 		
 		cardProdA.setAttribute          ('class','linksAnuProduct')
 		cardProdDiv.setAttribute		('class', 'cards');
+		imgProd.loading = 'lazy'
 		imgProd.setAttribute			('class', 'imgsProduto');
 		imgContainerProd.setAttribute	('class', 'imgsCards');
 		nomeProd.setAttribute			('class', 'nomeProdutoCards');
