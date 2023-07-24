@@ -13,13 +13,11 @@
 }
 
 #btnPreLanca {
-    @include buttons(1.3em, 2px solid $cor-branca, 10px, transparent, 1%,  $cor-branca);
+    @include buttons(1.2em, none, 10px, $cor-branca, 5%,  $cor-preta);
     text-transform: uppercase;
-    &:hover {
-        background-color: $cor-branca;
-        color: $cor-preta;
-    }
 }
+
+
 
 #containerCard {
     margin-top: 6vh;
@@ -31,7 +29,6 @@
 }
 
 .cards {
-    padding: 5%;
     background-color: $cor-branca;
     text-align: center;
     width: 230px;

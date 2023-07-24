@@ -239,20 +239,16 @@ a {
 }
 
 #btnPreLanca {
-  font-size: 1.3em;
-  border: 2px solid rgb(255, 255, 255);
+  font-size: 1.2em;
+  border: none;
   border-radius: 10px;
-  background-color: transparent;
-  padding: 1%;
-  color: rgb(255, 255, 255);
+  background-color: rgb(255, 255, 255);
+  padding: 5%;
+  color: rgb(0, 0, 0);
   cursor: pointer;
   outline: 0;
   transition: 0.5s;
   text-transform: uppercase;
-}
-#btnPreLanca:hover {
-  background-color: rgb(255, 255, 255);
-  color: rgb(0, 0, 0);
 }
 
 #containerCard {
@@ -265,7 +261,6 @@ a {
 }
 
 .cards {
-  padding: 5%;
   background-color: rgb(255, 255, 255);
   text-align: center;
   width: 230px;
