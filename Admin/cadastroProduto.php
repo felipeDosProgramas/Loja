@@ -62,15 +62,6 @@
 			</header>
 			<div id="faixa"></div>
 			<section>
-				<div class="caixaDadosUser">
-					<div class="boxAdm">
-						<div class="imgAdm"><img src="../imgs/perfil.png" alt=""></div>
-						<div class="boxDados">
-							<div class="nameAdm"><?= $x[0]['Name']?></div>
-							<div class="emailAdm"><?= $x[0]['Email']?></div>
-						</div>        
-					</div>
-				</div>
 				<div class="boxForm" id="formularioProdutos">
 					<div class="formEntre">
 						<h2 class="hCadaster">Cadastro de Produto</h2>
