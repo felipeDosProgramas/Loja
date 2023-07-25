@@ -59,6 +59,7 @@ async function consulta (){
         let req = new XMLHttpRequest();
         req.open("GET","Admin/sistema-de-previa/phpPrevias/filesHandler.php");
 		req.setRequestHeader('X-AllPreviewImages', '0');
+		req.setRequestHeader('X-AllPreviews', '1');				
         req.onload = () => {resolve(req.responseText)};
         req.send();
 	});	

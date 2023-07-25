@@ -5,8 +5,9 @@
 	class ReturnAllOfIt extends fileSysManager{	
 		use returnObj;
 		
-		private string $pathToArquivos = "Admin/arquivos/";
-		
+		private string $pathToArquivosFromUser = "Admin/arquivos/";
+		private string $pathToArquivosFromScript = "../../arquivos";		
+		private string $todasAsFotos;		
 		
 		function __construct(){
 			parent::__construct();
@@ -15,22 +16,22 @@
 		}						
 		
 		private function prepareUrl(&$value, $chave, $nome){
-			$value = $this->pathToArquivos.$nome. DIRECTORY_SEPARATOR. $value;
+			$value = $this->pathToArquivosFromUser.$nome. DIRECTORY_SEPARATOR. $value;
 		}
+		public function setConfigs(string $confs, string $values){
+			$this->$$confs = $values;
+		}
+		public function getResponse(){			
+			parent::sendToFront($this->toSentForFront);
+		}
+		
 		private function URLDecoder(specificReturnType $toSent){
-			if($_SERVER['HTTP_X_ALLPREVIEWIMAGES']){
-				foreach(parent::$centralDir as $i){
-					(array) $rawData = explode("!-!", $i);										
-					(array) $rotas = parent::getDirSequenc("../../arquivos/$i");
-					
-					array_walk($rotas, [$this, "prepareUrl"],$i);
-					$toSent->setFullFilledRow($rotas, $rawData[1], $rawData[2], $i);
-				}
-				parent::sendToFront($toSent->getAllRows());
+			if($todasAsFotos){
+				
 			}					
 			foreach(parent::$centralDir as $i){
 				(array) $rawData = explode("!-!", $i);										
-				(array) $rotas = parent::getDirSequenc("../../arquivos/$i");
+				(array) $rotas = parent::getDirSequenc("$this->pathToArquivosFromScript/$i");
 				
 				$this->prepareUrl($rota,"",$i);
 				
@@ -38,6 +39,16 @@
 				unset($rota);
 			}
 			parent::sendToFront($toSent->getAllRows());
+		}
+		private function getAllPreviwImages(specificReturnType $toSent){
+			foreach(parent::$centralDir as $i){
+				(array) $rawData = explode("!-!", $i);										
+				(array) $rotas = parent::getDirSequenc("$this->pathToArquivosFromScript/$i");
+				
+				array_walk($rotas, [$this, "prepareUrl"],$i);
+				$toSent->setFullFilledRow($rotas, $rawData[1], $rawData[2], $i);
+			}
+			
 		}
 	}
 	
