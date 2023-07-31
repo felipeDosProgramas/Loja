@@ -25,7 +25,7 @@
 			req.setRequestHeader('X-whichPreview', getLanc()));
 			----------------------------
 			editSomeThing{
-			Remover fotos específicas
+			Remover fotos específicas		
 			req.setRequestHeader('X-AllPreviews', '0');					
 			req.setRequestHeader('X-RemovePics', "json falando quais"));
 			
