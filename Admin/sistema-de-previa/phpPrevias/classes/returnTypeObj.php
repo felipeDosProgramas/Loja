@@ -1,11 +1,8 @@
 <?php
-	interface specificReturnType{
-		// function setNome			(string $nome) 		:bool;
-		function getNomes()							:array;
-		// function setDataLancamento	(string $Data) 	:bool;
-		function getDataLancamentos()				:array;
-		// function setimgRoute		(string $imgRoute) 	:bool;
-		function getimgsRoutes()  					:array;
+	interface specificReturnType{		
+		function getNomes()				:array;		
+		function getDataLancamentos()	:array;		
+		function getimgsRoutes()  		:array;
 	}
 	
 	trait returnObj

@@ -1,6 +1,6 @@
 <?php
 	require_once "classes/fileSysManager.php";
-	require_once "classes/traits.php";
+	require_once "classes/returnTypeObj.php";
 	
 	class ReturnAllOfIt extends fileSysManager{	
 		use returnObj;
@@ -26,9 +26,7 @@
 		}
 		
 		private function URLDecoder(specificReturnType $toSent){
-			if($todasAsFotos){
 				
-			}					
 			foreach(parent::$centralDir as $i){
 				(array) $rawData = explode("!-!", $i);										
 				(array) $rotas = parent::getDirSequenc("$this->pathToArquivosFromScript/$i");
@@ -40,16 +38,16 @@
 			}
 			parent::sendToFront($toSent->getAllRows());
 		}
-		private function getAllPreviwImages(specificReturnType $toSent){
-			foreach(parent::$centralDir as $i){
-				(array) $rawData = explode("!-!", $i);										
-				(array) $rotas = parent::getDirSequenc("$this->pathToArquivosFromScript/$i");
+		// private function getAllPreviwImages(specificReturnType $toSent){
+			// foreach(parent::$centralDir as $i){
+				// (array) $rawData = explode("!-!", $i);										
+				// (array) $rotas = parent::getDirSequenc("$this->pathToArquivosFromScript/$i");
 				
-				array_walk($rotas, [$this, "prepareUrl"],$i);
-				$toSent->setFullFilledRow($rotas, $rawData[1], $rawData[2], $i);
-			}
+				// array_walk($rotas, [$this, "prepareUrl"],$i);
+				// $toSent->setFullFilledRow($rotas, $rawData[1], $rawData[2], $i);
+			// }
 			
-		}
+		// }
 	}
 	
 ?>	
