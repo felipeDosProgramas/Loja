@@ -26,10 +26,7 @@ async function consulta (){
     
 	let promessa = new Promise((resolve) => {
         let req = new XMLHttpRequest();
-        req.open("GET","./Admin/sistema-de-previa/phpPrevias/filesHandler.php");
-		req.setRequestHeader('X-AllPreviews', '0');				
-		req.setRequestHeader('X-AllPreviewImages', '1');				
-		req.setRequestHeader('X-whichPreview', getLanc());
+        req.open("GET","./Admin/sistema-de-previa/phpPrevias/filesHandler.php?action=especifico&qual="+getLanc());
         req.onload = () => {resolve(req.responseText)};
         req.send();
 	});	

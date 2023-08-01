@@ -23,9 +23,5 @@
 		public function getResponse(){
 			$this->sendToFront($this->response);
 		}
-		// $this->getDirSequenc($dirTo);			
-		// $this->doing = $this->URLDecoder($toSearch);
-		// $this->chosenDirDecoder();
-	}	
-	
+	}		
 ?>

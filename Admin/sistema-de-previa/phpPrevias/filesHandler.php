@@ -7,12 +7,14 @@
 		break;
 		
 		case "especifico":
-			require_once "classes/JustReturn/Especifico.php";
+			require_once "classes/JustReturn/ReturnEspecific.php";
 			$hand = new ReturnEspecific($_GET['qual']);
 		break;				
 		default:
 			echo "ta hackeando né safado";
 		}
+		
+		$hand->getResponse();
 	}		
 	/*
 		USADO EM :

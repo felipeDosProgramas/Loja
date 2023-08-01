@@ -16,7 +16,7 @@
 				return $Connection;
 			}
 			catch(PDOException $Exception){
-				saveErrorsInLogFile(array("in Connection",$Exception->getCode(), $Exception->getMessage()));
+				$this->saveErrorsInLogFile(array("in Connection",$Exception->getCode(), $Exception->getMessage()));
 				return false;
 			}
 			

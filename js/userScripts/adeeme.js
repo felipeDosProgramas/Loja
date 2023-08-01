@@ -53,25 +53,28 @@ async function sendDados(oque){
 	verificaTipoLogin(resposta);
 }
 
-function envio(){	
+function envio(){
 	let dados = getDados();
 	dados = JSON.stringify(dados);
-	sendDados(dados);	
+	sendDados(dados);
 }
 
 
-function teclouEnter(e) {
-	e.preventDefault()
-    e = e || window.event;
-    var code = e.which || e.keyCode;
+cronometro1 = null;
+
+senha.addEventListener('input', () => {
+	clearTimeout(cronometro1);
+	// console.clear()
 	
-    if(code == "13"){
-		envio();
-	}
-};
+	cronometro1 = setTimeout(() =>{
+		if(senha.value != ""){
+			envio();	
+			console.log("consultou")
+		}
+	}, 500)
+})										
 
 
 
 entrarBotao.addEventListener("click",envio);
-senha.addEventListener('keydown', teclouEnter)
-email.addEventListener('keydown',teclouEnter);
+// senha.addEventListener('input', teclouEnter)

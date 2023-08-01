@@ -1,40 +1,15 @@
-"in Connection",2002,"SQLSTATE[HY000] [2002] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente"
-"in Connection",2002,"SQLSTATE[HY000] [2002] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente"
-principal,"Exception: falhou na hora de roda tudao in C:\xampp\htdocs\provisorio\realAtual\purePhp\classUser.php:122
+"in Connection",1049,"SQLSTATE[HY000] [1049] Unknown database 'loja'"
+principal,"Exception: falhou na hora de roda tudao in C:\xampp\htdocs\pigs\guit\Loja\purePhp\classes\classUser.php:114
 Stack trace:
-#0 C:\xampp\htdocs\provisorio\realAtual\purePhp\User.php(19): ClassUsuario->ExecQuery()
+#0 C:\xampp\htdocs\pigs\guit\Loja\purePhp\User.php(13): ClassUsuario->ExecQuery()
 #1 {main}"
-principal,"Exception: falhou na hora de roda tudao in C:\xampp\htdocs\provisorio\realAtual\purePhp\classUser.php:122
+principal,"PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'loja.usuarios' doesn't exist in C:\xampp\htdocs\pigs\guit\Loja\purePhp\classes\classUser.php:101
 Stack trace:
-#0 C:\xampp\htdocs\provisorio\realAtual\purePhp\User.php(19): ClassUsuario->ExecQuery()
-#1 {main}"
-"in Connection",2002,"SQLSTATE[HY000] [2002] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente"
-principal,"Exception: falhou na hora de roda tudao in C:\xampp\htdocs\provisorio\realAtual\purePhp\classUser.php:122
+#0 C:\xampp\htdocs\pigs\guit\Loja\purePhp\classes\classUser.php(101): PDO->query('select Email, P...')
+#1 C:\xampp\htdocs\pigs\guit\Loja\purePhp\User.php(13): ClassUsuario->ExecQuery()
+#2 {main}"
+principal,"PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'loja.usuarios' doesn't exist in C:\xampp\htdocs\pigs\guit\Loja\purePhp\classes\classUser.php:101
 Stack trace:
-#0 C:\xampp\htdocs\provisorio\realAtual\purePhp\User.php(19): ClassUsuario->ExecQuery()
-#1 {main}"
-"in Connection",2002,"SQLSTATE[HY000] [2002] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente"
-principal,"Exception: falhou na hora de roda tudao in C:\xampp\htdocs\provisorio\realAtual\purePhp\classUser.php:122
-Stack trace:
-#0 C:\xampp\htdocs\provisorio\realAtual\purePhp\User.php(19): ClassUsuario->ExecQuery()
-#1 {main}"
-"in Connection",2002,"SQLSTATE[HY000] [2002] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente"
-principal,"Exception: falhou na hora de roda tudao in C:\xampp\htdocs\provisorio\realAtual\purePhp\classUser.php:122
-Stack trace:
-#0 C:\xampp\htdocs\provisorio\realAtual\purePhp\User.php(19): ClassUsuario->ExecQuery()
-#1 {main}"
-"in Connection",2002,"SQLSTATE[HY000] [2002] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente"
-principal,"Exception: falhou na hora de roda tudao in C:\xampp\htdocs\provisorio\realAtual\purePhp\classUser.php:122
-Stack trace:
-#0 C:\xampp\htdocs\provisorio\realAtual\purePhp\User.php(19): ClassUsuario->ExecQuery()
-#1 {main}"
-"in Connection",2002,"SQLSTATE[HY000] [2002] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente"
-principal,"Exception: falhou na hora de roda tudao in C:\xampp\htdocs\provisorio\realAtual\purePhp\classUser.php:122
-Stack trace:
-#0 C:\xampp\htdocs\provisorio\realAtual\purePhp\User.php(19): ClassUsuario->ExecQuery()
-#1 {main}"
-"in Connection",2002,"SQLSTATE[HY000] [2002] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente"
-principal,"Exception: falhou na hora de roda tudao in C:\xampp\htdocs\provisorio\realAtual\purePhp\classUser.php:122
-Stack trace:
-#0 C:\xampp\htdocs\provisorio\realAtual\purePhp\User.php(19): ClassUsuario->ExecQuery()
-#1 {main}"
+#0 C:\xampp\htdocs\pigs\guit\Loja\purePhp\classes\classUser.php(101): PDO->query('select Email, P...')
+#1 C:\xampp\htdocs\pigs\guit\Loja\purePhp\User.php(13): ClassUsuario->ExecQuery()
+#2 {main}"

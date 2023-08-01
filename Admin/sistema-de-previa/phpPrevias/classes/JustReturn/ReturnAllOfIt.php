@@ -21,9 +21,6 @@
 		public function setConfigs(string $confs, string $values){
 			$this->$$confs = $values;
 		}
-		public function getResponse(){			
-			parent::sendToFront($this->toSentForFront);
-		}
 		
 		private function URLDecoder(specificReturnType $toSent){
 				
@@ -36,7 +33,7 @@
 				$toSent->setFullFilledRow($rota.$rotas[2], $rawData[1], $rawData[2], $i);
 				unset($rota);
 			}
-			parent::sendToFront($toSent->getAllRows());
+			parent::setResponse($toSent->getAllRows());
 		}
 		// private function getAllPreviwImages(specificReturnType $toSent){
 			// foreach(parent::$centralDir as $i){
