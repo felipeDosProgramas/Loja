@@ -84,19 +84,19 @@ async function consulta (){
 	if(busca.value != ""){
 		let promessa = new Promise((resolve) => {
 			let req = new XMLHttpRequest();
-			req.open("GET","phpPrevias/filesHandler.php?q="+busca.value);
+			req.open("GET","phpPrevias/filesHandler.php?action=returnClosier&qual="+busca.value);
 			req.onload = () => {resolve(req.responseText)};
 			req.send();
 		});	
 		
-		let exemp = await promessa	
+		let exemp = await promessa	;
 		let Dataslan = [];		
-		query.elmnts = []
+		query.elmnts = [];
 		let oLinkPraEdita;
 		exemp = JSON.parse(exemp);			
 		// console.log("o servidor retornou: \n"+exemp)
 		
-		if(Array.isArray(exemp)){		
+		if(Array.isArray(exemp)){
 			exemp.forEach((iten) => {
 				if(Array.isArray(iten)){
 				Dataslan.push(iten[0].split("!-!"));

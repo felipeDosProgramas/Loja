@@ -2,7 +2,7 @@
 	class fileSysManager{
 		private string $forWho;	
 		static array $centralDir;
-		private string|array $response;
+		private string|array $response = "";
 		
 		function __construct(){
 			fileSysManager::$centralDir = $this->getDirSequenc("../../arquivos");		
