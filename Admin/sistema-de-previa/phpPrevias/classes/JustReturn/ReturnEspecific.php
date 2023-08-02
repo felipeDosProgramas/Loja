@@ -16,8 +16,9 @@
 		private function aceessDirectory(){
 			$imgs = parent::getDirSequenc($this->routeToPrevByBack);	
 			$retorno = [];
+			// print_r($imgs);
 			foreach($imgs as $imgInde => $imgName){
-				$retorno[] = $this->routeToPrevByFront.$imgName;								
+				$retorno[] = $this->routeToPrevByFront.$this->rawPrevName."/".$imgName;								
 			}
 			(array) $rawData = explode("!-!", $this->rawPrevName);
 			$rawData[2] = explode("-", $rawData[2]);
