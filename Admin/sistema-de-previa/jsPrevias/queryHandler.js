@@ -1,10 +1,8 @@
 let container = document.getElementById("them");
-const padroes = /[!]|[-]/;
 
 class queryHandler{
 	constructor(){
 		this.x = 0;
-		this.y = 0;
 		
 		this.elmnts = [];
 		this.sec = container.parentNode;
@@ -17,29 +15,14 @@ class queryHandler{
 		let btnSlot = document.createElement("div")
 		let editBtn = document.createElement("button")
 		let linkEditBtn = document.createElement("a")
-		let images = [];
 		
-		if(Array.isArray(ImgsRoutes)){
-			ImgsRoutes.forEach(() => {			
-				images.push(document.createElement("img"))
-			})
-			
-			images.forEach((imagi) => {
-				imagi.setAttribute("class","imgsConsul")
-				imagi.setAttribute("alt", ImgsRoutes[this.y])
-				imagi.setAttribute("src", ImgsRoutes[this.y++])			
-			})
-			
-			
-			images.forEach((cada)=>{
-				imageSlot.append(cada)
-			})
-			images.forEach((cadaBtn)=>{
-				imageSlot.append(cadaBtn)
-			})
-			
+		
+		if(Array.isArray(ImgsRoutes)){									
+			let imagi = document.createElement("img")
+			imagi.setAttribute("class","imgsConsul")
+			imagi.setAttribute("src", ImgsRoutes[0])															
+			imageSlot.append(imagi)
 		}
-		this.y = 0;
 		
 		
 		card.className = "cardsConsul";
@@ -47,7 +30,7 @@ class queryHandler{
 		imageSlot.className = "divImgConsul";
 		btnSlot.className = "btnDivConsul";
 		editBtn.className = "btnConsul";		
-				
+		
 		linkEditBtn.href = "editPrev.php?qual=" + linkPraEdit;
 		
 		editBtn.innerHTML = "<img src='../../imgs/edit.png'>";
@@ -61,64 +44,18 @@ class queryHandler{
 		
 	}
 	
-	putInScreen(){
+	putInScreen(){		
+			this.sec.removeChild(container)	
 		
-		this.sec.removeChild(container)	
-		
-		container = document.createElement('div');
-		container.setAttribute("id", 'them')		
-		this.sec.append(container)
-		
-		this.elmnts.forEach((cada) => {
-			container.append(cada)
-		})
-		
+			container = document.createElement('div');
+			container.setAttribute("id", 'them')		
+			this.sec.append(container)
+			
+			this.elmnts.forEach((cada) => {
+				container.append(cada)
+			})						
 	}
-	
 	
 }
 
-async function consulta (){   
-	if(busca.value != ""){
-		let promessa = new Promise((resolve) => {
-			let req = new XMLHttpRequest();
-			req.open("GET","phpPrevias/filesHandler.php?action=returnClosier&qual="+busca.value);
-			req.onload = () => {resolve(req.responseText)};
-			req.send();
-		});	
-		
-		let exemp = await promessa	;
-		let Dataslan = [];		
-		query.elmnts = [];
-		let oLinkPraEdita;
-		exemp = JSON.parse(exemp);					
-		if(Array.isArray(exemp)){
-			console.log(exemp)		
-			query.putInScreen()
-		}
-		else{
-			console.log("nn foi");
-		}
-		}else{
-		container.remove();
-		container = document.createElement('div');
-		container.setAttribute("id", 'them')		
-		query.sec.append(container)
-	}
-}
-//---------------------------------------------------------------------------
-let busca = document.getElementById('buscPrevia'),
-query = new queryHandler(),
-cronometro1 = null;
-
-busca.addEventListener('input', () => {
-	clearTimeout(cronometro1);
-	console.clear()
-	
-	cronometro1 = setTimeout(() =>{
-		if(!padroes.test(busca.value)){
-			consulta();	
-			console.log("consultou")
-		}
-	}, 500)
-})										
+export default queryHandler;
