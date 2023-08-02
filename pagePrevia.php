@@ -74,11 +74,11 @@
             
             <div id="infoAnuncio">
                 <div id="home"><a href="inicio.html">Início</a>/ <a href="anuncioPrevia.php">Lançamentos</a></div>
-                <div id="nameAnun">Casaco Azul</div>
+                <div id="nameAnun"></div>
                 <div class="riscoQuebra"></div>
                 <div id="dateLancamento">
                     data de lançamento:
-                    30/08/2023
+                   <span id="datePrevia"></span>
                 </div>
             </div>
         </div>

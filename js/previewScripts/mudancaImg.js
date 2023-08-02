@@ -1,14 +1,11 @@
-let fotosAnuncio = document.getElementById('fotosAnuncio'),
-btnDireita = document.getElementById('btnDireita'),
+let btnDireita = document.getElementById('btnDireita'),
+caixaFotoAnuncio = document.getElementById('caixaFotoAnuncio'),
 btnEsquerda = document.getElementById('btnEsquerda'),
 mudaImg = document.getElementById('mudaImg'),
 nomeAnun = document.getElementById('nameAnun'),
-dateLan = document.getElementById('dateLancamento'),
+datePre = document.getElementById('datePrevia'),
 arrayImg,
-number = 0,
-strInt = [],
-NomDat,
-qtdImgs;
+number = 0
 
 function getLanc(){
     let semi = window.location.href.split('?');
@@ -36,7 +33,17 @@ async function consulta (){
 	// qtdImgs = exemp.length;
 	// console.log(qtdImgs)
 	console.log(exemp)
-	
+    console.log(exemp.data)
+    console.log(datePre)
+    datePre.innerText = exemp.data
+    nomeAnun.innerText = exemp.nome
+    let arrayImgs = exemp.imagens
+    arrayImgs.forEach((eleImg)=>{
+        mudaImg.src = '../' + eleImg
+        console.log(eleImg)		
+	})
+    
+    
     // arrayImg = exemp[0]
     // exemp.forEach((cada)=>{
         // strInt.push(cada.replace('../', 'Admin/'))
