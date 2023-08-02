@@ -58,9 +58,9 @@
 				<div class="boxForm">
 					<form action="phpPrevias/BackCadastro.php" method="POST" class="formEntre" enctype='multipart/form-data'>
 						<h2 class="hCadaster">editar lançamento</h2>
-						<input type="text" name="nome" placeholder="Nome da peça" class="inputs" required>
+						<input type="text" name="nome" placeholder="Nome da peça" class="inputs" id="inputEditarNomePrevia" required>
 						<label for="" id="dateLanca">Data de lançamento</label>
-						<input type="date" name="date" placeholder="Data de lançamento" class="inputs" required>
+						<input type="date" name="date" placeholder="Data de lançamento" id="inputDataPrevia" class="inputs" required>
 						<br>
 						<div id="mostraInput">						
 							<input type="file" name="fotos[]" multiple class="inputs" id="inputHi" required>

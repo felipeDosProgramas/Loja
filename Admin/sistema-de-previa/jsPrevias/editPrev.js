@@ -1,8 +1,8 @@
 let url = location.href;
 let get = url.split("?");get = get[1].split("=");get =  get[1].replace("%20", " ");
 
-let inpuNome = document.getElementsByName("nome");
-let inpuDate = document.getElementsByName("date");
+let inpuNome = document.getElementById('inputEditarNomePrevia')
+let inpuDate = document.getElementById('inputDataPrevia')
 let divDosBotoes = document.getElementById('botoesControle');
 let excluMarcados = document.getElementById('excluMarcados')
 let marcaAtualPraExclu = document.getElementById('marcaAtual');
@@ -64,76 +64,60 @@ function execCarrosel(arrayImg){
 
 
 
-async function consulta ()       
+(async () =>
 {
 	let promessa = new Promise((resolve) => 
 		{
 			let req = new XMLHttpRequest();
-			req.open("GET","phpPrevias/filesHandler.php?q="+get+"&edt=true");
+			req.open("GET","phpPrevias/filesHandler.php?action=especifico&qual="+get);
 			req.onload = () => {resolve(req.responseText)};
 			req.send();
 		});				
 		exemp = await promessa;		
-		try{
-		exemp = JSON.parse(exemp);
-		if(Array.isArray(exemp)){
-			exemp.forEach((cada) => {Dataslan.push(cada.split("!-!"))})			
-			inpuNome[0].value = Dataslan[0][1]
-			inpuDate[0].value = Dataslan[0][2]						
-			exemp.forEach((cada) => {
-				srcImagensProCarrosel.push(cada);
-			})		
-			execCarrosel(srcImagensProCarrosel)
-			return;
-		}
-		Dataslan = exemp.split("!-!");		
-		inpuNome[0].value = Dataslan[1]
-		inpuDate[0].value = Dataslan[2]					
-		}catch(e){
-			if(e instanceof SyntaxError){
-				console.log("sem nada")
-				location.href = "../"
-			}
-		}
-}
-
-marcaAtualPraExclu.addEventListener('click', (e)=>{
+		exemp = JSON.parse(exemp)
+		console.log(exemp)
+		inpuDate.innerText = exemp.data
+		inpuNome.innerText = exemp.nome
+})()
+/*
+	marcaAtualPraExclu.addEventListener('click', (e)=>{
 	e.preventDefault();
 	if(veSeTem(srcImagensProCarrosel[number], imgsPraEditar)){
-		imgsPraEditar.push(srcImagensProCarrosel[number])	
-		return;
+	imgsPraEditar.push(srcImagensProCarrosel[number])	
+	return;
 	}
 	imgsPraEditar.splice(imgsPraEditar.indexOf(srcImagensProCarrosel[number]), 1);			
-})
-
-excluMarcados.addEventListener('click', async (e)=>{
+	})
+	
+	excluMarcados.addEventListener('click', async (e)=>{
 	e.preventDefault();
 	if(imgsPraEditar.length != 0){
-		let imgs = JSON.stringify(imgsPraEditar);	
-		let server = await fetch("phpPrevias/filesHandler.php?q="+get+"&sendThem="+imgs);
-		let resposta = await server.text();
-		console.log(resposta)		
+	let imgs = JSON.stringify(imgsPraEditar);	
+	let server = await fetch("phpPrevias/filesHandler.php?q="+get+"&sendThem="+imgs);
+	let resposta = await server.text();
+	console.log(resposta)		
 	}
-})
-
-excluPreviaInteira.addEventListener('click', async (e) => {
-	e.preventDefault();
+	})
 	
+	excluPreviaInteira.addEventListener('click', async (e) => {
+	
+	e.preventDefault();	
 	let server = await fetch("phpPrevias/filesHandler.php?q="+get+"&excluEsse=true")
 	let resposta = await server.text();
 	
 	try{
-		resposta = json.parse(resposta);
-		console.log(resposta)
-		resposta.forEach((cada)=>{
-			if(!cada){
-				throw new Error(resposta.indexOf(cada));
-			}
-		})
-		
-		}catch(e){
-		console.log(e.message)//gerar msg dizendo que deu um erro e que é pra contatar os devs
+	resposta = json.parse(resposta);
+	console.log(resposta)
+	resposta.forEach((cada)=>{
+	if(!cada){
+	throw new Error(resposta.indexOf(cada));
+	}
+	})
+	
+	}catch(e){
+	console.log(e.message)//gerar msg dizendo que deu um erro e que é pra contatar os devs
 	}
 	
-})
-consulta()
+	})
+*/
+

@@ -36,7 +36,7 @@
 			$aux = 0;			
 			foreach($this->founded as $cada){
 				foreach($cada[0] as $index => $imgs){
-					$cad[$aux][] =  "Admin/arquivos/{$cada['file']}/$imgs";
+					$cad[$aux][] =  "../arquivos/{$cada['file']}/$imgs";
 				}		
 				$aux++;
 			}			
