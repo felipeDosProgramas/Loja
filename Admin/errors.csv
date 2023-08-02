@@ -13,3 +13,20 @@ Stack trace:
 #0 C:\xampp\htdocs\pigs\guit\Loja\purePhp\classes\classUser.php(101): PDO->query('select Email, P...')
 #1 C:\xampp\htdocs\pigs\guit\Loja\purePhp\User.php(13): ClassUsuario->ExecQuery()
 #2 {main}"
+"in Connection",2002,"SQLSTATE[HY000] [2002] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente"
+"in Connection",2002,"SQLSTATE[HY000] [2002] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente"
+principal,"Exception: falhou na hora de roda tudao in C:\xampp\htdocs\provisorio\LojaGitHub\Loja\purePhp\classes\classUser.php:114
+Stack trace:
+#0 C:\xampp\htdocs\provisorio\LojaGitHub\Loja\purePhp\User.php(13): ClassUsuario->ExecQuery()
+#1 {main}"
+"in Connection",2002,"SQLSTATE[HY000] [2002] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente"
+principal,"Exception: falhou na hora de roda tudao in C:\xampp\htdocs\provisorio\LojaGitHub\Loja\purePhp\classes\classUser.php:114
+Stack trace:
+#0 C:\xampp\htdocs\provisorio\LojaGitHub\Loja\purePhp\User.php(13): ClassUsuario->ExecQuery()
+#1 {main}"
+"in Connection",2002,"SQLSTATE[HY000] [2002] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente"
+principal,"Exception: falhou na hora de roda tudao in C:\xampp\htdocs\provisorio\LojaGitHub\Loja\purePhp\classes\classUser.php:114
+Stack trace:
+#0 C:\xampp\htdocs\provisorio\LojaGitHub\Loja\purePhp\User.php(13): ClassUsuario->ExecQuery()
+#1 {main}"
+"in Connection",2002,"SQLSTATE[HY000] [2002] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente"
