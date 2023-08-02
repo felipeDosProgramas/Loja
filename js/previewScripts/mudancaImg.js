@@ -35,7 +35,7 @@ async function consulta (){
     exemp = JSON.parse(exemp);
 	// qtdImgs = exemp.length;
 	// console.log(qtdImgs)
-	// console.log(exemp)
+	console.log(exemp)
 	
     // arrayImg = exemp[0]
     // exemp.forEach((cada)=>{

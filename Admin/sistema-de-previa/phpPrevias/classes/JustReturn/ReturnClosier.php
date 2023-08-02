@@ -5,23 +5,48 @@
 	class ReturnClosier extends fileSysManager{		
 		use returnObj;
 		private string $toSearch;
-		function __construct($toSearch){
-		parent::__construct();
-			$this->toSearch = $toSearch;	
-			$this->search();
-		}
-		private function search(){
+		private specificReturnType $returnType;
+		private ?array $founded;
 		
+		function __construct($toSearch){
+			parent::__construct();
+			$this->returnType = $this->getReturnTypeObj();
+			$this->toSearch = $toSearch;	
+			$this->search();			
+			$this->parseFounded();
+		}
+		
+		private function search(){
+			$aux = 0;
 			foreach(parent::$centralDir as $i){
-				$toSea = explode("!-!", $i);
-				$founded =stripos($toSea[1], $this->toSearch); 
+				$toSea = 	explode("!-!", $i);
+				$founded = 	stripos($toSea[1], $this->toSearch); 
 				
-				if($founded !== false){										
-					$res[] = parent::getDirSequenc("../../arquivos/".$i);
+				if($founded !== false){								
+					$res[$aux]["file"] = $i;
+					$res[$aux][] = parent::getDirSequenc("../../arquivos/".$i);										
+					$aux++;
 				}
-				unset($founded);
+				unset($founded);					
 			}
-			parent::setResponse($res);
+			$this->founded = $res;			
+		}
+		
+		private function parseFounded(){
+			$aux = 0;			
+			foreach($this->founded as $cada){
+				foreach($cada[0] as $index => $imgs){
+					$cad[$aux][] =  "Admin/arquivos/{$cada['file']}/$imgs";
+				}		
+				$aux++;
+			}			
+			unset($cada);
+			$aux = 0;
+			foreach($cad as $cada){				
+				$raws = explode("!-!", $this->founded[$aux]["file"]);				
+				$this->returnType->setFullFilledRow($cada, $raws[1], $raws[2], $this->founded[$aux]["file"]);
+			}
+			parent::setResponse($this->returnType->getAllRows());
 		}
 	}
 	

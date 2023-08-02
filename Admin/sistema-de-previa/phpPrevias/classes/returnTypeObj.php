@@ -19,7 +19,7 @@
 					}					
 					return $nomes;
 				}
-				function setFullFilledRow(string|array $rota, string $nome, string $dataLancamento, string $raw){					
+				function setFullFilledRow(string|array $rota, string $nome, string $dataLancamento, ?string $raw = null){
 					$this->fullFilledRows[$this->rowId++] = 
 					array(					
 						"nome" => $nome,

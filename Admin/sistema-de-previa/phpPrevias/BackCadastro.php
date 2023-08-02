@@ -6,14 +6,14 @@
 		function __construct($dirTo){
 			$this->aninha($dirTo);			
 			$this->testa();
-			header('location:formPrevia.php'.$this->redirec());
+			header('location: ../formPrevia.php'.$this->redirec());
 		}
 		 function redirec(){
 			return "?response=".$this->answer;
 		}
 
 		private function aninha($qm){
-			$this->toWork = "../arquivos/!-!".$qm."!-!".$_POST['date']."!-!";
+			$this->toWork = "../../arquivos/!-!".$qm."!-!".$_POST['date']."!-!";
 		}	
 		
 		private function testa(){
@@ -21,6 +21,7 @@
 				$this->answer = "existe";
 				//CASO EXISTA	
 				}else{
+				echo $this->toWork;
 				if(mkdir($this->toWork)){
 					$this->answer = "cadastrado";
 					//CASO O DIRETÓRIO NÃO EXISTA 

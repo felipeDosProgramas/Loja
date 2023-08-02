@@ -47,10 +47,8 @@ class queryHandler{
 		imageSlot.className = "divImgConsul";
 		btnSlot.className = "btnDivConsul";
 		editBtn.className = "btnConsul";		
-		
-		
+				
 		linkEditBtn.href = "editPrev.php?qual=" + linkPraEdit;
-		
 		
 		editBtn.innerHTML = "<img src='../../imgs/edit.png'>";
 		nameSlot.innerText = Name;
@@ -93,27 +91,9 @@ async function consulta (){
 		let Dataslan = [];		
 		query.elmnts = [];
 		let oLinkPraEdita;
-		exemp = JSON.parse(exemp);			
-		// console.log("o servidor retornou: \n"+exemp)
-		
+		exemp = JSON.parse(exemp);					
 		if(Array.isArray(exemp)){
-			exemp.forEach((iten) => {
-				if(Array.isArray(iten)){
-				Dataslan.push(iten[0].split("!-!"));
-				return;
-				}
-				Dataslan.push(iten.split("!-!"));
-			})
-			// console.log(Dataslan)
-			// console.log(exemp)
-			
-			for(query.x = 0;query.x != Dataslan.length;query.x++){		
-				// console.log(Dataslan[query.x])
-				oLinkPraEdita = "!-!"+Dataslan[query.x][1]+"!-!"+Dataslan[query.x][2]+"!-!";
-				// console.log(oLinkPraEdita)
-				query.setEstruPrev(exemp[query.x], Dataslan[query.x][1],oLinkPraEdita);								
-			}		
-			// console.groupEnd()
+			console.log(exemp)		
 			query.putInScreen()
 		}
 		else{
