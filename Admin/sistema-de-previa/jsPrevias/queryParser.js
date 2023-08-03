@@ -1,4 +1,4 @@
-import queryHandler from "./queryHandler.js";
+import queryHandler from "./classes/queryHandler.js";
 
 let container = document.getElementById("them");
 const padroes = /[!]|[-]/;
