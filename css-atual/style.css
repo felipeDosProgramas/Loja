@@ -465,12 +465,10 @@ a {
 }
 
 .btnDireEsquer {
-  visibility: hidden;
   width: 40px;
   background-color: rgb(0, 0, 0);
-  border-radius: 100%;
   border: none;
-  height: 40px;
+  height: 100%;
   transition: 0.5s;
   position: relative;
 }

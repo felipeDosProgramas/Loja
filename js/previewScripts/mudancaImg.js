@@ -4,7 +4,6 @@ btnEsquerda = document.getElementById('btnEsquerda'),
 mudaImg = document.getElementById('mudaImg'),
 nomeAnun = document.getElementById('nameAnun'),
 datePre = document.getElementById('datePrevia'),
-arrayImg,
 number = 0
 
 function getLanc(){
@@ -17,7 +16,7 @@ function getLanc(){
 	})
 	// console.log(gets)
 	return gets[0][1].replace(/%20/g, " ")
-}
+}    
 
 async function consulta (){   
     
@@ -38,10 +37,39 @@ async function consulta (){
     datePre.innerText = exemp.data
     nomeAnun.innerText = exemp.nome
     let arrayImgs = exemp.imagens
-    arrayImgs.forEach((eleImg)=>{
-        mudaImg.src = '../' + eleImg
+    /*arrayImgs.forEach((eleImg)=>{
+        /*mudaImg.src = eleImg
         console.log(eleImg)		
-	})
+	})*/
+    btnDireita.addEventListener('click', function (){
+        if (arrayImgs) {
+            if (number < arrayImgs.length - 1) {
+                mudaImg.src = arrayImgs[++number];
+            } else {
+                number = 0;
+                mudaImg.src = arrayImgs[number];
+            }
+            console.log(arrayImgs[number]);
+        } else {
+            number = 0;
+            mudaImg.src = arrayImgs[number];
+        }
+    })
+        
+    btnEsquerda.addEventListener('click', function () {
+        if (arrayImgs) {
+            if (number > 0) {
+                mudaImg.src = arrayImgs[--number];
+            } else {
+                number = arrayImgs.length - 1;
+                mudaImg.src = arrayImgs[number];
+            }
+            console.log(arrayImgs[number]);
+        } else {
+            number = 0;
+            mudaImg.src = arrayImgs[number];
+        }
+    })
     
     
     // arrayImg = exemp[0]
@@ -63,33 +91,3 @@ async function consulta (){
 
 
 consulta()
-
-btnDireita.addEventListener('click', function (){
-if (arrayImg[++number]){ 
-mudaImg.src = arrayImg[number];
-}else{
-number = 0;
-mudaImg.src = arrayImg[number];
-}
-
-})
-
-btnEsquerda.addEventListener('click', function () {
-if (arrayImg[--number]){ 
-mudaImg.src = arrayImg[number];
-}else{
-number = arrayImg.length - 1
-console.log(arrayImg.length - 1)
-mudaImg.src = arrayImg[number];
-}
-})
-
-function ativeSetas() {
-btnDireita.style.visibility = 'visible'
-btnEsquerda.style.visibility = 'visible'
-}
-
-function desativeSetas() {
-btnDireita.style.visibility = 'hidden'
-btnEsquerda.style.visibility = 'hidden'
-}

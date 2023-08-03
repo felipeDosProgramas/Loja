@@ -63,8 +63,7 @@
 
     <section>
         <div id="caixaAnuncio">
-            <div id="fotosAnuncio" onmouseover="ativeSetas()" onmouseout="desativeSetas()">
-                
+            <div id="fotosAnuncio">
                 <button id="btnEsquerda" class="btnDireEsquer"></button>
                 <div id="caixaFotoAnuncio">
                     <img src="./imgs/casaco.webp" alt="" class="imgsAnuncio" id="mudaImg">
