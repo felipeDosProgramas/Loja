@@ -1,11 +1,12 @@
 class editPrevHandler{
-	constructor(arrayImagens, imgElement){			
-		this.arrayImg = arrayImagens;
+	constructor(imgElement){			
+		
 		this.mudaImg = imgElement;
 		this.number = 0;
-	}
-	setElements(){
-		
+	}	
+	
+	async setImgsCarrosel(){
+		this.arrayImg = await arrayImagens;
 	}
 	
 	execCarrosel(){
