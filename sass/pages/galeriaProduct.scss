@@ -74,12 +74,10 @@
 }
 
 .btnDireEsquer {
-    visibility: hidden;
     width: 40px;
     background-color: $cor-preta;
-    border-radius: 100%;
     border: none;
-    height: 40px;
+    height: 100%;
     transition: .5s;
     position: relative;
 }
