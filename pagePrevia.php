@@ -66,7 +66,6 @@
             <div id="fotosAnuncio">
                 <button id="btnEsquerda" class="btnDireEsquer"></button>
                 <div id="caixaFotoAnuncio">
-                    <img src="./imgs/casaco.webp" alt="" class="imgsAnuncio" id="mudaImg">
                 </div>  
                 <button id="btnDireita" class="btnDireEsquer"></button>
             </div>
