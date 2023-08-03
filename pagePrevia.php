@@ -66,6 +66,7 @@
             <div id="fotosAnuncio">
                 <button id="btnEsquerda" class="btnDireEsquer"></button>
                 <div id="caixaFotoAnuncio">
+                    <img src="" alt="" class="imgsAnuncio" id="mudaImg">
                 </div>  
                 <button id="btnDireita" class="btnDireEsquer"></button>
             </div>
