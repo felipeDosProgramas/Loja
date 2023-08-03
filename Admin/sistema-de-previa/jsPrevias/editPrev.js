@@ -120,4 +120,3 @@ function execCarrosel(arrayImg){
 	
 	})
 */
-

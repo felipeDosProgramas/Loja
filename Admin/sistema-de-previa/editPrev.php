@@ -73,7 +73,7 @@
 								</div>
 							</div>
 						</div>
-						<button id="excluPreviaInteira">excluir prévia<!--faz um hover com uma mensagenzinha explicando que a prévia sera enviada para a lixeira podendo ser conseguida dps--></button>
+						<button id="excluPreviaInteira">excluir prévia</button>
 						<input type="submit" value="Envio" class="btnSub" name="submit">
 						<div id="serverResponse"></div>
 						<span id="textExclama">Obs: Não digitar caracteres especiais</span>
