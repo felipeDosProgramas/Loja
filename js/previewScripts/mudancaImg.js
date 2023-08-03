@@ -37,6 +37,7 @@ async function consulta (){
     datePre.innerText = exemp.data
     nomeAnun.innerText = exemp.nome
     let arrayImgs = exemp.imagens
+	mudaImg.src = arrayImgs[0]
     /*arrayImgs.forEach((eleImg)=>{
         /*mudaImg.src = eleImg
         console.log(eleImg)		
