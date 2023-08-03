@@ -9,7 +9,7 @@
 }
 
 #aBtnLanca {
-    margin: 25%;
+    margin: 30%;
 }
 
 #btnPreLanca {
@@ -123,21 +123,21 @@
         margin-top: 10px; 
     }
     
-    #aBtnLanca {
-        margin: 32vh;
-    }
+    /*#aBtnLanca {
+        margin: 1vh;
+    }*/
 }
 
 @media screen and (max-width: 400px){
-    #aBtnLanca {
+    /*#aBtnLanca {
         margin: 26vh;
-    }
+    }*/
 }
 
 @media screen and (max-width: 320px){
-    #aBtnLanca {
+    /*#aBtnLanca {
         margin: 24vh;
-    }
+    }*/
     #containerCard {
         grid-template-areas: 'cards';
     }

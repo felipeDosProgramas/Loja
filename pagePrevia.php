@@ -64,11 +64,12 @@
     <section>
         <div id="caixaAnuncio">
             <div id="fotosAnuncio">
-                <button id="btnEsquerda" class="btnDireEsquer"></button>
                 <div id="caixaFotoAnuncio">
+                    <button id="btnEsquerda" class="btnDireEsquer"></button>
                     <img src="" alt="" class="imgsAnuncio" id="mudaImg">
+                    <button id="btnDireita" class="btnDireEsquer"></button>
                 </div>  
-                <button id="btnDireita" class="btnDireEsquer"></button>
+                
             </div>
             
             <div id="infoAnuncio">
