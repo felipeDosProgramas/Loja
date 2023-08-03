@@ -1,10 +1,11 @@
 let btnDireita = document.getElementById('btnDireita'),
-caixaFotoAnuncio = document.getElementById('caixaFotoAnuncio'),
-btnEsquerda = document.getElementById('btnEsquerda'),
-mudaImg = document.getElementById('mudaImg'),
-nomeAnun = document.getElementById('nameAnun'),
-datePre = document.getElementById('datePrevia'),
-number = 0
+	caixaFotoAnuncio = document.getElementById('caixaFotoAnuncio'),
+	btnEsquerda = document.getElementById('btnEsquerda'),
+	mudaImg = document.getElementById('mudaImg'),
+	nomeAnun = document.getElementById('nameAnun'),
+	datePre = document.getElementById('datePrevia'),
+	number = 0,
+	btnsDireEsq = document.getElementById('btnDireEsquer');
 
 function getLanc(){
     let semi = window.location.href.split('?');
@@ -28,20 +29,11 @@ async function consulta (){
 	});	
 	
 	let exemp = await promessa	
-    exemp = JSON.parse(exemp);
-	// qtdImgs = exemp.length;
-	// console.log(qtdImgs)
-	console.log(exemp)
-    console.log(exemp.data)
-    console.log(datePre)
+    exemp = JSON.parse(exemp);	
     datePre.innerText = exemp.data
     nomeAnun.innerText = exemp.nome
     let arrayImgs = exemp.imagens
-	mudaImg.src = arrayImgs[0]
-    /*arrayImgs.forEach((eleImg)=>{
-        /*mudaImg.src = eleImg
-        console.log(eleImg)		
-	})*/
+	mudaImg.src = arrayImgs[0]    
     btnDireita.addEventListener('click', function (){
         if (arrayImgs) {
             if (number < arrayImgs.length - 1) {
@@ -71,7 +63,7 @@ async function consulta (){
             mudaImg.src = arrayImgs[number];
         }
     })
-    
+
     
     // arrayImg = exemp[0]
     // exemp.forEach((cada)=>{

@@ -1,11 +1,12 @@
 class editPrevHandler{
-	constructor(arrayImagens, imgElement){			
-		this.arrayImg = arrayImagens;
+	constructor(imgElement){			
+		
 		this.mudaImg = imgElement;
 		this.number = 0;
-	}
-	setElements(){
-		
+	}	
+	
+	async setImgsCarrosel(){
+		this.arrayImg = await arrayImagens;
 	}
 	
 	execCarrosel(){
@@ -31,10 +32,11 @@ class editPrevHandler{
 				
 				if (this.arrayImg[++number]){ 
 					this.mudaImg.src = this.arrayImg[number];
-					}else{
-					number = 0;
-					this.mudaImg.src = this.arrayImg[number];
-				}			
+					return;
+				}
+				number = 0;
+				this.mudaImg.src = this.arrayImg[number];
+				
 			})
 			
 			Botoes[0].addEventListener('click', function (e){
@@ -42,12 +44,13 @@ class editPrevHandler{
 				
 				if (this.arrayImg[--number]){ 
 					this.mudaImg.src = this.arrayImg[number];
-					}else{
-					number = this.arrayImg.length - 1
-					this.mudaImg.src = this.arrayImg[number];
+					return;
 				}
-			})		
-		}	
+				number = this.arrayImg.length - 1
+				this.mudaImg.src = this.arrayImg[number];
+				
+			})
+		}
 	}
 	
 }	

@@ -14,8 +14,7 @@ class queryHandler{
 		let imageSlot = document.createElement("div")
 		let btnSlot = document.createElement("div")
 		let editBtn = document.createElement("button")
-		let linkEditBtn = document.createElement("a")
-		
+		let linkEditBtn = document.createElement("a")		
 		
 		if(Array.isArray(ImgsRoutes)){									
 			let imagi = document.createElement("img")
