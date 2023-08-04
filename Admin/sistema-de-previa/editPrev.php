@@ -8,7 +8,7 @@
 		<link rel="stylesheet" href="../cssAdm/style.css">
 		<link rel="stylesheet" href="../../css-atual/style.css">
 		<script src="../../js/index.js" defer></script>
-		<script src="jsPrevias/editPrev.js" defer></script>	
+		<script src="jsPrevias/editPrev.js" defer type="module"></script>	
 	</head>
 	<body>
 		<header id="header">

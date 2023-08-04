@@ -5,7 +5,7 @@ class requestsHandler{
 	setInputs(inputData, inputNome){
 		this.inpuDate = inputData;
 		this.inpuNome = inputNome;
-	}
+	}	
 	veSeTem(oque,naOnde){
 		let retorno = true;
 		naOnde.forEach((cada)=>{
@@ -16,10 +16,11 @@ class requestsHandler{
 		return retorno;
 	}		
 	
-	async consultaInicial(){
+	async consultaInicial(){		
 		let promessa = new Promise((resolve) => 
 			{
-				let req = new XMLHttpRequest();
+				let req = new XMLHttpRequest();				
+				
 				req.open("GET","phpPrevias/filesHandler.php?action=especifico&qual="+this.get);
 				req.onload = () => {resolve(req.responseText)};
 				req.send();
@@ -32,9 +33,11 @@ class requestsHandler{
 			this.inpuNome.innerText = exemp.nome
 	}
 	
-	excluPrevInteira(){
-		let server = await fetch("phpPrevias/filesHandler.php?qual="+this.get+"&action=excluEsse")
+	async excluPrevInteira(){
+		let server = await fetch("phpPrevias/filesHandler.php?action=excluEsse&qual="+this.get)
 		let resposta = await server.text();				
 		console.log(resposta)
 	}	
 }
+
+export default requestsHandler;
