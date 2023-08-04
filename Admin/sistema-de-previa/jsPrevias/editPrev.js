@@ -1,6 +1,6 @@
 let url = location.href;
 let get = url.split("?");get = get[1].split("=");get =  get[1].replace("%20", " ");
-
+/*
 let inpuNome = document.getElementById('inputEditarNomePrevia')
 let inpuDate = document.getElementById('inputDataPrevia')
 let divDosBotoes = document.getElementById('botoesControle');
@@ -8,8 +8,8 @@ let excluMarcados = document.getElementById('excluMarcados')
 let marcaAtualPraExclu = document.getElementById('marcaAtual');
 let imgsBanco = document.getElementById("imgsExistentes");
 let mudaImg =  document.getElementById("carroselImgsEdit");
-let excluPreviaInteira = document.getElementById("excluPreviaInteira");
-
+*/
+let excluPreviaInteira = document.getElementById("excluPreviaInteira");	
 let imgsPraEditar = [];
 let srcImagensProCarrosel = [];
 let Dataslan = [];
@@ -61,9 +61,6 @@ function execCarrosel(arrayImg){
 		})		
 	}	
 }
-
-
-
 (async () =>
 	{
 		let promessa = new Promise((resolve) => 
@@ -99,12 +96,10 @@ function execCarrosel(arrayImg){
 		}
 	})
 	
-	excluPreviaInteira.addEventListener('click', async (e) => {
-		
+	excluPreviaInteira.addEventListener('click', async (e) => {		
 		e.preventDefault();	
 		let server = await fetch("phpPrevias/filesHandler.php?q="+get+"&excluEsse=true")
-		let resposta = await server.text();
-		
+		let resposta = await server.text();		
 		try{
 			resposta = json.parse(resposta);
 			console.log(resposta)

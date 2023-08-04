@@ -1,6 +1,6 @@
 <?php
 	require_once "classes/fileSysManager.php";
-	require_once "classes/returnTypeObj.php";
+	require_once "classes/justReturn/returnTypeObj.php";
 	
 	class ReturnClosier extends fileSysManager{		
 		use returnObj;

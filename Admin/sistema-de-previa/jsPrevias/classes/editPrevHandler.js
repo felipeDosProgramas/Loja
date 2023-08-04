@@ -54,3 +54,5 @@ class editPrevHandler{
 	}
 	
 }	
+
+export default editPrevHandler;

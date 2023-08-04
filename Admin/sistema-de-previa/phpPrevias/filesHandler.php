@@ -15,11 +15,21 @@
 				require_once "classes/JustReturn/ReturnEspecific.php";
 				$hand = new ReturnEspecific($_GET['qual']);
 			break;
+			
+			case "excluEsse":
+				require_once "classes/movePreviews/deletePreview.php";
+				$hand = new deletePreview($_GET['qual']);
+			break;
+			
+			case "excluMarcados":
+				require_once "classes/movePreviews/deletePreviewImages.php";
 				
+			break;
 			default:
-			echo "ta hackeando né safado";
+				echo "ta hackeando né safado";
 		}
 		
-		$hand->getResponse();
+			$hand->getResponse();
+		
 	}
 ?>						

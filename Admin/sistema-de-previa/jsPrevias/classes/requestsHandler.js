@@ -1,10 +1,10 @@
 class requestsHandler{
-	constructor(inputData, inputNome){
+	constructor(parsedGet){		
+		this.get = parsedGet;
+	}
+	setInputs(inputData, inputNome){
 		this.inpuDate = inputData;
 		this.inpuNome = inputNome;
-		this.imgsPraEdita = [];
-		
-		this.consultaInicial()
 	}
 	veSeTem(oque,naOnde){
 		let retorno = true;
@@ -14,23 +14,27 @@ class requestsHandler{
 			}
 		})
 		return retorno;
-	}
-		
+	}		
 	
 	async consultaInicial(){
 		let promessa = new Promise((resolve) => 
 			{
 				let req = new XMLHttpRequest();
-				req.open("GET","phpPrevias/filesHandler.php?action=especifico&qual="+get);
+				req.open("GET","phpPrevias/filesHandler.php?action=especifico&qual="+this.get);
 				req.onload = () => {resolve(req.responseText)};
 				req.send();
 			});				
 			exemp = await promessa;		
 			exemp = JSON.parse(exemp)
 			exemp = JSON.stringify(exemp.imagens)
-			sessionStorage.setItem('imagensProCarrosel',exemp)
+			sessionStorage.setItem('imagensProCarrosel',exemp)			
 			this.inpuDate.innerText = exemp.data
 			this.inpuNome.innerText = exemp.nome
 	}
 	
+	excluPrevInteira(){
+		let server = await fetch("phpPrevias/filesHandler.php?qual="+this.get+"&action=excluEsse")
+		let resposta = await server.text();				
+		console.log(resposta)
+	}	
 }
