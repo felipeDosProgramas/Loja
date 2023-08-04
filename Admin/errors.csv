@@ -30,3 +30,7 @@ Stack trace:
 #0 C:\xampp\htdocs\provisorio\LojaGitHub\Loja\purePhp\User.php(13): ClassUsuario->ExecQuery()
 #1 {main}"
 "in Connection",2002,"SQLSTATE[HY000] [2002] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente"
+"in Connection",2002,"SQLSTATE[HY000] [2002] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente"
+"in Connection",2002,"SQLSTATE[HY000] [2002] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente"
+"in Connection",2002,"SQLSTATE[HY000] [2002] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente"
+"in Connection",2002,"SQLSTATE[HY000] [2002] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente"

@@ -77,7 +77,7 @@
                 <div id="nameAnun"></div>
                 <div class="riscoQuebra"></div>
                 <div id="dateLancamento">
-                    data de lançamento:
+                   lançamento:
                    <span id="datePrevia"></span>
                 </div>
             </div>
