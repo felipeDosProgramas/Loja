@@ -509,25 +509,40 @@ a {
     display: grid;
     grid-template-areas: "fotosAnuncio" "infoAnuncio";
   }
+  #infoAnuncio {
+    width: 500px;
+  }
+  .btnDireEsquer {
+    height: 78.5%;
+  }
 }
 @media screen and (max-width: 610px) {
   #caixaFotoAnuncio {
-    width: 300px;
+    width: 100%;
   }
   .imgsAnuncio {
     width: 100%;
     height: auto;
   }
   #infoAnuncio {
-    width: 400px;
+    width: 350px;
   }
   #description {
     font-size: 0.9em;
   }
+  #nameAnun {
+    font-size: 1.2em;
+  }
+  #divPreco {
+    font-size: 1em;
+  }
+  .btnDireEsquer {
+    height: 79.5%;
+  }
 }
 @media screen and (max-width: 407px) {
   #caixaFotoAnuncio {
-    width: 200px;
+    width: 100%;
   }
   .imgsAnuncio {
     width: 100%;
@@ -542,9 +557,8 @@ a {
   #btnSaco {
     font-size: 1em;
   }
-  .btnDireEsquer {
-    width: 25px;
-    height: 25px;
+  #dateLancamento {
+    font-size: 1.2em;
   }
 }
 .boxForm {
