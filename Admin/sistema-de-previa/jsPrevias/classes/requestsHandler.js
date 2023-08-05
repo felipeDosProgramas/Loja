@@ -42,7 +42,7 @@ class requestsHandler{
 	}
 	
 	async excluSoUmaFoto(qual){
-		let server = await fetch("phpPrevias/filesHandler.php?action=excluEssaFoto&qual="+qual);
+		let server = await fetch("phpPrevias/filesHandler.php?action=excluEssaFoto&qual="+qual+"&daPrev="+this.get);
 		let resposta = await server.text();
 		console.log(resposta)
 	}

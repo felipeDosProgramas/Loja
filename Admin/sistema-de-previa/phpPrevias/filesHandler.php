@@ -21,12 +21,13 @@
 				$hand = new deletePreview($_GET['qual']);
 			break;
 			
-			case "excluMarcados":
+			case "excluMarcados":			
+			case "excluEssaFoto":
 				require_once "classes/movePreviews/deletePreviewImages.php";
-				
+				$hand = new deletePreviewImages($_GET['qual'], $_GET['daPrev']);
 			break;
 			default:
-				echo "ta hackeando né safado";
+				echo "ta hackeando né, safado!";
 		}
 		if(isset($hand)) $hand->getResponse();							
 	}
