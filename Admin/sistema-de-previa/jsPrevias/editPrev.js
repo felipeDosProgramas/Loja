@@ -89,5 +89,5 @@ excluMarcados.addEventListener('click', async (e)=>{
 */
 excluPreviaInteira.onclick = (e) => {
 	e.preventDefault();
-	request.excluPrevInteira();
+	edtPrev.excluPrevInteira();
 }

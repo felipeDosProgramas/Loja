@@ -20,18 +20,17 @@ class requestsHandler{
 	async consultaInicial(){		
 		let promessa = new Promise((resolve) => 
 			{
-				let req = new XMLHttpRequest();				
-				
+				let req = new XMLHttpRequest();								
 				req.open("GET","phpPrevias/filesHandler.php?action=especifico&qual="+this.get);
 				req.onload = () => {resolve(req.responseText)};
 				req.send();
 			});				
 			let exemp = await promessa;									
-			exemp = JSON.parse(exemp)				
-			let data = exemp.data.split("-")
-			this.imagens = exemp.imagens			
-			this.inpuDate.value = `${data[2]}-${data[1]}-${data[0]}`
-			this.inpuNome.value = exemp.nome			
+			exemp = JSON.parse(exemp);				
+			let data = exemp.data.split("-");
+			this.imagens = exemp.imagens;
+			this.inpuDate.value = `${data[2]}-${data[1]}-${data[0]}`;
+			this.inpuNome.value = exemp.nome;
 			
 			return true;
 	
