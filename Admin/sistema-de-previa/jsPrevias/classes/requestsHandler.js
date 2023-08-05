@@ -26,18 +26,15 @@ class requestsHandler{
 				req.onload = () => {resolve(req.responseText)};
 				req.send();
 			});				
-			let exemp = await promessa;								
-			try{
-			exemp = JSON.parse(exemp)						
-			
+			let exemp = await promessa;									
+			exemp = JSON.parse(exemp)				
+			let data = exemp.data.split("-")
 			this.imagens = exemp.imagens			
-			this.inpuDate.innerText = exemp.data
-			this.inpuNome.innerText = exemp.nome			
+			this.inpuDate.value = `${data[2]}-${data[1]}-${data[0]}`
+			this.inpuNome.value = exemp.nome			
 			
 			return true;
-			}catch(e){
-				if(e instanceof SyntaxError) return false
-			}
+	
 			
 	}
 	
