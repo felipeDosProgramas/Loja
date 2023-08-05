@@ -3,7 +3,8 @@ import queryHandler from "./classes/queryHandler.js";
 let container = document.getElementById("them");
 const padroes = /[!]|[-]/;
 
-async function consulta (query){   
+
+async function consulta(query){   
 	if(busca.value != ""){
 		let promessa = new Promise((resolve) => {
 			let req = new XMLHttpRequest();
@@ -48,4 +49,4 @@ busca.addEventListener('input', () => {
 			console.log("consultou")
 		}
 	}, 500)
-})										
+});					

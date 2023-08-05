@@ -44,7 +44,7 @@
 			$aux = 0;
 			foreach($cad as $cada){				
 				$raws = explode("!-!", $this->founded[$aux]["file"]);				
-				$this->returnType->setFullFilledRow($cada, $raws[1], $raws[2], $this->founded[$aux]["file"]);
+				$this->returnType->setFullFilledRow($cada, $raws[1], $raws[2], $this->founded[$aux++]["file"]);
 			}
 			parent::setResponse($this->returnType->getAllRows());
 		}
