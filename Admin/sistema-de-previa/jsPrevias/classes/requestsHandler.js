@@ -16,6 +16,7 @@ class requestsHandler{
 		return retorno;
 	}		
 	
+		
 	async consultaInicial(){		
 		let promessa = new Promise((resolve) => 
 			{
@@ -25,12 +26,25 @@ class requestsHandler{
 				req.onload = () => {resolve(req.responseText)};
 				req.send();
 			});				
-			exemp = await promessa;		
-			exemp = JSON.parse(exemp)
-			exemp = JSON.stringify(exemp.imagens)
-			sessionStorage.setItem('imagensProCarrosel',exemp)			
+			let exemp = await promessa;								
+			try{
+			exemp = JSON.parse(exemp)						
+			
+			this.imagens = exemp.imagens			
 			this.inpuDate.innerText = exemp.data
-			this.inpuNome.innerText = exemp.nome
+			this.inpuNome.innerText = exemp.nome			
+			
+			return true;
+			}catch(e){
+				if(e instanceof SyntaxError) return false
+			}
+			
+	}
+	
+	async excluSoUmaFoto(qual){
+		let server = await fetch("phpPrevias/filesHandler.php?action=excluEssaFoto&qual="+qual);
+		let resposta = await server.text();
+		console.log(resposta)
 	}
 	
 	async excluPrevInteira(){

@@ -1,10 +1,9 @@
-import requestsHandler from './classes/requestsHandler.js';
 import editPrevHandler from './classes/editPrevHandler.js';
-
 
 let get = location.href;get = get.split("?");get = get[1].split("=");get =  get[1].replace("%20", " ");
 let inpuNome = document.getElementById('inputEditarNomePrevia');
 let inpuDate = document.getElementById('inputDataPrevia');
+let listaImagens = document.getElementById('divLista');
 let excluPreviaInteira = document.getElementById("excluPreviaInteira");	
 /*
 	let divDosBotoes = document.getElementById('botoesControle');
@@ -18,8 +17,9 @@ let excluPreviaInteira = document.getElementById("excluPreviaInteira");
 	let exemp;
 	let number = 0;
 */
-let request = new requestsHandler(get);	
-let edtPrev = new editPrevHandler();
+let edtPrev = new editPrevHandler(listaImagens, get);
+edtPrev.setInputs(inpuDate, inpuNome)
+edtPrev.setImg();
 /*function veSeTem(oque, naOnde){
 	let retorno = true;
 	naOnde.forEach((cada)=>{
@@ -66,7 +66,7 @@ let edtPrev = new editPrevHandler();
 	}	
 	}
 	
-*/
+
 
 marcaAtualPraExclu.addEventListener('click', (e)=>{
 	e.preventDefault();
@@ -86,7 +86,7 @@ excluMarcados.addEventListener('click', async (e)=>{
 		console.log(resposta)		
 	}
 })
-
+*/
 excluPreviaInteira.onclick = (e) => {
 	e.preventDefault();
 	request.excluPrevInteira();

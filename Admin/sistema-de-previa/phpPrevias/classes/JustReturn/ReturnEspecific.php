@@ -23,7 +23,7 @@
 			(array) $rawData = explode("!-!", $this->rawPrevName);
 			$rawData[2] = explode("-", $rawData[2]);
 			// print_r($rawData[][]);
-			$rawData[2] = "{$rawData[2][2]}-{$rawData[2][1]}-{$rawData[2][0]}";
+			$rawData[2] = "{$rawData[2][2]}-{$rawData[2][1]}-{$rawData[2][0]}";			
 			parent::setResponse(
 			[
 			"nome"		=>	$rawData[1],

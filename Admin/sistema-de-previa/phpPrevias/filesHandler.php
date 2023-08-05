@@ -28,8 +28,6 @@
 			default:
 				echo "ta hackeando né safado";
 		}
-		
-			$hand->getResponse();
-		
+		if(isset($hand)) $hand->getResponse();							
 	}
 ?>						

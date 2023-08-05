@@ -66,12 +66,12 @@
 							<input type="file" name="fotos[]" multiple class="inputs" id="inputHi" required>
 						</div>
 						<div id="divLista">
-							<div class="cardsListas">
+							<!--<div class="cardsListas">
 								<div class="divBtnAndCheck">
 									<input type="checkbox" class="checkExclu">
 									<button id="excluirOnePrev">Excluir</button>
 								</div>
-							</div>
+							</div>-->
 						</div>
 						<button id="excluPreviaInteira">excluir prévia</button>
 						<input type="submit" value="Envio" class="btnSub" name="submit">
