@@ -30,12 +30,18 @@ class requestsHandler{
 			let data = exemp.data.split("-");
 			this.imagens = exemp.imagens;
 			this.inpuDate.value = `${data[2]}-${data[1]}-${data[0]}`;
-			this.inpuNome.value = exemp.nome;
-			
-			return true;
-	
-			
+			this.inpuNome.value = exemp.nome;			
+			return true;				
 	}
+	async mudaDados(){
+		let dados = JSON.stringify([this.inpuDate.value, this.inpuNome.value])
+		let server = await fetch("phpPrevias/filesHandler.php?action=alteraDados&paraQuais="+dados+"&deQual="+this.get)
+		let resposta = await server.text();
+		resposta = JSON.parse(resposta)
+		if(resposta[0] && resposta[1]) location.href = `editPrev.php?qual=!-!${this.inpuNome.value}!-!${this.inpuDate.value}!-!`
+		console.log(resposta);
+	}
+	
 	
 	async excluSoUmaFoto(qual){
 		let server = await fetch("phpPrevias/filesHandler.php?action=excluEssaFoto&qual="+qual+"&daPrev="+this.get);
@@ -43,7 +49,8 @@ class requestsHandler{
 		console.log(resposta)
 	}
 	
-	async excluPrevInteira(){
+	async excluPrevInteira(e){
+		e.preventDefault();
 		let server = await fetch("phpPrevias/filesHandler.php?action=excluEsse&qual="+this.get)
 		let resposta = await server.text();				
 		console.log(resposta)

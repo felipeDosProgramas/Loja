@@ -15,6 +15,17 @@ class editPrevHandler extends requestsHandler{
 		cardDela.remove()
 	}
 	
+	alterouUmDado(){	
+		let btnSalvarDados = document.createElement('button')
+		btnSalvarDados.innerText = "salvar";
+		btnSalvarDados.onclick = (e) => {
+			e.preventDefault()
+			this.mudaDados()
+		}
+		
+		this.imgsParentElement.append(btnSalvarDados)
+	}
+	
 	createImgCard(linkImg){
 		let card = document.createElement('div');
 		let btnCheck = document.createElement('div');

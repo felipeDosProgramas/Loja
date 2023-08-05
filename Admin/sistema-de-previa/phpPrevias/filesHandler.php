@@ -26,6 +26,12 @@
 				require_once "classes/movePreviews/deletePreviewImages.php";
 				$hand = new deletePreviewImages($_GET['qual'], $_GET['daPrev']);
 			break;
+			
+			case "alteraDados":
+				require_once "classes/editSomeThing/editPreviewData.php";
+				$hand = new editPreviewData($_GET['deQual'], $_GET['paraQuais']);
+			break;
+			
 			default:
 				echo "ta hackeando né, safado!";
 		}
