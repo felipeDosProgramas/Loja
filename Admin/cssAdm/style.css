@@ -79,7 +79,7 @@
   border: none;
   border-radius: 5px;
   background-color: rgb(50, 88, 255);
-  padding: 1vh;
+  padding: 5px;
   color: rgb(255, 255, 255);
   cursor: pointer;
   outline: 0;
@@ -329,6 +329,10 @@ textarea {
   width: 100%;
 }
 
+#btnVoltar {
+  color: rgb(0, 0, 0);
+}
+
 #marcaAtual, #excluMarcados {
   font-size: 1em;
   border: none;
@@ -354,12 +358,12 @@ textarea {
   grid-template-areas: "cardsListas cardsListas";
   justify-content: center;
   margin: 10px 0px;
-  gap: 2vw;
+  gap: 2%;
 }
 
 .cardsListas {
-  width: 160px;
-  height: 200px;
+  width: 240px;
+  height: 290px;
   border-radius: 5px;
   background-image: url("../../imgs/fundo.jpg");
 }
@@ -391,6 +395,21 @@ textarea {
   transition: 0.5s;
 }
 
+@media (max-width: 540px) {
+  #divLista {
+    display: grid;
+    grid-template-areas: "cardsListas";
+    justify-content: center;
+    margin: 10px 0px;
+    gap: 2vw;
+  }
+  .cardsListas {
+    width: 260px;
+    height: 350px;
+    border-radius: 5px;
+    background-image: url("../../imgs/fundo.jpg");
+  }
+}
 @media (max-width: 445px) {
   #divLista {
     display: grid;

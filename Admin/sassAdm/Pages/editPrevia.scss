@@ -5,6 +5,10 @@
     width: 100%;
 }
 
+#btnVoltar {
+    color: $cor-preta;
+}
+
 #marcaAtual {
     @include buttonsAdm(1em, none, 5px, $azulCheck, 6px, $cor-branca);
     text-transform: uppercase;
@@ -23,12 +27,12 @@
     grid-template-areas: 'cardsListas cardsListas';
     justify-content: center;
     margin: 10px 0px;
-    gap: 2vw;
+    gap: 2%;
 }
 
 .cardsListas {
-    width: 160px;
-    height: 200px;
+    width: 240px;
+    height: 290px;
     border-radius: 5px;
     background-image: url('../../imgs/fundo.jpg');
 }
@@ -50,6 +54,23 @@
 
 .excluirOnePrev {
     @include buttonsAdm(0.9em, none, 5px, $vermelho, 6px, $cor-branca);
+}
+
+
+@media (max-width: 540px) {
+    #divLista {
+        display: grid;
+        grid-template-areas: 'cardsListas';
+        justify-content: center;
+        margin: 10px 0px;
+        gap: 2vw;
+    }   
+    .cardsListas {
+        width: 260px;
+        height: 350px;
+        border-radius: 5px;
+        background-image: url('../../imgs/fundo.jpg');
+    }
 }
 
 @media (max-width: 445px) {

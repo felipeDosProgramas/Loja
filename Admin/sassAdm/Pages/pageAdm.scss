@@ -61,7 +61,8 @@ font-weight: bold;
 }
 
 #btnEdiAdm {
-    @include buttonsAdm(1em, none, 5px, $azulCheck, 1vh, $cor-branca);
+    @include buttonsAdm(1em, none, 5px, $azulCheck, 5px, $cor-branca);
+
 }
 
 #boxInfoAdm {
