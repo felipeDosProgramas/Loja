@@ -35,7 +35,7 @@ class editPrevHandler extends requestsHandler{
 		card.className = 'cardsListas';
 		btnCheck.className = 'divBtnAndCheck';
 		checkBox.className = 'checkExclu';
-		btn.id = 'excluirOnePrev';
+		btn.className = 'excluirOnePrev';
 		checkBox.className = 'checkExclu';
 		
 		checkBox.type = 'checkBox';		
@@ -56,8 +56,7 @@ class editPrevHandler extends requestsHandler{
 		this.inputsChecked = []
 		console.log(foi)
 		if(foi){
-			this.imagens.forEach( cada => this.createImgCard(cada))
-			
+			this.imagens.forEach( cada => this.createImgCard(cada))			
 			return;
 		}
 		

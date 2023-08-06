@@ -4,19 +4,8 @@ class requestsHandler{
 	}
 	setInputs(inputData, inputNome){
 		this.inpuDate = inputData;
-		this.inpuNome = inputNome;
-	}	
-	veSeTem(oque,naOnde){
-		let retorno = true;
-		naOnde.forEach((cada)=>{
-			if(oque === cada){
-				retorno = false;
-			}
-		})
-		return retorno;
-	}		
-	
-		
+		this.inpuNome = inputNome;		
+	}				
 	async consultaInicial(){		
 		let promessa = new Promise((resolve) => 
 			{
@@ -33,6 +22,7 @@ class requestsHandler{
 			this.inpuNome.value = exemp.nome;			
 			return true;				
 	}
+	
 	async mudaDados(){
 		let dados = JSON.stringify([this.inpuDate.value, this.inpuNome.value])
 		let server = await fetch("phpPrevias/filesHandler.php?action=alteraDados&paraQuais="+dados+"&deQual="+this.get)
@@ -41,7 +31,6 @@ class requestsHandler{
 		if(resposta[0] && resposta[1]) location.href = `editPrev.php?qual=!-!${this.inpuNome.value}!-!${this.inpuDate.value}!-!`
 		console.log(resposta);
 	}
-	
 	
 	async excluSoUmaFoto(qual){
 		let server = await fetch("phpPrevias/filesHandler.php?action=excluEssaFoto&qual="+qual+"&daPrev="+this.get);
@@ -55,6 +44,10 @@ class requestsHandler{
 		let resposta = await server.text();				
 		console.log(resposta)
 	}	
+	
+	async addImgs(){
+		
+	}
 }
 
 export default requestsHandler;
