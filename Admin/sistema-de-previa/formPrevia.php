@@ -65,7 +65,7 @@
                     <input type="file" name="fotos[]" multiple class="inputs" id="inputHi" required>
                 </div>
                 <br>
-                <input type="submit" value="Envio" class="btnSub" name="submit">
+                <input type="submit" value="Cadastrar" class="btnSub" name="submit">
                 <div id="serverResponse"></div>
                 <span id="textExclama">Obs: Não digitar caracteres especiais</span>
             </form>

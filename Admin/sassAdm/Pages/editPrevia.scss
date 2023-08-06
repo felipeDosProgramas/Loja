@@ -26,7 +26,7 @@
     display: grid;
     grid-template-areas: 'cardsListas cardsListas';
     justify-content: center;
-    margin: 10px 0px;
+    margin: 10px 0px 25px;
     gap: 2%;
 }
 
@@ -50,6 +50,11 @@
     margin: 0px;
     outline: 0;
     border: none;
+}
+
+#btnSalvarDados {
+    text-transform: uppercase;
+    @include buttonsAdm(0.9em, none, 5px, $azulCheck, 6px, $cor-branca);
 }
 
 .excluirOnePrev {
