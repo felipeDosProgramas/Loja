@@ -23,6 +23,7 @@
     grid-template-areas: 'cardsListas cardsListas';
     justify-content: center;
     margin: 10px 0px;
+    gap: 2vw;
 }
 
 .cardsListas {
@@ -45,10 +46,24 @@
     margin: 0px;
     outline: 0;
     border: none;
-    background-color: aqua;
 }
 
-#excluirOnePrev {
+.excluirOnePrev {
     @include buttonsAdm(0.9em, none, 5px, $vermelho, 6px, $cor-branca);
 }
 
+@media (max-width: 445px) {
+    #divLista {
+        display: grid;
+        grid-template-areas: 'cardsListas';
+        justify-content: center;
+        margin: 10px 0px;
+        gap: 2vw;
+    }   
+    .cardsListas {
+        width: 260px;
+        height: 350px;
+        border-radius: 5px;
+        background-image: url('../../imgs/fundo.jpg');
+    }
+}

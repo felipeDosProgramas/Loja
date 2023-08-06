@@ -354,6 +354,7 @@ textarea {
   grid-template-areas: "cardsListas cardsListas";
   justify-content: center;
   margin: 10px 0px;
+  gap: 2vw;
 }
 
 .cardsListas {
@@ -376,10 +377,9 @@ textarea {
   margin: 0px;
   outline: 0;
   border: none;
-  background-color: aqua;
 }
 
-#excluirOnePrev {
+.excluirOnePrev {
   font-size: 0.9em;
   border: none;
   border-radius: 5px;
@@ -389,6 +389,22 @@ textarea {
   cursor: pointer;
   outline: 0;
   transition: 0.5s;
+}
+
+@media (max-width: 445px) {
+  #divLista {
+    display: grid;
+    grid-template-areas: "cardsListas";
+    justify-content: center;
+    margin: 10px 0px;
+    gap: 2vw;
+  }
+  .cardsListas {
+    width: 260px;
+    height: 350px;
+    border-radius: 5px;
+    background-image: url("../../imgs/fundo.jpg");
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
