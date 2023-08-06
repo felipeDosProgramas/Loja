@@ -12,12 +12,10 @@
 }
 
 #infoTabelas {
-    display: grid;
-    grid-template-areas: 'qualCor divQtdCor divTamanhos';
+    display: flex;
     gap: 10px;
     justify-content: center;
-    text-align: center;
-  
+    text-align: center; 
 }
 
 #definCorTam {
@@ -90,4 +88,22 @@ textarea {
     display: flex;
     align-items: center;
     gap: 4px;
+}
+
+@media screen and (max-width: 570px) {
+    #infoTabelas {
+        .boxsTh {
+            width: 100px;
+            font-size: 0.9em;
+        }
+    }
+}
+
+@media screen and (max-width: 380px) {
+    #infoTabelas {
+        .boxsTh {
+            width: 80px;
+            font-size: 0.8em;
+        }
+    }
 }

@@ -71,7 +71,7 @@
 							<div id="previasNoCadastro">
 								<label for="temPreviaCadastradaSsNn">o produto tem Prévia cadastrada?</label>
 								<input type="checkbox" id="temPreviaCadastradaSsNn"><br>
-								<select id="temPrevia">
+								<select class="inputs" id="temPrevia">
 									<option value="" selected hidden disabled>Escolher Previa</option>									
 									<!--deixe esse select "display:hidden ou none" por padrão, estou mexendo cm ele no js-->
 								</select>
