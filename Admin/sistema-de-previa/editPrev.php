@@ -65,17 +65,22 @@
 						<div id="divLista">
 							<!--<div class="cardsListas">
 								<div class="divBtnAndCheck">
-									<input type="checkbox" class="checkExclu">
-									<button id="excluirOnePrev">Excluir</button>
+								<input type="checkbox" class="checkExclu">
+								<button id="excluirOnePrev">Excluir</button>
 								</div>
 							</div>-->
 						</div>
+						
 						<div id="divBtnsPre">
-							<button id="addImage">Adicionar foto</button>
-						<button id="excluPreviaInteira">excluir prévia</button>
-						<button id="btnSalvarDados">Salvar</button>
-						<div id="serverResponse"></div>
-						<span id="textExclama">Obs: Não digitar caracteres especiais</span>
+							<label>
+							<input type="file" name="fotos[]" multiple class="inputs" id="inputHi" required>
+								<div id="addImage">Adicionar foto</div>
+									
+							</label>
+							<button id="excluPreviaInteira">excluir prévia</button>
+							<button id="btnSalvarDados">Salvar</button>
+							<div id="serverResponse"></div>
+							<span id="textExclama">Obs: Não digitar caracteres especiais</span>
 						</div>
 					</div>
 				</div>
