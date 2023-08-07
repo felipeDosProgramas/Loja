@@ -27,10 +27,13 @@ class requestsHandler{
 	
 	async mudaDados(){
 		let dados = JSON.stringify([this.inpuDate.value, this.inpuNome.value])
+		
 		let server = await fetch("phpPrevias/filesHandler.php?action=alteraDados&paraQuais="+dados+"&deQual="+this.get)
 		let resposta = await server.text();
+		
 		resposta = JSON.parse(resposta)
 		if(resposta[0] && resposta[1]) location.href = `editPrev.php?qual=!-!${this.inpuNome.value}!-!${this.inpuDate.value}!-!`
+		
 		console.log(resposta);
 	}
 	

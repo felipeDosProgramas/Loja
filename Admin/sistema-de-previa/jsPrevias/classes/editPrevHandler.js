@@ -22,13 +22,12 @@ class editPrevHandler extends requestsHandler{
 		btnSalvarDados.innerText = "salvar";
 		btnSalvarDados.onclick = (e) => {
 			e.preventDefault()
-			this.mudaDados()
-		}
-		
+			this.mudaDados()			
+		}		
 		this.btnsParentElement.append(btnSalvarDados)
 	}
 	
-	async enviarFotosAdicionais(){			
+	async enviarFotosAdicionais(){
 		let form = new FormData();						
 		
 		for(let x = 0;x != this.inpuImgs.files.length;x++){
