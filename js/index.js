@@ -39,7 +39,7 @@ function caminhoParaPerfilUsuario(){
 	let url = location.pathname.split('/');
 	let atual = url.length - 2;
 	let retorno;
-	
+	console.log(url)
 	switch(url[atual]){
 		case "Loja":
 		retorno = "User/perfilUser.php";

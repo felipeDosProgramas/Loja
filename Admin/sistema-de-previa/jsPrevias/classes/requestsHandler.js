@@ -46,8 +46,16 @@ class requestsHandler{
 		console.log(resposta)
 	}	
 	
-	async addImgsNaPrev(){
-		
+	async addImgsNaPrev(formCmQuais){		
+		let promessa = new Promise((resolve) => 
+			{
+				let req = new XMLHttpRequest();								
+				req.open("POST","phpPrevias/filesHandler.php");
+				req.onload = () => {resolve(req.responseText)};
+				req.send(formCmQuais);
+			});				
+			let exemp = await promessa;									
+			console.log(exemp)
 	}
 }
 

@@ -1,5 +1,5 @@
 <?php		
-	if(isset($_GET['action'])){		
+	if(isset($_GET['action'])){ 
 		switch($_GET['action']){
 			case "returnClosier":
 				require_once "classes/JustReturn/ReturnClosier.php";
@@ -36,5 +36,12 @@
 				echo "ta hackeando né, safado!";
 		}
 		if(isset($hand)) $hand->getResponse();							
+	}
+	if(isset($_POST['action'])){
+		switch($_POST['action']){
+			case "addPics":
+				print_r($_POST['imagens']);
+			break;
+		}
 	}
 ?>						

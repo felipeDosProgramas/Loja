@@ -28,10 +28,13 @@ class editPrevHandler extends requestsHandler{
 		this.btnsParentElement.append(btnSalvarDados)
 	}
 	
-	enviarFotosAdicionais(){
-		let form = new FormData();
-		form.append('imgs', this.inpuImgs)
-		console.log(form)
+	enviarFotosAdicionais(){			
+		let form = new FormData();						
+		
+		this.inpuImgs.files
+		// form.append('imagens', this.inpuImgs.files, 'imagens');
+		form.append('action', 'addPics')
+		this.addImgsNaPrev(form)
 	}	
 	
 	createImgCard(linkImg){

@@ -1,6 +1,8 @@
 let email = document.getElementById('email');
 let senha = document.getElementById('senha');
 let entrarBotao = document.getElementById('butao');
+if(navigator.cookieEnabled){
+	
 
 
 function getDados(){    
@@ -79,3 +81,8 @@ senha.addEventListener('input', () => {
 
 entrarBotao.addEventListener("click",envio);
 // senha.addEventListener('input', teclouEnter)
+}else{
+	console.log("ativa os cookie")
+	
+	// fazer mensagem para ativar os cookies
+}

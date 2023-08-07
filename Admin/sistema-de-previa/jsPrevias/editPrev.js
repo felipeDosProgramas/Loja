@@ -7,16 +7,18 @@ let listaImagens = document.getElementById('divLista');
 let excluPreviaInteira = document.getElementById("excluPreviaInteira");	
 let btnsPrevManParent = document.getElementById('divBtnsGenPrev')
 let inpuImgs = document.getElementById('inputHi')
+let btnAddNewPics = document.getElementById('addNewPics')
 
 let edtPrev = new editPrevHandler(listaImagens, get, btnsPrevManParent);
 	edtPrev.setInputs(inpuDate, inpuNome, inpuImgs)
-	edtPrev.setImg();
-	edtPrev.enviarFotosAdicionais();
-excluPreviaInteira.onclick = edtPrev.excluPrevInteira
-	
+	edtPrev.setImg();	
+
+excluPreviaInteira.onclick 	= edtPrev.excluPrevInteira
+btnAddNewPics.onclick 		= () => edtPrev.enviarFotosAdicionais()	
 
 inpuNome.addEventListener('input', alterar)
 inpuDate.addEventListener('input', alterar)
+
 
 function alterar(){
 	edtPrev.alterouUmDado()

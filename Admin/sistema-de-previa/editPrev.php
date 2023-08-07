@@ -56,14 +56,16 @@
 		<section>
 			<div class="caixaForm">
 				<div class="boxForm">
-					<form action="phpPrevias/BackCadastro.php" method="POST" class="formEntre" enctype='multipart/form-data'>
+					<div class="formEntre">
 						<h2 class="hCadaster">editar lançamento</h2>
 						<input type="text" name="nome" placeholder="Nome da peça" class="inputs" id="inputEditarNomePrevia" required>
 						<label for="" id="dateLanca">Data de lançamento</label>
 						<input type="date" name="date" placeholder="Data de lançamento" id="inputDataPrevia" class="inputs" required>
+						<button>envair</button>
 						<br>
 						<div id="mostraInput">						
-							<input type="file" name="fotos[]" multiple class="inputs" id="inputHi" required>
+							<input type="file" name="fotos[]" multiple class="inputs" id="inputHi" required>							
+							<button id="addNewPics">add essas novas fuetas</button>
 						</div>
 						<div id="divLista">
 							<!--<div class="cardsListas">
@@ -79,7 +81,7 @@
 						</div>
 						<div id="serverResponse"></div>
 						<span id="textExclama">Obs: Não digitar caracteres especiais</span>
-					</form>
+					</div>
 				</div>
 			</div>
 		</section>
