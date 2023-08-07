@@ -61,12 +61,7 @@
 						<input type="text" name="nome" placeholder="Nome da peça" class="inputs" id="inputEditarNomePrevia" required>
 						<label for="" id="dateLanca">Data de lançamento</label>
 						<input type="date" name="date" placeholder="Data de lançamento" id="inputDataPrevia" class="inputs" required>
-						<button>envair</button>
 						<br>
-						<div id="mostraInput">						
-							<input type="file" name="fotos[]" multiple class="inputs" id="inputHi" required>							
-							<button id="addNewPics">add essas novas fuetas</button>
-						</div>
 						<div id="divLista">
 							<!--<div class="cardsListas">
 								<div class="divBtnAndCheck">
@@ -75,12 +70,13 @@
 								</div>
 							</div>-->
 						</div>
-						<div id="divBtnsGenPrev">
-							</div>
+						<div id="divBtnsPre">
+							<button id="addImage">++</button>
 						<button id="excluPreviaInteira">excluir prévia</button>
-						<input type="submit" value="Enviar" class="btnSub" name="submit">
+						<button id="btnSalvarDados">Salvar</button>
 						<div id="serverResponse"></div>
 						<span id="textExclama">Obs: Não digitar caracteres especiais</span>
+						</div>
 					</div>
 				</div>
 			</div>
