@@ -28,6 +28,12 @@ class editPrevHandler extends requestsHandler{
 		this.btnsParentElement.append(btnSalvarDados)
 	}
 	
+	enviarFotosAdicionais(){
+		let form = new FormData();
+		form.append('imgs', this.inpuImgs)
+		console.log(form)
+	}	
+	
 	createImgCard(linkImg){
 		let card = document.createElement('div');
 		let btnCheck = document.createElement('div');

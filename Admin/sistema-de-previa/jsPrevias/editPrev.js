@@ -6,11 +6,12 @@ let inpuDate = document.getElementById('inputDataPrevia');
 let listaImagens = document.getElementById('divLista');
 let excluPreviaInteira = document.getElementById("excluPreviaInteira");	
 let btnsPrevManParent = document.getElementById('divBtnsGenPrev')
+let inpuImgs = document.getElementById('inputHi')
 
 let edtPrev = new editPrevHandler(listaImagens, get, btnsPrevManParent);
-	edtPrev.setInputs(inpuDate, inpuNome)
+	edtPrev.setInputs(inpuDate, inpuNome, inpuImgs)
 	edtPrev.setImg();
-
+	edtPrev.enviarFotosAdicionais();
 excluPreviaInteira.onclick = edtPrev.excluPrevInteira
 	
 

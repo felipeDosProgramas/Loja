@@ -2,9 +2,10 @@ class requestsHandler{
 	constructor(parsedGet){		
 		this.get = parsedGet;
 	}
-	setInputs(inputData, inputNome){
+	setInputs(inputData, inputNome,inputImgs){
 		this.inpuDate = inputData;
-		this.inpuNome = inputNome;		
+		this.inpuNome = inputNome;	
+		this.inpuImgs = inputImgs;
 	}				
 	async consultaInicial(){		
 		let promessa = new Promise((resolve) => 
@@ -45,7 +46,7 @@ class requestsHandler{
 		console.log(resposta)
 	}	
 	
-	async addImgs(){
+	async addImgsNaPrev(){
 		
 	}
 }

@@ -12,6 +12,7 @@ function getDados(){
     return dados
 }
 function verificaTipoLogin(resposta){
+	resposta = resposta.trim()
 	switch(resposta){
 		case "false":
 		mudaCorBordaInput("red");
@@ -71,7 +72,7 @@ senha.addEventListener('input', () => {
 			envio();	
 			console.log("consultou")
 		}
-	}, 500)
+	}, 1200)
 })										
 
 
