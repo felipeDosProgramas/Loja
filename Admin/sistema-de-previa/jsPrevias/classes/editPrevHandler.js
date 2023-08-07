@@ -18,7 +18,7 @@ class editPrevHandler extends requestsHandler{
 	
 	alterouUmDado(){	
 		let btnSalvarDados = document.createElement('button')
-		btnSalvarDados.className = 'btnSub'
+		btnSalvarDados.id = 'btnSalvarDados'
 		btnSalvarDados.innerText = "salvar";
 		btnSalvarDados.onclick = (e) => {
 			e.preventDefault()

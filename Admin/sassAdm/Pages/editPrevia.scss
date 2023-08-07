@@ -54,6 +54,8 @@
 
 #btnSalvarDados {
     text-transform: uppercase;
+    width: 100%;
+    margin: 10px;
     @include buttonsAdm(0.9em, none, 5px, $azulCheck, 6px, $cor-branca);
 }
 
