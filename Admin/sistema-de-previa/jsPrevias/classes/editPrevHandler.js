@@ -36,14 +36,14 @@ class editPrevHandler extends requestsHandler{
 		}
 		form.append('action', 'addPics')
 		form.append('qual', this.get)		
-			this.addImgsNaPrev(form)
-			this.limpaDivCards();
-			this.setImg();
-		}
-	}	
+		this.addImgsNaPrev(form)
+		this.limpaDivCards();
+		// this.setImg();
+	}
+	
 	limpaDivCards(){
 		while(this.imgsParentElement.firstChild){
-		this.imgsParentElement.removeChild(this.imgsParentElement.firstChild)
+			this.imgsParentElement.removeChild(this.imgsParentElement.firstChild)
 		}
 		
 	}
