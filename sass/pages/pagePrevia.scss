@@ -1,69 +1,58 @@
 
 #containerCardLancamento {
-    margin-top: 6vh;
     display: grid;
+    grid-template-areas: 'cardsLanca cardsLanca cardsLanca cardsLanca';
     justify-content: center;
-    grid-template-areas: 'cardsLanca cardsLanca cardsLanca cardsLanca cardsLanca';
-    gap: 3vh;
+    gap: 15px;
+    margin-top: 10vh;
 }
 
 .cardsLanca {
-    padding: 5%;
-    background-color: $cor-branca;
-    text-align: center;
-    width: 230px;
-    font-size: 1em;
-    color: $cor-preta;
-}
-
-.divImgsLanca {
-    width: 230px;
-    margin: auto;
+    width: 300px;
+    background-color: $cor-preta;
+    padding: 10px;
+    border-radius: 10px;
 }
 
 .imgsCardsLanca {
-    width: 230px;
+    width: 100%;
+    height: 350px;
+    border-radius: 10px;
 }
 
 .nomeCardsLanca {
-    margin-top: 15px; 
+    margin-top: 15px;
+    text-align: center;
 }
 
-@media screen and (max-width: 1115px){
-    #containerCardLancamento {
-        grid-template-areas: 'cardsLanca cardsLanca cardsLanca cardsLanca';
-    }
+.cardDateLanca {
+    text-align: center;
 }
 
-@media screen and (max-width: 1050px) {
+
+@media screen and (max-width: 1360px){
     #containerCardLancamento {
         grid-template-areas: 'cardsLanca cardsLanca cardsLanca';
     }
 }
 
-@media screen and (max-width: 775px){
+@media screen and (max-width: 1115px){
     #containerCardLancamento {
-        grid-template-areas: 'cardsLanca cardsLanca';
+        grid-template-areas: 'cardsLanca cardsLanca ';
     }
 }
 
-@media screen and (max-width: 523px){
-    .cardsLanca {
-        width: 200px;
-    }
-    
-    .divImgsLanca {
-        width: 200px;
-        margin: auto;
-    }
-    
-    .imgsCardsLanca {
-        width: 190px;
-    }
-}
-
-@media screen and (max-width: 466px){
+@media screen and (max-width: 681px){
     #containerCardLancamento {
         grid-template-areas: 'cardsLanca';
+    }
+}
+
+@media screen and (max-width: 360px){
+    #containerCardLancamento {
+        margin-top: 5vh;
+    }
+    .cardsLanca {
+        width: 260px;
     }
 }
