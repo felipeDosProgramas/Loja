@@ -31,12 +31,22 @@ class editPrevHandler extends requestsHandler{
 	enviarFotosAdicionais(){			
 		let form = new FormData();						
 		
-		this.inpuImgs.files
-		// form.append('imagens', this.inpuImgs.files, 'imagens');
+		for(let x = 0;x != this.inpuImgs.files.length;x++){
+			form.append(`img${x}`,this.inpuImgs.files[x]);
+		}
 		form.append('action', 'addPics')
-		this.addImgsNaPrev(form)
+		form.append('qual', this.get)		
+			this.addImgsNaPrev(form)
+			this.limpaDivCards();
+			this.setImg();
+		}
 	}	
-	
+	limpaDivCards(){
+		while(this.imgsParentElement.firstChild){
+		this.imgsParentElement.removeChild(this.imgsParentElement.firstChild)
+		}
+		
+	}
 	createImgCard(linkImg){
 		let card = document.createElement('div');
 		let btnCheck = document.createElement('div');

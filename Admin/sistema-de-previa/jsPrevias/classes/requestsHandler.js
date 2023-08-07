@@ -14,8 +14,9 @@ class requestsHandler{
 				req.open("GET","phpPrevias/filesHandler.php?action=especifico&qual="+this.get);
 				req.onload = () => {resolve(req.responseText)};
 				req.send();
-			});				
+			});							
 			let exemp = await promessa;									
+			console.log(exemp)
 			exemp = JSON.parse(exemp);				
 			let data = exemp.data.split("-");
 			this.imagens = exemp.imagens;
@@ -54,8 +55,9 @@ class requestsHandler{
 				req.onload = () => {resolve(req.responseText)};
 				req.send(formCmQuais);
 			});				
-			let exemp = await promessa;									
-			console.log(exemp)
+			let exemp = await promessa;												
+			if(exemp == "") return true
+			return false;
 	}
 }
 

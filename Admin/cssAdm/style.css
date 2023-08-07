@@ -396,6 +396,8 @@ textarea {
 
 #btnSalvarDados {
   text-transform: uppercase;
+  width: 100%;
+  margin: 10px;
   font-size: 0.9em;
   border: none;
   border-radius: 5px;

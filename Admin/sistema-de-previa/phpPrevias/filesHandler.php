@@ -40,7 +40,8 @@
 	if(isset($_POST['action'])){
 		switch($_POST['action']){
 			case "addPics":
-				print_r($_POST['imagens']);
+				require_once "classes/movePreviews/addNewPicsExistingPreviews.php";
+				$hand = new addNewPicsExistingPreviews($_POST['qual']);
 			break;
 		}
 	}
