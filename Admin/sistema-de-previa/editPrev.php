@@ -71,7 +71,7 @@
 							</div>-->
 						</div>
 						<div id="divBtnsPre">
-							<button id="addImage">++</button>
+							<button id="addImage">Adicionar foto</button>
 						<button id="excluPreviaInteira">excluir prévia</button>
 						<button id="btnSalvarDados">Salvar</button>
 						<div id="serverResponse"></div>

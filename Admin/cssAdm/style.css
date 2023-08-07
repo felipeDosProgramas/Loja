@@ -369,7 +369,7 @@ textarea {
   grid-template-areas: "cardsListas cardsListas";
   justify-content: center;
   margin: 25px 0px 25px;
-  gap: 2%;
+  gap: 10px;
 }
 
 .cardsListas {
