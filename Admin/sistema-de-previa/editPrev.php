@@ -73,8 +73,10 @@
 								</div>
 							</div>-->
 						</div>
+						<div id="divBtnsGenPrev">
 						<button id="excluPreviaInteira">excluir prévia</button>
 						<input type="submit" value="Enviar" class="btnSub" name="submit">
+						</div>
 						<div id="serverResponse"></div>
 						<span id="textExclama">Obs: Não digitar caracteres especiais</span>
 					</form>

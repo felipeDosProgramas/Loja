@@ -1,9 +1,10 @@
 import requestsHandler from './requestsHandler.js'
 
 class editPrevHandler extends requestsHandler{
-	constructor(imgsParentElement, parsedGet){			
+	constructor(imgsParentElement, parsedGet, btnsParentElement){			
 		super(parsedGet)
 		this.imgsParentElement = imgsParentElement;
+		this.btnsParentElement = btnsParentElement;
 		this.number = 0;
 		this.toEdit = []
 	}	
@@ -17,14 +18,14 @@ class editPrevHandler extends requestsHandler{
 	
 	alterouUmDado(){	
 		let btnSalvarDados = document.createElement('button')
-		btnSalvarDados.id = 'btnSalvarDados'
+		btnSalvarDados.className = 'btnSub'
 		btnSalvarDados.innerText = "salvar";
 		btnSalvarDados.onclick = (e) => {
 			e.preventDefault()
 			this.mudaDados()
 		}
 		
-		this.imgsParentElement.append(btnSalvarDados)
+		this.btnsParentElement.append(btnSalvarDados)
 	}
 	
 	createImgCard(linkImg){

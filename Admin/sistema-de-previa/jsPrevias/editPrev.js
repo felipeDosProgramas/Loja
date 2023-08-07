@@ -5,9 +5,9 @@ let inpuNome = document.getElementById('inputEditarNomePrevia');
 let inpuDate = document.getElementById('inputDataPrevia');
 let listaImagens = document.getElementById('divLista');
 let excluPreviaInteira = document.getElementById("excluPreviaInteira");	
+let btnsPrevManParent = document.getElementById('divBtnsGenPrev')
 
-
-let edtPrev = new editPrevHandler(listaImagens, get);
+let edtPrev = new editPrevHandler(listaImagens, get, btnsPrevManParent);
 	edtPrev.setInputs(inpuDate, inpuNome)
 	edtPrev.setImg();
 
