@@ -28,17 +28,21 @@ class editPrevHandler extends requestsHandler{
 		this.btnsParentElement.append(btnSalvarDados)
 	}
 	
-	enviarFotosAdicionais(){			
+	async enviarFotosAdicionais(){			
 		let form = new FormData();						
 		
 		for(let x = 0;x != this.inpuImgs.files.length;x++){
 			form.append(`img${x}`,this.inpuImgs.files[x]);
 		}
 		form.append('action', 'addPics')
-		form.append('qual', this.get)		
-		this.addImgsNaPrev(form)
-		this.limpaDivCards();
-		// this.setImg();
+		form.append('qual', this.get)	
+		let foi = await this.addImgsNaPrev(form)
+		console.log(foi)
+		if(foi){
+			this.consultaInicial()
+			this.limpaDivCards()
+			this.setImg()
+		}
 	}
 	
 	limpaDivCards(){
