@@ -15,7 +15,7 @@
 		protected function sendToFront($what){			
 			echo json_encode($what, JSON_UNESCAPED_UNICODE);
 			exit();
-		}
+			}
 		protected function setResponse(string|array $response){
 			$this->response = $response;
 		}
