@@ -2,6 +2,7 @@ import classManager from "./classes/classisManager.js";
 import previewManager from "./classes/previewManager.js";
 
 
+
 // VARIAVEIS DAS CLASSES 
 let newClass = document.getElementById		('newClass');
 let criadorClassis = document.getElementById('criadorClassis');
