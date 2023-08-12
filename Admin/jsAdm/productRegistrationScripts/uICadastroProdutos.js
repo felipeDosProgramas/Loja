@@ -1,6 +1,7 @@
 import classManager 		from "./classes/classisManager.js";
 import previewManager 		from "./classes/previewManager.js";
-import dataReceiveManager	from "./classes/dataReceiveManager.js" ;
+import dataReceiveManager	from "./classes/dataReceiveManager.js";
+import variationsManager 	from "./classes/variationsManager.js";
 
 // VARIAVEIS DAS CLASSES 
 let newClass = document.getElementById		('newClass');
@@ -27,8 +28,8 @@ let dadosSecundarios = document.getElementById	('dadosSecundarios');
 
 
 /* VARIAVEIS DA TABELA */
-let inputsInfoTable = document.getElementById	('inputsInfoTable')
-let addInfosTable = document.getElementById		('definCorTam')
+// let inputsInfoTable = document.getElementById	('inputsInfoTable')
+let addInfosTable = document.getElementById		('boxTabelas')
 /* -------------------  */
 
 // VARIAVEIS DAS PREVIAS
@@ -58,12 +59,19 @@ let prVwManage = new previewManager();
 //INSTANCIAS DO RECEPTOR DE DADOS
 let dtRcvManage = new dataReceiveManager();
 	dtRcvManage.setInput(nomePeca, dataPeca, descricaoPeca, selectClassis, disponibilidade);
-	
+
+
+// ----------------------------------------------
+
+// INSTANCIAS DO GERENCIADOR DE VARIAÇÕES
+let varManage = new variationsManager(addInfosTable)
+	varManage
+
 /*-----------------------------------------------------------------------*/
 
 
 
-/*FUNCAO ADD INFORMACOES DA TABELA*/
+/*FUNCAO ADD INFORMACOES DA TABELA
 addInfosTable.addEventListener('click', () => {
 	let divTodoInput = document.createElement('div')
 	divTodoInput.classList.add('divTodoInput')
@@ -110,6 +118,8 @@ addInfosTable.addEventListener('click', () => {
 	divTodoInput.append(cardsTableInput, divCancelInfo)
 	inputsInfoTable.appendChild(divTodoInput)
 })
-/*------------------*/
+------------------*/
+
+
 
 

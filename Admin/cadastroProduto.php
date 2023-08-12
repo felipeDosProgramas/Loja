@@ -92,22 +92,8 @@
 								
 							</span>
 						</div>
-						<div id="boxTabelas">
-							<div id="infoTabelas">
-								<div id="qualCor">
-									<div class="boxsTh" id="divCores">Cor</div>									
-								</div>
-								<div id="divQtdCor">
-									<div class="boxsTh" id="divQtdCor">qtd de cor</div>
-								</div>
-								<div id="divTamanhos">
-									<div class="boxsTh" id="divTam">Tamanhos</div>
-								</div> 
-							</div>
-							<div id="inputsInfoTable">							
-							</div>
-							
-							<button class="btnsCria" id="definCorTam">+</button>
+						<div id="boxTabelas">														
+							<button class="btnsCria" id="definCorTam">Adicionar cor</button>
 						</div>
 						<div id="dadosSecundarios">
 							<div class="divCheckbox"><label for="disponivelSimNao">disponivel</label><input type="checkbox" class="checkboxForm" name="disponibilidade" id="disponivelSimNao"></div>
