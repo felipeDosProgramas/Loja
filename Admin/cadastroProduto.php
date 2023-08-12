@@ -77,6 +77,7 @@
 								</select>
 							</div>
 							<input class="inputs" type="text" id="nome" placeholder="Nome do produto" required><br>
+							<input class="inputs" type="date" id="dataLancPrevia" placeholder="Data de lançamento" required><br>
 							<label for="description" class="formsSelectsAndDate">descrição:</label><br>
 							<textarea class="inputs" id="description" required></textarea>
 							<select class="inputs" name="classificacao" id="classificacoes" required>

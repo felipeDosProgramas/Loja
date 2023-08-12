@@ -32,6 +32,7 @@ let addInfosTable = document.getElementById		('definCorTam')
 
 // VARIAVEIS DAS PREVIAS
 let temOuNnPrevia = document.getElementById				('labelSeTemPreviaCadastrada');	
+let dataPeca = document.getElementById 					('dataLancPrevia')
 let selectDasPreviasCadastradas =document.getElementById('temPrevia');
 // ---------------------
 

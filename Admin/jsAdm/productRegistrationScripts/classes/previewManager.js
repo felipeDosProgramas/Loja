@@ -1,10 +1,14 @@
 class previewManager{
-	constructor(){		
-		this.returnObj = {}
-	}
+	constructor(){}
 	
 	setOutput(selectWithExistingPreviews, nomeDela, dataDela){
 		this.select = selectWithExistingPreviews;		
+		this.nomePeca = nomeDela;
+		this.dataLancPeca = dataDela;
+		
+		this.select.onchange = () => {
+			this.setInOtherInputsPreviewData()
+		}
 	}
 	setInput(btnThereOrNotExistingPreview){
 		this.temOuNn = btnThereOrNotExistingPreview;
@@ -13,14 +17,10 @@ class previewManager{
 		let data = {
 			"nome":previewName,
 			"data":previewData
-		}
-		// console.log(data)
+		}		
 		let option = document.createElement("option");
 		option.value = JSON.stringify(data)	
-		option.innerText = previewName
-		option.addEventListener('click', () => {
-			this.setInOtherInputsPreviewData()
-		})
+		option.innerText = previewName		
 		this.select.append(option)
 	}
 	async getPreviewsList(){
@@ -37,8 +37,8 @@ class previewManager{
 		let selected =  this.select.options.selectedIndex
 		if( selected != 0){
 			let qual = JSON.parse(this.select.options[selected].value)
-			this.returnObj.nome = qual.nome
-			this.returnObj.data = qual.data
+			this.nomePeca.value = qual.nome
+			this.dataLancPeca.value = qual.data
 		}	
 	}
 	
@@ -52,7 +52,7 @@ class previewManager{
 	ifGotPreview(){
 		this.temOuNn.addEventListener('click', () => {
 			this.select.style.display = this.select.style.display != "none" ? "none" : "initial"
-		})
+		})		
 	}
 	
 }
