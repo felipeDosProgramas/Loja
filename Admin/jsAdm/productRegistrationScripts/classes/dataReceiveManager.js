@@ -3,13 +3,12 @@ class dataReceiveManager{
 		this.generalData = {}
 	}
 	
-	setInput(nomePeca, dataLancPeca, descriPeca, classePeca, disponiPeca, qtdsPecas){
-	this.nomePeca 	= nomePeca
-	this.datLanPeca = dataLancPeca
-	this.descriPeca = descriPeca
-	this.classePeca = classePeca
-	this.dispoPeca	= disponiPeca
-	this.qtdsPecas 	= qtdsPecas
+	setInput(nomePeca, dataLancPeca, descriPeca, classePeca, disponiPeca){
+		this.nomePeca 	= nomePeca
+		this.datLanPeca = dataLancPeca
+		this.descriPeca = descriPeca
+		this.classePeca = classePeca
+		this.dispoPeca	= disponiPeca
 	}
 	
 	getAvailability(){		
@@ -24,4 +23,25 @@ class dataReceiveManager{
 		this.generalData.disponibilidade = this.getAvailability();
 		// this.generalData.
 	}
+	async sendReceivedData(){		
+		let dados = JSON.stringify(this.generalData);			
+		let formData = new FormData();		
+		formData.append('dados', dados);	
+		
+		let promessa = new Promise((resolve) => {
+			let req = new XMLHttpRequest();
+			req.open("POST","phpAdm/backCadastroProduto.php");
+			req.onload = () => {resolve(req.responseText)};
+			req.send(formData);
+		});	
+		
+		let exemp = await promessa	
+		if(exemp == "foiCertin"){			
+			//mostrar que foi sem erros
+			return;
+		}
+		//mostrar que deu algo errado
+	}
 }
+
+export default dataReceiveManager

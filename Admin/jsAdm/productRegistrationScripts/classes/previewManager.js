@@ -8,10 +8,17 @@ class previewManager{
 		
 		this.select.onchange = () => {
 			this.setInOtherInputsPreviewData()
+			// this.temOuNn.style.display = "initial"			
+			// this.checkBoxTemPrev.style.display = "initial"			
+			this.select.style.display = "none"
 		}
 	}
-	setInput(btnThereOrNotExistingPreview){
+	selectAnotherPreview(){
+		
+	}
+	setInput(btnThereOrNotExistingPreview, checkBoxTemPrev){
 		this.temOuNn = btnThereOrNotExistingPreview;
+		this.checkBoxTemPrev = checkBoxTemPrev
 	}
 	createOption(previewName, previewData){
 		let data = {
@@ -52,6 +59,8 @@ class previewManager{
 	ifGotPreview(){
 		this.temOuNn.addEventListener('click', () => {
 			this.select.style.display = this.select.style.display != "none" ? "none" : "initial"
+			this.temOuNn.style.display = "none";
+			this.checkBoxTemPrev.style.display = "none";
 		})		
 	}
 	
