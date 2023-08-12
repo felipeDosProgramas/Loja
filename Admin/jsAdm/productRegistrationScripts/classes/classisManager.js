@@ -2,12 +2,12 @@ class classManager{
 	
 	constructor(){}
 	
-	setSaidas(selectDeSaida, respostaServer){
+	setInput(selectDeSaida, respostaServer){
 		this.selectDeSaida = selectDeSaida;
 		this.respostaServer = respostaServer;
 		// define as saidas do sistema
 	}	
-	setEntradas(divPrincipal, btnCriaClass, btnExcluClass){
+	setOutput(divPrincipal, btnCriaClass, btnExcluClass){
 		this.criadorClassis = divPrincipal;
 		this.btnCriaClass = btnCriaClass;
 		this.btnExcluClass = btnExcluClass;
@@ -118,7 +118,6 @@ class classManager{
 			this.btnExcluClass.style.display 	= "none";
 			e.target.style.display 				= "none";	
 		}
-		
 		this.btnExcluClass.onclick = () => { 			
 			this.tiraClassificacao()
 		}

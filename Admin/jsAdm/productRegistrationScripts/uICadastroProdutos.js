@@ -1,6 +1,7 @@
 import classManager from "./classes/classisManager.js";
 import previewManager from "./classes/previewManager.js";
 
+
 // VARIAVEIS DAS CLASSES 
 let newClass = document.getElementById		('newClass');
 let criadorClassis = document.getElementById('criadorClassis');
@@ -39,8 +40,8 @@ let selectDasPreviasCadastradas =document.getElementById('temPrevia');
 // INSTANCIAS DO GERENCIADOR DE CLASSIFICAÇÕES
 
 let ClManage = new classManager();
-	ClManage.setSaidas(selectClassis, respostaServer);
-	ClManage.setEntradas(criadorClassis, newClass, tirarClass);	
+	ClManage.setOutput(criadorClassis,newClass , tirarClass);
+	ClManage.setInput(selectClassis, respostaServer);	
 	ClManage.lerClassis();
 // ----------------------------------------------
 
@@ -264,4 +265,4 @@ addInfosTable.addEventListener('click', () => {
 
 semiSubmit.addEventListener('click', entreComAsQtdsDeRoupas);		
 
-export {selectClassis, form, oInputDeSeleciona, temOuNnPrevia, selectDasPreviasCadastradas};
+
