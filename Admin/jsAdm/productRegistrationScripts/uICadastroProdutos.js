@@ -41,6 +41,7 @@ let selectDasPreviasCadastradas =document.getElementById('temPrevia');
 let ClManage = new classManager();
 	ClManage.setSaidas(selectClassis, respostaServer);
 	ClManage.setEntradas(criadorClassis, newClass, tirarClass);	
+	ClManage.lerClassis();
 // ----------------------------------------------
 
 //INSTANCIAS DO GERENCIADOR DE PRÉVIAS
