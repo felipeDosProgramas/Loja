@@ -24,4 +24,7 @@ class dataReceiveManager{
 		this.generalData.disponibilidade = this.getAvailability();
 		// this.generalData.
 	}
+	async sendAllData(){
+	
+	}
 }
