@@ -28,7 +28,6 @@ let dadosSecundarios = document.getElementById	('dadosSecundarios');
 
 
 /* VARIAVEIS DA TABELA */
-// let inputsInfoTable = document.getElementById	('inputsInfoTable')
 let addInfosTable = document.getElementById		('boxTabelas')
 /* -------------------  */
 
@@ -40,19 +39,19 @@ let checkBoxTemPrev = document.getElementById			('temPreviaCadastradaSsNn')
 //------------------------------------------
 
 // INSTANCIAS DO GERENCIADOR DE CLASSIFICAÇÕES
-let ClManage = new classManager();
-	ClManage.setOutput(criadorClassis,newClass , tirarClass);
-	ClManage.setInput(selectClassis, respostaServer);	
-	ClManage.lerClassis();
+let ClManage = new classManager	();
+	ClManage.setOutput			(criadorClassis,newClass , tirarClass);
+	ClManage.setInput			(selectClassis, respostaServer);	
+	ClManage.lerClassis			();
 	
 // ----------------------------------------------
 
 //INSTANCIAS DO GERENCIADOR DE PRÉVIAS
-let prVwManage = new previewManager();
-	prVwManage.setOutput(selectDasPreviasCadastradas, nomePeca, dataPeca);
-	prVwManage.setInput(temOuNnPrevia, checkBoxTemPrev);
-	prVwManage.setPreviewOptions()
-	prVwManage.ifGotPreview()
+let prVwManage = new previewManager	();
+	prVwManage.setOutput			(selectDasPreviasCadastradas, nomePeca, dataPeca);
+	prVwManage.setInput				(temOuNnPrevia, checkBoxTemPrev);
+	prVwManage.setPreviewOptions	()
+	prVwManage.ifGotPreview			()
 
 // ----------------------------------------------
 
