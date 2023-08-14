@@ -67,9 +67,9 @@ let dtRcvManage = new dataReceiveManager();
 // ----------------------------------------------
 
 // INSTANCIAS DO GERENCIADOR DE VARIAÇÕES
-let varManage = new variationsManager(addInfosTable)
-	varManage.setInputs(btnDefVariacao, maisUmaCor,menosUmaCor,divInputsCores, tamanhos)
-
+let varManage = new variationsManager(addInfosTable, tamanhos)
+	varManage.setInputs(btnDefVariacao, maisUmaCor,menosUmaCor,divInputsCores)
+	varManage.setOutputs(respostaServer)
 /*-----------------------------------------------------------------------*/
 
 

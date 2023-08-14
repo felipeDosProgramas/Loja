@@ -94,8 +94,7 @@
 						</div>
 						<div id="inputsDeDefinicao">
 							<input type="text" class="inputs" id="tamanhos" placeholder="tamanhos separados por vírgula">							
-							<span id="inputsCores">
-								<input type="color">
+							<span id="inputsCores">								
 							</span>
 							<button id="maisUmaCor">Adicionar cor</button>
 							<button id="menosUmaCor">Remover cor </button>
