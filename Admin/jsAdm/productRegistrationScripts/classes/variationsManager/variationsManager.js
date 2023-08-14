@@ -3,23 +3,26 @@ import elementsCreator from './elementsCreator.js'
 class variationsManager extends elementsCreator{
 	constructor(divPai){			
 		super()	
-		this.divPai = divPai
+		
+		this.divPai = divPai		
 		this.rows = []
+		
 		this.rowAtual = 0;
 	}
-	setInputs(btnDefVariacao, maisUmaCor,menosUmaCor, divInputsCores){
+	setInputs(btnDefVariacao, maisUmaCor,menosUmaCor, divInputsCores, tamanhos){
 		this.btnDefVariacao = btnDefVariacao
 		this.maisUmaCor = maisUmaCor
 		this.menosUmaCor = menosUmaCor
 		this.divPaiInputsCores = divInputsCores
+		this.inputTamanhos = tamanhos
 		
 		this.setEventListeners();
 	}
 	
 	setEventListeners(){
-		this.btnDefVariacao.onclick = () => {				
-			let sizesInput = this.generateSizesInput()			
-			this.divPai.append(sizesInput)
+		this.btnDefVariacao.onclick = () => {
+			this.listaTamanhos = this.inputTamanhos.value.split(",")
+			this.listaTamanhos.forEach((cada, index) => {this.listaTamanhos[index] = cada.trim()})
 		}
 		
 		this.maisUmaCor.onclick = () => {
