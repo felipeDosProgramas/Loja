@@ -1,5 +1,6 @@
 class elementsCreator{
 	constructor(){}
+	
 	generateColorsOptions(selectedColors){
 		let selectForColors = document.createElement('select')	
 		
@@ -26,12 +27,13 @@ class elementsCreator{
 		
 		return selectForSizes;
 	}
-	generateSizesInput(){
-		let input = document.createElement('input')
-		input.placeholder = "quais tamanhos teremos"
+	generateColorInput(){
+		let colorInput = document.createElement('input')
+		colorInput.type = "color"
 		
-		return input
-	}	
+		return colorInput
+	}
+
 	generatePriceInput(){
 		let inputPriceInput = document.createElement('input')
 		inputPriceInput.type = "number"

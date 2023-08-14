@@ -31,6 +31,8 @@ let dadosSecundarios = document.getElementById	('dadosSecundarios');
 let addInfosTable = document.getElementById		('boxTabelas')
 let btnDefVariacao = document.getElementById	('definCorTam')
 let maisUmaCor = document.getElementById		('maisUmaCor')
+let menosUmaCor = document.getElementById 		('menosUmaCor')
+let divInputsCores = document.getElementById	('inputsCores')
 /* -------------------  */
 
 // VARIAVEIS DAS PREVIAS
@@ -66,7 +68,7 @@ let dtRcvManage = new dataReceiveManager();
 
 // INSTANCIAS DO GERENCIADOR DE VARIAÇÕES
 let varManage = new variationsManager(addInfosTable)
-	varManage.setInputs(btnDefVariacao, maisUmaCor)
+	varManage.setInputs(btnDefVariacao, maisUmaCor,menosUmaCor,divInputsCores)
 
 /*-----------------------------------------------------------------------*/
 

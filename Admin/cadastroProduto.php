@@ -73,7 +73,7 @@
 								<input type="checkbox" id="temPreviaCadastradaSsNn"><br>
 								<select class="inputs" id="temPrevia" style="display:none;">
 									<option value="" selected hidden disabled>Escolher Previa</option>									
-									<!--deixe esse select "display:hidden ou none" por padrão, estou mexendo cm ele no js-->
+									<!--ADICIONAR BOTÃO PARA VOLTAR-->
 								</select>
 							</div>
 							<input class="inputs" type="text" id="nome" placeholder="Nome do produto" required><br>
@@ -94,8 +94,11 @@
 						</div>
 						<div id="inputsDeDefinicao">
 							<input type="text" class="inputs" id="tamanhos" placeholder="tamanhos separados por vírgula">							
-							<input type="color" class="cores">
+							<span id="inputsCores">
+								<input type="color">
+							</span>
 							<button id="maisUmaCor">Adicionar cor</button>
+							<button id="menosUmaCor">Remover cor </button>
 						</div>
 						<div id="boxTabelas">														
 							<button class="btnsCria" id="definCorTam">Adicionar variação</button>
