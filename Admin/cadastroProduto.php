@@ -92,8 +92,13 @@
 								
 							</span>
 						</div>
+						<div id="inputsDeDefinicao">
+							<input type="text" class="inputs" id="tamanhos" placeholder="tamanhos separados por vírgula">							
+							<input type="color" class="cores">
+							<button id="maisUmaCor">Adicionar cor</button>
+						</div>
 						<div id="boxTabelas">														
-							<button class="btnsCria" id="definCorTam">Adicionar cor</button>
+							<button class="btnsCria" id="definCorTam">Adicionar variação</button>
 						</div>
 						<div id="dadosSecundarios">
 							<div class="divCheckbox"><label for="disponivelSimNao">disponivel</label><input type="checkbox" class="checkboxForm" name="disponibilidade" id="disponivelSimNao"></div>

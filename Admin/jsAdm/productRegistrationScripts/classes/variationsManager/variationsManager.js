@@ -1,45 +1,25 @@
-class variationsManager{
-	constructor(divPai){				
-		this.table = document.createElement('table')
-		this.table.id = "tabela"
-		divPai.append(this.table)
+import elementsCreator from './elementsCreator.js'
+
+class variationsManager extends elementsCreator{
+	constructor(divPai){			
+		super()	
 		
 		this.rows = []
 		this.rowAtual = 0;
 	}
-	generateColorsOptions(){
-		let selectForColors = document.createElement('select')	
-		this.selectedColors.forEach((cada) => {
-			let option = document.createElement('option')
-			option.value = cada			
-			option.style.backgroundColor = cada
-			
-			selectForColors.append(option)
-		})	
-		
-		return selectForColors
+	setInputs(btnDefVariacao, maisUmaCor){
+		this.btnDefVariacao = btnDefVariacao
+		this.maisUmaCor = maisUmaCor
+		this.setEventListeners();
 	}
-	generateSizeSelect(){
-		let selectForSizes = document.createElement('select')
-		
-		this.selectedSizes.forEach((cada) => {
-			let option = document.createElement('option')
-			option.value = cada			
-			option.innerText = cada
+	
+	setEventListeners(){
+		this.btnDefVariacao.onclick = () => {						
+			let sizesInput = this.generateSizesInput()
 			
-			selectForSizes.append(option)
-		})
-		
-		return selectForSizes;
+			this.divPai.append(sizesInput)
+		}
 	}
-	generatePriceInput(){
-		let inputPriceInput = document.createElement('input')
-		inputPriceInput.type = "number"
-		inputPriceInput.min = "0"
-		inputPriceInput.required = true
-		
-		return inputPriceInput;
-	}	
 	variationDataSlot(){
 		let colorInput = document.createElement('td')
 		let sizeInput = document.createElement('td')

@@ -1,7 +1,7 @@
 import classManager 		from "./classes/classisManager.js";
 import previewManager 		from "./classes/previewManager.js";
 import dataReceiveManager	from "./classes/dataReceiveManager.js";
-import variationsManager 	from "./classes/variationsManager.js";
+import variationsManager 	from "./classes/variationsManager/variationsManager.js";
 
 // VARIAVEIS DAS CLASSES 
 let newClass = document.getElementById		('newClass');
@@ -29,6 +29,8 @@ let dadosSecundarios = document.getElementById	('dadosSecundarios');
 
 /* VARIAVEIS DA TABELA */
 let addInfosTable = document.getElementById		('boxTabelas')
+let btnDefVariacao = document.getElementById	('definCorTam')
+let maisUmaCor = document.getElementById		('maisUmaCor')
 /* -------------------  */
 
 // VARIAVEIS DAS PREVIAS
@@ -64,7 +66,7 @@ let dtRcvManage = new dataReceiveManager();
 
 // INSTANCIAS DO GERENCIADOR DE VARIAÇÕES
 let varManage = new variationsManager(addInfosTable)
-	varManage
+	varManage.setInputs(btnDefVariacao, maisUmaCor)
 
 /*-----------------------------------------------------------------------*/
 
