@@ -1,5 +1,8 @@
-class elementsCreator{
+import sideElementsCreator from './sideElementsCreator.js'
+
+class elementsCreator extends sideElementsCreator{
 	constructor(inputSizes){
+		super()
 		this.inputsCores 	= []
 		this.selectsCores	= []		
 		this.selectsSizes = []
@@ -38,39 +41,13 @@ class elementsCreator{
 			})
 		})				
 		
-	}
-	createOptions(wit){
-		let opts = []
-		wit.forEach((cada) => {
-			let option = document.createElement('option')
-			option.innerText = cada
-			option.value = cada
-			
-			opts.push(option)
-		})
-		console.log(opts)
-		return opts
-	}
-	cleanSelectChilds(select){
-		while(select.firstChild){
-			select.firstChild.remove()
-		}
-		return select
-	}
-	createSizeOptions(){
-		let tamanhos = this.inputSizes.value.split(',') 
-		tamanhos.forEach((cada, um) => tamanhos[um] = cada.trim())
-		
-		tamanhos = this.createOptions(tamanhos)
-		
-		return tamanhos
-	}
+	}		
 	refreshSizesOptions(){
 		console.clear()		
 		
 		
 		this.selectsSizes.forEach((cada)=>{			
-			const tamanhos = this.createSizeOptions()
+			const tamanhos = this.createSizeOptions(this.inputSizes.value)
 			
 			cada = this.cleanSelectChilds(cada)
 			
@@ -100,6 +77,7 @@ class elementsCreator{
 		let inputPriceInput = document.createElement('input')
 		inputPriceInput.type = "number"
 		inputPriceInput.min = "0"
+		inputPriceInput.placeholder = "Preço dessa variação"
 		inputPriceInput.required = true
 		
 		return inputPriceInput;
