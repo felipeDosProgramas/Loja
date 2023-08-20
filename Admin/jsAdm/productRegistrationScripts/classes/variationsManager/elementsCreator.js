@@ -1,87 +1,88 @@
-import sideElementsCreator from './sideElementsCreator.js'
+import singleElementsCreator from './singleElementsCreator.js';
 
-class elementsCreator extends sideElementsCreator{
-	constructor(inputSizes){
-		super()
-		this.inputsCores 	= []
-		this.selectsCores	= []		
-		this.selectsSizes = []
-		this.inputSizes = inputSizes
+class elementsCreator extends singleElementsCreator{
+	constructor(inputSizes, saidaServer){
+		super(saidaServer);
+		this.inputSizes 	= inputSizes;
+		this.inputsCores 	= [];
+		this.selectsCores	= [];
+		this.selectsSizes 	= [];		
 	}
-	
-	generateColorsOptions(){
-		let selectForColors = document.createElement('select')	
+	testEverything(sizesStr){
+		let retorno = true		
+		if(this.inputsCores.length == 0){
+				this.mostraProUsuario("voce é fraco, lhe falta cores")
+				retorno =  false
+		}
 		
-		selectForColors.className = "selectsForColors"
-		selectForColors.style.width = "5vw"
-		
-		selectForColors.onchange = () => {			
-			selectForColors.style.backgroundColor = this.options[this.selectedIndex].style.backgroundColor;			
-			//-------------------------------------------------------------------------------------------------------------------------
-		}		
-		this.selectsCores.push(selectForColors)
-		
-		this.refreshColorsOptions()
-		return selectForColors
-	}
-	refreshColorsOptions(){
-		
+		if(sizesStr == ""){
+			retorno = false
+		}					
+		return retorno
+	}	
+	refreshColorsOptions(){		
 		this.selectsCores.forEach((cada) => {
-			while(cada.firstChild){
-				cada.firstChild.remove()
-			}
-			
-			
+			cada = this.cleanSelectChilds(cada);
+							
 			this.inputsCores.forEach((cor) => {
-				let option = document.createElement('option')
-				option.value = cor.value		
-				option.innerText = cor.value
-				option.style.backgroundColor = cor.value
-				cada.append(option)
-			})
-		})				
-		
+				let option = document.createElement('option');
+				option.value = cor.value;
+				option.innerText = cor.value;
+				option.style.backgroundColor = cor.value;
+				cada.append(option);
+			});
+		});		
 	}		
-	refreshSizesOptions(){
-		console.clear()		
-		
-		
+	refreshSizesOptions(sizesStr){
+		//console.clear();		
 		this.selectsSizes.forEach((cada)=>{			
-			const tamanhos = this.createSizeOptions(this.inputSizes.value)
+			let tamanhos = this.createSizeOptions(sizesStr);
 			
-			cada = this.cleanSelectChilds(cada)
+			cada = this.cleanSelectChilds(cada);
 			
 			tamanhos.forEach((opt) => {
-				cada.append(opt)
-			})
-		})
+				cada.append(opt);
+			});
+		});
 	}	
 	
 	generateSizeSelect(){
-		let selectForSizes = document.createElement('select')		
-		this.selectsSizes.push(selectForSizes)
-		
-		this.refreshSizesOptions()	
-		return selectForSizes;
+		let sizesStr = this.inputSizes.value.trim();				
+		let test = this.testEverything(sizesStr)
+		if(test){
+			let selectForSizes = document.createElement('select');
+			
+			this.selectsSizes.push(selectForSizes);		
+			this.refreshSizesOptions(sizesStr);
+			
+			return selectForSizes;
+		}
+		return false;
 	}
 	generateColorInput(){
-		let colorInput = document.createElement('input')
-		colorInput.className = "cores"
-		colorInput.type = "color"
-		
-		this.inputsCores.push(colorInput)
-		return colorInput
+		let colorInput = document.createElement('input');
+			colorInput.className = "cores";
+			colorInput.type = "color";
+			colorInput.onchange = () => this.refreshColorsOptions()
+			
+		this.inputsCores.push(colorInput);
+		this.refreshColorsOptions()
+		return colorInput;
 	}
+	generateColorsOptions(){
 	
-	generatePriceInput(){
-		let inputPriceInput = document.createElement('input')
-		inputPriceInput.type = "number"
-		inputPriceInput.min = "0"
-		inputPriceInput.placeholder = "Preço dessa variação"
-		inputPriceInput.required = true
+		let selectForColors = document.createElement('select');		
+		selectForColors.className = "selectsForColors";
+		selectForColors.style.width = "5vw";		
+		selectForColors.onchange = () => {			
+			selectForColors.style.backgroundColor = this.options[this.selectedIndex].style.backgroundColor;			
+			//-------------------------------------------------------------------------------------------------------------------------
+		};
+		this.selectsCores.push(selectForColors);		
+		this.refreshColorsOptions();
 		
-		return inputPriceInput;
-	}		
+		return selectForColors;		
+	}
 }
 
 export default elementsCreator;

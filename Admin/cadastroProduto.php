@@ -21,20 +21,7 @@
 		<body>
 			<header id="header">
 				<div id="caixaMenu">
-					<button id="btnMenu" class="btnsMenu"><svg width="35px" height="35px" viewBox="-1.56 -1.56 15.12 15.12"
-						enable-background="new 0 0 12 12" id="Слой_1" version="1.1" xml:space="preserve"
-						xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000"
-						stroke="#000000" stroke-width="0.264">
-							<g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-							<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-							<g id="SVGRepo_iconCarrier">
-								<g>
-									<rect fill="#000000" height="1" width="11" x="0.5" y="5.5"></rect>
-									<rect fill="#000000" height="1" width="11" x="0.5" y="2.5"></rect>
-									<rect fill="#000000" height="1" width="11" x="0.5" y="8.5"></rect>
-								</g>
-							</g>
-						</svg></button>
+					<button id="btnMenu" class="btnsMenu"><svg width="35px" height="35px" viewBox="-1.56 -1.56 15.12 15.12"enable-background="new 0 0 12 12" id="Слой_1" version="1.1" xml:space="preserve"xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000"stroke="#000000" stroke-width="0.264"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><g><rect fill="#000000" height="1" width="11" x="0.5" y="5.5"></rect><rect fill="#000000" height="1" width="11" x="0.5" y="2.5"></rect><rect fill="#000000" height="1" width="11" x="0.5" y="8.5"></rect></g></g></svg></button>
 						<div id="navegacao">
 							<div id="btnNav">
 								<button id="btnMenu2" class="btnsMenu"><svg width="20px" height="20px" viewBox="0 0 20.00 20.00" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#ffffff" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>arrow_right [#ffffff]</title> <desc>Created with Sketch.</desc> <defs> </defs> <g id="Page-1" stroke-width="0.0002" fill="none" fill-rule="evenodd"> <g id="Dribbble-Light-Preview" transform="translate(-425.000000, -6679.000000)" fill="#ffffff"> <g id="icons" transform="translate(56.000000, 160.000000)"> <path d="M370.39,6519 L369,6520.406 L377.261,6529.013 L376.38,6529.931 L376.385,6529.926 L369.045,6537.573 L370.414,6539 C372.443,6536.887 378.107,6530.986 380,6529.013 C378.594,6527.547 379.965,6528.976 370.39,6519" id="arrow_right-[#ffffff]"> </path> </g> </g> </g> </g></svg></button>
@@ -80,22 +67,19 @@
 							<input class="inputs" type="date" id="dataLancPrevia" placeholder="Data de lançamento" required><br>
 							<label for="description" class="formsSelectsAndDate">descrição:</label><br>
 							<textarea class="inputs" id="description" required></textarea>
-							<select class="inputs" name="classificacao" id="classificacoes" required>
+							<select class="inputs" name="classificacao" id="classificacoes" required style="width:70%">
 								<option value="" selected hidden disabled>Classificação</option>
 							</select>
-							
+							<div id="classOptions">*</div><!--COLOCA UM SVG DE ENGRENAGEM AQUI SLA É SÓ UMA IDEIA-->							
 							<div id="criadorClassis">
 								<button class="btnsCria" id="newClass">criar classificação</button><br>
 								<button class="btnsCria" id="tiraClass">excluir classificacão</button>						
 							</div>
-							<span id="respostasServidor">
-								
-							</span>
+							<span id="respostasServidor"></span>
 						</div>
 						<div id="inputsDeDefinicao">
-							<input type="text" class="inputs" id="tamanhos" placeholder="tamanhos separados por vírgula">							
-							<span id="inputsCores">								
-							</span>
+							<input type="text" class="inputs" id="tamanhos" placeholder="tamanhos separados por vírgula">
+							<span id="inputsCores"></span><!--não colocar nada dentro desses spans, senão vai dar error no JS-->
 							<button id="maisUmaCor">Adicionar cor</button>
 							<button id="menosUmaCor">Remover cor </button>
 						</div>
@@ -105,7 +89,7 @@
 						<div id="dadosSecundarios">
 							<div class="divCheckbox"><label for="disponivelSimNao">disponivel</label><input type="checkbox" class="checkboxForm" name="disponibilidade" id="disponivelSimNao"></div>
 						</div>
-						<button class="btnsCria" id="semiSubmit">definir quantidades</button>
+						<button class="btnsCria" id="semiSubmit">enviar</button>
 					</div>
 				</div>					
 			</section>

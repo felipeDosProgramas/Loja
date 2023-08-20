@@ -7,6 +7,7 @@ import variationsManager 	from "./classes/variationsManager/variationsManager.js
 let newClass = document.getElementById		('newClass');
 let criadorClassis = document.getElementById('criadorClassis');
 let tirarClass = document.getElementById	('tiraClass');
+let classOptions = document.getElementById	('classOptions');
 // --------------------- 
 
 // INPUTS DE ENTRADA DE DADOS
@@ -15,7 +16,7 @@ let nomePeca = document.getElementById			('nome');
 let descricaoPeca = document.getElementById		('description');
 let selectClassis = document.getElementById		('classificacoes');
 let semiSubmit = document.getElementById		('semiSubmit');
-let oInputDeSeleciona = document.getElementById	('muitasFotosSimNao')
+let oInputDeSeleciona = document.getElementById	('muitasFotosSimNao');
 // -------------------------
 
 // Divs do DOM e SAIDA DE DADOS
@@ -45,7 +46,7 @@ let checkBoxTemPrev = document.getElementById			('temPreviaCadastradaSsNn')
 // INSTANCIAS DO GERENCIADOR DE CLASSIFICAÇÕES
 let ClManage = new classManager	();
 	ClManage.setOutput			(criadorClassis,newClass , tirarClass);
-	ClManage.setInput			(selectClassis, respostaServer);	
+	ClManage.setInput			(selectClassis, respostaServer, classOptions);	
 	ClManage.lerClassis			();
 	
 // ----------------------------------------------
@@ -61,68 +62,12 @@ let prVwManage = new previewManager	();
 
 //INSTANCIAS DO RECEPTOR DE DADOS
 let dtRcvManage = new dataReceiveManager();
-	dtRcvManage.setInput(nomePeca, dataPeca, descricaoPeca, selectClassis, disponibilidade);
+	dtRcvManage.setInput				(nomePeca, dataPeca, descricaoPeca, selectClassis, disponibilidade);
 
 
 // ----------------------------------------------
 
 // INSTANCIAS DO GERENCIADOR DE VARIAÇÕES
-let varManage = new variationsManager(addInfosTable, tamanhos)
-	varManage.setInputs(btnDefVariacao, maisUmaCor,menosUmaCor,divInputsCores)
-	varManage.setOutputs(respostaServer)
+let varManage = new variationsManager	(addInfosTable, tamanhos, respostaServer)
+	varManage.setInputs					(btnDefVariacao, maisUmaCor,menosUmaCor,divInputsCores)
 /*-----------------------------------------------------------------------*/
-
-
-
-/*FUNCAO ADD INFORMACOES DA TABELA
-addInfosTable.addEventListener('click', () => {
-	let divTodoInput = document.createElement('div')
-	divTodoInput.classList.add('divTodoInput')
-	
-	let cardsTableInput = document.createElement('div')
-	cardsTableInput.classList.add('cardsTableInput')
-	
-	let divInputCor = document.createElement('div')
-	divInputCor.classList.add('divInputCor')
-	let inputCor = document.createElement('input')
-	inputCor.type = 'color'
-	inputCor.classList.add('inputColor')
-	divInputCor.appendChild(inputCor)
-	
-	let divInputQtdCor = document.createElement('div')
-	divInputQtdCor.classList.add('divInputQtdCor')
-	let inputQtdCor = document.createElement('input')
-	inputQtdCor.type = 'number'
-	inputQtdCor.min = '1'
-	inputQtdCor.placeholder = 'Digite a quantidade'
-	inputQtdCor.classList.add('inputs')
-	divInputQtdCor.appendChild(inputQtdCor)
-	
-	let divInputTamQtd = document.createElement('div')
-	divInputTamQtd.classList.add('divInputQtdCor')
-	let inputTamQtd = document.createElement('input')
-	inputTamQtd.type = 'text'
-	inputTamQtd.placeholder = 'Digite os tamanhos'
-	inputTamQtd.classList.add('inputs')
-	divInputTamQtd.appendChild(inputTamQtd)
-	
-	let divCancelInfo = document.createElement('divCancelInfo')
-	divCancelInfo.classList.add('divCancelInfo')
-	let cancelTableInputs = document.createElement('button')
-	cancelTableInputs.id = 'cancelTableInputs'
-	cancelTableInputs.classList.add('btnsCria')
-	cancelTableInputs.innerText = 'Cancelar Cor'
-	cancelTableInputs.onclick = () => {
-		divTodoInput.remove()
-	}
-	divCancelInfo.appendChild(cancelTableInputs)
-	
-	cardsTableInput.append(divInputCor, divInputQtdCor, divInputTamQtd)
-	divTodoInput.append(cardsTableInput, divCancelInfo)
-	inputsInfoTable.appendChild(divTodoInput)
-})
-------------------*/
-
-
-
-

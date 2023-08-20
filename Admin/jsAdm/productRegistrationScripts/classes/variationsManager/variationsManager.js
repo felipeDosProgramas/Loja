@@ -1,33 +1,21 @@
 import elementsCreator from './elementsCreator.js'
 
 class variationsManager extends elementsCreator{
-	constructor(divPai, tamanhos){					
-		super(tamanhos);
-		this.divPai = divPai;
+	constructor(divPai, tamanhos, saidaServer){					
+		super(tamanhos, saidaServer);
 		this.rows = [];
-		this.inputTamanhos = tamanhos
 		this.rowAtual = 0;
+		this.divPai 		= divPai;		
+		this.inputTamanhos	= tamanhos		
 	}
 	setInputs(btnDefVariacao, maisUmaCor,menosUmaCor, divInputsCores){
-		this.btnDefVariacao = btnDefVariacao
-		this.maisUmaCor = maisUmaCor
-		this.menosUmaCor = menosUmaCor
-		this.divPaiInputsCores = divInputsCores
-		
-		
-		
+		this.btnDefVariacao 	= btnDefVariacao
+		this.maisUmaCor 		= maisUmaCor
+		this.menosUmaCor 		= menosUmaCor
+		this.divPaiInputsCores 	= divInputsCores
 		
 		this.setEventListeners();
-	}
-	mostraProUsuario(oque){
-		this.saidaServer.innerHTML = oque;
-		setTimeout(()=>{
-			this.saidaServer.innerHTML = "";
-		}, 1000)		
 	}	
-	setOutputs(saidaServer){
-		this.saidaServer = saidaServer
-	}
 	
 	setEventListeners(){
 		this.btnDefVariacao.onclick = () => {												
@@ -36,12 +24,15 @@ class variationsManager extends elementsCreator{
 		
 		this.maisUmaCor.onclick = () => {
 			let inputColor = this.generateColorInput();
-			this.divPaiInputsCores.append(inputColor)
+			this.divPaiInputsCores.append(inputColor);
+			if(this.inputsCores.length != 0) this.refreshColorsOptions()
 		}
 		
 		this.menosUmaCor.onclick = () => {
-			try{
-				this.divPaiInputsCores.firstChild.remove()
+			try{				
+				this.divPaiInputsCores.removeChild(this.divPaiInputsCores.firstChild);
+				this.inputsCores.shift();
+				this.refreshColorsOptions()
 			}catch(e){
 				this.mostraProUsuario("cria pelo menos uma cor pra excluir")
 			}
@@ -49,19 +40,35 @@ class variationsManager extends elementsCreator{
 	}
 	variationDataSlot(){		
 		let row = {}
-		row.colorInput = document.createElement('td')
-		row.sizeInput = document.createElement('td')
-		row.priceInput = document.createElement('td')
+			row.colorInput	= document.createElement('td');
+			row.sizeInput 	= document.createElement('td');
+			row.priceInput 	= document.createElement('td');
+			row.qtdInput 	= document.createElement('td');
 		
-		let colorOptions = this.generateColorsOptions()
-		let sizeSelect = this.generateSizeSelect()
-		let inputPriceInput = this.generatePriceInput()
+		try{
+			let sizeSelect 		= this.generateSizeSelect();
+			let colorOptions 	= this.generateColorsOptions();			
+			let inputPriceInput = this.generatePriceInput();
+			let qtdInput 		= this.createQtdInput();
+			
+			if(sizeSelect && colorOptions && inputPriceInput && qtdInput){
+				row.priceInput.append(inputPriceInput);
+				row.colorInput.append(colorOptions);
+				row.sizeInput.append(sizeSelect);
+				row.qtdInput.append(qtdInput);
+				
+				return row;
+			}
+			throw 0
+		}catch(e){
+			console.log(e)			
+			if(e == 0){
+				this.mostraProUsuario("você é fraco, lhe falta dados");							
+			}			
+			return false
+		}
+			
 		
-		row.priceInput.append(inputPriceInput)
-		row.colorInput.append(colorOptions)
-		row.sizeInput.append(sizeSelect)
-		
-		return row;
 	}
 	newVariation(){
 		
@@ -69,12 +76,11 @@ class variationsManager extends elementsCreator{
 		this.rows[this.rowAtual].className = "linhas";
 		
 		let elmnts = this.variationDataSlot();
-		
-		this.rows[this.rowAtual].append(elmnts.colorInput, elmnts.sizeInput, elmnts.priceInput);
-		this.divPai.append(this.rows[this.rowAtual])
-		this.rowAtual++
-		
-		
+		if(elmnts){			
+			this.rows[this.rowAtual].append(elmnts.colorInput, elmnts.sizeInput, elmnts.priceInput, elmnts.qtdInput);
+			this.divPai.append(this.rows[this.rowAtual])
+			this.rowAtual++		
+		}
 	}	
 }
 
