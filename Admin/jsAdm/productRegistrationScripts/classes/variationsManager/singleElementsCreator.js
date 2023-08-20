@@ -19,6 +19,17 @@ class singleElementsCreator{
 		})		
 		return opts
 	}
+	createVarsRmvBtn(){
+		let btn = document.createElement('button')
+			btn.innerText = "X"
+			btn.className = "btnRmvVar"
+			btn.onclick = (e) => {
+				let linha = e.target.parentNode.parentNode
+				linha.parentNode.removeChild(linha)
+				//segredos
+			}
+		return btn
+	}
 	createQtdInput(){
 		let input = document.createElement('input');
 			input.type = "number";
@@ -34,7 +45,7 @@ class singleElementsCreator{
 		}
 		return select
 	}
-	createSizeOptions(stringWithSizes){
+	createSizeOptions(stringWithSizes){		
 		let tamanhos = stringWithSizes.split(',') 
 		tamanhos.forEach((cada, um) => {
 			if(cada != ''){

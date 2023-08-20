@@ -2,12 +2,9 @@ class classManager{
 	
 	constructor(){}
 	
-	setInput(selectDeSaida, respostaServer, classOptions){
-		this.selectDeSaida = selectDeSaida;
-		this.respostaServer = respostaServer;
-		this.classOptions = classOptions;
-		console.log(classOptions)
-		// define as saidas do sistema
+	setInput(selectDeSaida, respostaServer){
+		this.selectDeSaida 	= selectDeSaida;
+		this.respostaServer = respostaServer;			
 	}	
 	setOutput(divPrincipal, btnCriaClass, btnExcluClass){
 		this.criadorClassis = divPrincipal;
@@ -15,6 +12,18 @@ class classManager{
 		this.btnExcluClass = btnExcluClass;
 		
 		this.setEventListeners();
+	}
+	
+	setEventListeners(){
+		this.btnCriaClass.onclick = (e) => {
+			this.criaOption();
+			
+			this.btnExcluClass.style.display 	= "none";
+			e.target.style.display 				= "none";	
+		}
+		this.btnExcluClass.onclick = () => { 			
+			this.tiraClassificacao()
+		}
 	}
 	refazBotoesIniciais(){
 		this.btnCriaClass.style.display = "initial"
@@ -38,12 +47,13 @@ class classManager{
 	}
 	async lerClassis(){
 		let resp = await fetch("phpAdm/setGetclassis.php?oq=soLer");
-		let resposta = await resp.text();
-		resposta = resposta.split(",");	
+		let resposta = await resp.text();		
+		resposta = resposta.split(",");
 		
 		let auxForElmnts = this.criaElementOption("Classificação", true, true, true)		
 		this.removeAllChilds(this.selectDeSaida);
 		this.selectDeSaida.append(auxForElmnts);
+		
 		resposta.forEach((cada)=>{
 			if(cada != ""){							
 				auxForElmnts = this.criaElementOption(cada)
@@ -66,7 +76,8 @@ class classManager{
 		this.lerClassis();
 		this.refazBotoesIniciais();
 	}
-	async tiraClassificacao(){	
+	async tiraClassificacao(){
+		console.log(this)
 		let qual = this.selectDeSaida.value;		
 		if(qual != "Classificação"){
 			let server = await fetch("phpAdm/setGetclassis.php?oq=tiraEsse&esse="+qual);
@@ -105,32 +116,13 @@ class classManager{
 			this.mostraProUsuario("insira um nome válido");
 		});	
 		cancelNomeClass.addEventListener('click', ()=>{
-			newClass.style.display = 'initial';
+			this.refazBotoesIniciais()
 			
 			inputNomeClassi.remove();
 			sendNomeClass.remove();
 			cancelNomeClass.remove();
 		});
 		this.criadorClassis.append(inputNomeClassi, sendNomeClass, cancelNomeClass);
-	}
-	setEventListeners(){
-		this.btnCriaClass.onclick = (e) => {
-			this.criaOption();
-			
-			this.btnExcluClass.style.display 	= "none";
-			e.target.style.display 				= "none";	
-		}
-		this.btnExcluClass.onclick = () => { 			
-			this.tiraClassificacao()
-		}
-		console.log(this)
-		this.classOptions.onclick = () => {			
-			if(this.divPrincipal.display == "none"){
-				this.divPrincipal.display = "grid";
-				return
-			}
-			this.divPrincipal.display = "none";
-		}
 	}
 }
 

@@ -7,7 +7,6 @@ import variationsManager 	from "./classes/variationsManager/variationsManager.js
 let newClass = document.getElementById		('newClass');
 let criadorClassis = document.getElementById('criadorClassis');
 let tirarClass = document.getElementById	('tiraClass');
-let classOptions = document.getElementById	('classOptions');
 // --------------------- 
 
 // INPUTS DE ENTRADA DE DADOS
@@ -15,16 +14,11 @@ let disponibilidade = document.getElementById	('disponivelSimNao');
 let nomePeca = document.getElementById			('nome');
 let descricaoPeca = document.getElementById		('description');
 let selectClassis = document.getElementById		('classificacoes');
-let semiSubmit = document.getElementById		('semiSubmit');
-let oInputDeSeleciona = document.getElementById	('muitasFotosSimNao');
 // -------------------------
 
 // Divs do DOM e SAIDA DE DADOS
-let form = document.querySelector				('form');
-let cores = document.getElementById				('cores');
 let tamanhos = document.getElementById			('tamanhos');
 let respostaServer = document.getElementById	('respostasServidor');
-let dadosSecundarios = document.getElementById	('dadosSecundarios');
 // -------------------------
 
 
@@ -41,20 +35,21 @@ let temOuNnPrevia = document.getElementById				('labelSeTemPreviaCadastrada');
 let dataPeca = document.getElementById 					('dataLancPrevia')
 let selectDasPreviasCadastradas =document.getElementById('temPrevia');
 let checkBoxTemPrev = document.getElementById			('temPreviaCadastradaSsNn')
+let previewsCtrlZ = document.getElementById 			('previewsCtrlZ')
 //------------------------------------------
 
 // INSTANCIAS DO GERENCIADOR DE CLASSIFICAÇÕES
-let ClManage = new classManager	();
+let ClManage = new classManager	();	
+	ClManage.setInput			(selectClassis, respostaServer);
 	ClManage.setOutput			(criadorClassis,newClass , tirarClass);
-	ClManage.setInput			(selectClassis, respostaServer, classOptions);	
 	ClManage.lerClassis			();
 	
 // ----------------------------------------------
 
 //INSTANCIAS DO GERENCIADOR DE PRÉVIAS
 let prVwManage = new previewManager	();
-	prVwManage.setOutput			(selectDasPreviasCadastradas, nomePeca, dataPeca);
-	prVwManage.setInput				(temOuNnPrevia, checkBoxTemPrev);
+	prVwManage.setInput				(temOuNnPrevia, checkBoxTemPrev, previewsCtrlZ);
+	prVwManage.setOutput			(selectDasPreviasCadastradas, nomePeca, dataPeca);	
 	prVwManage.setPreviewOptions	()
 	prVwManage.ifGotPreview			()
 

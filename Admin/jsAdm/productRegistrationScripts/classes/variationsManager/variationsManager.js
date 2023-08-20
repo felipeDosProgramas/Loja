@@ -29,46 +29,55 @@ class variationsManager extends elementsCreator{
 		}
 		
 		this.menosUmaCor.onclick = () => {
-			try{				
+			try{
+				if(this.inputsCores.length == 0) throw 0
+				
 				this.divPaiInputsCores.removeChild(this.divPaiInputsCores.firstChild);
 				this.inputsCores.shift();
-				this.refreshColorsOptions()
+				this.refreshColorsOptions()								
+				
 			}catch(e){
-				this.mostraProUsuario("cria pelo menos uma cor pra excluir")
+				if(e == 0) this.mostraProUsuario("cria pelo menos uma cor pra excluir")				
 			}
+		}
+		let intervalo = null
+		this.inputSizes.oninput = () => {
+			clearTimeout(intervalo)
+			
+			intervalo = setTimeout(() => {
+				let sizesStr = this.inputSizes.value.trim();				
+				let test = this.testEverything(sizesStr)
+				if(test) this.refreshSizesOptions()
+			},1250)
 		}
 	}
 	variationDataSlot(){		
-		let row = {}
-			row.colorInput	= document.createElement('td');
-			row.sizeInput 	= document.createElement('td');
-			row.priceInput 	= document.createElement('td');
-			row.qtdInput 	= document.createElement('td');
-		
+		let row = []
+		for(let x = 0;x != 5;x++) row.push( document.createElement('td'));
+
 		try{
 			let sizeSelect 		= this.generateSizeSelect();
 			let colorOptions 	= this.generateColorsOptions();			
 			let inputPriceInput = this.generatePriceInput();
 			let qtdInput 		= this.createQtdInput();
+			let rmvVarBtn 		= this.createVarsRmvBtn();
 			
-			if(sizeSelect && colorOptions && inputPriceInput && qtdInput){
-				row.priceInput.append(inputPriceInput);
-				row.colorInput.append(colorOptions);
-				row.sizeInput.append(sizeSelect);
-				row.qtdInput.append(qtdInput);
+			if(sizeSelect && colorOptions && inputPriceInput && qtdInput && rmvVarBtn){				
+				row[0].append(inputPriceInput);
+				row[1].append(colorOptions);
+				row[2].append(sizeSelect);
+				row[3].append(qtdInput);
+				row[4].append(rmvVarBtn);
 				
 				return row;
 			}
 			throw 0
-		}catch(e){
-			console.log(e)			
+		}catch(e){			
 			if(e == 0){
 				this.mostraProUsuario("você é fraco, lhe falta dados");							
 			}			
 			return false
 		}
-			
-		
 	}
 	newVariation(){
 		
@@ -76,8 +85,8 @@ class variationsManager extends elementsCreator{
 		this.rows[this.rowAtual].className = "linhas";
 		
 		let elmnts = this.variationDataSlot();
-		if(elmnts){			
-			this.rows[this.rowAtual].append(elmnts.colorInput, elmnts.sizeInput, elmnts.priceInput, elmnts.qtdInput);
+		if(elmnts){
+			elmnts.forEach((cada) => this.rows[this.rowAtual].append(cada));			
 			this.divPai.append(this.rows[this.rowAtual])
 			this.rowAtual++		
 		}

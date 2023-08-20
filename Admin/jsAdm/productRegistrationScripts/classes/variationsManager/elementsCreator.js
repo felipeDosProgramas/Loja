@@ -21,6 +21,7 @@ class elementsCreator extends singleElementsCreator{
 		return retorno
 	}	
 	refreshColorsOptions(){		
+		
 		this.selectsCores.forEach((cada) => {
 			cada = this.cleanSelectChilds(cada);
 							
@@ -33,13 +34,10 @@ class elementsCreator extends singleElementsCreator{
 			});
 		});		
 	}		
-	refreshSizesOptions(sizesStr){
-		//console.clear();		
+	refreshSizesOptions(sizesStr){				
 		this.selectsSizes.forEach((cada)=>{			
-			let tamanhos = this.createSizeOptions(sizesStr);
-			
-			cada = this.cleanSelectChilds(cada);
-			
+			let tamanhos = this.createSizeOptions(sizesStr);			
+			cada = this.cleanSelectChilds(cada);			
 			tamanhos.forEach((opt) => {
 				cada.append(opt);
 			});
@@ -48,7 +46,7 @@ class elementsCreator extends singleElementsCreator{
 	
 	generateSizeSelect(){
 		let sizesStr = this.inputSizes.value.trim();				
-		let test = this.testEverything(sizesStr)
+		let test = this.testEverything(sizesStr);		
 		if(test){
 			let selectForSizes = document.createElement('select');
 			
@@ -73,9 +71,9 @@ class elementsCreator extends singleElementsCreator{
 	
 		let selectForColors = document.createElement('select');		
 		selectForColors.className = "selectsForColors";
-		selectForColors.style.width = "5vw";		
-		selectForColors.onchange = () => {			
-			selectForColors.style.backgroundColor = this.options[this.selectedIndex].style.backgroundColor;			
+		selectForColors.onchange = (e) => {
+			
+			e.target.style.backgroundColor = e.target.options[e.target.selectedIndex].style.backgroundColor;			
 			//-------------------------------------------------------------------------------------------------------------------------
 		};
 		this.selectsCores.push(selectForColors);		
