@@ -1,5 +1,5 @@
 import classManager 		from "./classes/classisManager.js";
-import previewManager 		from "./classes/previewManager.js";
+import previewManager 		from "./classes/previewsManager/previewManager.js";
 import dataReceiveManager	from "./classes/dataReceiveManager.js";
 import variationsManager 	from "./classes/variationsManager/variationsManager.js";
 
@@ -23,19 +23,19 @@ let respostaServer = document.getElementById	('respostasServidor');
 
 
 /* VARIAVEIS DA TABELA */
-let addInfosTable = document.getElementById		('boxTabelas')
-let btnDefVariacao = document.getElementById	('definCorTam')
-let maisUmaCor = document.getElementById		('maisUmaCor')
-let menosUmaCor = document.getElementById 		('menosUmaCor')
-let divInputsCores = document.getElementById	('inputsCores')
+let addInfosTable = document.getElementById		('boxTabelas');
+let btnDefVariacao = document.getElementById	('definCorTam');
+let maisUmaCor = document.getElementById		('maisUmaCor');
+let menosUmaCor = document.getElementById 		('menosUmaCor');
+let divInputsCores = document.getElementById	('inputsCores');
 /* -------------------  */
 
 // VARIAVEIS DAS PREVIAS
 let temOuNnPrevia = document.getElementById				('labelSeTemPreviaCadastrada');	
-let dataPeca = document.getElementById 					('dataLancPrevia')
+let dataPeca = document.getElementById 					('dataLancPrevia');
 let selectDasPreviasCadastradas =document.getElementById('temPrevia');
-let checkBoxTemPrev = document.getElementById			('temPreviaCadastradaSsNn')
-let selectedPreviewPictures = document.getElementById 	('selectedPreviewPictures')
+let checkBoxTemPrev = document.getElementById			('temPreviaCadastradaSsNn');
+let selectedPreviewPictures = document.getElementById 	('selectedPreviewPictures');
 //------------------------------------------
 
 // INSTANCIAS DO GERENCIADOR DE CLASSIFICAÇÕES
@@ -50,15 +50,13 @@ let ClManage = new classManager	();
 let prVwManage = new previewManager	();
 	prVwManage.setInput				(temOuNnPrevia, checkBoxTemPrev, selectedPreviewPictures);
 	prVwManage.setOutput			(selectDasPreviasCadastradas, nomePeca, dataPeca);	
-	prVwManage.setPreviewOptions	()
-	prVwManage.ifGotPreview			()
-
+	prVwManage.setPreviewOptions	()	
+	prVwManage.setEventListeners 	()
 // ----------------------------------------------
 
 //INSTANCIAS DO RECEPTOR DE DADOS
 let dtRcvManage = new dataReceiveManager();
 	dtRcvManage.setInput				(nomePeca, dataPeca, descricaoPeca, selectClassis, disponibilidade);
-
 
 // ----------------------------------------------
 

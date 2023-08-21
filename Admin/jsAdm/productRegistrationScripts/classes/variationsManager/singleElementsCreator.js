@@ -18,7 +18,7 @@ class singleElementsCreator{
 			opts.push(option)
 		})		
 		return opts
-	}
+	}	
 	createVarsRmvBtn(){
 		let btn = document.createElement('button')
 			btn.innerText = "X"
