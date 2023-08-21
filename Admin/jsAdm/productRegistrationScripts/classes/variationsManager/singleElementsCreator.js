@@ -44,7 +44,7 @@ class singleElementsCreator{
 			select.firstChild.remove()
 		}
 		return select
-	}
+	}	
 	createSizeOptions(stringWithSizes){		
 		let tamanhos = stringWithSizes.split(',') 
 		tamanhos.forEach((cada, um) => {
@@ -59,7 +59,26 @@ class singleElementsCreator{
 		
 		return tamanhos
 	}
-	
+	createFileInputForSpecificColor(){
+		let input = document.createElement('input');
+			input.type = 'file';
+			input.required = true;
+			input.multiple = true;
+		return input
+	}
+
+	createOptionAddPicsOrNot(){
+		let checkBox = document.createElement('input');
+			checkBox.type = 'checkbox';
+			checkBox.onclick = (e) => {
+				if(e.target.checked){
+					e.target.parentNode.append(this.createFileInputForSpecificColor());
+					
+					
+					return
+				}
+			}
+	}
 	generatePriceInput(){
 		let inputPriceInput = document.createElement('input');
 		inputPriceInput.type = "number";

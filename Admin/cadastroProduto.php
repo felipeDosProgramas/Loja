@@ -76,12 +76,13 @@
 							</div>
 							<span id="respostasServidor"></span>
 						</div>
-						<div id="inputsDeDefinicao">
+						
 							<input type="text" class="inputs" id="tamanhos" placeholder="tamanhos separados por vírgula">
-							<span id="inputsCores"></span><!--não colocar nada dentro desses spans, senão vai dar error no JS, ISSO INCLUI ESPAÇOS EM BRANCO-->
+							<span id="inputsCores"></span><!--não colocar nada dentro desses spans, senão vai dar error no JS, ISSO INCLUI ESPAÇOS EM BRANCO-->														
+							<div id="selectedPreviewPictures"></div><!--mesma coisa nesse aqui-->
 							<button id="maisUmaCor">Adicionar cor</button>
 							<button id="menosUmaCor">Remover cor </button>
-						</div>
+							<!--vc pode enfiar esse botoes em qualquer lugar, só nn troque seus id's-->						
 						<div id="boxTabelas">														
 							<button class="btnsCria" id="definCorTam">Adicionar variação</button>
 						</div>

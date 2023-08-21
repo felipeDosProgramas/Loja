@@ -35,7 +35,7 @@ let temOuNnPrevia = document.getElementById				('labelSeTemPreviaCadastrada');
 let dataPeca = document.getElementById 					('dataLancPrevia')
 let selectDasPreviasCadastradas =document.getElementById('temPrevia');
 let checkBoxTemPrev = document.getElementById			('temPreviaCadastradaSsNn')
-let previewsCtrlZ = document.getElementById 			('previewsCtrlZ')
+let selectedPreviewPictures = document.getElementById 	('selectedPreviewPictures')
 //------------------------------------------
 
 // INSTANCIAS DO GERENCIADOR DE CLASSIFICAÇÕES
@@ -48,7 +48,7 @@ let ClManage = new classManager	();
 
 //INSTANCIAS DO GERENCIADOR DE PRÉVIAS
 let prVwManage = new previewManager	();
-	prVwManage.setInput				(temOuNnPrevia, checkBoxTemPrev, previewsCtrlZ);
+	prVwManage.setInput				(temOuNnPrevia, checkBoxTemPrev, selectedPreviewPictures);
 	prVwManage.setOutput			(selectDasPreviasCadastradas, nomePeca, dataPeca);	
 	prVwManage.setPreviewOptions	()
 	prVwManage.ifGotPreview			()

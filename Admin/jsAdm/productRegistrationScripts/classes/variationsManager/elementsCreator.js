@@ -48,8 +48,7 @@ class elementsCreator extends singleElementsCreator{
 		let sizesStr = this.inputSizes.value.trim();				
 		let test = this.testEverything(sizesStr);		
 		if(test){
-			let selectForSizes = document.createElement('select');
-			
+			let selectForSizes = document.createElement('select');			
 			this.selectsSizes.push(selectForSizes);		
 			this.refreshSizesOptions(sizesStr);
 			
