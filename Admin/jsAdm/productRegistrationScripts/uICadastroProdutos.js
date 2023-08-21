@@ -1,7 +1,7 @@
 import classManager 		from "./classes/classisManager.js";
-import previewManager 		from "./classes/previewsManager/previewManager.js";
 import dataReceiveManager	from "./classes/dataReceiveManager.js";
 import variationsManager 	from "./classes/variationsManager/variationsManager.js";
+import previewManager 		from "./classes/previewsManager/previewManager.js?sdffdg";
 
 // VARIAVEIS DAS CLASSES 
 let newClass = document.getElementById		('newClass');

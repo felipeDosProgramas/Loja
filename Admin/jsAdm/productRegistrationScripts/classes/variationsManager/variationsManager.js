@@ -1,7 +1,7 @@
 import elementsCreator from './elementsCreator.js'
 
 class variationsManager extends elementsCreator{
-	constructor(divPai, tamanhos, saidaServer){					
+	constructor(divPai, tamanhos, saidaServer){				
 		super(tamanhos, saidaServer);
 		this.rows = [];
 		this.rowAtual = 0;
@@ -51,11 +51,11 @@ class variationsManager extends elementsCreator{
 			},1250)
 		}
 	}
-	variationDataSlot(){		
-		let row = []
-		for(let x = 0;x != 5;x++) row.push( document.createElement('td'));
-
+	variationDataSlot(){
 		try{
+			let row = []
+			for(let x = 0;x != 5;x++) row.push( document.createElement('td'));
+			
 			let sizeSelect 		= this.generateSizeSelect();
 			let colorOptions 	= this.generateColorsOptions();			
 			let inputPriceInput = this.generatePriceInput();
@@ -79,12 +79,11 @@ class variationsManager extends elementsCreator{
 			return false
 		}
 	}
-	newVariation(){
-		
+	newVariation(){		
 		this.rows[this.rowAtual] = document.createElement('tr')
-		this.rows[this.rowAtual].className = "linhas";
+		this.rows[this.rowAtual].className = "linhas";		
 		
-		let elmnts = this.variationDataSlot();
+		let elmnts = this.variationDataSlot();		
 		if(elmnts){
 			elmnts.forEach((cada) => this.rows[this.rowAtual].append(cada));			
 			this.divPai.append(this.rows[this.rowAtual])
