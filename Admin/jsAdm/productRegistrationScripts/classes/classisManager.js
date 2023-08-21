@@ -2,23 +2,27 @@ class classManager{
 	
 	constructor(){}
 	
-	setSaidas(selectDeSaida, respostaServer){
+	setInput(selectDeSaida, respostaServer){
 		this.selectDeSaida = selectDeSaida;
 		this.respostaServer = respostaServer;
 		// define as saidas do sistema
 	}	
-	setEntradas(divPrincipal, btnCriaClass, btnExcluClass){
+	setOutput(divPrincipal, btnCriaClass, btnExcluClass){
 		this.criadorClassis = divPrincipal;
 		this.btnCriaClass = btnCriaClass;
 		this.btnExcluClass = btnExcluClass;
 		
 		this.setEventListeners();
 	}
+	refazBotoesIniciais(){
+		this.btnCriaClass.style.display = "initial"
+		this.btnExcluClass.style.display = "initial";
+	}
 	criaElementOption(cmOq, selected = false, disabled = false, hidden = false){
 		let elmnt = document.createElement('option')
-		elmnt.selected
-		elmnt.disabled
-		elmnt.hidden
+		elmnt.selected = selected
+		elmnt.disabled = disabled 
+		elmnt.hidden = hidden
 		elmnt.value = cmOq;
 		elmnt.innerText = cmOq;	
 		return elmnt;
@@ -58,10 +62,11 @@ class classManager{
 		let server = await fetch("phpAdm/setGetclassis.php?oq=criaOutro&cmEsse="+doque);
 		this.mostraProUsuario("criado com sucesso");
 		this.lerClassis();
+		this.refazBotoesIniciais();
 	}
-	async tiraClassificacao(){
-		let qual = this.selectClassis.value;
-		if(qual != ""){
+	async tiraClassificacao(){	
+		let qual = this.selectDeSaida.value;		
+		if(qual != "Classificação"){
 			let server = await fetch("phpAdm/setGetclassis.php?oq=tiraEsse&esse="+qual);
 			this.lerClassis();
 			this.mostraProUsuario("excluido com sucesso");
@@ -81,7 +86,7 @@ class classManager{
 		sendNomeClass.innerText = "enviar";
 		cancelNomeClass.innerText = "cancelar";
 		
-		sendNomeClass.addEventListener('click', ()=>{
+		sendNomeClass.addEventListener('click', ()=>{ // AQUI ADICIONAR OUVINTE QUE CRIA DNV OS BOTOES INICIAIS
 			if(inputNomeClassi.value != ""){
 				let ele = this.criaElementOption(inputNomeClassi.value);
 				this.selectDeSaida.append(ele);		
@@ -90,6 +95,9 @@ class classManager{
 				inputNomeClassi.remove();
 				sendNomeClass.remove();
 				cancelNomeClass.remove();
+				
+				
+				
 				return;
 			}
 			this.mostraProUsuario("insira um nome válido");
@@ -110,8 +118,9 @@ class classManager{
 			this.btnExcluClass.style.display 	= "none";
 			e.target.style.display 				= "none";	
 		}
-		
-		this.btnExcluClass.onclick = this.tiraClassificacao
+		this.btnExcluClass.onclick = () => { 			
+			this.tiraClassificacao()
+		}
 	}
 }
 

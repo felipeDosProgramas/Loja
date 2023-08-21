@@ -32,6 +32,10 @@
 				$hand = new editPreviewData($_GET['deQual'], $_GET['paraQuais']);
 			break;
 			
+			case "allDirData":
+				require_once "classes/JustReturn/allDirData.php";
+				$hand = new allDirData();
+			break;
 			default:
 				echo "ta hackeando né, safado!";
 		}

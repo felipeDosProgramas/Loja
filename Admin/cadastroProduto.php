@@ -69,14 +69,15 @@
 						<div id="dadosPrimarios">
 							<!--<label for="nome">nome:</label>-->
 							<div id="previasNoCadastro">
-								<label for="temPreviaCadastradaSsNn">o produto tem Prévia cadastrada?</label>
+								<label for="temPreviaCadastradaSsNn" id="labelSeTemPreviaCadastrada">o produto tem Prévia cadastrada?</label>
 								<input type="checkbox" id="temPreviaCadastradaSsNn"><br>
-								<select class="inputs" id="temPrevia">
+								<select class="inputs" id="temPrevia" style="display:none;">
 									<option value="" selected hidden disabled>Escolher Previa</option>									
 									<!--deixe esse select "display:hidden ou none" por padrão, estou mexendo cm ele no js-->
 								</select>
 							</div>
 							<input class="inputs" type="text" id="nome" placeholder="Nome do produto" required><br>
+							<input class="inputs" type="date" id="dataLancPrevia" placeholder="Data de lançamento" required><br>
 							<label for="description" class="formsSelectsAndDate">descrição:</label><br>
 							<textarea class="inputs" id="description" required></textarea>
 							<select class="inputs" name="classificacao" id="classificacoes" required>

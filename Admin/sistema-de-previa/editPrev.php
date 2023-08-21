@@ -71,12 +71,9 @@
 							</div>-->
 						</div>
 						
-						<div id="divBtnsPre">
-							<label>
-							<input type="file" name="fotos[]" multiple class="inputs" id="inputHi" required>
-								<div id="addImage">Adicionar foto</div>
-									
-							</label>
+						<div id="divBtnsPre">							
+							<input type="file" name="arquivos[]" multiple style="display:none;" id="inputHi">	
+							<button id="addImage">Adicionar foto</button>							
 							<button id="excluPreviaInteira">excluir prévia</button>
 							<button id="btnSalvarDados">Salvar</button>
 							<div id="serverResponse"></div>

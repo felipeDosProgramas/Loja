@@ -1,4 +1,6 @@
-import classManager from "./classisManager.js";
+import classManager from "./classes/classisManager.js";
+import previewManager from "./classes/previewManager.js";
+
 
 // VARIAVEIS DAS CLASSES 
 let newClass = document.getElementById		('newClass');
@@ -30,17 +32,25 @@ let addInfosTable = document.getElementById		('definCorTam')
 /* -------------------  */
 
 // VARIAVEIS DAS PREVIAS
-let temOuNnPrevia = document.getElementById				('temPreviaCadastradaSsNn');	
+let temOuNnPrevia = document.getElementById				('labelSeTemPreviaCadastrada');	
+let dataPeca = document.getElementById 					('dataLancPrevia')
 let selectDasPreviasCadastradas =document.getElementById('temPrevia');
 // ---------------------
 
 // INSTANCIAS DO GERENCIADOR DE CLASSIFICAÇÕES
 
 let ClManage = new classManager();
-ClManage.setSaidas(selectClassis, respostaServer);
-ClManage.setEntradas(criadorClassis, newClass, tirarClass);	
+	ClManage.setOutput(criadorClassis,newClass , tirarClass);
+	ClManage.setInput(selectClassis, respostaServer);	
+	ClManage.lerClassis();
 // ----------------------------------------------
 
+//INSTANCIAS DO GERENCIADOR DE PRÉVIAS
+let prVwManage = new previewManager();
+	prVwManage.setOutput(selectDasPreviasCadastradas, nomePeca, dataPeca);
+	prVwManage.setInput(temOuNnPrevia);
+	prVwManage.setPreviewOptions()
+	prVwManage.ifGotPreview()
 /*-----------------------------------------------------------------------*/
 
 
@@ -255,4 +265,4 @@ addInfosTable.addEventListener('click', () => {
 
 semiSubmit.addEventListener('click', entreComAsQtdsDeRoupas);		
 
-export {selectClassis, form, oInputDeSeleciona, temOuNnPrevia, selectDasPreviasCadastradas};
+

@@ -14,18 +14,7 @@ class editPrevHandler extends requestsHandler{
 		nomeFoto = nomeFoto.pop();
 		this.excluSoUmaFoto(nomeFoto)
 		cardDela.remove()
-	}
-	
-	alterouUmDado(){	
-		let btnSalvarDados = document.createElement('button')
-		btnSalvarDados.id = 'btnSalvarDados'
-		btnSalvarDados.innerText = "salvar";
-		btnSalvarDados.onclick = (e) => {
-			e.preventDefault()
-			this.mudaDados()			
-		}		
-		this.btnsParentElement.append(btnSalvarDados)
-	}
+	}	
 	
 	async enviarFotosAdicionais(){
 		let form = new FormData();						
