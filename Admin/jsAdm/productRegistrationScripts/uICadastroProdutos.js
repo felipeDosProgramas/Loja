@@ -1,7 +1,7 @@
 import classManager 		from "./classes/classisManager.js";
 import dataReceiveManager	from "./classes/dataReceiveManager.js";
 import variationsManager 	from "./classes/variationsManager/variationsManager.js";
-import previewManager 		from "./classes/previewsManager/previewManager.js?sdffdg";
+import previewManager 		from "./classes/previewsManager/previewManager.js";
 
 // VARIAVEIS DAS CLASSES 
 let newClass = document.getElementById		('newClass');
@@ -20,7 +20,6 @@ let selectClassis = document.getElementById		('classificacoes');
 let tamanhos = document.getElementById			('tamanhos');
 let respostaServer = document.getElementById	('respostasServidor');
 // -------------------------
-
 
 /* VARIAVEIS DA TABELA */
 let addInfosTable = document.getElementById		('boxTabelas');
@@ -42,16 +41,14 @@ let selectedPreviewPictures = document.getElementById 	('selectedPreviewPictures
 let ClManage = new classManager	();	
 	ClManage.setInput			(selectClassis, respostaServer);
 	ClManage.setOutput			(criadorClassis,newClass , tirarClass);
-	ClManage.lerClassis			();
-	
+	ClManage.lerClassis			();	
 // ----------------------------------------------
 
 //INSTANCIAS DO GERENCIADOR DE PRÉVIAS
 let prVwManage = new previewManager	();
 	prVwManage.setInput				(temOuNnPrevia, checkBoxTemPrev, selectedPreviewPictures);
 	prVwManage.setOutput			(selectDasPreviasCadastradas, nomePeca, dataPeca);	
-	prVwManage.setPreviewOptions	()	
-	prVwManage.setEventListeners 	()
+	prVwManage.setPreviewOptions	();	
 // ----------------------------------------------
 
 //INSTANCIAS DO RECEPTOR DE DADOS

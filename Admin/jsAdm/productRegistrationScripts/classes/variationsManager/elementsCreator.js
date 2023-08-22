@@ -56,22 +56,33 @@ class elementsCreator extends singleElementsCreator{
 		}
 		return false;
 	}
-	generateColorInput(){
+	generateColorInput(){		
+		let divColor = document.createElement('div');
+			divColor.className = 'divPicsSpecificColors';
+			divColor.ondragover = (ele) => {
+				ele.preventDefault();	
+			};
+			divColor.ondrop = (ele) => {
+				ele.preventDefault();
+				let data = ele.dataTransfer.getData("text");
+				ele.target.appendChild(document.getElementById(data));
+			}
+			
 		let colorInput = document.createElement('input');
 			colorInput.className = "cores";
 			colorInput.type = "color";
 			colorInput.onchange = () => this.refreshColorsOptions()
-			
+		
+		divColor.append(colorInput)		
 		this.inputsCores.push(colorInput);
-		this.refreshColorsOptions()
-		return colorInput;
+		this.refreshColorsOptions();
+		return divColor;
 	}
 	generateColorsOptions(){
 	
 		let selectForColors = document.createElement('select');		
 		selectForColors.className = "selectsForColors";
-		selectForColors.onchange = (e) => {
-			
+		selectForColors.onchange = (e) => {			
 			e.target.style.backgroundColor = e.target.options[e.target.selectedIndex].style.backgroundColor;			
 			//-------------------------------------------------------------------------------------------------------------------------
 		};

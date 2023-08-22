@@ -3,8 +3,8 @@ import elementsCreator from './elementsCreator.js'
 class variationsManager extends elementsCreator{
 	constructor(divPai, tamanhos, saidaServer){				
 		super(tamanhos, saidaServer);
-		this.rows = [];
-		this.rowAtual = 0;
+		this.rows 			= [];
+		this.rowAtual 		= 0;
 		this.divPai 		= divPai;		
 		this.inputTamanhos	= tamanhos		
 	}
