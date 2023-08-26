@@ -52,18 +52,15 @@
 				<div class="boxForm" id="formularioProdutos">
 					<div class="formEntre">
 						<h2 class="hCadaster">Cadastro de Produto</h2>
-						<!--Cadastro produtos-->						
-							<button id="previewsCtrlZ" style="display:none;">voltar</button> <!--COLOCA UM SVG COM UMA SETINHA DE VOLTAR AQUI-->
-							<div id="previasNoCadastro">
-								<label for="temPreviaCadastradaSsNn" id="labelSeTemPreviaCadastrada">o produto tem Prévia cadastrada?</label>
-								<input type="checkbox" id="temPreviaCadastradaSsNn"><br>
-								<select class="inputs" id="temPrevia" style="display:none;">
-									<option value="" selected hidden disabled>Escolher Previa</option>									
-									<!--ADICIONAR BOTÃO PARA VOLTAR-->
-								</select>
-							</div>
+						<!--Cadastro produtos-->													
+							<label for="temPreviaCadastradaSsNn" id="labelSeTemPreviaCadastrada">o produto tem Prévia cadastrada?</label>
+							<input type="checkbox" id="temPreviaCadastradaSsNn"><br>
+							<select class="inputs" id="temPrevia" style="display:none;">
+								<option value="" selected hidden disabled>Escolher Previa</option>
+								<!--deixar as configurações dessa option desse jeito, pode mudar o texto de dentro se quisé-->
+							</select>							
 							<input class="inputs" type="text" id="nome" placeholder="Nome do produto" required><br>
-							<input class="inputs" type="date" id="dataLancPrevia" placeholder="Data de lançamento" required><br>
+							<input class="inputs" type="date" id="dataLancPrevia" placeholder="Data de lançamento" required><button id="btnLancHoje">hoje</button><br>
 							<label for="description" class="formsSelectsAndDate">descrição:</label><br>
 							<textarea class="inputs" id="description" required></textarea>
 							<select class="inputs" name="classificacao" id="classificacoes" required style="width:70%">

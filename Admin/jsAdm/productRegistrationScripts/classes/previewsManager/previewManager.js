@@ -3,27 +3,39 @@ import previewsElementsCreator from './previewsElementsCreator.js';
 class previewManager extends previewsElementsCreator{
 	constructor(){
 		super();
-		this.imgIdAux = 0;
+		this.imgIdAux = 0;		
 	}
 
 	setInput(btnThereOrNotExistingPreview, checkBoxTemPrev, selectedPreviewPictures){
 		this.temOuNn 				= btnThereOrNotExistingPreview;
 		this.checkBoxTemPrev 		= checkBoxTemPrev;
-		this.selectedPreviewPictures= selectedPreviewPictures;
+		this.selectedPreviewPictures= selectedPreviewPictures;		
 		
 		this.temOuNn.addEventListener('click', () => {
-			this.select.style.display = this.select.style.display != "none" ? "none" : "initial"
-		})
+			if(this.select.style.display != "none"){
+				this.select.style.display = "none"
+				this.nomePeca.value = ""
+				this.dataLancPeca.value = ""
+				this.clearSelectedPreviewImageSlot();
+				
+				return;
+			}
+			this.select.style.display = "initial"
+			if(this.select.options.selectedIndex != 0){
+				this.setGettedPreviewData()				
+			}
+		})		
 	}
+	setGettedPreviewData(){
+			this.setInOtherInputsPreviewData();
+			this.showSelectedPreviewPictures();
+	}		
 	setOutput(selectWithExistingPreviews, nomeDela, dataDela){
 		this.select 		= selectWithExistingPreviews;
 		this.nomePeca 		= nomeDela;
 		this.dataLancPeca 	= dataDela;
 
-		this.select.onchange = () => {
-			this.setInOtherInputsPreviewData();
-			this.showSelectedPreviewPictures();
-		}		
+		this.select.onchange = () => this.setGettedPreviewData()
 		this.selectedPreviewPictures.ondragover = (ele) => {
 				ele.preventDefault();	
 			};

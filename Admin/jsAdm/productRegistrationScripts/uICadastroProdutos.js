@@ -20,6 +20,7 @@ let selectClassis = document.getElementById		('classificacoes');
 let tamanhos = document.getElementById			('tamanhos');
 let respostaServer = document.getElementById	('respostasServidor');
 let submit = document.getElementById			('semiSubmit');
+let btnLancHj = document.getElementById			('btnLancHoje')
 // -------------------------
 
 /* VARIAVEIS DA TABELA */
@@ -56,7 +57,7 @@ let varManage = new variationsManager	(addInfosTable, tamanhos, respostaServer)
 	varManage.setInputs					(btnDefVariacao, maisUmaCor,menosUmaCor,divInputsCores)
 // ----------------------------------------------
 //INSTANCIAS DO RECEPTOR DE DADOS
-let dtRcvManage = new dataReceiveManager(submit);
+let dtRcvManage = new dataReceiveManager(submit, btnLancHj);
 	dtRcvManage.setInput				(nomePeca, dataPeca, descricaoPeca, selectClassis, disponibilidade);
 	dtRcvManage.setClassToGetDomThings	(varManage)
 /*-----------------------------------------------------------------------*/

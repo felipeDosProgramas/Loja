@@ -1,7 +1,8 @@
 class dataReceiveManager{
-	constructor(submit){
-		this.submit		 = submit
-		this.generalData = {}
+	constructor(submit, btnLancHj){
+		this.submit			= submit
+		this.btnLancHj		= btnLancHj
+		this.generalData	= {}
 	}
 	setClassToGetDomThings(classDele){
 		this.classDele = classDele
@@ -12,10 +13,13 @@ class dataReceiveManager{
 		
 		this.generalData.variations = []		
 		vars.forEach((cadaLinha) => {
-			this.generalData.variations[aux] = []
-			cadaLinha.forEach((cadaTd) => {
-				this.generalData.variations[aux].push(cadaTd.firstChild.value)				
-			})
+			this.generalData.variations[aux] = {}
+			this.generalData.variations[aux].preco = cadaLinha[0].firstChild.value;
+			this.generalData.variations[aux].cor = cadaLinha[1].firstChild.value;
+			this.generalData.variations[aux].tamanho = cadaLinha[2].firstChild.value;
+			this.generalData.variations[aux].quantidade = cadaLinha[3].firstChild.value;			
+			
+			aux++
 		})
 		console.log(this.generalData)
 	}
@@ -30,6 +34,17 @@ class dataReceiveManager{
 			this.getAllData();
 			this.sendReceivedData();
 		}
+		this.btnLancHj.onclick = () => {
+			let hj = new Date("2023-1-5");
+			let mes = hj.getMonth() + 1;
+				mes = mes.length != 2 ? "0"+mes : ""
+				
+			let dia = hj.getDate();
+				dia = dia.length != 2 ? "0"+dia : ""
+				
+			//não remova os dois pontos ( : ) do operador ternário irá dar erro de sintaxe :)
+			this.datLanPeca.value = `${hj.getFullYear()}-${mes}-${dia}`
+		}
 	}
 	
 	getAvailability(){		
@@ -42,7 +57,7 @@ class dataReceiveManager{
 		
 		this.generalData.nome = this.nomePeca.value;
 		this.generalData.descricao = this.descriPeca.value;
-		this.generalData.classificacao = this.classePeca.value;
+		this.generalData.classificacao = this.classePeca.value != "Classificação" ? this.classePeca.value : "não classificado";
 		this.generalData.disponibilidade = this.getAvailability();
 		// this.generalData.
 	}
