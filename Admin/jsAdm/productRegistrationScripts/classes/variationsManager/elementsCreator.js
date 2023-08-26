@@ -42,8 +42,7 @@ class elementsCreator extends singleElementsCreator{
 					cada = this.cleanSelectChilds(cada);
 					tamanhos.forEach((opt) => {
 						cada.append(opt);
-					});
-				
+					});				
 			});
 		}catch(e){
 			if(e instanceof TypeError || e == 0) this.mostraProUsuario("dnv")
@@ -63,6 +62,8 @@ class elementsCreator extends singleElementsCreator{
 		return false;
 	}
 	generateColorInput(){
+		let divColor = document.createElement('div');
+				
 		let divImgsColors = document.createElement('div')
 			divImgsColors.style.width = "25px";
 			divImgsColors.style.height = "25px";
@@ -74,10 +75,7 @@ class elementsCreator extends singleElementsCreator{
 				ele.preventDefault();
 				let data = ele.dataTransfer.getData("text");
 				ele.target.appendChild(document.getElementById(data));
-			};
-			
-		let divColor = document.createElement('div');			
-			
+			};								
 		let colorInput = document.createElement('input');
 			colorInput.className = "cores";
 			colorInput.type = "color";

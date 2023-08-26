@@ -16,7 +16,7 @@
 			<link rel="stylesheet" href="../css-atual/style.css">
 			<link rel="stylesheet" href="./cssAdm/style.css">
 			<script src="../js/index.js" defer></script>
-			<script src="jsAdm/productRegistrationScripts/uICadastroProdutos.js?" type="module" defer></script>					
+			<script src="jsAdm/productRegistrationScripts/uICadastroProdutos.js" type="module" defer></script>					
 		</head>
 		<body>
 			<header id="header">

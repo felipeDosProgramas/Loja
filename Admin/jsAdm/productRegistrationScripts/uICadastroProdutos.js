@@ -1,5 +1,5 @@
 import classManager 		from "./classes/classisManager.js";
-import dataReceiveManager	from "./classes/dataReceiveManager.js";
+import dataReceiveManager	from "./classes/dataSendManager/dataReceiveManager.js";
 import variationsManager 	from "./classes/variationsManager/variationsManager.js";
 import previewManager 		from "./classes/previewsManager/previewManager.js";
 
@@ -19,6 +19,7 @@ let selectClassis = document.getElementById		('classificacoes');
 // Divs do DOM e SAIDA DE DADOS
 let tamanhos = document.getElementById			('tamanhos');
 let respostaServer = document.getElementById	('respostasServidor');
+let submit = document.getElementById			('semiSubmit');
 // -------------------------
 
 /* VARIAVEIS DA TABELA */
@@ -50,14 +51,12 @@ let prVwManage = new previewManager	();
 	prVwManage.setOutput			(selectDasPreviasCadastradas, nomePeca, dataPeca);	
 	prVwManage.setPreviewOptions	();	
 // ----------------------------------------------
-
-//INSTANCIAS DO RECEPTOR DE DADOS
-let dtRcvManage = new dataReceiveManager();
-	dtRcvManage.setInput				(nomePeca, dataPeca, descricaoPeca, selectClassis, disponibilidade);
-
-// ----------------------------------------------
-
 // INSTANCIAS DO GERENCIADOR DE VARIAÇÕES
 let varManage = new variationsManager	(addInfosTable, tamanhos, respostaServer)
 	varManage.setInputs					(btnDefVariacao, maisUmaCor,menosUmaCor,divInputsCores)
+// ----------------------------------------------
+//INSTANCIAS DO RECEPTOR DE DADOS
+let dtRcvManage = new dataReceiveManager(submit);
+	dtRcvManage.setInput				(nomePeca, dataPeca, descricaoPeca, selectClassis, disponibilidade);
+	dtRcvManage.setClassToGetDomThings	(varManage)
 /*-----------------------------------------------------------------------*/

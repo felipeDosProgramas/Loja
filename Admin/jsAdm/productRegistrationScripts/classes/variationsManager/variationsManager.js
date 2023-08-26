@@ -71,7 +71,7 @@ class variationsManager extends elementsCreator{
 				
 				return row;
 			}
-			throw 0
+			throw 0;
 		}catch(e){			
 			if(e == 0){
 				this.mostraProUsuario("você é fraco, lhe falta dados");							
@@ -85,10 +85,11 @@ class variationsManager extends elementsCreator{
 		
 		let elmnts = this.variationDataSlot();		
 		if(elmnts){
+			this.inputsNoDom.push(elmnts)
 			elmnts.forEach((cada) => this.rows[this.rowAtual].append(cada));			
 			this.divPai.append(this.rows[this.rowAtual])
 			this.rowAtual++		
-		}
+		}		
 	}	
 }
 

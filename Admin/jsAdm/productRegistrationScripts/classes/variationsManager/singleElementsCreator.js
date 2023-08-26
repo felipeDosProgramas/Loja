@@ -1,6 +1,10 @@
 class singleElementsCreator{
 	constructor(saidaServer){
 		this.saidaServer = saidaServer;
+		this.inputsNoDom = [];
+	}
+	getInputsDoDom(){		
+		return this.inputsNoDom;
 	}
 	mostraProUsuario(oque){
 		this.saidaServer.innerHTML = oque;
@@ -26,6 +30,7 @@ class singleElementsCreator{
 			btn.onclick = (e) => {
 				let linha = e.target.parentNode.parentNode
 				linha.parentNode.removeChild(linha)
+				this.inputsNoDom.splice(this.inputsNoDom.indexOf(e.target), 1)
 				//segredos
 			}
 		return btn

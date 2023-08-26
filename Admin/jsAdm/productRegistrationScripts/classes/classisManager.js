@@ -102,15 +102,13 @@ class classManager{
 		sendNomeClass.addEventListener('click', ()=>{ // AQUI ADICIONAR OUVINTE QUE CRIA DNV OS BOTOES INICIAIS
 			if(inputNomeClassi.value != ""){
 				let ele = this.criaElementOption(inputNomeClassi.value);
-				this.selectDeSaida.append(ele);		
-				this.criaClassificacao(inputNomeClassi.value);
+					this.selectDeSaida.append(ele);		
+					this.criaClassificacao(inputNomeClassi.value);
 				
-				inputNomeClassi.remove();
-				sendNomeClass.remove();
-				cancelNomeClass.remove();
-				
-				
-				
+				inputNomeClassi	.remove();
+				sendNomeClass	.remove();
+				cancelNomeClass	.remove();
+
 				return;
 			}
 			this.mostraProUsuario("insira um nome válido");
