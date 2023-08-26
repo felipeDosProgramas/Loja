@@ -15,7 +15,7 @@ class elementsCreator extends singleElementsCreator{
 				retorno =  false
 		}
 		
-		if(sizesStr == ""){
+		if(sizesStr == ""){			
 			retorno = false
 		}					
 		return retorno
@@ -34,14 +34,20 @@ class elementsCreator extends singleElementsCreator{
 			});
 		});		
 	}		
-	refreshSizesOptions(sizesStr){				
-		this.selectsSizes.forEach((cada)=>{			
-			let tamanhos = this.createSizeOptions(sizesStr);			
-			cada = this.cleanSelectChilds(cada);			
-			tamanhos.forEach((opt) => {
-				cada.append(opt);
+	refreshSizesOptions(sizesStr){
+		try{
+			this.selectsSizes.forEach((cada)=>{
+				let tamanhos = this.createSizeOptions(sizesStr);
+				if(!tamanhos) throw 0
+					cada = this.cleanSelectChilds(cada);
+					tamanhos.forEach((opt) => {
+						cada.append(opt);
+					});
+				
 			});
-		});
+		}catch(e){
+			if(e instanceof TypeError || e == 0) this.mostraProUsuario("dnv")
+		}
 	}	
 	
 	generateSizeSelect(){
@@ -56,24 +62,28 @@ class elementsCreator extends singleElementsCreator{
 		}
 		return false;
 	}
-	generateColorInput(){		
-		let divColor = document.createElement('div');
-			divColor.className = 'divPicsSpecificColors';
-			divColor.ondragover = (ele) => {
+	generateColorInput(){
+		let divImgsColors = document.createElement('div')
+			divImgsColors.style.width = "25px";
+			divImgsColors.style.height = "25px";
+			divImgsColors.className = 'divPicsSpecificColors';		
+			divImgsColors.ondragover = (ele) => {
 				ele.preventDefault();	
 			};
-			divColor.ondrop = (ele) => {
+			divImgsColors.ondrop = (ele) => {
 				ele.preventDefault();
 				let data = ele.dataTransfer.getData("text");
 				ele.target.appendChild(document.getElementById(data));
-			}
+			};
+			
+		let divColor = document.createElement('div');			
 			
 		let colorInput = document.createElement('input');
 			colorInput.className = "cores";
 			colorInput.type = "color";
 			colorInput.onchange = () => this.refreshColorsOptions()
 		
-		divColor.append(colorInput)		
+		divColor.append(colorInput, divImgsColors)		
 		this.inputsCores.push(colorInput);
 		this.refreshColorsOptions();
 		return divColor;

@@ -51,7 +51,7 @@ class previewManager extends previewsElementsCreator{
 			slot.id			= this.imgIdAux++
 			slot.style.width= '5vw';
 			slot.draggable 	= true;
-			slot.append-to  ="especifico";
+			slot.appendTo  ="especifico";
 			slot.ondragstart= (ev)=> {
 				ev.dataTransfer.setData("text", ev.target.id);				
 			}

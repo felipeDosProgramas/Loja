@@ -52,8 +52,7 @@
 				<div class="boxForm" id="formularioProdutos">
 					<div class="formEntre">
 						<h2 class="hCadaster">Cadastro de Produto</h2>
-						<!--Cadastro produtos-->
-						<div id="dadosPrimarios">
+						<!--Cadastro produtos-->						
 							<button id="previewsCtrlZ" style="display:none;">voltar</button> <!--COLOCA UM SVG COM UMA SETINHA DE VOLTAR AQUI-->
 							<div id="previasNoCadastro">
 								<label for="temPreviaCadastradaSsNn" id="labelSeTemPreviaCadastrada">o produto tem Prévia cadastrada?</label>
@@ -69,26 +68,23 @@
 							<textarea class="inputs" id="description" required></textarea>
 							<select class="inputs" name="classificacao" id="classificacoes" required style="width:70%">
 								<option value="" selected hidden disabled>Classificação</option>
+								<!--deixar as configurações dessa option desse jeito, pode mudar o texto de dentro se quisé-->
 							</select>							
 							<div id="criadorClassis">
 								<button class="btnsCria" id="newClass">criar classificação</button><br>
 								<button class="btnsCria" id="tiraClass">excluir classificacão</button>						
 							</div>
 							<span id="respostasServidor"></span>
-						</div>
-						
 							<input type="text" class="inputs" id="tamanhos" placeholder="tamanhos separados por vírgula">
 							<span id="inputsCores"></span><!--não colocar nada dentro desses spans, senão vai dar error no JS, ISSO INCLUI ESPAÇOS EM BRANCO-->														
-							<div id="selectedPreviewPictures"></div><!--mesma coisa nesse aqui-->
+							<div id="selectedPreviewPictures"></div><!--mesma coisa nesse aqui-->							
 							<button id="maisUmaCor">Adicionar cor</button>
 							<button id="menosUmaCor">Remover cor </button>
 							<!--vc pode enfiar esse botoes em qualquer lugar, só nn troque seus id's-->						
 						<div id="boxTabelas">														
 							<button class="btnsCria" id="definCorTam">Adicionar variação</button>
-						</div>
-						<div id="dadosSecundarios">
-							<div class="divCheckbox"><label for="disponivelSimNao">disponivel</label><input type="checkbox" class="checkboxForm" name="disponibilidade" id="disponivelSimNao"></div>
-						</div>
+						</div>						
+							<div class="divCheckbox"><label for="disponivelSimNao">disponivel</label><input type="checkbox" class="checkboxForm" name="disponibilidade" id="disponivelSimNao"></div>						
 						<button class="btnsCria" id="semiSubmit">enviar</button>
 					</div>
 				</div>					

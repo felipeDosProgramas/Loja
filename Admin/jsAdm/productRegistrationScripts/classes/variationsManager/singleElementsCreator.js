@@ -6,7 +6,7 @@ class singleElementsCreator{
 		this.saidaServer.innerHTML = oque;
 		setTimeout(()=>{
 			this.saidaServer.innerHTML = "";
-		}, 1000)
+		}, 1000);
 	}
 	createOptions(wit){
 		let opts = []
@@ -37,27 +37,34 @@ class singleElementsCreator{
 			input.min = 0;
 			input.required = true;
 
-		return input
+		return input;
 	}
 	cleanSelectChilds(select){
 		while(select.firstChild){
-			select.firstChild.remove()
+			select.firstChild.remove();
 		}
-		return select
+		return select;
 	}
 	createSizeOptions(stringWithSizes){
-		let tamanhos = stringWithSizes.split(',')
-		tamanhos.forEach((cada, um) => {
-			if(cada != ''){
-				tamanhos[um] = cada.trim()
-				return
+		try{
+			let tamanhos = stringWithSizes.split(',')
+			tamanhos.forEach((cada, um) => {
+				if(cada != ''){
+					tamanhos[um] = cada.trim();
+					return;
+				}
+				tamanhos.splice(um, 1)
+			})
+	
+			tamanhos = this.createOptions(tamanhos)
+	
+			return tamanhos
+		}catch(e){
+			if(e instanceof TypeError){
+				this.mostraProUsuario('algoDeuErrado');
+				return false
 			}
-			tamanhos.splice(um, 1)
-		})
-
-		tamanhos = this.createOptions(tamanhos)
-
-		return tamanhos
+		}
 	}
 	createFileInputForSpecificColor(){
 		let input = document.createElement('input');
