@@ -10,16 +10,16 @@ class elementsCreator extends singleElementsCreator{
 		this.selectsSizes 	= [];
 	}
 	testEverything(sizesStr){
-		let retorno = true
+		let retorno = true;
 		if(this.inputsCores.length == 0){
-				this.mostraProUsuario("voce é fraco, lhe falta cores")
-				retorno =  false
-		}
+				this.mostraProUsuario("voce é fraco, lhe falta cores");
+				retorno = false;
+		};
 
 		if(sizesStr == ""){
-			retorno = false
-		}
-		return retorno
+			retorno = false;
+		};
+		return retorno;
 	}
 	mudaTdsPrecos(rows, pra){
 		rows.forEach((cadaRow)=> {
@@ -27,10 +27,8 @@ class elementsCreator extends singleElementsCreator{
 		})
 	}
 	refreshColorsOptions(){
-
 		this.selectsCores.forEach((cada) => {
 			cada = this.cleanSelectChilds(cada);
-
 			this.inputsCores.forEach((cor) => {
 				let option = document.createElement('option');
 				option.value = cor.value;
@@ -90,7 +88,7 @@ class elementsCreator extends singleElementsCreator{
 		divColor.append(colorInput, divImgsColors)
 		this.inputsCores.push(colorInput);
 		this.refreshColorsOptions();
-		
+
 		return divColor;
 	}
 	generateColorsOptions(){

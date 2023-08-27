@@ -1,7 +1,7 @@
-import classManager 		from "./classes/classisManager.js";
-import dataReceiveManager	from "./classes/dataSendManager/dataReceiveManager.js";
-import variationsManager 	from "./classes/variationsManager/variationsManager.js";
-import previewManager 		from "./classes/previewsManager/previewManager.js";
+import classManager 		from	"./classes/classisManager.js";
+import dataReceiveManager	from	"./classes/dataSendManager/dataReceiveManager.js";
+import variationsManager 	from	"./classes/variationsManager/variationsManager.js";
+import previewManager 		from	"./classes/previewsManager/previewManager.js";
 
 // VARIAVEIS DAS CLASSIFICAÇÕES 
 let newClass = document.getElementById		('newClass');

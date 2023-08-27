@@ -26,11 +26,11 @@ class dataReceiveManager{
 		this.generalData.picsAndColors = picInEachColor
 	}
 	getAllVariations(){
-		let vars = this.classDele.getInputsDoDom();
-		let pics = this.parsePicsIds()
-		let aux = 0;
-		this.generalData.variations = []
-
+		let vars= this.classDele.getInputsDoDom();
+		let pics= this.parsePicsIds();
+		let aux	= 0;
+		this.generalData.variations = [];
+		
 		vars.forEach((cadaLinha) => {
 			this.generalData.variations[aux] = {}
 			this.generalData.variations[aux].preco = 	cadaLinha[0].firstChild.value;

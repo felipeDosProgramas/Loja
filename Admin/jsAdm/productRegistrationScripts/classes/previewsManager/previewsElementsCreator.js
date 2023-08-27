@@ -4,7 +4,7 @@ class previewsElementsCreator{
 	}
 	clearAllChilds(from){
 		while(from.firstChild){
-			from.removeChild(from.firstChild)
+			from.removeChild(from.firstChild);
 		}
 	}
 	createImgSlot(wit){
