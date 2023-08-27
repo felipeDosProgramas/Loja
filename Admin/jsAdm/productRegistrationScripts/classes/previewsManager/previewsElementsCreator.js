@@ -1,6 +1,12 @@
 class previewsElementsCreator{
-	constructor(){}
-	
+	constructor(){
+		
+	}
+	clearAllChilds(from){
+		while(from.firstChild){
+			from.removeChild(from.firstChild)
+		}
+	}
 	createImgSlot(wit){
 		let slot = document.createElement('div')
 			slot.className = 'divImagePreview'

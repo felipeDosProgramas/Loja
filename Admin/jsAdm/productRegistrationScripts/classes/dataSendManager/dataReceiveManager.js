@@ -13,17 +13,17 @@ class dataReceiveManager{
 		let aux;
 		let picInEachColor = this.classDele.getPuttedPicsInEachColor();
 		picInEachColor.forEach((cada)=>{
-			src = []
+			src = [];
 			cada.imgs.forEach((id) => {
 				aux = document.getElementById(id);
-				aux = aux.src
+				aux = aux.src;
 				aux = aux.split('Admin');
 				aux = aux[1].replace(/%20/g, ' ');
-				src.push(aux)
+				src.push(aux);
 			})
-			cada.imgs = src
+			cada.imgs = src.length != 0 ? src : 0;
 		})
-		console.log(picInEachColor)
+		this.generalData.picsAndColors = picInEachColor
 	}
 	getAllVariations(){
 		let vars = this.classDele.getInputsDoDom();
@@ -76,7 +76,7 @@ class dataReceiveManager{
 
 		this.generalData.nome = this.nomePeca.value;
 		this.generalData.descricao = this.descriPeca.value;
-		this.generalData.classificacao = this.classePeca.value != "Classificação" ? this.classePeca.value : "não classificado";
+		this.generalData.classificacao = this.classePeca.value != "Classificação" ? this.classePeca.value : 0;
 		this.generalData.disponibilidade = this.getAvailability();
 		// this.generalData.
 	}

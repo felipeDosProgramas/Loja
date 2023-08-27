@@ -50,7 +50,7 @@ let ClManage = new classManager	();
 
 //INSTANCIAS DO GERENCIADOR DE PRÉVIAS
 let prVwManage = new previewManager	();
-	prVwManage.setInput				(temOuNnPrevia, checkBoxTemPrev, selectedPreviewPictures);
+	prVwManage.setInput				(temOuNnPrevia, checkBoxTemPrev, selectedPreviewPictures, divInputsCores);
 	prVwManage.setOutput			(selectDasPreviasCadastradas, nomePeca, dataPeca);	
 	prVwManage.setPreviewOptions	();	
 // ----------------------------------------------

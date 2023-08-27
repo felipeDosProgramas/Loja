@@ -6,17 +6,18 @@ class previewManager extends previewsElementsCreator{
 		this.imgIdAux = 0;		
 	}
 
-	setInput(btnThereOrNotExistingPreview, checkBoxTemPrev, selectedPreviewPictures){
+	setInput(btnThereOrNotExistingPreview, checkBoxTemPrev, selectedPreviewPictures, divInputsCores){
 		this.temOuNn 				= btnThereOrNotExistingPreview;
 		this.checkBoxTemPrev 		= checkBoxTemPrev;
 		this.selectedPreviewPictures= selectedPreviewPictures;		
+		this.divInputsCores			= divInputsCores;
 		
 		this.temOuNn.addEventListener('click', () => {
 			if(this.select.style.display != "none"){
 				this.select.style.display = "none"
 				this.nomePeca.value = ""
 				this.dataLancPeca.value = ""
-				this.clearSelectedPreviewImageSlot();
+				this.clearAllChilds(this.selectedPreviewPictures);
 				
 				return;
 			}
@@ -38,7 +39,7 @@ class previewManager extends previewsElementsCreator{
 		this.select.onchange = () => this.setGettedPreviewData()
 		this.selectedPreviewPictures.ondragover = (ele) => {
 				ele.preventDefault();	
-			};
+		};
 		this.selectedPreviewPictures.ondrop = (ele) => {
 				ele.preventDefault();
 				let data = ele.dataTransfer.getData("text");
@@ -82,16 +83,15 @@ class previewManager extends previewsElementsCreator{
 	async showSelectedPreviewPictures(){
 		let data = await this.getDataSelectedPreview();
 		data = JSON.parse(data)
-		this.clearSelectedPreviewImageSlot()
+		
+		for(let x = 0;x != this.divInputsCores.childNodes.length;x++){
+				
+		}
+		this.clearAllChilds(this.selectedPreviewPictures)		
 		data.imagens.forEach((cada) => {
 			this.createImgSlot(cada)
 		})
-	}
-	clearSelectedPreviewImageSlot(){
-		while(this.selectedPreviewPictures.firstChild){
-			this.selectedPreviewPictures.removeChild(this.selectedPreviewPictures.firstChild)
-		}
-	}
+	}	
 	async getDataSelectedPreview(){
 		let selected =  this.select.options.selectedIndex;
 			selected = 	JSON.parse(this.select.options[selected].value);
@@ -110,17 +110,13 @@ class previewManager extends previewsElementsCreator{
 			this.nomePeca.value = qual.nome
 			this.dataLancPeca.value = qual.data
 		}
-	}
-
+	}	
 	async setPreviewOptions(){
 		await this.getPreviewsList();
 		this.response.forEach((cada) => {
 			this.createOption(cada.nome, cada.data)
 		})
 	}
-
-
-
 }
 
 export default previewManager
