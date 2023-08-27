@@ -37,7 +37,7 @@ class singleElementsCreator{
 	}
 	createQtdInput(){
 		let input = document.createElement('input');
-			input.type = "number";
+			input.type = "number";			
 			input.placeholder = "Qtd";
 			input.min = 0;
 			input.required = true;

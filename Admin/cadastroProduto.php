@@ -76,11 +76,16 @@
 						<span id="inputsCores"></span><!--não colocar nada dentro desses spans, senão vai dar erro no JS, ISSO INCLUI ESPAÇOS EM BRANCO-->														
 						<div id="selectedPreviewPictures"></div><!--mesma coisa nesse aqui-->							
 						<button id="maisUmaCor">Adicionar cor</button>
-						<button id="menosUmaCor">Remover cor </button>
+						<button id="menosUmaCor">Remover cor </button>						
 						<!--vc pode enfiar esse botoes em qualquer lugar, só nn troque seus id's-->						
-					<div id="boxTabelas">														
-						<button class="btnsCria" id="definCorTam">Adicionar variação</button>
-					</div>						
+						<div id="boxTabelas">														
+							<button class="btnsCria" id="definCorTam">Adicionar variação</button>
+						</div>
+						<label>
+							mesmo preço todas variacoes
+							<input type="checkbox" id="msmPrecoTodasVariacoes">
+						</label>
+						<div id="slotInputPrecoTdsVars"></div>
 						<div class="divCheckbox"><label for="disponivelSimNao">disponivel</label><input type="checkbox" class="checkboxForm" name="disponibilidade" id="disponivelSimNao"></div>						
 						<button class="btnsCria" id="semiSubmit">enviar</button>
 				</div>
