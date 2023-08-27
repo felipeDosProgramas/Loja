@@ -90,16 +90,17 @@ class elementsCreator extends singleElementsCreator{
 		divColor.append(colorInput, divImgsColors)
 		this.inputsCores.push(colorInput);
 		this.refreshColorsOptions();
+		
 		return divColor;
 	}
 	generateColorsOptions(){
 
 		let selectForColors = document.createElement('select');
-		selectForColors.className = "selectsForColors";
-		selectForColors.onchange = (e) => {
-			e.target.style.backgroundColor = e.target.options[e.target.selectedIndex].style.backgroundColor;
-			//-------------------------------------------------------------------------------------------------------------------------
-		};
+			selectForColors.className = "selectsForColors";
+			selectForColors.onchange = (e) => {
+				e.target.style.backgroundColor = e.target.options[e.target.selectedIndex].style.backgroundColor;
+				//-------------------------------------------------------------------------------------------------------------------------
+			};
 		this.selectsCores.push(selectForColors);
 		this.refreshColorsOptions();
 

@@ -2,26 +2,39 @@ class dataReceiveManager{
 	constructor(submit, btnLancHj){
 		this.submit			= submit
 		this.btnLancHj		= btnLancHj
+
 		this.generalData	= {}
 	}
 	setClassToGetDomThings(classDele){
 		this.classDele = classDele
 	}
+	parsePicsIds(){
+		let picInEachColor = this.classDele.getPuttedPicsInEachColor()
+		console.log(picInEachColor)
+		picInEachColor.forEach((cada)=>{
+			console.log(cada)
+			cada.forEach((cd) => {
+				console.log(cd)
+				console.log(document.getElementById(cd))
+			})
+		})
+	}
 	getAllVariations(){
 		let vars = this.classDele.getInputsDoDom();
+		let pics = this.parsePicsIds()
 		let aux = 0;
-		
-		this.generalData.variations = []		
+
+		this.generalData.variations = []
+
 		vars.forEach((cadaLinha) => {
 			this.generalData.variations[aux] = {}
 			this.generalData.variations[aux].preco = cadaLinha[0].firstChild.value;
 			this.generalData.variations[aux].cor = cadaLinha[1].firstChild.value;
 			this.generalData.variations[aux].tamanho = cadaLinha[2].firstChild.value;
-			this.generalData.variations[aux].quantidade = cadaLinha[3].firstChild.value;			
-			
+			this.generalData.variations[aux].quantidade = cadaLinha[3].firstChild.value;
+
 			aux++
 		})
-		console.log(this.generalData)
 	}
 	setInput(nomePeca, dataLancPeca, descriPeca, classePeca, disponiPeca){
 		this.nomePeca 	= nomePeca;
@@ -29,7 +42,7 @@ class dataReceiveManager{
 		this.descriPeca = descriPeca;
 		this.classePeca = classePeca;
 		this.dispoPeca	= disponiPeca;
-		
+
 		this.submit.onclick = () => {
 			this.getAllData();
 			this.sendReceivedData();
@@ -38,43 +51,43 @@ class dataReceiveManager{
 			let hj = new Date("2023-1-5");
 			let mes = hj.getMonth() + 1;
 				mes = mes.length != 2 ? "0"+mes : ""
-				
+
 			let dia = hj.getDate();
 				dia = dia.length != 2 ? "0"+dia : ""
-				
-			//não remova os dois pontos ( : ) do operador ternário irá dar erro de sintaxe :)
+
+			//não remova os dois pontos ( : ) do operador ternário ou irá dar erro de sintaxe :)
 			this.datLanPeca.value = `${hj.getFullYear()}-${mes}-${dia}`
 		}
 	}
-	
-	getAvailability(){		
+
+	getAvailability(){
 		if(this.dispoPeca.checked) return 1;
 		return 0;
 	}
-	
+
 	getAllData(){
 		this.getAllVariations();
-		
+
 		this.generalData.nome = this.nomePeca.value;
 		this.generalData.descricao = this.descriPeca.value;
 		this.generalData.classificacao = this.classePeca.value != "Classificação" ? this.classePeca.value : "não classificado";
 		this.generalData.disponibilidade = this.getAvailability();
 		// this.generalData.
 	}
-	async sendReceivedData(){		
-		let dados = JSON.stringify(this.generalData);			
-		let formData = new FormData();		
-		formData.append('dados', dados);	
-		
+	async sendReceivedData(){
+		let dados = JSON.stringify(this.generalData);
+		let formData = new FormData();
+		formData.append('dados', dados);
+
 		let promessa = new Promise((resolve) => {
 			let req = new XMLHttpRequest();
 			req.open("POST","phpAdm/backCadastroProduto.php");
 			req.onload = () => {resolve(req.responseText)};
 			req.send(formData);
-		});	
-		
-		let exemp = await promessa	
-		if(exemp == "foiCertin"){			
+		});
+
+		let exemp = await promessa
+		if(exemp == "foiCertin"){
 			//mostrar que foi sem erros
 			return;
 		}

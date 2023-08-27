@@ -10,6 +10,18 @@ class variationsManager extends elementsCreator{
 		this.rowAtual 		= 0;
 		this.tdsMsmPreco	= false
 	}
+	getPuttedPicsInEachColor(){
+		let pics = []		
+		this.inputsCores.forEach((input)=>{
+			pics[input.value] = []
+			let div = input.nextSibling;
+			for(let cada of div.childNodes){
+				pics[input.value].push(cada.id)
+			}
+		})
+		
+		return pics;
+	}
 	setInputs(btnDefVariacao, maisUmaCor,menosUmaCor, divInputsCores, checkMsmPrcoTdsVars, slotInptPrecoTdsVars){
 		this.btnDefVariacao 		= btnDefVariacao;
 		this.maisUmaCor 			= maisUmaCor;

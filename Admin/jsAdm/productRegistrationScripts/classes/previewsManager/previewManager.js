@@ -60,7 +60,7 @@ class previewManager extends previewsElementsCreator{
 		let slot 			= document.createElement('img');
 			slot.src 		= `../${wit}`;
 			slot.className 	= 'imgsPreviaSelecionada';
-			slot.id			= this.imgIdAux++
+			slot.id			= `a${this.imgIdAux++}`
 			slot.style.width= '5vw';
 			slot.draggable 	= true;
 			slot.appendTo  ="especifico";
