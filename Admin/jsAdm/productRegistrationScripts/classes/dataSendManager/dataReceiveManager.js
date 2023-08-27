@@ -9,15 +9,21 @@ class dataReceiveManager{
 		this.classDele = classDele
 	}
 	parsePicsIds(){
-		let picInEachColor = this.classDele.getPuttedPicsInEachColor()
-		console.log(picInEachColor)
+		let src = [];
+		let aux;
+		let picInEachColor = this.classDele.getPuttedPicsInEachColor();
 		picInEachColor.forEach((cada)=>{
-			console.log(cada)
-			cada.forEach((cd) => {
-				console.log(cd)
-				console.log(document.getElementById(cd))
+			src = []
+			cada.imgs.forEach((id) => {
+				aux = document.getElementById(id);
+				aux = aux.src
+				aux = aux.split('Admin');
+				aux = aux[1].replace(/%20/g, ' ');
+				src.push(aux)
 			})
+			cada.imgs = src
 		})
+		console.log(picInEachColor)
 	}
 	getAllVariations(){
 		let vars = this.classDele.getInputsDoDom();

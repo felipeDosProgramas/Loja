@@ -2,24 +2,31 @@ import elementsCreator from './elementsCreator.js'
 
 class variationsManager extends elementsCreator{
 	constructor(divPai, tamanhos, saidaServer){
-		super(tamanhos, saidaServer);		
+		super(tamanhos, saidaServer);
 		this.divPai 		= divPai;
 		this.inputTamanhos	= tamanhos;
-				
+
 		this.rows 			= [];
 		this.rowAtual 		= 0;
 		this.tdsMsmPreco	= false
 	}
 	getPuttedPicsInEachColor(){
-		let pics = []		
-		this.inputsCores.forEach((input)=>{
-			pics[input.value] = []
-			let div = input.nextSibling;
-			for(let cada of div.childNodes){
-				pics[input.value].push(cada.id)
-			}
-		})
+		let aux = 0;
+		let pics = [];
 		
+		this.inputsCores.forEach((input)=>{			
+			pics[aux] = {
+				cor:input.value,
+				imgs:[]
+			}
+			let div = input.nextSibling;
+				div = div.childNodes
+			for(let x = 0;x != div.length; x++){
+				pics[aux].imgs.push(div[x].id)
+			}
+			aux++
+		})
+
 		return pics;
 	}
 	setInputs(btnDefVariacao, maisUmaCor,menosUmaCor, divInputsCores, checkMsmPrcoTdsVars, slotInptPrecoTdsVars){
@@ -34,7 +41,7 @@ class variationsManager extends elementsCreator{
 	}
 
 	setEventListeners(){
-		this.btnDefVariacao.onclick = () => {						
+		this.btnDefVariacao.onclick = () => {
 			this.newVariation()
 		}
 	//----------------------------------------------------------------------
@@ -70,10 +77,10 @@ class variationsManager extends elementsCreator{
 	//----------------------------------------------------------------------
 		this.checkMsmPrcoTdsVars.addEventListener('click', (e) => {
 			if(e.target.checked){
-				this.tdsMsmPreco = true;								
-				
+				this.tdsMsmPreco = true;
+
 				let input = this.generatePriceInput();
-					input.placeholder = "Preço todas Variações";				
+					input.placeholder = "Preço todas Variações";
 					input.oninput = (e) => {
 						this.mudaTdsPrecos(this.rows, e.target.value)
 					}
@@ -83,12 +90,12 @@ class variationsManager extends elementsCreator{
 			this.tdsMsmPreco = false;
 			this.slotInptPrecoTdsVars.removeChild(this.slotInptPrecoTdsVars.firstChild);
 		})
-	
+
 	}
 	variationDataSlot(){
 		try{
 			let row = []
-						
+
 			for(let x = 0;x != 5;x++) row.push( document.createElement('td') );
 
 			let sizeSelect 		= this.generateSizeSelect	();
@@ -96,15 +103,15 @@ class variationsManager extends elementsCreator{
 			let inputPriceInput = this.generatePriceInput	();
 			let qtdInput 		= this.createQtdInput		();
 			let rmvVarBtn 		= this.createVarsRmvBtn		();
-			
-			if(sizeSelect && colorOptions && inputPriceInput && qtdInput && rmvVarBtn){				
-				
+
+			if(sizeSelect && colorOptions && inputPriceInput && qtdInput && rmvVarBtn){
+
 				row[0].append(inputPriceInput);
 				row[1].append(colorOptions);
 				row[2].append(sizeSelect);
 				row[3].append(qtdInput);
 				row[4].append(rmvVarBtn);
-				
+
 				return row;
 			}
 			throw 0;
@@ -114,7 +121,7 @@ class variationsManager extends elementsCreator{
 			}
 			return false
 		}
-	}	
+	}
 	newVariation(){
 		this.rows[this.rowAtual] = document.createElement('tr')
 		this.rows[this.rowAtual].className = "linhas";
@@ -125,7 +132,7 @@ class variationsManager extends elementsCreator{
 			elmnts.forEach((cada) => this.rows[this.rowAtual].append(cada));
 			this.divPai.append(this.rows[this.rowAtual])
 			this.rowAtual++
-			
+
 			if(this.rows.length != 0 && this.tdsMsmPreco) this.mudaTdsPrecos(this.rows, this.slotInptPrecoTdsVars.firstChild.value)
 		}
 	}
