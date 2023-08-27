@@ -3,8 +3,8 @@ import singleElementsCreator from './singleElementsCreator.js';
 class elementsCreator extends singleElementsCreator{
 	constructor(inputSizes, saidaServer){
 		super(saidaServer);
-		this.inputSizes 	= inputSizes;
-
+		this.inputSizes 	= inputSizes;		
+		
 		this.inputsCores 	= [];
 		this.selectsCores	= [];
 		this.selectsSizes 	= [];
@@ -31,9 +31,10 @@ class elementsCreator extends singleElementsCreator{
 			cada = this.cleanSelectChilds(cada);
 			this.inputsCores.forEach((cor) => {
 				let option = document.createElement('option');
-				option.value = cor.value;
-				option.innerText = cor.value;
-				option.style.backgroundColor = cor.value;
+					option.value = cor.value;
+					option.innerText = cor.value;
+					option.style.backgroundColor = cor.value;
+				
 				cada.append(option);
 			});
 		});
@@ -92,7 +93,6 @@ class elementsCreator extends singleElementsCreator{
 		return divColor;
 	}
 	generateColorsOptions(){
-
 		let selectForColors = document.createElement('select');
 			selectForColors.className = "selectsForColors";
 			selectForColors.onchange = (e) => {

@@ -39,14 +39,14 @@ class previewManager extends previewsElementsCreator{
 		this.select.onchange = () => this.setGettedPreviewData()
 		this.selectedPreviewPictures.ondragover = (ele) => {
 				ele.preventDefault();	
-		};/*
+		};
 		this.selectedPreviewPictures.ondrop = (ele) => {
 				ele.preventDefault();
 				let data = ele.dataTransfer.getData("text");				
 				if(ele.target.className == "divPicsSpecificColors"){
 					ele.target.appendChild(document.getElementById(data));
 				}
-			}*/
+			}
 	}
 	createOption(previewName, previewData){
 		let data = {
@@ -69,8 +69,18 @@ class previewManager extends previewsElementsCreator{
 			slot.ondragstart= (ev)=> {
 				ev.dataTransfer.setData("text", ev.target.id);				
 			}
-		this.selectedPreviewPictures.append(slot);
-	}
+			slot.ondragover = (ele) => {
+				ele.preventDefault();								
+			}
+			slot.ondrop = (ele) => {
+				ele.preventDefault();
+				let data = ele.dataTransfer.getData("text");				
+				if(ele.target.className == "divPicsSpecificColors"){
+					ele.target.parentNode.append(document.getElementById(data));
+				}
+			}
+		}		
+	
 	async getPreviewsList(){
 		let server = await fetch("sistema-de-previa/phpPrevias/filesHandler.php?action=allDirData");
 		let response = await server.text();

@@ -18,7 +18,6 @@ class singleElementsCreator{
 			let option = document.createElement('option')
 			option.innerText = cada
 			option.value = cada
-
 			opts.push(option)
 		})
 		return opts
@@ -28,9 +27,9 @@ class singleElementsCreator{
 			btn.innerText = "X"
 			btn.className = "btnRmvVar"
 			btn.onclick = (e) => {
-				let linha = e.target.parentNode.parentNode
-				linha.parentNode.removeChild(linha)
-				this.inputsNoDom.splice(this.inputsNoDom.indexOf(e.target), 1)
+				let linha = e.target.parentNode.parentNode;
+				linha.parentNode.removeChild(linha);
+				this.inputsNoDom.splice(this.inputsNoDom.indexOf(e.target), 1);
 				//segredos
 			}
 		return btn
@@ -70,23 +69,6 @@ class singleElementsCreator{
 				return false
 			}
 		}
-	}
-	createFileInputForSpecificColor(){
-		let input = document.createElement('input');
-			input.type = 'file';
-			input.required = true;
-			input.multiple = true;
-		return input
-	}
-	createOptionAddPicsOrNot(){
-		let checkBox = document.createElement('input');
-			checkBox.type = 'checkbox';
-			checkBox.onclick = (e) => {
-				if(e.target.checked){
-					e.target.parentNode.append(this.createFileInputForSpecificColor());
-					return
-				}
-			}
 	}
 	generatePriceInput(){
 		let inputPriceInput = document.createElement('input');

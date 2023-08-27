@@ -1,10 +1,11 @@
 import elementsCreator from './elementsCreator.js'
 
 class variationsManager extends elementsCreator{
-	constructor(divPai, tamanhos, saidaServer){
+	constructor(divPai, tamanhos, saidaServer, inputAddFotos){
 		super(tamanhos, saidaServer);
 		this.divPai 		= divPai;
 		this.inputTamanhos	= tamanhos;
+		this.inputAddFotos	= inputAddFotos;
 
 		this.rows 			= [];
 		this.rowAtual 		= 0;
@@ -13,8 +14,8 @@ class variationsManager extends elementsCreator{
 	getPuttedPicsInEachColor(){
 		let aux = 0;
 		let pics = [];
-		
-		this.inputsCores.forEach((input)=>{			
+
+		this.inputsCores.forEach((input)=>{
 			pics[aux] = {
 				cor:input.value,
 				imgs:[]
@@ -37,9 +38,12 @@ class variationsManager extends elementsCreator{
 		this.checkMsmPrcoTdsVars	= checkMsmPrcoTdsVars;
 		this.slotInptPrecoTdsVars	= slotInptPrecoTdsVars
 
+	}
+	setOutputs(selectedPreviewPictures){
+		this.selectedPictures = selectedPreviewPictures;
+
 		this.setEventListeners();
 	}
-
 	setEventListeners(){
 		this.btnDefVariacao.onclick = () => {
 			this.newVariation()
@@ -91,6 +95,30 @@ class variationsManager extends elementsCreator{
 			this.slotInptPrecoTdsVars.removeChild(this.slotInptPrecoTdsVars.firstChild);
 		})
 
+		this.inputAddFotos.addEventListener('change',(e) => {
+			let files = e.target.files
+			let aux = -1			
+			this.cleanSelectChilds(this.selectedPictures)
+			
+			while(files[++aux]){
+				(() => {
+					let leitor = new FileReader();
+					
+					leitor.onload = () => {
+						let img = document.createElement('img')
+							img.src 		= leitor.result;
+							img.id			= `b${aux}`
+							img.style.width	= '5vw';
+							img.draggable 	= true;			
+							img.ondragstart	= (ev)=> {
+								ev.dataTransfer.setData("text", ev.target.id);				
+							}
+						this.selectedPictures.append(img)
+					}
+					leitor.readAsDataURL(files[aux])
+				})()
+			}
+		})
 	}
 	variationDataSlot(){
 		try{

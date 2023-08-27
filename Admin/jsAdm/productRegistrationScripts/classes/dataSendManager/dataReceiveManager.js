@@ -1,9 +1,9 @@
 class dataReceiveManager{
 	constructor(submit, btnLancHj){
-		this.submit			= submit
-		this.btnLancHj		= btnLancHj
+		this.submit			= submit;
+		this.btnLancHj		= btnLancHj;
 
-		this.generalData	= {}
+		this.generalData	= {};
 	}
 	setClassToGetDomThings(classDele){
 		this.classDele = classDele
@@ -22,8 +22,8 @@ class dataReceiveManager{
 				src.push(aux);
 			})
 			cada.imgs = src.length != 0 ? src : 0;
-		})
-		this.generalData.picsAndColors = picInEachColor
+		});
+		this.generalData.picsAndColors = picInEachColor;
 	}
 	getAllVariations(){
 		let vars= this.classDele.getInputsDoDom();
