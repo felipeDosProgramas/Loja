@@ -29,15 +29,14 @@ class dataReceiveManager{
 		let vars = this.classDele.getInputsDoDom();
 		let pics = this.parsePicsIds()
 		let aux = 0;
-
 		this.generalData.variations = []
 
 		vars.forEach((cadaLinha) => {
 			this.generalData.variations[aux] = {}
-			this.generalData.variations[aux].preco = cadaLinha[0].firstChild.value;
-			this.generalData.variations[aux].cor = cadaLinha[1].firstChild.value;
-			this.generalData.variations[aux].tamanho = cadaLinha[2].firstChild.value;
-			this.generalData.variations[aux].quantidade = cadaLinha[3].firstChild.value;
+			this.generalData.variations[aux].preco = 	cadaLinha[0].firstChild.value;
+			this.generalData.variations[aux].cor = 		cadaLinha[1].firstChild.value;
+			this.generalData.variations[aux].tamanho = 	cadaLinha[2].firstChild.value;
+			this.generalData.variations[aux].quantidade=cadaLinha[3].firstChild.value;
 
 			aux++
 		})
@@ -54,23 +53,22 @@ class dataReceiveManager{
 			this.sendReceivedData();
 		}
 		this.btnLancHj.onclick = () => {
-			let hj = new Date("2023-1-5");
-			let mes = hj.getMonth() + 1;
-				mes = mes.length != 2 ? "0"+mes : ""
+			let hj = new Date();
+			
+			let mes = `${hj.getMonth() + 1}`;
+				mes = mes.length != 2 ? "0"+mes : mes
 
-			let dia = hj.getDate();
-				dia = dia.length != 2 ? "0"+dia : ""
+			let dia = `${hj.getDate()}`;
+				dia = dia.length != 2 ? "0"+dia : dia
 
 			//não remova os dois pontos ( : ) do operador ternário ou irá dar erro de sintaxe :)
 			this.datLanPeca.value = `${hj.getFullYear()}-${mes}-${dia}`
 		}
 	}
-
 	getAvailability(){
 		if(this.dispoPeca.checked) return 1;
 		return 0;
 	}
-
 	getAllData(){
 		this.getAllVariations();
 

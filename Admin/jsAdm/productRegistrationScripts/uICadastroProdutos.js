@@ -21,7 +21,7 @@ let dataPeca = document.getElementById 			('dataLancPrevia');
 let tamanhos = document.getElementById			('tamanhos');
 let respostaServer = document.getElementById	('respostasServidor');
 let submit = document.getElementById			('semiSubmit');
-let btnLancHj = document.getElementById			('btnLancHoje')
+let btnLancHj = document.getElementById			('btnLancHoje');
 // -------------------------
 
 /* VARIAVEIS DA TABELA DE VARIAÇÕES */
@@ -30,8 +30,8 @@ let btnDefVariacao = document.getElementById	('definCorTam');
 let maisUmaCor = document.getElementById		('maisUmaCor');
 let menosUmaCor = document.getElementById 		('menosUmaCor');
 let divInputsCores = document.getElementById	('inputsCores');
-let checkMsmPrcoTdsVars =document.getElementById('msmPrecoTodasVariacoes')
-let slotInptPrecoTdsVars=document.getElementById('slotInputPrecoTdsVars')
+let checkMsmPrcoTdsVars =document.getElementById('msmPrecoTodasVariacoes');
+let slotInptPrecoTdsVars=document.getElementById('slotInputPrecoTdsVars');
 /* -------------------  */
 
 // VARIAVEIS DAS PREVIAS
@@ -55,11 +55,11 @@ let prVwManage = new previewManager	();
 	prVwManage.setPreviewOptions	();	
 // ----------------------------------------------
 // INSTANCIAS DO GERENCIADOR DE VARIAÇÕES
-let varManage = new variationsManager	(addInfosTable, tamanhos, respostaServer)
-	varManage.setInputs					(btnDefVariacao, maisUmaCor,menosUmaCor,divInputsCores, checkMsmPrcoTdsVars, slotInptPrecoTdsVars)
+let varManage = new variationsManager	(addInfosTable, tamanhos, respostaServer);
+	varManage.setInputs					(btnDefVariacao, maisUmaCor,menosUmaCor,divInputsCores, checkMsmPrcoTdsVars, slotInptPrecoTdsVars);
 // ----------------------------------------------
 //INSTANCIAS DO RECEPTOR DE DADOS
 let dtRcvManage = new dataReceiveManager(submit, btnLancHj);
 	dtRcvManage.setInput				(nomePeca, dataPeca, descricaoPeca, selectClassis, disponibilidade);
-	dtRcvManage.setClassToGetDomThings	(varManage)
+	dtRcvManage.setClassToGetDomThings	(varManage);
 /*-----------------------------------------------------------------------*/

@@ -39,12 +39,14 @@ class previewManager extends previewsElementsCreator{
 		this.select.onchange = () => this.setGettedPreviewData()
 		this.selectedPreviewPictures.ondragover = (ele) => {
 				ele.preventDefault();	
-		};
+		};/*
 		this.selectedPreviewPictures.ondrop = (ele) => {
 				ele.preventDefault();
-				let data = ele.dataTransfer.getData("text");
-				ele.target.appendChild(document.getElementById(data));
-			}
+				let data = ele.dataTransfer.getData("text");				
+				if(ele.target.className == "divPicsSpecificColors"){
+					ele.target.appendChild(document.getElementById(data));
+				}
+			}*/
 	}
 	createOption(previewName, previewData){
 		let data = {
@@ -63,8 +65,7 @@ class previewManager extends previewsElementsCreator{
 			slot.className 	= 'imgsPreviaSelecionada';
 			slot.id			= `a${this.imgIdAux++}`
 			slot.style.width= '5vw';
-			slot.draggable 	= true;
-			slot.appendTo  ="especifico";
+			slot.draggable 	= true;			
 			slot.ondragstart= (ev)=> {
 				ev.dataTransfer.setData("text", ev.target.id);				
 			}
@@ -84,9 +85,11 @@ class previewManager extends previewsElementsCreator{
 		let data = await this.getDataSelectedPreview();
 		data = JSON.parse(data)
 		
-		for(let x = 0;x != this.divInputsCores.childNodes.length;x++){
-				
+		let inputsCores = this.divInputsCores.childNodes
+		for(let x = 0;x != inputsCores.length;x++){			
+			this.clearAllChilds(inputsCores[x].lastChild)
 		}
+		
 		this.clearAllChilds(this.selectedPreviewPictures)		
 		data.imagens.forEach((cada) => {
 			this.createImgSlot(cada)
