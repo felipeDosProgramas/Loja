@@ -2,8 +2,10 @@ class singleElementsCreator{
 	constructor(saidaServer){
 		this.saidaServer = saidaServer;
 		this.inputsNoDom = [];
+		this.parsedAppendables;
+		this.inptIdFotosRecebidas;
 	}
-	getInputsDoDom(){		
+	getInputsDoDom(){
 		return this.inputsNoDom;
 	}
 	mostraProUsuario(oque){
@@ -36,7 +38,7 @@ class singleElementsCreator{
 	}
 	createQtdInput(){
 		let input = document.createElement('input');
-			input.type = "number";			
+			input.type = "number";
 			input.placeholder = "Qtd";
 			input.min = 0;
 			input.required = true;
@@ -59,9 +61,9 @@ class singleElementsCreator{
 				}
 				tamanhos.splice(um, 1)
 			})
-	
+
 			tamanhos = this.createOptions(tamanhos)
-	
+
 			return tamanhos
 		}catch(e){
 			if(e instanceof TypeError){
@@ -78,6 +80,35 @@ class singleElementsCreator{
 			inputPriceInput.required = true;
 
 		return inputPriceInput;
+	}
+	generateDivDasImgsDasCores(classeDaDiv){
+		let divImgsColors = document.createElement('div')
+			divImgsColors.style.width = "25px";
+			divImgsColors.style.height = "25px";
+			divImgsColors.className = classeDaDiv;
+			divImgsColors.ondragover = (ele) => {
+				ele.preventDefault();
+			};
+			divImgsColors.addEventListener('drop', (ele) => {
+				ele.preventDefault();
+				let data = ele.dataTransfer.getData("text");
+				if(ele.target.previousSibling && ele.target.previousSibling.type == 'color'){
+					ele.target.append(document.getElementById(data));
+					return;
+				}
+				console.log(document.getElementById(data))
+				ele.target.parentNode.append(document.getElementById(data));
+			});
+
+		return divImgsColors;
+	}
+	generateInputCor(classDoInput){
+		let colorInput = document.createElement('input');
+			colorInput.className = classDoInput	;
+			colorInput.type = "color";
+			colorInput.onchange = () => this.refreshColorsOptions();
+
+			return colorInput;
 	}
 }
 

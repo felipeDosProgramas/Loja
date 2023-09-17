@@ -17,7 +17,7 @@ class dataReceiveManager{
 			cada.imgs.forEach((id) => {
 				aux = document.getElementById(id);
 				aux = aux.src;
-				aux = aux.split('Admin');
+				aux = aux.split('Admin');				
 				aux = aux[1].replace(/%20/g, ' ');
 				src.push(aux);
 			})

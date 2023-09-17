@@ -33,6 +33,7 @@ let menosUmaCor = document.getElementById 		('menosUmaCor');
 let divInputsCores = document.getElementById	('inputsCores');
 let checkMsmPrcoTdsVars =document.getElementById('msmPrecoTodasVariacoes');
 let slotInptPrecoTdsVars=document.getElementById('slotInputPrecoTdsVars');
+let inptIdFotosRecebidas=document.getElementById('inputIdTodasFotosRecebidas');
 /* -------------------  */
 
 // VARIAVEIS DAS PREVIAS
@@ -59,7 +60,7 @@ let prVwManage = new previewManager	();
 // INSTANCIAS DO GERENCIADOR DE VARIAÇÕES
 let varManage = new variationsManager	(addInfosTable, tamanhos, respostaServer, inputAddFotos);
 	varManage.setInputs					(btnDefVariacao, maisUmaCor,menosUmaCor,divInputsCores, checkMsmPrcoTdsVars, slotInptPrecoTdsVars);
-	varManage.setOutputs				(picturesInInputFile)
+	varManage.setOutputs				(picturesInInputFile,inptIdFotosRecebidas)
 // ----------------------------------------------
 //INSTANCIAS DO RECEPTOR DE DADOS
 let dtRcvManage = new dataReceiveManager(submit, btnLancHj);

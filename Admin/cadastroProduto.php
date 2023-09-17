@@ -93,6 +93,7 @@
 							<input type="checkbox" class="checkboxForm" name="disponibilidade" id="disponivelSimNao">
 						</div>						
 						<input type="file" name="fotos" multiple id="inputAddFotos">
+						<input type="hidden" id="inputIdTodasFotosRecebidas">
 						<button class="btnsCria" id="semiSubmit">enviar</button>
 				</div>
 			</div>

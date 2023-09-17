@@ -39,15 +39,15 @@ class variationsManager extends elementsCreator{
 		this.slotInptPrecoTdsVars	= slotInptPrecoTdsVars
 
 	}
-	setOutputs(selectedPreviewPictures){
+	setOutputs(selectedPreviewPictures, inptIdFotosRecebidas){
 		this.selectedPictures = selectedPreviewPictures;
-
+		this.inptIdFotosRecebidas=inptIdFotosRecebidas;
+		
 		this.setEventListeners();
 	}
 	setEventListeners(){
-		this.btnDefVariacao.onclick = () => {
-			this.newVariation()
-		}
+		this.btnDefVariacao.onclick = () => this.newVariation()
+		
 	//----------------------------------------------------------------------
 		this.maisUmaCor.onclick = () => {
 			let inputColor = this.generateColorInput();
@@ -96,28 +96,41 @@ class variationsManager extends elementsCreator{
 		})
 
 		this.inputAddFotos.addEventListener('change',(e) => {
-			let files = e.target.files
-			let aux = -1			
-			this.cleanSelectChilds(this.selectedPictures)
-			
+			let files = e.target.files;
+			let aux = -1;
+			let toSaveInSession = [], obj;
+			this.cleanSelectChilds(this.selectedPictures);
+
 			while(files[++aux]){
-				(() => {
+				((idTo) => {
 					let leitor = new FileReader();
-					
+
 					leitor.onload = () => {
 						let img = document.createElement('img')
 							img.src 		= leitor.result;
-							img.id			= `b${aux}`
+							img.id			= `b${idTo}`;
 							img.style.width	= '5vw';
-							img.draggable 	= true;			
-							img.ondragstart	= (ev)=> {
-								ev.dataTransfer.setData("text", ev.target.id);				
+							img.draggable 	= true;
+							img.ondragstart	= (ev)=> {								
+								ev.dataTransfer.setData("text", ev.target.id);
 							}
+							img.addEventListener('drop', (ev) => {
+								ev.preventDefault();
+								let data = ev.dataTransfer.getData("text");
+								ev.target.parentNode.append(document.getElementById(data));
+							})
 						this.selectedPictures.append(img)
 					}
-					leitor.readAsDataURL(files[aux])
-				})()
+					leitor.readAsDataURL(files[idTo])
+				})(aux);
+				obj = {
+					nome:files[aux].name,
+					id:`b${aux}`					
+				}
+				toSaveInSession.push(obj);
 			}
+			this.inptIdFotosRecebidas.value = JSON.stringify(toSaveInSession);
+			sessionStorage.setItem('appendables', JSON.stringify(toSaveInSession))
 		})
 	}
 	variationDataSlot(){
