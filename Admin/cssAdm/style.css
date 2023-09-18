@@ -96,6 +96,9 @@
     justify-content: center;
     grid-template-areas: "boxCadaster";
   }
+  #btnEdiAdm {
+    margin: 5px;
+  }
 }
 .divBusca {
   border-radius: 5px;
