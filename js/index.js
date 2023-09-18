@@ -23,9 +23,9 @@ btnMenu2.addEventListener('click', function () {
     navigation.classList.remove('active')
 })
 
-btnBusca.addEventListener('click', () => {
+/*btnBusca.addEventListener('click', () => {
 	
-})
+})*/
 
 
 function criarLinkParaDeslogar(elementoPai){
