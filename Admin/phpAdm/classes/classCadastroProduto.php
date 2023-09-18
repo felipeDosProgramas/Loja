@@ -97,7 +97,7 @@
 		private array $picsNamesAndIds;
 
 		function __construct(){
-			$this->conn = $this->connect();
+			$this->conn = $this->connect();			
 		}
 		function setPrimarios(string $nome, string $classificacao, string $disponibilidade, string $dataLancamento, string $descricao){
 			$this->dadosPrimarios = array(
@@ -117,8 +117,10 @@
 		}
 		function saveThem(){
 			$idPrimario = $this->savePrimaryData_GetPrimaryDataId();
+			mkdir('../../Produtos/'+$idPrimario);
 			$this->saveSecundaryData($idPrimario);
 			$this->saveDescription($idPrimario);
+			$this->saveColors($idPrimario);
 		}		
 		private function savePrimaryData_GetPrimaryDataId() :string{
 			$query = $this->conn->prepare('insert into `produtosprimario`(`Name`, `Classificacao`, `Disponivel`, `dataLancamento`)values(?,?,?,?)');
@@ -131,13 +133,16 @@
 			foreach($this->variacoes as $variacao){
 				$query->execute([...$variacao, $primaryId]);
 			}
-		}
+		}		
 		private function saveDescription($primaryId){
 			$caminho = "../../descricoesProdutos/".$primaryId.".txt";
 			file_put_contents($caminho,$this->descricao);
 		}
-		private function parseImagesIds(){
+		private function parseColorsPics(){
 			
+			foreach($colorsWithPicsIds as $color_Pic_Id){
+				
+			}
 		}
 	}
 ?>
