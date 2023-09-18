@@ -87,7 +87,7 @@
 	//}
 	require_once "../../purePhp/classes/HorizontalHierarchy.php";
 
-	class Cadastro{
+	class CadastroProduto{
 		private PDO $conn;
 		private string $descricao;
 		private array $dadosPrimarios;
@@ -111,18 +111,19 @@
 		function setVariacoes(array $variacoes){
 			$this->variacoes = $variacoes;
 		}
-		function setColorsAndImgs(array $colorsWithPicsIds, array $picsNamesAndIds){
-			$this->picsNamesAndIds =	$picsNamesAndIds;
+		function setColorsAndImgs(array $colorsWithPicsIds, array $picsNamesAndIds){			
 			$this->colorsWithPicsIds =	$colorsWithPicsIds;
+			$this->picsNamesAndIds =	$picsNamesAndIds;
 		}
 		function saveThem(){
 			$idPrimario = $this->savePrimaryData_GetPrimaryDataId();
-			$
-		}
+			$this->saveSecundaryData($idPrimario);
+			$this->saveDescription($idPrimario);
+		}		
 		private function savePrimaryData_GetPrimaryDataId() :string{
 			$query = $this->conn->prepare('insert into `produtosprimario`(`Name`, `Classificacao`, `Disponivel`, `dataLancamento`)values(?,?,?,?)');
 			$query->execute($this->dadosPrimarios);
-						
+
 			return $this->conn->lastInsertId();
 		}
 		private function saveSecundaryData(string $primaryId){
@@ -130,6 +131,13 @@
 			foreach($this->variacoes as $variacao){
 				$query->execute([...$variacao, $primaryId]);
 			}
-		}		
+		}
+		private function saveDescription($primaryId){
+			$caminho = "../../descricoesProdutos/".$primaryId.".txt";
+			file_put_contents($caminho,$this->descricao);
+		}
+		private function parseImagesIds(){
+			
+		}
 	}
 ?>
