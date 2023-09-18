@@ -13,7 +13,7 @@
 		function connect(){
 			try{
 				$Connection = new PDO('mysql:dbname=loja;host=localhost;charset=UTF8','root','');
-				return $Connection;
+				 return $Connection;
 			}
 			catch(PDOException $Exception){
 				$this->saveErrorsInLogFile(array("in Connection",$Exception->getCode(), $Exception->getMessage()));

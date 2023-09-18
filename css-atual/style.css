@@ -37,7 +37,7 @@ a {
 }
 
 /*HEADER*/
-#header {
+header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -149,7 +149,7 @@ a {
 
 /*FIM HEADER*/
 /*FOOTER*/
-#footer {
+footer {
   border-top: 1px solid rgb(211, 211, 211);
   display: grid;
   justify-content: center;
@@ -750,15 +750,14 @@ a {
 
 @media screen and (max-width: 466px) {
   .boxAdm {
-    width: 300px;
+    width: 280px;
+    padding: 10px;
   }
-}
-@media screen and (max-width: 312px) {
   .nameAdm {
     font-size: 0.9em;
   }
   .emailAdm {
-    font-size: 0.6em;
+    font-size: 0.8em;
   }
 }
 
