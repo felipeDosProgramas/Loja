@@ -37,7 +37,7 @@ a {
 }
 
 /*HEADER*/
-#header {
+header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -149,7 +149,7 @@ a {
 
 /*FIM HEADER*/
 /*FOOTER*/
-#footer {
+footer {
   border-top: 1px solid rgb(211, 211, 211);
   display: grid;
   justify-content: center;

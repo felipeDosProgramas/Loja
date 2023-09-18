@@ -9,37 +9,40 @@ class dataReceiveManager{
 		this.classDele = classDele
 	}
 	parsePicsIds(){
-		let src = [];
-		let aux;
-		let picInEachColor = this.classDele.getPuttedPicsInEachColor();
-		picInEachColor.forEach((cada)=>{
-			src = [];
-			cada.imgs.forEach((id) => {
-				aux = document.getElementById(id);
-				aux = aux.src;
-				aux = aux.split('Admin');				
-				aux = aux[1].replace(/%20/g, ' ');
-				src.push(aux);
-			})
-			cada.imgs = src.length != 0 ? src : 0;
-		});
-		this.generalData.picsAndColors = picInEachColor;
+		let picsInEachColor = [], picInColor, pics;
+		let picsNamesAndIds = this.classDele.inptIdFotosRecebidas.value.trim();
+		if(picsNamesAndIds != ''){
+			picsNamesAndIds = JSON.parse(picsNamesAndIds);
+			let linhas = this.classDele.divPaiInputsCores.childNodes
+			console.log(linhas)
+			for(let aux = 0;aux != linhas.length; aux++){				
+				pics = linhas[aux].lastChild.childNodes;
+				
+				picInColor = {
+					cor:linhas[aux].firstChild.value,
+					picsIds:[]
+				}
+
+				for(let pic = 0;pic != pics.length;pic++){
+					picInColor.picsIds.push(pics[pic].id);
+				}
+				picsInEachColor.push(picInColor)
+			}
+			this.generalData.picsAndColors = picsInEachColor;
+			this.generalData.picsIds = picsNamesAndIds;
+		}
 	}
 	getAllVariations(){
-		let vars= this.classDele.getInputsDoDom();
-		let pics= this.parsePicsIds();
-		let aux	= 0;
+		let vars = document.getElementsByClassName('linhas'), varChild;
 		this.generalData.variations = [];
-		
-		vars.forEach((cadaLinha) => {
-			this.generalData.variations[aux] = {}
-			this.generalData.variations[aux].preco = 	cadaLinha[0].firstChild.value;
-			this.generalData.variations[aux].cor = 		cadaLinha[1].firstChild.value;
-			this.generalData.variations[aux].tamanho = 	cadaLinha[2].firstChild.value;
-			this.generalData.variations[aux].quantidade=cadaLinha[3].firstChild.value;
-
-			aux++
-		})
+		for(let aux	= 0;aux != vars.length; aux++){
+			varChild = vars[aux].childNodes;
+			this.generalData.variations[aux] 			= {}
+			this.generalData.variations[aux].preco 		= varChild[0].firstChild.value;
+			this.generalData.variations[aux].cor 		= varChild[1].firstChild.value;
+			this.generalData.variations[aux].tamanho 	= varChild[2].firstChild.value;
+			this.generalData.variations[aux].quantidade	= varChild[3].firstChild.value;
+		}
 	}
 	setInput(nomePeca, dataLancPeca, descriPeca, classePeca, disponiPeca){
 		this.nomePeca 	= nomePeca;
@@ -49,12 +52,13 @@ class dataReceiveManager{
 		this.dispoPeca	= disponiPeca;
 
 		this.submit.onclick = () => {
+			this.parsePicsIds();
 			this.getAllData();
 			this.sendReceivedData();
 		}
 		this.btnLancHj.onclick = () => {
 			let hj = new Date();
-			
+
 			let mes = `${hj.getMonth() + 1}`;
 				mes = mes.length != 2 ? "0"+mes : mes
 
@@ -65,17 +69,14 @@ class dataReceiveManager{
 			this.datLanPeca.value = `${hj.getFullYear()}-${mes}-${dia}`
 		}
 	}
-	getAvailability(){
-		if(this.dispoPeca.checked) return 1;
-		return 0;
-	}
 	getAllData(){
 		this.getAllVariations();
 
 		this.generalData.nome = this.nomePeca.value;
+		this.generalData.dataLancamento = this.datLanPeca.value;
 		this.generalData.descricao = this.descriPeca.value;
 		this.generalData.classificacao = this.classePeca.value != "Classificação" ? this.classePeca.value : 0;
-		this.generalData.disponibilidade = this.getAvailability();
+		this.generalData.disponibilidade = this.dispoPeca.checked ? 1 : 0
 		// this.generalData.
 	}
 	async sendReceivedData(){
