@@ -20,6 +20,13 @@
   color: rgb(255, 255, 255);
 }
 
+#sectionPgInicio {
+  background-image: url("../../imgs/usdrip.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-color: aqua;
+}
+
 body {
   margin: 0px;
   padding: 0px;
