@@ -8,9 +8,14 @@
 }
 
 #entre {
+    text-transform: uppercase;
     font-size: xx-large;
     font-weight: bold;
     margin-top: 300px;
     position: relative;
     text-align: center;
+}
+
+#entre a {
+    color: rgb(255, 255, 255);
 }
