@@ -7,20 +7,6 @@ class previewsElementsCreator{
 			from.removeChild(from.firstChild);
 		}
 	}
-	createImgSlot(wit){
-		let slot = document.createElement('div')
-			slot.className = 'divImagePreview'
-			
-		let image = document.createElement('img');
-			image.src = `../${wit}`;
-			image.className = 'imgsPreviaSelecionada';
-			image.style.width = '5vw'
-			
-		slot.append(image) 
-		
-		return slot;
-	}
-	
 	createOption(previewName, previewData){
 		let data = {
 			"nome":previewName,

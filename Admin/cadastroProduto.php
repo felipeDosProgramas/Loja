@@ -50,7 +50,7 @@
 		<div id="faixa"></div>
 		<section>
 			<div class="boxForm" id="formularioProdutos">
-				<div class="formEntre">
+				<div class="formEntre" style="width:50vw">
 					<h2 class="hCadaster">Cadastro de Produto</h2>
 					<!--Cadastro produtos-->
 						<label for="temPreviaCadastradaSsNn" id="labelSeTemPreviaCadastrada">o produto tem Prévia cadastrada?</label>
@@ -76,7 +76,7 @@
 						<span id="inputsCores"></span><!--não colocar nada dentro desses spans, senão vai dar erro no JS, ISSO INCLUI ESPAÇOS EM BRANCO-->
 						<div id="selectedPreviewPictures"></div><!--mesma coisa nesse aqui-->
 						<div id="picturesInInputFile"></div><!--vou nem falar nada-->
-						<div id="generalPictures"></div><!--Deixa essa div bem grande com um textinho emcima explicando que são fotos para toda a roupa, me da um tok quando for mexer nessa div :)  -->
+						<div id="generalPictures" style="width:10vw;height:10vh;background-color:gray"></div><!--Deixa essa div bem grande com um textinho emcima explicando que são fotos para toda a roupa, me da um tok quando for mexer nessa div :)  -->
 						<button id="maisUmaCor">Adicionar cor</button>
 						<button id="menosUmaCor">Remover cor </button>
 						<!--vc pode enfiar esse botoes em qualquer lugar, só nn troque seus id's-->

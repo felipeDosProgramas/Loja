@@ -68,17 +68,8 @@ class previewManager extends previewsElementsCreator{
 			slot.draggable 	= true;			
 			slot.ondragstart= (ev)=> {
 				ev.dataTransfer.setData("text", ev.target.id);				
-			}
-			slot.ondragover = (ele) => {
-				ele.preventDefault();								
-			}
-			slot.ondrop = (ele) => {
-				ele.preventDefault();
-				let data = ele.dataTransfer.getData("text");				
-				if(ele.target.className == "divPicsSpecificColors"){
-					ele.target.parentNode.append(document.getElementById(data));
-				}
-			}
+			}			
+		this.selectedPreviewPictures.append(slot)
 		}		
 	
 	async getPreviewsList(){
@@ -112,8 +103,7 @@ class previewManager extends previewsElementsCreator{
 				return cada.nome ==  selected.nome && cada.data == selected.data
 			});
 		let server = await fetch("sistema-de-previa/phpPrevias/filesHandler.php?action=especifico&qual="+selected.raw);
-		let response = await server.text();
-
+		let response = await server.text();		
 		return response
 	}
 	setInOtherInputsPreviewData(){

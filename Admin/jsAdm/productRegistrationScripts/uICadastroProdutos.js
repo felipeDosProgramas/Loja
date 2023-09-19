@@ -23,6 +23,7 @@ let tamanhos = document.getElementById			('tamanhos');
 let respostaServer = document.getElementById	('respostasServidor');
 let submit = document.getElementById			('semiSubmit');
 let btnLancHj = document.getElementById			('btnLancHoje');
+let generalPictures = document.getElementById	('generalPictures');
 // -------------------------
 
 /* VARIAVEIS DA TABELA DE VARIAÇÕES */
@@ -59,7 +60,7 @@ let prVwManage = new previewManager	();
 // ----------------------------------------------
 // INSTANCIAS DO GERENCIADOR DE VARIAÇÕES
 let varManage = new variationsManager	(addInfosTable, tamanhos, respostaServer, inputAddFotos);
-	varManage.setInputs					(btnDefVariacao, maisUmaCor,menosUmaCor,divInputsCores, checkMsmPrcoTdsVars, slotInptPrecoTdsVars);
+	varManage.setInputs					(btnDefVariacao, maisUmaCor,menosUmaCor,divInputsCores, checkMsmPrcoTdsVars, slotInptPrecoTdsVars, generalPictures);
 	varManage.setOutputs				(picturesInInputFile,inptIdFotosRecebidas)
 // ----------------------------------------------
 //INSTANCIAS DO RECEPTOR DE DADOS

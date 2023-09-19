@@ -1,4 +1,5 @@
-import elementsCreator from './elementsCreator.js'
+import elementsCreator from './elementsCreator.js';
+import appendIntoIt from '../Traits/appendIntoIt.js';
 
 class variationsManager extends elementsCreator{
 	constructor(divPai, tamanhos, saidaServer, inputAddFotos){
@@ -30,14 +31,14 @@ class variationsManager extends elementsCreator{
 
 		return pics;
 	}
-	setInputs(btnDefVariacao, maisUmaCor,menosUmaCor, divInputsCores, checkMsmPrcoTdsVars, slotInptPrecoTdsVars){
+	setInputs(btnDefVariacao, maisUmaCor,menosUmaCor, divInputsCores, checkMsmPrcoTdsVars, slotInptPrecoTdsVars, generalPictures){
 		this.btnDefVariacao 		= btnDefVariacao;
 		this.maisUmaCor 			= maisUmaCor;
 		this.menosUmaCor 			= menosUmaCor;
 		this.divPaiInputsCores 		= divInputsCores;
 		this.checkMsmPrcoTdsVars	= checkMsmPrcoTdsVars;
 		this.slotInptPrecoTdsVars	= slotInptPrecoTdsVars
-
+		this.generalPictures		= generalPictures;
 	}
 	setOutputs(selectedPreviewPictures, inptIdFotosRecebidas){
 		this.selectedPictures = selectedPreviewPictures;
@@ -94,6 +95,7 @@ class variationsManager extends elementsCreator{
 			this.tdsMsmPreco = false;
 			this.slotInptPrecoTdsVars.removeChild(this.slotInptPrecoTdsVars.firstChild);
 		})
+		//------------------------------------------------------------------------
 		this.inputAddFotos.addEventListener('change',(e) => {
 			let files = e.target.files;
 			let aux = -1;
@@ -112,12 +114,7 @@ class variationsManager extends elementsCreator{
 							img.draggable 	= true;
 							img.ondragstart	= (ev)=> {								
 								ev.dataTransfer.setData("text", ev.target.id);
-							}
-							img.addEventListener('drop', (ev) => {
-								ev.preventDefault();
-								let data = ev.dataTransfer.getData("text");
-								ev.target.parentNode.append(document.getElementById(data));
-							})
+							}							
 						this.selectedPictures.append(img)
 					}
 					leitor.readAsDataURL(files[idTo])
@@ -131,6 +128,12 @@ class variationsManager extends elementsCreator{
 			this.inptIdFotosRecebidas.value = JSON.stringify(toSaveInSession);
 			sessionStorage.setItem('appendables', JSON.stringify(toSaveInSession))
 		})
+		//--------------------------------------------------------------------------------
+		this.generalPictures.addEventListener('drop',(ev) => {
+			ev.preventDefault();			
+			appendIntoIt(ev);
+		});
+		this.generalPictures.ondragover = (ev) => ev.preventDefault();
 	}
 	variationDataSlot(){
 		try{

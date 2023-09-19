@@ -1,3 +1,5 @@
+import appendIntoIt from '../Traits/appendIntoIt.js';
+
 class singleElementsCreator{
 	constructor(saidaServer){
 		this.saidaServer = saidaServer;	
@@ -84,13 +86,14 @@ class singleElementsCreator{
 			};
 			divImgsColors.addEventListener('drop', (ele) => {
 				ele.preventDefault();
-				let data = ele.dataTransfer.getData("text");
+				appendIntoIt(ele);
+				/*let data = ele.dataTransfer.getData("text");
 				if(ele.target.previousSibling && ele.target.previousSibling.type == 'color'){
 					let lugarAnterior = document.getElementById(data);
-						lugarAnterior = [lugarAnterior, lugarAnterior.cloneNode(true)];
-					ele.target.append(lugarAnterior[1]);
-					return;
-				}
+						lugarAnterior = lugarAnterior.cloneNode(true);
+					ele.target.append(lugarAnterior);
+					*/
+					return;				
 				console.log(document.getElementById(data))
 				ele.target.parentNode.append(document.getElementById(data));
 			});
@@ -104,7 +107,7 @@ class singleElementsCreator{
 			colorInput.onchange = () => this.refreshColorsOptions();
 
 			return colorInput;
-	}
+	}	
 }
 
 export default singleElementsCreator

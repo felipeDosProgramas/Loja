@@ -121,8 +121,8 @@
 			mkdir('../../Produtos/'+$idPrimario);
 			
 			$this->saveSecundaryData($idPrimario);
-			$this->saveDescription($idPrimario);
-			$this->saveColors($idPrimario);
+			$this->saveDescription	($idPrimario);
+			$this->saveColors		($idPrimario);
 		}
 		private function savePrimaryData_GetPrimaryDataId() :string{
 			$query = $this->conn->prepare('insert into `produtosprimario`(`Name`, `Classificacao`, `Disponivel`, `dataLancamento`)values(?,?,?,?)');
