@@ -61,7 +61,7 @@ class dataReceiveManager{
 		this.submit.onclick = () => {
 			this.parsePicsIds();
 			this.getAllData();
-			this.sendReceivedData();
+			//this.sendReceivedData();
 		}
 		this.btnLancHj.onclick = () => {
 			let hj = new Date();

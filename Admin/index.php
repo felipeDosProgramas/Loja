@@ -98,7 +98,7 @@
 							Cadastrar produto
 						</button>
 						</a>
-						<a href="" >
+						<a href="./sistemaProduto/consultaProduto.html" >
 						<button class="btnCadaster">
 						Consultar produto
 					</button>

@@ -59,6 +59,7 @@ class elementsCreator extends singleElementsCreator{
 		let test = this.testEverything(sizesStr);
 		if(test){
 			let selectForSizes = document.createElement('select');
+				selectForSizes.className = "selectTamanhos"
 			this.selectsSizes.push(selectForSizes);
 			this.refreshSizesOptions(sizesStr);
 
@@ -68,6 +69,7 @@ class elementsCreator extends singleElementsCreator{
 	}
 	generateColorInput(){
 		let divColor = document.createElement('div');		
+			divColor.className = "divPaiInputColorEFotosDeCor"
 		
 		let divImgsColors = this.generateDivDasImgsDasCores('divPicsSpecificColors');
 		let colorInput = this.generateInputCor('cores');				

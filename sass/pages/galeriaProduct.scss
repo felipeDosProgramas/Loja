@@ -1,177 +1,57 @@
-#home{
-    margin-bottom: 0.5vh;
- a {
-    color: $cor-preta;
-    text-transform: none;
-}
-}
-
 #caixaAnuncio {
+    margin-top: 5%;
     display: grid;
-    justify-content: center;
     grid-template-areas: 'fotosAnuncio infoAnuncio';
-    gap: 1vw;
-    margin: 10vh 5vw;
-    position: relative;
-}
-
-#caixaFotoAnuncio{
-    width: 500px;
-}
-
-.imgsAnuncio{
-    width: 100%;
-    height: 700px;
-}
-
-#infoAnuncio {
-    margin-top: 5%;
-    width: 600px;
-}
-
-#nameAnun {
-    font-size: 2em;
-}
-
-#divPreco {
-    margin: 5% 0px;
-    font-size: 1.5em;
-}
-
-.riscoQuebra {
-    width: 100%;
-    height: 1px;
-    background-color: $cor-cinzaClaro;
-    margin-top: 5%;
-}
-
-#size {
-    font-weight: bold;
-    margin: 3% 0px;
-}
-
-.sizeBtn {
-    width: 70px;
-    @include buttons(1.2em, none, 5px, $cor-preta, 6px,  $cor-branca);
-}
-
-#sobrePeca {
-    font-weight: bold;
-    margin: 6% 0px;
-}
-
-#divSaco {
-    margin: 6% 0%;
-}
-
-#btnSaco {
-    @include buttons(1.1em, none, 5px, $cor-preta, 2%,  $cor-branca);
-    text-transform: uppercase;
-    width: 100%;
-    &:hover {
-    box-shadow: 0px 1px 10px 3px $cor-cinza;
-    transition: .5s;
-    }
-}
-
-.btnDireEsquer {
-    width: 40px;
-    background: rgba( 255, 255, 255, 0.35 );
-    backdrop-filter: blur( 13.5px );
-    border: none;
-    height: 99.5%;
-    transition: .5s;
-    position: absolute;
-    z-index: 1;
-    &:hover {
-        
-    background: rgba(0, 0, 0, 0.35);
-    backdrop-filter: blur( 13.5px );
-    }
-}
-
-#btnEsquerda {
-    background-image: url('../imgs/seta-esquerda.png');
-    background-repeat: no-repeat;
-    background-position: center;
-}
-
-#btnDireita {
-    background-image: url('../imgs/seta-direita.png');
-    background-repeat: no-repeat;
-    background-position: center;
-    translate: -100%;
+    gap: 20px;
+    justify-content: center;
 }
 
 #fotosAnuncio {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 600px;
+    height: 650px;
 }
 
-#dateLancamento{
-    margin: 2vh 0px;
-    font-size: 1.4em;
-}
-
-@media screen and (max-width: 1115px) {
-    #caixaAnuncio {
-        display: grid;
-        grid-template-areas: 'fotosAnuncio' 
-                             'infoAnuncio';
-    }
-    #infoAnuncio {
-        width: 500px;
-    }
-    .btnDireEsquer {
-        height: 78.5%;
-    }
-}
-
-@media screen and (max-width:610px){
-    #caixaFotoAnuncio{
+.imgsAnuncio {
     width: 100%;
+    height: 100%;
+}
+.btnDireEsquer {    
+    background: rgba(189, 188, 188, 0.37);
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 13.5px );
+    -webkit-backdrop-filter: blur( 13.5px );
+    width: 40px;
+    height: 100%;
+    border: none;
+}
+
+#infoAnuncio {
+    color: black;
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    height: 650px;
+    a {
+        color: rgb(0, 38, 255);
     }
-    .imgsAnuncio{
-        width: 100%;
-        height: auto;
-    }
-    #infoAnuncio {
-        width: 350px;
-    }
-    #description {
-        font-size: 0.9em;
-    }
-    #nameAnun {
-        font-size: 1.2em;
-    }
+}
+
+.riscoQuebra {
+    margin: 10px 0px;
+    background-color: $cor-preta;
+    height: 2px ;
+}
+
+.titleAnun {
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
+#nameAnun {
     
-    #divPreco {
-        font-size: 1em;
-    }
-    .btnDireEsquer {
-        height: 79.5%;
-    }
 }
 
-@media screen and (max-width:407px){
-    #caixaFotoAnuncio{
-    width: 100%;
-    }
-    .imgsAnuncio{
-        width: 100%;
-        height: auto;
-    }
-    #infoAnuncio {
-        width: 300px;
-    }
-    #description {
-        font-size: 0.9em;
-    }
-    #btnSaco {
-        font-size: 1em;
-    }
-    #dateLancamento {
-        font-size: 1.2em;
-    }
+#divPreco {
+    font-size: 1.1em;
 }

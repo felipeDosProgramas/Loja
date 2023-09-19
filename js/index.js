@@ -2,6 +2,8 @@
 
 const btnMenu = document.getElementById('btnMenu');
 const btnMenu2 = document.getElementById('btnMenu2');
+const btnBusca = document.getElementById('btnBusca')
+const inputBusca = document.getElementById('inputBusca')
 const navigation = document.getElementById('navegacao')
 let coo = document.cookie;
 let temOuNaoElemento = !!document.getElementById("logouOuNao");	
@@ -21,7 +23,9 @@ btnMenu2.addEventListener('click', function () {
     navigation.classList.remove('active')
 })
 
-
+/*btnBusca.addEventListener('click', () => {
+	
+})*/
 
 
 function criarLinkParaDeslogar(elementoPai){

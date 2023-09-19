@@ -69,6 +69,7 @@ class singleElementsCreator{
 	}
 	generatePriceInput(){
 		let inputPriceInput = document.createElement('input');
+			inputPriceInput.className = "inputPrecoVariacao";
 			inputPriceInput.type = "number";
 			inputPriceInput.min = "0";
 			inputPriceInput.placeholder = "Preço dessa variação";
@@ -77,9 +78,7 @@ class singleElementsCreator{
 		return inputPriceInput;
 	}
 	generateDivDasImgsDasCores(classeDaDiv){
-		let divImgsColors = document.createElement('div')
-			divImgsColors.style.width = "25px";
-			divImgsColors.style.height = "25px";
+		let divImgsColors = document.createElement('div')			
 			divImgsColors.className = classeDaDiv;
 			divImgsColors.ondragover = (ele) => {
 				ele.preventDefault();

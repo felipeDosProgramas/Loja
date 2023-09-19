@@ -23,7 +23,7 @@
 			echo $responderOq;
 		}
 		
-		private function getFullCart($conn){
+		private function getFullCart(PDO $conn){
 			
 			$codAcess = $conn->quote($this->QuemQuerExecutar);
 			
