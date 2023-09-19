@@ -1,13 +1,15 @@
-import classManager 		from	"./classes/classisManager.js";
+import classManager 		from	"./classes/classisManager/classisManager.js";
 import dataReceiveManager	from	"./classes/dataSendManager/dataReceiveManager.js";
 import variationsManager 	from	"./classes/variationsManager/variationsManager.js";
 import previewManager 		from	"./classes/previewsManager/previewManager.js";
 
 // VARIAVEIS DAS CLASSIFICAÇÕES
-let newClass = document.getElementById		('newClass');
-let criadorClassis = document.getElementById('criadorClassis');
-let tirarClass = document.getElementById	('tiraClass');
-let selectClassis = document.getElementById	('classificacoes');
+let newClass = document.getElementById			('newClass');
+let criadorClassis = document.getElementById	('criadorClassis');
+let tirarClass = document.getElementById		('tiraClass');
+let selectClassis = document.getElementById		('classificacoes');
+let btnAddOClassPaPc = document.getElementById	('btnAdicionaOutroClassPraPeca');
+let divSelectsClassis = document.getElementById	('divSelectsDasClassificacoesSelecionadas');
 // ---------------------
 
 // INPUTS DE ENTRADA DE DADOS
@@ -47,8 +49,8 @@ let picturesInInputFile = document.getElementById 		('picturesInInputFile');
 
 // INSTANCIAS DO GERENCIADOR DE CLASSIFICAÇÕES
 let ClManage = new classManager	();
-	ClManage.setInput			(selectClassis, respostaServer);
-	ClManage.setOutput			(criadorClassis,newClass , tirarClass);
+	ClManage.setInput			(selectClassis, respostaServer, btnAddOClassPaPc);
+	ClManage.setOutput			(criadorClassis,newClass , tirarClass, divSelectsClassis);
 	ClManage.lerClassis			();
 // ----------------------------------------------
 

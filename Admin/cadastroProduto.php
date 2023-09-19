@@ -63,10 +63,13 @@
 						<input class="inputs" type="date" id="dataLancPrevia" placeholder="Data de lançamento" required><button id="btnLancHoje">hoje</button><br>
 						<label for="description" class="formsSelectsAndDate">descrição:</label><br>
 						<textarea class="inputs" id="description" required></textarea>
-						<select class="inputs" name="classificacao" id="classificacoes" required style="width:70%">
+						<div id="divSelectsDasClassificacoesSelecionadas">
+							<select class="inputs" name="classificacao" id="classificacoes" required style="width:70%">
 							<option value="" selected hidden disabled>Classificação</option>
 							<!--deixar as configurações dessa option desse jeito, pode mudar o texto de dentro se quisé-->
-						</select>
+							</select>
+						</div>												
+						<button id="btnAdicionaOutroClassPraPeca"></button>
 						<div id="criadorClassis">
 							<button class="btnsCria" id="newClass">criar classificação</button><br>
 							<button class="btnsCria" id="tiraClass">excluir classificacão</button>
