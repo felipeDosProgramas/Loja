@@ -1,0 +1,80 @@
+#video {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+}
+
+#entre {
+  font-size: xx-large;
+  font-weight: bold;
+  margin-top: 300px;
+  position: relative;
+  text-align: center;
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(0, 0, 0);
+  border-radius: 10px;
+}
+
+/*HEADER*/
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1vh 3vw;
+}
+
+#redes {
+  padding: 0vh 3vw;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+  border-bottom: 1px solid rgb(0, 0, 0);
+  height: 30px;
+}
+
+#logo {
+  width: 140px;
+}
+
+nav {
+  display: none;
+}
+
+#faixa {
+  background-color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.9em;
+  padding: 5px;
+}
+
+.btnsMenu {
+  border: none;
+  cursor: pointer;
+  outline: 0;
+  background-color: transparent;
+}
+
+/*# sourceMappingURL=style.css.map */
