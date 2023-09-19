@@ -32,6 +32,13 @@ class dataReceiveManager{
 			this.generalData.picsIds = picsNamesAndIds;
 		}
 	}
+	parseGeneralPics(){
+		let pics = this.classDele.generalPictures.childNodes, pictures = [];
+		
+		for(let x = 0;x != pics.length;x++) pictures[x] = pics[x].id;
+		
+		this.generalData.generalPics = pics;
+	}
 	getAllVariations(){
 		let vars = document.getElementsByClassName('linhas'), varChild;
 		this.generalData.variations = [];
@@ -71,7 +78,8 @@ class dataReceiveManager{
 	}
 	getAllData(){
 		this.getAllVariations();
-
+		this.parseGeneralPics();
+		
 		this.generalData.nome = this.nomePeca.value;
 		this.generalData.dataLancamento = this.datLanPeca.value;
 		this.generalData.descricao = this.descriPeca.value;

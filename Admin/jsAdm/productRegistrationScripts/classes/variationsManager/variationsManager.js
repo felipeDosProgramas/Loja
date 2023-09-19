@@ -134,6 +134,7 @@ class variationsManager extends elementsCreator{
 			appendIntoIt(ev);
 		});
 		this.generalPictures.ondragover = (ev) => ev.preventDefault();
+		//--------------------------------------------------------------------------------
 	}
 	variationDataSlot(){
 		try{

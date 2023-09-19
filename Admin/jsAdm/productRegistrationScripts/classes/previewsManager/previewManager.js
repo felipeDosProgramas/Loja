@@ -70,20 +70,9 @@ class previewManager extends previewsElementsCreator{
 				ev.dataTransfer.setData("text", ev.target.id);				
 			}			
 		this.selectedPreviewPictures.append(slot)
-		}		
-	
-	async getPreviewsList(){
-		let server = await fetch("sistema-de-previa/phpPrevias/filesHandler.php?action=allDirData");
-		let response = await server.text();
-
-		try{
-			this.response = JSON.parse(response);
-		}catch(e){
-			if(e instanceof SyntaxError) console.log(e.message)
-		}
-	}
+		}			
 	async showSelectedPreviewPictures(){
-		let data = await this.getDataSelectedPreview();
+		let data = this.response = await this.getDataSelectedPreview();
 		data = JSON.parse(data)
 		
 		let inputsCores = this.divInputsCores.childNodes
@@ -107,7 +96,7 @@ class previewManager extends previewsElementsCreator{
 		return response
 	}
 	setInOtherInputsPreviewData(){
-		let selected =  this.select.options.selectedIndex
+		let selected =  this.select.options.selectedIndex;
 		if( selected != 0){
 			let qual = JSON.parse(this.select.options[selected].value)
 			this.nomePeca.value = qual.nome
@@ -115,7 +104,8 @@ class previewManager extends previewsElementsCreator{
 		}
 	}	
 	async setPreviewOptions(){
-		await this.getPreviewsList();
+		this.response = await this.getPreviewsList();
+		
 		this.response.forEach((cada) => {
 			this.createOption(cada.nome, cada.data)
 		})
