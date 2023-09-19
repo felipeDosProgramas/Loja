@@ -109,7 +109,7 @@ class variationsManager extends elementsCreator{
 						let img = document.createElement('img')
 							img.src 		= leitor.result;
 							img.id			= `b${idTo}`;
-							img.style.width	= '5vw';
+							img.style.width	= '5vw';//------------MARCAÇÕES COMO ESSA SIGNIFICAM QUE VC PODE MEXER/EDITAR A VONTADE--------------------------------------------------------------							
 							img.draggable 	= true;
 							img.ondragstart	= (ev)=> {								
 								ev.dataTransfer.setData("text", ev.target.id);
@@ -137,7 +137,7 @@ class variationsManager extends elementsCreator{
 		try{
 			let row = []
 
-			for(let x = 0;x != 5;x++) row.push( document.createElement('td') );
+			for(let x = 0;x != 5;x++) row.push(document.createElement('td'));
 
 			let sizeSelect 		= this.generateSizeSelect	();
 			let colorOptions 	= this.generateColorsOptions();
