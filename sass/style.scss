@@ -1,22 +1,67 @@
-//cores
-@import "./colors/colors.scss";
-//fim-cores
-
-//Funções
-@import "./mixins/mixins.scss";
-
+//Impotações ||
+//           \/
 //Priemira página do site
 @import "./pages/video.scss";
 
-// Componentes usado em tudo
-@import "./pages/usadoEmTodasAsPgns.scss";
+@import "./mixins/mixins.scss";
+@import "./variaveis.scss";
+//Fim das importações
 
-@import "./pages/produtos.scss";
-@import "./pages/galeriaProduct.scss";
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+}
 
-@import "./pages/entre.scss";
-@import "./pages/pagePrevia.scss";
+a {
+    text-decoration: none;
+}
 
-@import "./pages/telaCarrinho.scss";
+::-webkit-scrollbar {
+    width: 2px;
+  }
 
-@import "./pages/perfilUser.scss"
+  ::-webkit-scrollbar-thumb {
+    background: $cor-preta;
+    border-radius: 10px;
+  }
+
+/*HEADER*/
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1vh 3vw;
+}
+
+#redes {
+    padding: 0vh 3vw;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+   background-color: $cor-branca;
+   border-bottom: 1px solid $cor-preta;
+   height: 30px;
+}
+
+#logo {
+    width: 140px;
+}
+
+nav {
+    display: none;
+}
+
+#faixa {
+    background-color: $cor-preta;
+    color: $cor-branca;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9em;
+    padding: 5px;
+}
+
+.btnsMenu {
+    @include btnsMenu();
+}

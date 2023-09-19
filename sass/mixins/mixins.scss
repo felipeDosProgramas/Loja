@@ -1,11 +1,18 @@
-@mixin buttons ($font-size, $border, $border-radius, $background-color, $padding, $color) {
-    font-size: $font-size;
-    border: $border;
-    border-radius:$border-radius;
-    background-color: $background-color;
-    padding: $padding;
-    color: $color;
+@mixin btnsMenu () {
+    border: none;
     cursor: pointer;
+    outline: 0;
+    background-color: transparent;
+}
+
+@mixin buttons ($font-size, $background-color, $color) {
+    font-size: $font-size;
+    background-color: $background-color;
+    color: $color;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
     outline: 0;
     transition: .5s;
 }
