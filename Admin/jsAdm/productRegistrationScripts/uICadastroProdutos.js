@@ -8,8 +8,6 @@ let newClass = document.getElementById			('newClass');
 let criadorClassis = document.getElementById	('criadorClassis');
 let tirarClass = document.getElementById		('tiraClass');
 let selectClassis = document.getElementById		('classificacoes');
-let btnAddOClassPaPc = document.getElementById	('btnAdicionaOutroClassPraPeca');
-let divSelectsClassis = document.getElementById	('divSelectsDasClassificacoesSelecionadas');
 // ---------------------
 
 // INPUTS DE ENTRADA DE DADOS
@@ -49,8 +47,8 @@ let picturesInInputFile = document.getElementById 		('picturesInInputFile');
 
 // INSTANCIAS DO GERENCIADOR DE CLASSIFICAÇÕES
 let ClManage = new classManager	();
-	ClManage.setInput			(selectClassis, respostaServer, btnAddOClassPaPc);
-	ClManage.setOutput			(criadorClassis,newClass , tirarClass, divSelectsClassis);
+	ClManage.setInput			(selectClassis, respostaServer);
+	ClManage.setOutput			(criadorClassis,newClass , tirarClass);
 	ClManage.lerClassis			();
 // ----------------------------------------------
 

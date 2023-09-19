@@ -26,6 +26,9 @@ class classisElementsCreator{
 		
         return inputNomeClassi;
     }
+    criaSelectClassificacao(){
+            
+    }
     criaBtn(texto, classe){
         let sendNomeClass = document.createElement('button');
             sendNomeClass.innerText = texto;

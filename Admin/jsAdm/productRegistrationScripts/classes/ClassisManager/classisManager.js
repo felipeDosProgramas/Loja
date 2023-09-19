@@ -6,16 +6,14 @@ class classManager extends classisElementsCreator{
 		super()
 	}
 
-	setInput(selectDeSaida, respostaServer, btnAddOtClass){
+	setInput(selectDeSaida, respostaServer){
 		this.selectDeSaida 	= selectDeSaida;
-		this.respostaServer = respostaServer;
-		this.btnAddOtClass 	= btnAddOtClass;
+		this.respostaServer = respostaServer;		
 	}
-	setOutput(divPrincipal, btnCriaClass, btnExcluClass, divSelectsClassSelected){
+	setOutput(divPrincipal, btnCriaClass, btnExcluClass){
 		this.criadorClassis 		= divPrincipal;
 		this.btnCriaClass 			= btnCriaClass;
-		this.btnExcluClass 			= btnExcluClass;
-		this.divSelectsClassSelected= divSelectsClassSelected
+		this.btnExcluClass 			= btnExcluClass;		
 
 		this.setEventListeners();
 	}
@@ -30,9 +28,7 @@ class classManager extends classisElementsCreator{
 		this.btnExcluClass.onclick = () => {
 			this.tiraClassificacao()
 		}
-		this.btnAddOtClass.onclick = () => {
 
-		}
 	}
 	refazBotoesIniciais(){
 		this.btnCriaClass.style.display = "initial"

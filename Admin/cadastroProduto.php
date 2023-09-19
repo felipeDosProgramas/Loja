@@ -63,13 +63,10 @@
 						<input class="inputs" type="date" id="dataLancPrevia" placeholder="Data de lançamento" required><button id="btnLancHoje">hoje</button><br>
 						<label for="description" class="formsSelectsAndDate">descrição:</label><br>
 						<textarea class="inputs" id="description" required></textarea>
-						<div id="divSelectsDasClassificacoesSelecionadas">
-							<select class="inputs" name="classificacao" id="classificacoes" required style="width:70%">
+						<select class="inputs" name="classificacao" id="classificacoes" required style="width:70%">
 							<option value="" selected hidden disabled>Classificação</option>
 							<!--deixar as configurações dessa option desse jeito, pode mudar o texto de dentro se quisé-->
-							</select>
-						</div>												
-						<button id="btnAdicionaOutroClassPraPeca"></button>
+						</select>
 						<div id="criadorClassis">
 							<button class="btnsCria" id="newClass">criar classificação</button><br>
 							<button class="btnsCria" id="tiraClass">excluir classificacão</button>
@@ -94,7 +91,7 @@
 						<div class="divCheckbox">
 							<label for="disponivelSimNao">disponivel</label>
 							<input type="checkbox" class="checkboxForm" name="disponibilidade" id="disponivelSimNao">
-						</div>						
+						</div>
 						<input type="file" name="fotos" multiple id="inputAddFotos">
 						<input type="hidden" id="inputIdTodasFotosRecebidas">
 						<button class="btnsCria" id="semiSubmit">enviar</button>
