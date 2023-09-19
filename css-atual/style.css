@@ -21,10 +21,27 @@
 }
 
 #sectionPgInicio {
-  background-image: url("../../imgs/usdrip.jpg");
+  background-image: url("../imgs/usdrip.jpg");
   background-repeat: no-repeat;
   background-size: 100%;
-  background-color: aqua;
+}
+
+#divBtnLanca {
+  padding: 20% 0vw;
+  display: flex;
+  justify-content: center;
+}
+
+#btnLanca {
+  font-size: 1.5em;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  outline: 0;
+  transition: 0.5s;
 }
 
 body {
@@ -51,7 +68,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 1vh 3vw;
+  padding: 1vh 3vw;
 }
 
 #redes {

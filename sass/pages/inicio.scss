@@ -1,6 +1,15 @@
 #sectionPgInicio {
-    background-image: url("../../imgs/usdrip.jpg");
+    background-image: url("../imgs/usdrip.jpg");
     background-repeat: no-repeat;
     background-size: 100%;
-    background-color: aqua;
+}
+
+#divBtnLanca {
+    padding: 20% 0vw;
+    display: flex;
+    justify-content: center;
+}
+
+#btnLanca {
+    @include buttons(1.5em, $cor-branca, $cor-preta)
 }
