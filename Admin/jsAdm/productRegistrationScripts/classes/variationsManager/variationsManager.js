@@ -94,7 +94,6 @@ class variationsManager extends elementsCreator{
 			this.tdsMsmPreco = false;
 			this.slotInptPrecoTdsVars.removeChild(this.slotInptPrecoTdsVars.firstChild);
 		})
-
 		this.inputAddFotos.addEventListener('change',(e) => {
 			let files = e.target.files;
 			let aux = -1;
@@ -168,8 +167,7 @@ class variationsManager extends elementsCreator{
 		this.rows[this.rowAtual].className = "linhas";
 
 		let elmnts = this.variationDataSlot();
-		if(elmnts){
-			this.inputsNoDom.push(elmnts)
+		if(elmnts){			
 			elmnts.forEach((cada) => this.rows[this.rowAtual].append(cada));
 			this.divPai.append(this.rows[this.rowAtual])
 			this.rowAtual++

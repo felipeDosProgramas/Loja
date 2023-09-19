@@ -53,18 +53,13 @@
 
 @media screen and (max-width: 466px){
         .boxAdm {
-            
-            width: 300px;
+            width: 280px;
+            padding: 10px;
         }
-}
-
-
-@media screen and (max-width: 312px){
-    
-.nameAdm {
-    font-size: 0.9em;
-}
-.emailAdm {
-    font-size: 0.6em;
-}
+        .nameAdm {
+            font-size: 0.9em;
+        }
+        .emailAdm {
+            font-size: 0.8em;
+        }
 }

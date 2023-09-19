@@ -59,8 +59,7 @@ class requestsHandler{
 				req.send(formCmQuais);
 			});				
 			let exemp = await promessa;												
-			if(exemp.length < 26) return true
-			return false
+
 	}
 }
 

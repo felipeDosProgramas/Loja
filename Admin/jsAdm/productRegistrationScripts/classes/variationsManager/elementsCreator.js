@@ -72,8 +72,7 @@ class elementsCreator extends singleElementsCreator{
 			divColor.className = "divPaiInputColorEFotosDeCor"
 		
 		let divImgsColors = this.generateDivDasImgsDasCores('divPicsSpecificColors');
-		let colorInput = this.generateInputCor('cores');		
-		
+		let colorInput = this.generateInputCor('cores');				
 		divColor.append(colorInput, divImgsColors)
 		this.inputsCores.push(colorInput);
 		this.refreshColorsOptions();
