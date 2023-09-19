@@ -1,32 +1,8 @@
 //<li class="li" id="logouOuNao"><a href="entre.php">Entre</a></li>
-
-const btnMenu = document.getElementById('btnMenu');
-const btnMenu2 = document.getElementById('btnMenu2');
-const btnBusca = document.getElementById('btnBusca')
-const inputBusca = document.getElementById('inputBusca')
-const navigation = document.getElementById('navegacao')
 let coo = document.cookie;
 let temOuNaoElemento = !!document.getElementById("logouOuNao");	
 let ulMenu = document.getElementById("ulMenu");
 let elemento;
-
-btnMenu.addEventListener('click', function () {
-    navigation.classList.toggle('active')
-    navigation.classList.remove('desative')
-    const divUl = document.getElementById('divUl');
-    divUl.classList.add('activeUl')
-    console.log(divUl)
-})
-
-btnMenu2.addEventListener('click', function () {
-    navigation.classList.add('desative')
-    navigation.classList.remove('active')
-})
-
-/*btnBusca.addEventListener('click', () => {
-	
-})*/
-
 
 function criarLinkParaDeslogar(elementoPai){
 	
