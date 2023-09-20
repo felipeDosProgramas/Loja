@@ -21,9 +21,9 @@
 }
 
 #sectionPgInicio {
-  background-image: url("../imgs/usdrip.jpg");
+  background-image: url("../imgs/costas.png");
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: cover;
 }
 
 #divBtnLanca {
@@ -32,7 +32,7 @@
   justify-content: center;
 }
 
-#btnLanca {
+.btnsInit {
   font-size: 1.5em;
   background-color: rgb(255, 255, 255);
   color: rgb(0, 0, 0);
@@ -42,6 +42,48 @@
   border-radius: 5px;
   outline: 0;
   transition: 0.5s;
+}
+
+.btnsInit:hover {
+  font-size: 1.5em;
+  background-color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  outline: 0;
+  transition: 0.5s;
+}
+
+#proximosLancaAndSobre {
+  margin: 5vh;
+  display: grid;
+  grid-template-areas: "cardParaPgProduto cardParaPgSobre";
+  gap: 20px;
+  grid-template-columns: 1fr 2fr;
+}
+
+#cardParaPgProduto {
+  border-radius: 10px;
+  height: 500px;
+  background-image: url("../imgs/usdripking.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+#cardParaPgSobre {
+  border-radius: 10px;
+  background-image: url("../imgs/img.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-color: red;
+}
+
+.divSeguraBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 body {
@@ -104,6 +146,13 @@ nav {
   cursor: pointer;
   outline: 0;
   background-color: transparent;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
 }
 
 /*# sourceMappingURL=style.css.map */

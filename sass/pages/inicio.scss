@@ -1,7 +1,7 @@
 #sectionPgInicio {
-    background-image: url("../imgs/usdrip.jpg");
+    background-image: url("../imgs/costas.png");
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: cover;
 }
 
 #divBtnLanca {
@@ -10,6 +10,42 @@
     justify-content: center;
 }
 
-#btnLanca {
+.btnsInit {
     @include buttons(1.5em, $cor-branca, $cor-preta)
 }
+
+
+.btnsInit:hover {
+    @include buttons(1.5em, $cor-preta, $cor-branca)
+}
+
+#proximosLancaAndSobre {
+    margin: 5vh;
+    display: grid;
+    grid-template-areas: 'cardParaPgProduto cardParaPgSobre';
+    gap: 20px;
+    grid-template-columns: 1fr 2fr;
+}
+
+#cardParaPgProduto {
+    border-radius: 10px;
+    height: 500px;
+    background-image: url('../imgs/usdripking.jpg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+#cardParaPgSobre {
+    border-radius: 10px;
+    background-image: url('../imgs/img.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-color: red;
+}
+
+.divSeguraBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+}
+
