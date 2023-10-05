@@ -6,7 +6,6 @@
 @import "./mixins/mixins.scss";
 @import "./variaveis.scss";
 @import "./pages/inicio.scss";
-@import "./pages/telaProduto.scss";
 //Fim das importações
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
@@ -15,6 +14,8 @@ body {
     margin: 0px;
     padding: 0px;
     font-family: 'Roboto', sans-serif;
+    background: rgb(31,31,31);
+    background: radial-gradient(circle, rgba(31,31,31,1) 0%, rgba(0,0,0,1) 100%);
 }
 
 a {
@@ -26,7 +27,7 @@ a {
   }
 
   ::-webkit-scrollbar-thumb {
-    background: $cor-preta;
+    background: $corSecundaria;
     border-radius: 10px;
   }
 
@@ -38,16 +39,6 @@ header{
     padding: 1vh 3vw;
 }
 
-#redes {
-    padding: 0vh 3vw;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-   background-color: $cor-branca;
-   border-bottom: 1px solid $cor-preta;
-   height: 30px;
-}
-
 #logo {
     width: 140px;
 }
@@ -56,23 +47,48 @@ nav {
     display: none;
 }
 
-#faixa {
-    background-color: $cor-preta;
-    color: $cor-branca;
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-size: 0.9em;
-    padding: 5px;
+
+.navMenu {
+    display: flex;
+    flex-direction: column;
+    z-index: 1000;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 280px;
+
+    background-color: $corSecundaria;
+    
+    li {
+        display: flex;
+        justify-content: flex-start;
+        list-style: none;
+    }
+}
+
+#searchAndCar {
+display: flex;
+align-items: center;
+}
+
+#removeMenu {
+    display: flex;
+    justify-content: flex-end;
+    margin: 10px;
 }
 
 .btnsMenu {
     @include btnsMenu();
 }
 
+section {
+    margin: 5% 0%;
+}
+
 footer {
     text-align: center;
     padding: 20px;
-    background-color: $cor-preta;
-    color: $cor-branca;
+    background-color: $corSecundaria;
+    color: $corPrimaria;
 }

@@ -75,3 +75,15 @@ if(coo != ""){
 		ulMenu.append(elemento);
 	}	
 }
+
+let addMenu = document.getElementById('addMenu')
+let removeMenu = document.getElementById('removeMenu')
+let nav = document.querySelector('nav')
+addMenu.addEventListener('click', ()=> {
+	nav.classList.add('navMenu')
+	console.log(nav)
+})
+
+removeMenu.addEventListener('click', ()=> {
+	nav.classList.remove('navMenu')
+})
