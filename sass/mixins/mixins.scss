@@ -1,3 +1,10 @@
+@mixin btnsMenu () {
+    border: none;
+    cursor: pointer;
+    outline: 0;
+    background-color: transparent;
+}
+
 @mixin buttons ($font-size, $background-color, $color) {
     font-size: $font-size;
     background-color: $background-color;
