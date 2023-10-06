@@ -87,3 +87,8 @@ addMenu.addEventListener('click', ()=> {
 removeMenu.addEventListener('click', ()=> {
 	nav.classList.remove('navMenu')
 })
+
+
+// Animação scroll ,
+window.sr - ScrollReveal({reset: true})
+ScrollReveal().reveal('.cardsProdu', {delay: 400});
