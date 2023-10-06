@@ -56,13 +56,19 @@ nav {
     top: 0;
     height: 100vh;
     width: 280px;
-
     background-color: $corSecundaria;
     
     li {
         display: flex;
         justify-content: flex-start;
         list-style: none;
+    }
+
+    li a {
+        text-transform: uppercase;
+        font-size: 1.4em;
+        margin: 2px 0px;
+        color: $corPrimaria;
     }
 }
 
