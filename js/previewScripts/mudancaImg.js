@@ -5,8 +5,10 @@ let btnDireita = document.getElementById('btnDireita'),
 	nomeAnun = document.getElementById('nameAnun'),
 	datePre = document.getElementById('datePrevia'),
 	number = 0,
-	btnsDireEsq = document.getElementById('btnDireEsquer');
+	btnsDireEsq = document.getElementById('btnDireEsquer'),
+    arrayImgs = ['../imgs/camFrenteL.png', '../imgs/camCostasV.png']
 
+/*
 function getLanc(){
     let semi = window.location.href.split('?');
     let gets = [];    
@@ -84,3 +86,49 @@ async function consulta (){
 
 
 consulta()
+*/
+
+mudaImg.src = arrayImgs[0]    
+    btnDireita.addEventListener('click', function (){
+        if (arrayImgs) {
+            if (number < arrayImgs.length - 1) {
+                mudaImg.src = arrayImgs[++number];
+            } else {
+                number = 0;
+                mudaImg.src = arrayImgs[number];
+            }
+            console.log(arrayImgs[number]);
+        } else {
+            number = 0;
+            mudaImg.src = arrayImgs[number];
+        }
+    })
+        
+    btnEsquerda.addEventListener('click', function () {
+        if (arrayImgs) {
+            if (number > 0) {
+                mudaImg.src = arrayImgs[--number];
+            } else {
+                number = arrayImgs.length - 1;
+                mudaImg.src = arrayImgs[number];
+            }
+            console.log(arrayImgs[number]);
+        } else {
+            number = 0;
+            mudaImg.src = arrayImgs[number];
+        }
+    })
+
+
+    let divBoxDescri = document.getElementById('divBoxDescri')
+    let description = document.getElementById('description')
+    let descriptionFalseTrue = false
+
+    divBoxDescri.addEventListener('click', () => {
+        descriptionFalseTrue = !descriptionFalseTrue
+        console.log(descriptionFalseTrue)
+        description.style.display = 'block'
+        if (!descriptionFalseTrue) {
+        description.style.display = 'none'
+        }
+    })

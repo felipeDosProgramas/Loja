@@ -5,6 +5,8 @@
 @import "./mixins/mixins.scss";
 @import "./variaveis.scss";
 @import "./pages/inicio.scss";
+@import "./pages/formsUser.scss";
+@import "./pages/anuncio.scss";
 //Fim das importações
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
@@ -13,8 +15,12 @@ body {
     margin: 0px;
     padding: 0px;
     font-family: 'Roboto', sans-serif;
-    background: rgb(31,31,31);
-    background: radial-gradient(circle, rgba(31,31,31,1) 0%, rgba(0,0,0,1) 100%);
+    /*background: rgb(31,31,31);
+    background: radial-gradient(circle, rgba(31,31,31,1) 0%, rgba(0,0,0,1) 100%);*/
+    background-image: url('../imgs/gray2.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: $corPrimaria;
 }
 
 a {
@@ -95,5 +101,7 @@ footer {
     text-align: center;
     padding: 20px;
     background-color: $corSecundaria;
-    color: $corPrimaria;
+}
+
+@media screen and (max-width: 670px) {
 }

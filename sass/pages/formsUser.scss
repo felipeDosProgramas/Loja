@@ -1,0 +1,40 @@
+#boxFormsUser {
+    margin: 20vh auto 40vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+    width: 250px;
+    padding: 10px;
+    border: 1px solid $corBordasFormsUser;
+    border-radius: 5px; 
+    background: $corFormsUser;
+    box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.37);
+    backdrop-filter: blur( 13.5px );
+    color: $corPrimaria;
+}
+
+.titleForms {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+.inputs {
+    border-radius: 5px;
+    border: none;
+    padding: 5px;
+}
+
+#btnsForms {
+    @include buttons(1em, $corPrimaria, $corSecundaria);
+    border: 1px solid $corPrimaria;
+    padding: 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+    &:hover {
+        background-color: transparent;
+        color: $corPrimaria;
+    }
+}

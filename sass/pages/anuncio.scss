@@ -1,0 +1,134 @@
+#caixaAnuncio {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 1000px;
+    margin: auto;
+}
+
+#fotosAnuncio {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#infoAnuncio {
+    width: 500px;
+}
+
+.btnDireEsquer { 
+    display: flex;
+    align-items: center;
+    border: 1px solid #ffff;
+    background-color: transparent;
+    width: 30px;
+    height: 30px;
+}
+
+.imgsAnuncio {
+    width: 450px;
+    height: 450px;
+}
+
+.titleAnun {
+    font-size: 1.6em;
+}
+
+.riscoQuebra {
+    
+    margin: 2% 0%;
+    width: 100%;
+    height: 2px;
+    background-color: $corPrimaria;
+}
+
+#divSize {
+    margin: 1% 0%;
+}
+
+.sizeBtn {
+    @include buttons(1em, transparent, $corPrimaria);
+    padding: 5px 10px;
+    border: 1px solid $corPrimaria;
+    text-transform: uppercase;
+    &:hover {
+        background-color: $corPrimaria;
+        color: $corSecundaria;
+    }
+}
+
+#divBoxDescri {
+    text-align: center;
+    padding: 5px;
+    border: 1px solid $corPrimaria;
+    border-radius: 5px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: .5s;
+}
+
+#description {
+    display: none;
+    margin: 1% 0%;
+}
+
+#btnSaco {
+    margin: 10px 0px;
+    width: 100%;
+    @include buttons(1em, $corPrimaria, $corSecundaria);
+    border: 1px solid $corPrimaria;
+    &:hover {
+        background-color: transparent;
+        color: $corPrimaria;
+    }
+}
+
+.titleSaco {
+    font-size: 1em;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: Arial, Helvetica, sans-serif
+}
+
+@media screen and (max-width: 1115px) {
+    #caixaAnuncio {
+        flex-wrap: wrap;
+        width: 700px;
+    }
+}
+
+@media screen and (max-width: 720px) {
+    #caixaAnuncio {
+        width: 500px;
+    }
+}
+
+@media screen and (max-width: 560px) {
+    #caixaAnuncio {
+        width: 300px;
+        gap: 30px;
+
+    }
+    
+    #fotosAnuncio {
+        width: 300px;
+    }
+    .imgsAnuncio {
+        width: 250px;
+        height: 250px;
+    }
+    .btnDireEsquer {
+        width: 23px;
+        height: 23px;
+    }
+    
+    .titleAnun {
+        font-size: 1.3em;
+    }
+    
+#description {
+    font-size: 1em;
+}
+
+}
