@@ -278,10 +278,11 @@ body {
   font-family: "Roboto", sans-serif;
   /*background: rgb(31,31,31);
   background: radial-gradient(circle, rgba(31,31,31,1) 0%, rgba(0,0,0,1) 100%);*/
-  background-image: url("../imgs/gray2.jpg");
+  background-image: url("../imgs/ceuBlack.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   color: rgb(255, 255, 255);
+  min-height: 100vh;
 }
 
 a {
@@ -362,6 +363,9 @@ footer {
   text-align: center;
   padding: 20px;
   background-color: rgb(0, 0, 0);
+  bottom: 0;
+  position: absolute;
+  width: 100%;
 }
 
 /*# sourceMappingURL=style.css.map */
