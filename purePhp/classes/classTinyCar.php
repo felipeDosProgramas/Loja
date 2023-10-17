@@ -24,7 +24,6 @@
 		}
 		
 		private function getFullCart(PDO $conn){
-			
 			$codAcess = $conn->quote($this->QuemQuerExecutar);
 			
 			$resul = $conn->prepare("select carrinho from usuarios where codAcess = $codAcess;");

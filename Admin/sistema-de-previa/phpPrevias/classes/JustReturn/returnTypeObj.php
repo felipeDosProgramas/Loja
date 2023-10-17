@@ -1,6 +1,6 @@
 <?php
 	interface specificReturnType{		
-		function getData(int|string $qual, string $paraChar):array;		
+		function getData(string $paraChar, int|string $qual):array;		
 	}
 	
 	trait returnObj
@@ -10,7 +10,7 @@
 				private array $fullFilledRows;
 				private int $rowId = 0;
 				// nome, data, rota ou raw
-				function getData(int|string $qual = "ele memo", string $paraChar) :array{
+				function getData(string $paraChar, int|string $qual = "ele memo") :array{
 					if(!is_string($qual)){
 						return $this->fullFilledRows[$qual][$paraChar];
 					}
@@ -19,10 +19,10 @@
 					}					
 					return $nomes;
 				}
-				function setFullFilledRow
-					(string|array $rota		,string $nome,
-					string $dataLancamento	,?string $raw = null)
-				{
+				function setFullFilledRow(
+					string|array $rota		,string $nome,
+					string $dataLancamento	,?string $raw = null
+				){
 					$this->fullFilledRows[$this->rowId++] = 
 					array(					
 						"nome" => $nome,

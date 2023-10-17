@@ -27,7 +27,10 @@
 					//CASO O DIRETÓRIO NÃO EXISTA 
 					
 					for ($x = 0; $x != count($_FILES["fotos"]['name']); $x++) {
-						move_uploaded_file($_FILES["fotos"]['tmp_name'][$x],$this->toWork."/" . $_FILES["fotos"]['name'][$x]);
+						move_uploaded_file(
+							$_FILES["fotos"]['tmp_name'][$x],
+							$this->toWork."/" . $_FILES["fotos"]['name'][$x]
+						);
 					}
 				}else{
 					$this->answer = "nFoi";
